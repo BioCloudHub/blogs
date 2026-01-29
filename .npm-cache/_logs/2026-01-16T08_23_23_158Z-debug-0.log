@@ -1,0 +1,20 @@
+0 verbose cli /Users/xpy/.nvm/versions/node/v20.19.0/bin/node /Users/xpy/.nvm/versions/node/v20.19.0/bin/npm
+1 info using npm@11.7.0
+2 info using node@v20.19.0
+3 silly config load:file:/Users/xpy/.nvm/versions/node/v20.19.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/xpy/Coding/biocloudhub/blogs/.npmrc
+5 silly config load:file:/Users/xpy/.npmrc
+6 warn Unknown user config "python". This will stop working in the next major version of npm.
+7 silly config load:file:/Users/xpy/.nvm/versions/node/v20.19.0/etc/npmrc
+8 verbose title npm view @vuepress/bundler-vite@latest version
+9 verbose argv "view" "@vuepress/bundler-vite@latest" "version"
+10 verbose logfile logs-max:10 dir:/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-01-16T08_23_23_158Z-
+11 verbose logfile /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-01-16T08_23_23_158Z-debug-0.log
+12 silly logfile done cleaning log files
+13 http fetch GET 200 https://registry.npmjs.org/@vuepress%2fbundler-vite 813ms (cache revalidated)
+14 verbose cwd /Users/xpy/Coding/biocloudhub/blogs
+15 verbose os Darwin 25.2.0
+16 verbose node v20.19.0
+17 verbose npm  v11.7.0
+18 verbose exit 0
+19 info ok

@@ -1,0 +1,24 @@
+'Log files:
+/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-01-16T08_20_45_814Z-debug-0.log
+
+# npm resolution error report
+
+While resolving: vuepress-theme-hope@2.0.0-beta.166
+Found: vuepress@2.0.0-rc.26
+node_modules/vuepress
+  dev vuepress@"2.0.0-rc.26" from the root project
+
+Could not resolve dependency:
+peerOptional vuepress@"2.0.0-beta.60" from vuepress-theme-hope@2.0.0-beta.166
+node_modules/vuepress-theme-hope
+  dev vuepress-theme-hope@"2.0.0-beta.166" from the root project
+
+Conflicting peer dependency: vuepress@2.0.0-beta.60
+node_modules/vuepress
+  peerOptional vuepress@"2.0.0-beta.60" from vuepress-theme-hope@2.0.0-beta.166
+  node_modules/vuepress-theme-hope
+    dev vuepress-theme-hope@"2.0.0-beta.166" from the root project
+
+Fix the upstream dependency conflict, or retry
+this command with --force or --legacy-peer-deps
+to accept an incorrect (and potentially broken) dependency resolution.
