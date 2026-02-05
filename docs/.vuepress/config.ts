@@ -7,37 +7,66 @@ export default defineUserConfig({
   title: "BioCloudHub",
   description: "BioCloudHub 博客（VuePress Hope）",
 
-  // 如果未来部署到子路径（例如 GitHub Pages），把这里改成 "/<repo>/"。
   base: "/",
 
   bundler: viteBundler(),
 
   theme: hopeTheme({
-    // 部署后请改成你自己的站点域名（影响 SEO / sitemap 等）
     hostname: "https://example.com",
 
     author: {
       name: "BioCloudHub",
     },
 
-    logo: "/logo.svg",
+    logo: "/logo.png",
+
+    favicon: "/logo.png",
 
     navbar: [
       { text: "首页", link: "/" },
-      { text: "博客", link: "/posts/" },
-      { text: "关于", link: "/about/" },
+      { text: "博客", link: "/posts/", icon: "blog" },
+      { text: "关于", link: "/about/", icon: "user" },
     ],
 
     sidebar: {
-      "/posts/": "structure",
+      "/posts/": [
+        {
+          text: "生物信息学",
+          icon: "dna",
+          children: [
+            "/posts/2026/genomics-analysis.md",
+            "/posts/2026/proteomics-analysis.md",
+            "/posts/2026/scrna-analysis.md",
+          ],
+        },
+        {
+          text: "云计算",
+          icon: "cloud",
+          children: [
+            "/posts/2026/kubernetes-biotech.md",
+          ],
+        },
+        {
+          text: "创新研发",
+          icon: "flask",
+          children: [
+            "/posts/2026/ai-drug-discovery.md",
+            "/posts/2026/clinical-trials.md",
+          ],
+        },
+      ],
       "/about/": "structure",
     },
 
     blog: {
-      description: "记录 · 分享 · 沉淀",
+      description: "生物医药 · 云计算 · 创新研发",
       intro: "/about/",
+      timeline: true,
+      articleInfo: ["Author", "ReadingTime", "Date", "Category", "Tag"],
+      excerptLength: 200,
       medias: {
         GitHub: "https://github.com/",
+        Email: "mailto:contact@biocloudhub.com",
       },
     },
 
@@ -49,7 +78,6 @@ export default defineUserConfig({
 
     plugins: {
       blog: true,
-      // 当前工作区未产生 git 提交时，禁用 git 信息收集，避免构建时刷错误日志
       git: {
         createdTime: false,
         updatedTime: false,
@@ -59,4 +87,3 @@ export default defineUserConfig({
     },
   }),
 });
-
