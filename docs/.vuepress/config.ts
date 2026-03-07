@@ -1,15 +1,47 @@
+import { dirname, resolve } from "node:path";
+import { fileURLToPath } from "node:url";
 import { defineUserConfig } from "vuepress";
 import { viteBundler } from "@vuepress/bundler-vite";
+import { container } from "@mdit/plugin-container";
 import { hopeTheme } from "vuepress-theme-hope";
+import { cmcSidebar } from "./cmc-sidebar";
+import { SEARCH_PATH, SEARCH_ROUTE_PREFIX } from "./search-constants";
+
+const __dirname = dirname(fileURLToPath(import.meta.url));
 
 export default defineUserConfig({
   lang: "zh-CN",
   title: "BioCloudHub",
-  description: "BioCloudHub 博客（VuePress Hope）",
+  description: "生物制药行业技术博客：CMC、药物研发、生物分析与计算工程",
 
   base: "/",
 
   bundler: viteBundler(),
+
+  plugins: [
+    {
+      name: "answer-glow",
+      clientConfigFile: resolve(__dirname, "./answer-glow.ts"),
+    },
+    {
+      name: "search-ui",
+      clientConfigFile: resolve(__dirname, "./search-ui.ts"),
+    },
+  ],
+
+  extendsMarkdown: (md) => {
+    md.use(container, {
+      name: "answer",
+      openRender: (tokens, index) => {
+        const info = md.utils.escapeHtml(
+          tokens[index].info.trim().slice(6).trim(),
+        );
+
+        return `<div class="hint-container answer">\n<p class="hint-container-title"><span class="answer-icon" aria-hidden="true"></span><span class="answer-title-text">${info || "回答"}</span><span class="answer-chip">BioCloudHub</span></p>\n`;
+      },
+      closeRender: () => "</div>\n",
+    });
+  },
 
   theme: hopeTheme({
     hostname: "https://example.com",
@@ -23,47 +55,41 @@ export default defineUserConfig({
     favicon: "/logo.png",
 
     navbar: [
-      { text: "首页", link: "/" },
-      { text: "博客", link: "/posts/", icon: "blog" },
+      { text: "首页", link: "/", icon: "home" },
+      { text: "技术博客", link: "/posts/", icon: "blog" },
+      { text: "CMC 知识库", link: "/posts/cmc-knowledge/", icon: "note" },
+      { text: "药物研发", link: "/posts/drug-discovery/", icon: "pill" },
+      { text: "生物分析", link: "/posts/bioanalytics/", icon: "dna" },
+      { text: "计算工程", link: "/posts/computational-infrastructure/", icon: "cloud" },
       { text: "关于", link: "/about/", icon: "user" },
     ],
 
+    navbarLayout: {
+      start: ["Brand"],
+      center: ["Links"],
+      end: ["Repo", "Outlook", "SearchPageButton"],
+    },
+
     sidebar: {
-      "/posts/": [
-        {
-          text: "生物信息学",
-          icon: "dna",
-          children: [
-            "/posts/2026/genomics-analysis.md",
-            "/posts/2026/proteomics-analysis.md",
-            "/posts/2026/scrna-analysis.md",
-          ],
-        },
-        {
-          text: "云计算",
-          icon: "cloud",
-          children: [
-            "/posts/2026/kubernetes-biotech.md",
-          ],
-        },
-        {
-          text: "创新研发",
-          icon: "flask",
-          children: [
-            "/posts/2026/ai-drug-discovery.md",
-            "/posts/2026/clinical-trials.md",
-          ],
-        },
-      ],
+      "/posts/": "structure",
+      "/posts/cmc-knowledge/": cmcSidebar,
+      "/posts/drug-discovery/": "structure",
+      "/posts/bioanalytics/": "structure",
+      "/posts/computational-infrastructure/": "structure",
       "/about/": "structure",
+      "/category/": false,
+      "/tag/": false,
+      "/article/": false,
+      "/star/": false,
+      "/timeline/": false,
     },
 
     blog: {
-      description: "生物医药 · 云计算 · 创新研发",
+      description: "生物制药技术实践与工程化落地",
       intro: "/about/",
       timeline: true,
       articleInfo: ["Author", "ReadingTime", "Date", "Category", "Tag"],
-      excerptLength: 200,
+      excerptLength: 180,
       medias: {
         GitHub: "https://github.com/",
         Email: "mailto:contact@biocloudhub.com",
@@ -77,6 +103,21 @@ export default defineUserConfig({
     },
 
     plugins: {
+      slimsearch: {
+        indexContent: true,
+        queryHistoryCount: 0,
+        resultHistoryCount: 0,
+        filter: (page) =>
+          ![
+            "/category/",
+            "/tag/",
+            "/article/",
+            "/star/",
+            "/timeline/",
+            SEARCH_PATH,
+            `${SEARCH_ROUTE_PREFIX}/`,
+          ].some((prefix) => page.path.startsWith(prefix)),
+      },
       blog: true,
       git: {
         createdTime: false,

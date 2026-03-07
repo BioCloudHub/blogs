@@ -1,0 +1,24 @@
+diff --git a/lib/bundle/styles/_code.scss b/lib/bundle/styles/_code.scss
+--- a/lib/bundle/styles/_code.scss
++++ b/lib/bundle/styles/_code.scss
+@@ -61,10 +61,18 @@
+ @mixin code-vars($code-color, $code-bg-color) {
++  $highlight-saturation: 10%;
++  $highlight-lightness: -5%;
++
++  @if whiteness($code-bg-color) < 50% {
++    $highlight-saturation: 5%;
++    $highlight-lightness: 5%;
++  }
++
+   --code-c-text: #{$code-color};
+   --code-c-bg: #{$code-bg-color};
+   --code-c-highlight-bg: #{color.scale(
+       $code-bg-color,
+-      $saturation: if(sass(whiteness($code-bg-color) < 50%), 5%, 10%),
+-      $lightness: if(sass(whiteness($code-bg-color) < 50%), 5%, -5%)
++      $saturation: $highlight-saturation,
++      $lightness: $highlight-lightness
+     )};
+   --code-c-line-number: #{color.scale($code-color, $alpha: -33%)};
+ }

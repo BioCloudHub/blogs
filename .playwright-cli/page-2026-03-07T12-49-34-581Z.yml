@@ -1,0 +1,45 @@
+- generic [ref=e2]:
+  - link "跳至主要內容" [ref=e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e4]:
+    - banner [ref=e5]:
+      - link "带我回家" [ref=e7] [cursor=pointer]:
+        - /url: /
+        - text: BioCloudHub
+      - navigation [ref=e9]:
+        - link "首页" [ref=e11] [cursor=pointer]:
+          - /url: /
+          - text: 首页
+        - link "技术博客" [ref=e13] [cursor=pointer]:
+          - /url: /posts/
+          - text: 技术博客
+        - link "CMC 知识库" [ref=e15] [cursor=pointer]:
+          - /url: /posts/cmc-knowledge/
+          - text: CMC 知识库
+        - link "药物研发" [ref=e17] [cursor=pointer]:
+          - /url: /posts/drug-discovery/
+          - text: 药物研发
+        - link "生物分析" [ref=e19] [cursor=pointer]:
+          - /url: /posts/bioanalytics/
+          - text: 生物分析
+        - link "计算工程" [ref=e21] [cursor=pointer]:
+          - /url: /posts/computational-infrastructure/
+          - text: 计算工程
+        - link "关于" [ref=e23] [cursor=pointer]:
+          - /url: /about/
+          - text: 关于
+      - generic [ref=e24]:
+        - button "auto icon" [ref=e26] [cursor=pointer]:
+          - img "auto icon" [ref=e27]
+        - button "打开搜索工作台" [ref=e29] [cursor=pointer]:
+          - img [ref=e31]
+          - generic [ref=e33]: 搜索工作台
+          - generic [ref=e34]: Cmd K
+    - main [ref=e35]:
+      - complementary [ref=e39]:
+        - generic [ref=e41]:
+          - img [ref=e43]
+          - searchbox [ref=e45]: 层析
+        - generic [ref=e46]:
+          - heading "命中结果" [level=2] [ref=e48]
+          - generic [ref=e49]: 搜索中...

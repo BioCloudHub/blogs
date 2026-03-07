@@ -1,0 +1,18 @@
+'Log files:
+/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-02-06T06_44_42_612Z-debug-0.log
+
+# npm resolution error report
+
+While resolving: biocloudhub-blog@undefined
+Found: vuepress@2.0.0-rc.26
+node_modules/vuepress
+  dev vuepress@"^2.0.0-rc.26" from the root project
+
+Could not resolve dependency:
+peer vuepress@"2.0.0-rc.18" from @vuepress/plugin-slimsearch@2.0.0-rc.61
+node_modules/@vuepress/plugin-slimsearch
+  @vuepress/plugin-slimsearch@"*" from the root project
+
+Fix the upstream dependency conflict, or retry
+this command with --force or --legacy-peer-deps
+to accept an incorrect (and potentially broken) dependency resolution.

@@ -1,0 +1,26 @@
+0 verbose cli /Users/xpy/.nvm/versions/node/v24.12.0/bin/node /Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@11.6.2
+2 info using node@v24.12.0
+3 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/xpy/Coding/biocloudhub/blogs/.npmrc
+5 silly config load:file:/Users/xpy/.npmrc
+6 warn Unknown user config "python". This will stop working in the next major version of npm.
+7 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/etc/npmrc
+8 verbose title npm exec playwright-cli --session searchverify eval () => document.querySelector('.bc-search-preview-frame')?.getAttribute('src') || ''
+9 verbose argv "exec" "--yes" "--package" "@playwright/cli" "--" "playwright-cli" "--session" "searchverify" "eval" "() => document.querySelector('.bc-search-preview-frame')?.getAttribute('src') || ''"
+10 verbose logfile logs-max:10 dir:/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-03-07T13_13_54_118Z-
+11 verbose logfile /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-03-07T13_13_54_118Z-debug-0.log
+12 silly logfile start cleaning logs, removing 1 files
+13 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+14 silly logfile done cleaning log files
+15 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+16 http fetch GET https://registry.npmjs.org/@playwright%2fcli attempt 1 failed with ECONNRESET
+17 http fetch GET https://registry.npmjs.org/@playwright%2fcli attempt 2 failed with ECONNRESET
+18 http fetch GET 200 https://registry.npmjs.org/@playwright%2fcli 81353ms (cache revalidated)
+19 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+20 verbose cwd /Users/xpy/Coding/biocloudhub/blogs
+21 verbose os Darwin 25.4.0
+22 verbose node v24.12.0
+23 verbose npm  v11.6.2
+24 verbose exit 0
+25 info ok

@@ -8,9 +8,21 @@
     "docs:clean-dev": "vuepress dev docs --clean-cache"
   },
   "devDependencies": {
+    "@mdit/plugin-container": "0.22.3",
     "@vuepress/bundler-vite": "^2.0.0-rc.26",
+    "@vuepress/plugin-search": "2.0.0-rc.121",
+    "@vuepress/plugin-slimsearch": "2.0.0-rc.121",
+    "@vueuse/core": "14.2.0",
     "sass": "^1.97.2",
+    "vue": "^3.5.27",
+    "vue-router": "^4.6.4",
     "vuepress": "^2.0.0-rc.26",
     "vuepress-theme-hope": "^2.0.0-rc.102"
-  }
+  },
+  "pnpm": {
+    "patchedDependencies": {
+      "vuepress-theme-hope@2.0.0-rc.102": "patches/vuepress-theme-hope@2.0.0-rc.102.patch"
+    }
+  },
+  "packageManager": "pnpm@10.26.1+sha512.664074abc367d2c9324fdc18037097ce0a8f126034160f709928e9e9f95d98714347044e5c3164d65bd5da6c59c6be362b107546292a8eecb7999196e5ce58fa"
 }

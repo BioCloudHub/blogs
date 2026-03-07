@@ -1,0 +1,17 @@
+const SEARCH_PATH = "/search.html";
+const SEARCH_ROUTE_PREFIX = "/search";
+const SEARCH_FOCUS_EVENT = "bc:search-focus";
+const SEARCH_PREVIEW_QUERY_KEY = "search-preview";
+const SEARCH_HIGHLIGHT_QUERY_KEY = "search-highlight";
+const SEARCH_TARGET_HEADING_QUERY_KEY = "search-target-heading";
+const SEARCH_TARGET_SNIPPET_QUERY_KEY = "search-target-snippet";
+
+export {
+  SEARCH_FOCUS_EVENT,
+  SEARCH_HIGHLIGHT_QUERY_KEY,
+  SEARCH_PATH,
+  SEARCH_PREVIEW_QUERY_KEY,
+  SEARCH_TARGET_HEADING_QUERY_KEY,
+  SEARCH_TARGET_SNIPPET_QUERY_KEY,
+  SEARCH_ROUTE_PREFIX,
+};

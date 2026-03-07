@@ -1,86 +1,78 @@
 ---
 home: true
 title: BioCloudHub
-heroText: BioCloudHub
-tagline: 生物医药 · 云计算 · 创新研发
+heroText: 生物制药技术博客
+tagline: CMC · 生物分析 · AI 药物研发 · 云原生工程
+heroImage: /img/logo.png
 actions:
-  - text: 技术博客
+  - text: 进入技术博客
     link: /posts/
     type: primary
+  - text: CMC 知识库
+    link: /posts/cmc-knowledge/
+    type: secondary
   - text: 关于我们
     link: /about/
-    type: secondary
+    type: default
 features:
-  - title: 生物信息学
-    details: 基因组学、蛋白质组学与大数据分析。
-  - title: 云计算平台
-    details: 高性能计算、容器化部署与弹性扩展。
-  - title: 创新研发
-    details: AI 药物发现、分子模拟与临床数据分析。
+  - title: CMC 工艺与质量
+    details: 汇总细胞株开发、工艺优化、质量属性与法规实务。
+  - title: 生物分析与组学
+    details: 覆盖基因组学、蛋白质组学、单细胞分析等完整链路。
+  - title: 药物研发与临床
+    details: 从分子发现到临床统计，连接算法与研发决策。
+  - title: 计算工程平台
+    details: 以 Kubernetes 与云原生技术支撑规模化研发交付。
 ---
 
-<div align="center">
+<div class="home-intro">
+  <p class="home-lead">
+    面向生物制药团队的工程化知识站，聚焦可执行的流程、参数与技术方案，帮助研发、分析与平台团队建立统一的方法体系。
+  </p>
 
-## 探索生命科学的数字化未来
-
-**BioCloudHub** 致力于生物医药领域的云计算与数据分析解决方案。
-
-</div>
-
-<script setup>
-const concepts = [
-  { name: '🧬 基因组分析', desc: '高通量测序数据处理' },
-  { name: '💊 药物发现', desc: 'AI 驱动的分子设计' },
-  { name: '🔬 临床研究', desc: '数据标准化与可视化' },
-  { name: '☁️ 云端计算', desc: '弹性算力与存储' }
-]
-</script>
-
-<div class="concept-grid">
-  <div v-for="item in concepts" :key="item.name" class="concept-card">
-    <div class="concept-icon">{{ item.name.split(' ')[0] }}</div>
-    <div class="concept-title">{{ item.name.split(' ').slice(1).join(' ') }}</div>
-    <div class="concept-desc">{{ item.desc }}</div>
+  <div class="metric-grid">
+    <article class="metric-card">
+      <h3>3900+</h3>
+      <p>CMC 问答知识点</p>
+    </article>
+    <article class="metric-card">
+      <h3>4</h3>
+      <p>核心技术板块</p>
+    </article>
+    <article class="metric-card">
+      <h3>端到端</h3>
+      <p>研发到生产的技术链路</p>
+    </article>
   </div>
 </div>
 
-<style>
-.concept-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 1.5rem;
-  margin: 2rem 0;
-}
+## 技术主线
 
-.concept-card {
-  background: linear-gradient(135deg, #f0f7ff 0%, #e8f4f8 100%);
-  border-radius: 12px;
-  padding: 1.5rem;
-  text-align: center;
-  border: 1px solid #e0e7ff;
-  transition: all 0.3s ease;
-}
+<div class="track-grid">
+  <a class="track-card" href="/posts/cmc-knowledge/">
+    <h3>CMC 知识体系</h3>
+    <p>围绕细胞株开发、上游下游工艺、质量属性与法规要求构建系统化知识图谱。</p>
+    <span>进入专题</span>
+  </a>
+  <a class="track-card" href="/posts/drug-discovery/">
+    <h3>AI 药物研发</h3>
+    <p>关注分子表示、生成模型、虚拟筛选与临床统计分析的落地实践。</p>
+    <span>查看文章</span>
+  </a>
+  <a class="track-card" href="/posts/bioanalytics/">
+    <h3>生物分析与组学</h3>
+    <p>覆盖 WGS、蛋白质组和单细胞分析流程，强调可复现数据处理方法。</p>
+    <span>查看文章</span>
+  </a>
+  <a class="track-card" href="/posts/computational-infrastructure/">
+    <h3>计算工程平台</h3>
+    <p>以 Kubernetes、容器化和自动化运维支撑生物医药场景的高可靠交付。</p>
+    <span>查看文章</span>
+  </a>
+</div>
 
-.concept-card:hover {
-  transform: translateY(-4px);
-  box-shadow: 0 8px 24px rgba(59, 130, 246, 0.15);
-  border-color: #3b82f6;
-}
+## 本站定位
 
-.concept-icon {
-  font-size: 2rem;
-  margin-bottom: 0.5rem;
-}
-
-.concept-title {
-  font-weight: 600;
-  color: #1e40af;
-  margin-bottom: 0.25rem;
-}
-
-.concept-desc {
-  font-size: 0.875rem;
-  color: #64748b;
-}
-</style>
-
+- 面向工艺开发、分析开发、生物信息与平台工程团队。
+- 强调参数化、标准化、可复用的技术实践。
+- 用统一技术语言连接研发、生产与数字化系统。
