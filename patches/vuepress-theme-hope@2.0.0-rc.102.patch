@@ -22,3 +22,25 @@ diff --git a/lib/bundle/styles/_code.scss b/lib/bundle/styles/_code.scss
      )};
    --code-c-line-number: #{color.scale($code-color, $alpha: -33%)};
  }
+diff --git a/lib/client/components/sidebar/SidebarLinks.js b/lib/client/components/sidebar/SidebarLinks.js
+--- a/lib/client/components/sidebar/SidebarLinks.js
++++ b/lib/client/components/sidebar/SidebarLinks.js
+@@ -20,13 +20,13 @@ export default defineComponent({
+     setup(props) {
+         const route = useRoute();
+         const routePath = useRoutePath();
+-        const openGroupIndex = ref(-1);
++        const getActiveGroupIndex = () => props.config.findIndex((item) => isActiveSidebarItem(route, item));
++        const openGroupIndex = ref(getActiveGroupIndex());
+         const toggleGroup = (index) => {
+             openGroupIndex.value = index === openGroupIndex.value ? -1 : index;
+         };
+         watchImmediate(routePath, () => {
+-            const index = props.config.findIndex((item) => isActiveSidebarItem(route, item));
+-            openGroupIndex.value = index;
+-        }, { flush: "post" });
++            openGroupIndex.value = getActiveGroupIndex();
++        });
+         return () => h("ul", { class: "vp-sidebar-links" }, props.config.map((config, index) => h("li", "children" in config
+             ? h(SidebarGroup, {
+                 config,

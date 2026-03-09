@@ -63,6 +63,7 @@ const SEARCH_DELAY = 180;
 const CJK_QUERY_RE = /[\u3400-\u9fff\u3040-\u30ff\uac00-\ud7af]/u;
 const FALLBACK_PAGE_POSITION = Number.MAX_SAFE_INTEGER;
 const MIN_SCROLLBAR_THUMB_HEIGHT = 18;
+const HIERARCHY_SEPARATOR_RE = /\s*[：:]\s*/gu;
 
 const route = useRoute();
 const router = useRouter();
@@ -81,6 +82,8 @@ const isRouteSyncing = ref(false);
 const hitListMetrics = ref({
   viewportHeight: 0,
   thumbHeight: 0,
+  maxScrollTop: 0,
+  activeTargetScrollTop: 0,
 });
 const markerTooltip = ref({
   visible: false,
@@ -217,7 +220,10 @@ const buildWorkerQuery = (query: string): string => {
 const normalizeHit = (value: unknown): number => {
   const parsed = Number.parseInt(normalizeString(value), 10);
 
-  return Number.isFinite(parsed) && parsed >= 0 ? parsed : 0;
+  if (!Number.isFinite(parsed)) return 0;
+  if (parsed <= 0) return 0;
+
+  return parsed - 1;
 };
 
 const escapeHtml = (value: string): string =>
@@ -237,6 +243,12 @@ const escapeHtml = (value: string): string =>
         return char;
     }
   });
+
+const formatHierarchyText = (value: string): string =>
+  value.replace(HIERARCHY_SEPARATOR_RE, " > ").replace(/\s{2,}/gu, " ").trim();
+
+const formatHierarchyHtml = (value: string): string =>
+  value.replace(HIERARCHY_SEPARATOR_RE, " &gt; ");
 
 const getWordText = (word: Word): string => (typeof word === "string" ? word : word[1]);
 
@@ -828,13 +840,16 @@ const flattenResults = (searchResults: SearchResult[], fallbackQuery: string): S
         ? groupResultItems(nonTitleItems)
         : groupResultItems(titleItems.length ? titleItems : result.contents);
     const titleItem = titleItems[0];
-    const pageTitle = result.title || "未命名页面";
+    const rawPageTitle = result.title || "未命名页面";
     const highlightedTitleDisplay = titleItem ? applyQueryHighlight(titleItem.display, fallbackQuery) : null;
     const titleHighlightTerms = highlightedTitleDisplay
       ? collectHighlightTerms(highlightedTitleDisplay, fallbackQuery)
       : [];
+    const pageTitle = formatHierarchyText(rawPageTitle);
     const pageTitleHtml =
-      highlightedTitleDisplay ? renderDisplay(highlightedTitleDisplay) : escapeHtml(pageTitle);
+      highlightedTitleDisplay
+        ? formatHierarchyHtml(renderDisplay(highlightedTitleDisplay))
+        : escapeHtml(pageTitle);
 
     return sourceGroups.map((group, contentIndex) => {
       const representativeItem = group.items[0];
@@ -845,12 +860,12 @@ const flattenResults = (searchResults: SearchResult[], fallbackQuery: string): S
         : "/";
       const [rawPath] = rawHref.split("#");
       const matchedBodyDisplay = resolveMatchedBodyDisplay(group);
-      const sectionLabel = resolveSectionLabel(result, group, rawPath, matchedBodyDisplay);
+      const rawSectionLabel = resolveSectionLabel(result, group, rawPath, matchedBodyDisplay);
       const snippetDisplay = resolveSnippetDisplay(
         result,
         group,
         rawPath,
-        sectionLabel,
+        rawSectionLabel,
         matchedBodyDisplay,
       );
       const highlightedSnippetDisplay = applyQueryHighlight(snippetDisplay, fallbackQuery);
@@ -859,10 +874,11 @@ const flattenResults = (searchResults: SearchResult[], fallbackQuery: string): S
       const highlightTerms = mergeHighlightTerms(titleHighlightTerms, itemHighlightTerms);
       const targetSnippet = buildTargetSnippet(snippetDisplay);
       const badges = buildGroupBadges(group);
+      const sectionLabel = formatHierarchyText(rawSectionLabel);
       const wholeQueryRank = resolveWholeQueryRank(
         fallbackQuery,
-        pageTitle,
-        sectionLabel,
+        rawPageTitle,
+        rawSectionLabel,
         `${titleItem ? toPlainText(titleItem.display, " ") : ""} ${sectionLabel} ${snippetPlainText}`,
       );
       const hasHeading = Boolean(getGroupHeadingItem(group));
@@ -877,7 +893,7 @@ const flattenResults = (searchResults: SearchResult[], fallbackQuery: string): S
         sectionLabel,
         snippetHtml: renderDisplay(highlightedSnippetDisplay),
         href: withBase(rawHref),
-        previewHref: buildPreviewHref(rawHref, highlightTerms, sectionLabel, targetSnippet),
+        previewHref: buildPreviewHref(rawHref, highlightTerms, rawSectionLabel, targetSnippet),
         wholeQueryRank,
         pageRank: resultIndex,
         contentRank: contentIndex,
@@ -900,9 +916,9 @@ const resultCountText = computed(() =>
 );
 const activeScrollMarkerRatio = computed(() => {
   if (!flatHits.value.length || activeIndex.value < 0) return 0;
-  if (flatHits.value.length === 1) return 0;
+  if (!hitListMetrics.value.maxScrollTop) return 0;
 
-  return activeIndex.value / Math.max(flatHits.value.length - 1, 1);
+  return hitListMetrics.value.activeTargetScrollTop / hitListMetrics.value.maxScrollTop;
 });
 const activeScrollMarkerTop = computed(() => {
   const viewportHeight = hitListMetrics.value.viewportHeight;
@@ -938,7 +954,7 @@ const buildRouteQuery = (query: string, hit?: number, focus = false): Record<str
   const nextQuery: Record<string, string> = {};
 
   if (query) nextQuery.q = query;
-  if (query && typeof hit === "number" && hit >= 0) nextQuery.hit = `${hit}`;
+  if (query && typeof hit === "number" && hit >= 0) nextQuery.hit = `${hit + 1}`;
   if (focus) nextQuery.focus = "1";
 
   return nextQuery;
@@ -1044,6 +1060,27 @@ const setHitButtonRef = (element: Element | null, index: number): void => {
   delete hitButtonRefs.value[index];
 };
 
+const clampNumber = (value: number, min: number, max: number): number =>
+  Math.min(Math.max(value, min), max);
+
+const resolveActiveTargetScrollTop = (
+  hitList: HTMLOListElement | null,
+  activeButton: HTMLElement | null,
+): number => {
+  if (!hitList || !activeButton) return 0;
+
+  const maxScrollTop = Math.max(hitList.scrollHeight - hitList.clientHeight, 0);
+
+  if (!maxScrollTop) return 0;
+
+  const hitListRect = hitList.getBoundingClientRect();
+  const activeButtonRect = activeButton.getBoundingClientRect();
+  const activeButtonTop = activeButtonRect.top - hitListRect.top + hitList.scrollTop;
+  const activeButtonCenter = activeButtonTop + activeButtonRect.height / 2;
+
+  return clampNumber(activeButtonCenter - hitList.clientHeight / 2, 0, maxScrollTop);
+};
+
 const scrollActiveHitIntoView = (): void => {
   const activeButton = hitButtonRefs.value[activeIndex.value];
   const hitList = hitListRef.value;
@@ -1060,8 +1097,9 @@ const scrollActiveHitIntoView = (): void => {
     return;
   }
 
-  const maxScrollTop = Math.max(hitList.scrollHeight - hitList.clientHeight, 0);
-  const targetScrollTop = maxScrollTop * activeScrollMarkerRatio.value;
+  const targetScrollTop =
+    hitListMetrics.value.activeTargetScrollTop ||
+    resolveActiveTargetScrollTop(hitList, activeButton);
 
   hitList.scrollTo({
     top: targetScrollTop,
@@ -1080,6 +1118,8 @@ const measureHitListMetrics = (): void => {
     hitListMetrics.value = {
       viewportHeight: 0,
       thumbHeight: 0,
+      maxScrollTop: 0,
+      activeTargetScrollTop: 0,
     };
 
     return;
@@ -1087,16 +1127,23 @@ const measureHitListMetrics = (): void => {
 
   const viewportHeight = hitList.clientHeight;
   const scrollHeight = hitList.scrollHeight;
+  const maxScrollTop = Math.max(scrollHeight - viewportHeight, 0);
   const rawThumbHeight =
     viewportHeight > 0 && scrollHeight > 0 ? (viewportHeight * viewportHeight) / scrollHeight : 0;
   const thumbHeight = Math.min(
     viewportHeight,
     Math.max(rawThumbHeight, Math.min(viewportHeight, MIN_SCROLLBAR_THUMB_HEIGHT)),
   );
+  const activeTargetScrollTop = resolveActiveTargetScrollTop(
+    hitList,
+    hitButtonRefs.value[activeIndex.value] ?? null,
+  );
 
   hitListMetrics.value = {
     viewportHeight,
     thumbHeight,
+    maxScrollTop,
+    activeTargetScrollTop,
   };
 };
 
@@ -1196,6 +1243,12 @@ watch(
     });
   },
 );
+
+watch(activeIndex, () => {
+  nextTick(() => {
+    scheduleMeasureHitListMetrics();
+  });
+});
 
 watch(hitListRef, (hitList, previousHitList) => {
   if (hitListResizeObserver && previousHitList) {

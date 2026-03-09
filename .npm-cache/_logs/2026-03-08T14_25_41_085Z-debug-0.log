@@ -1,0 +1,27 @@
+0 verbose cli /Users/xpy/.nvm/versions/node/v24.12.0/bin/node /Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@11.6.2
+2 info using node@v24.12.0
+3 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/xpy/Coding/biocloudhub/blogs/.npmrc
+5 silly config load:file:/Users/xpy/.npmrc
+6 warn Unknown user config "python". This will stop working in the next major version of npm.
+7 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/etc/npmrc
+8 verbose title npm exec playwright-cli open http://127.0.0.1:4173/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-01-02.html --session cmc-sidebar --headed
+9 verbose argv "exec" "--yes" "--package" "@playwright/cli" "--" "playwright-cli" "open" "http://127.0.0.1:4173/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-01-02.html" "--session" "cmc-sidebar" "--headed"
+10 verbose logfile logs-max:10 dir:/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-03-08T14_25_41_085Z-
+11 verbose logfile /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-03-08T14_25_41_085Z-debug-0.log
+12 silly logfile start cleaning logs, removing 1 files
+13 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+14 silly logfile done cleaning log files
+15 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+16 http fetch GET https://registry.npmjs.org/@playwright%2fcli attempt 1 failed with EPERM
+17 http fetch GET https://registry.npmjs.org/@playwright%2fcli attempt 2 failed with EPERM
+18 http fetch GET https://registry.npmjs.org/@playwright%2fcli attempt 3 failed with EPERM
+19 http fetch GET 200 https://registry.npmjs.org/@playwright%2fcli 70038ms (cache stale)
+20 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+21 verbose cwd /Users/xpy/Coding/biocloudhub/blogs
+22 verbose os Darwin 25.4.0
+23 verbose node v24.12.0
+24 verbose npm  v11.6.2
+25 verbose exit 1
+26 verbose code 1

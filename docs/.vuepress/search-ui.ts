@@ -2,8 +2,8 @@ import { defineClientConfig } from "vuepress/client";
 import SearchPageButton from "./components/SearchPageButton.vue";
 import SearchWorkspace from "./components/SearchWorkspace.vue";
 import {
-  SEARCH_FOCUS_EVENT,
   SEARCH_HIGHLIGHT_QUERY_KEY,
+  SEARCH_LAUNCH_EVENT,
   SEARCH_PATH,
   SEARCH_PREVIEW_QUERY_KEY,
   SEARCH_TARGET_HEADING_QUERY_KEY,
@@ -20,6 +20,23 @@ const SEARCH_PREVIEW_BLOCK_SELECTOR =
   "h1, h2, h3, h4, h5, h6, p, li, blockquote, dd, dt, td, th";
 
 let previewRefreshTimer = 0;
+
+const dispatchSearchLaunchEvent = (targetWindow: Window = window): void => {
+  targetWindow.dispatchEvent(new CustomEvent(SEARCH_LAUNCH_EVENT));
+};
+
+const relaySearchLaunchToParent = (): boolean => {
+  if (!isPreviewMode()) return false;
+  if (typeof window === "undefined") return false;
+  if (!window.parent || window.parent === window) return false;
+
+  try {
+    dispatchSearchLaunchEvent(window.parent);
+    return true;
+  } catch {
+    return false;
+  }
+};
 
 const isTypingTarget = (target: EventTarget | null): boolean => {
   if (!(target instanceof HTMLElement)) return false;
@@ -52,6 +69,8 @@ const clearPreviewHighlights = (): void => {
 };
 
 const getPreviewSearchParams = (): URLSearchParams => new URL(window.location.href).searchParams;
+const isPreviewMode = (): boolean =>
+  getPreviewSearchParams().get(SEARCH_PREVIEW_QUERY_KEY) === "1";
 
 const getHighlightTerms = (): string[] => {
   const raw = getPreviewSearchParams().get(SEARCH_HIGHLIGHT_QUERY_KEY);
@@ -258,6 +277,77 @@ const markPreviewTarget = (): void => {
   }
 };
 
+const syncPreviewTocTitles = (): void => {
+  if (typeof document === "undefined" || !isPreviewMode()) return;
+
+  document.querySelectorAll<HTMLAnchorElement>("#toc .vp-toc-link").forEach((link) => {
+    const label = (link.textContent ?? "").trim();
+
+    if (!label) {
+      link.removeAttribute("title");
+      return;
+    }
+
+    link.setAttribute("title", label);
+    link.setAttribute("aria-label", label);
+  });
+};
+
+const resolveHashTarget = (hash: string): HTMLElement | null => {
+  const normalizedHash = decodeURIComponent(hash.replace(/^#/, ""));
+
+  if (!normalizedHash) return null;
+
+  return (
+    document.getElementById(normalizedHash) ??
+    document.getElementById(hash.replace(/^#/, "")) ??
+    null
+  );
+};
+
+const scrollPreviewToHash = (hash: string): void => {
+  const target = resolveHashTarget(hash);
+
+  if (!target) return;
+
+  if (window.location.hash !== hash) {
+    window.location.hash = hash;
+    return;
+  }
+
+  clearPreviewHighlights();
+  applyPreviewHighlights();
+  target.scrollIntoView({
+    behavior: "auto",
+    block: "start",
+    inline: "nearest",
+  });
+};
+
+const handlePreviewAnchorClick = (event: MouseEvent): void => {
+  if (!isPreviewMode()) return;
+  if (event.defaultPrevented) return;
+  if (event.button !== 0) return;
+  if (event.metaKey || event.ctrlKey || event.shiftKey || event.altKey) return;
+
+  const target = event.target;
+
+  if (!(target instanceof Element)) return;
+
+  const anchor = target.closest<HTMLAnchorElement>("a[href]");
+
+  if (!anchor) return;
+
+  const url = new URL(anchor.href, window.location.href);
+
+  if (url.origin !== window.location.origin) return;
+  if (url.pathname !== window.location.pathname) return;
+  if (!url.hash) return;
+
+  event.preventDefault();
+  scrollPreviewToHash(url.hash);
+};
+
 const applyPreviewHighlights = (): void => {
   clearPreviewHighlights();
 
@@ -304,8 +394,7 @@ const applyPreviewHighlights = (): void => {
 const syncRouteMode = (path: string): void => {
   if (typeof window === "undefined") return;
 
-  const isPreview =
-    new URL(window.location.href).searchParams.get(SEARCH_PREVIEW_QUERY_KEY) === "1";
+  const isPreview = isPreviewMode();
   const isSearchRoute = path === SEARCH_PATH;
 
   document.documentElement.classList.toggle("search-preview-mode", isPreview);
@@ -316,7 +405,11 @@ const syncRouteMode = (path: string): void => {
   if (isPreview) {
     requestAnimationFrame(() => {
       applyPreviewHighlights();
-      previewRefreshTimer = window.setTimeout(applyPreviewHighlights, 120);
+      syncPreviewTocTitles();
+      previewRefreshTimer = window.setTimeout(() => {
+        applyPreviewHighlights();
+        syncPreviewTocTitles();
+      }, 120);
     });
   } else {
     clearPreviewHighlights();
@@ -329,10 +422,6 @@ export default defineClientConfig({
     app.component("SearchWorkspace", SearchWorkspace);
 
     if (typeof window === "undefined") return;
-
-    const focusSearch = (): void => {
-      window.dispatchEvent(new CustomEvent(SEARCH_FOCUS_EVENT));
-    };
 
     syncRouteMode(router.currentRoute.value.path);
 
@@ -353,17 +442,22 @@ export default defineClientConfig({
       if (isTypingTarget(event.target)) return;
 
       event.preventDefault();
+      if (relaySearchLaunchToParent()) return;
 
-      if (router.currentRoute.value.path === SEARCH_PATH) {
-        focusSearch();
-        return;
-      }
-
-      void router.push(`${SEARCH_PATH}?focus=1`);
+      dispatchSearchLaunchEvent();
     });
 
     window.addEventListener("bc:sync-preview-mode", () => {
       syncRouteMode(router.currentRoute.value.path);
+    });
+
+    document.addEventListener("click", handlePreviewAnchorClick, true);
+    window.addEventListener("hashchange", () => {
+      if (!isPreviewMode()) return;
+
+      clearPreviewHighlights();
+      applyPreviewHighlights();
+      syncPreviewTocTitles();
     });
   },
 });
