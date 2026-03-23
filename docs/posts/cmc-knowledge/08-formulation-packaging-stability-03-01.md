@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“高浓度制剂工艺挑战与预灌封基础”里与“处方稳定性基础”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 23 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/08-formulation-packaging-stability-03.html)
-- [返回一级专题总览](/posts/cmc-knowledge/08-formulation-packaging-stability.html)
-- [下一细分主题](/posts/cmc-knowledge/08-formulation-packaging-stability-03-02.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/08-formulation-packaging-stability-03.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/08-formulation-packaging-stability.html)
+- [下一细分主题](/blogs/posts/cmc-knowledge/08-formulation-packaging-stability-03-02.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 高浓度制剂在工艺上有哪些挑战
 
 :::answer
@@ -65,6 +67,7 @@ UF/DF 中的辅料浓度漂移: UF/DF 操作中，在蛋白浓度较高的情况
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 高粘度产生不稳定性的原因是什么
 
 :::answer
@@ -74,6 +77,7 @@ UF/DF 中的辅料浓度漂移: UF/DF 操作中，在蛋白浓度较高的情况
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是高浓抗体的粘度特性，关键要点有哪些
 
 :::answer
@@ -84,6 +88,7 @@ UF/DF 中的辅料浓度漂移: UF/DF 操作中，在蛋白浓度较高的情况
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 如何降低蛋白粘度
 
 :::answer
@@ -93,6 +98,7 @@ UF/DF 中的辅料浓度漂移: UF/DF 操作中，在蛋白浓度较高的情况
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 如何应对浓度制剂面临的挑战
 
 :::answer
@@ -105,6 +111,7 @@ UF/DF 中的辅料浓度漂移: UF/DF 操作中，在蛋白浓度较高的情况
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是抗体药物制剂处方开发流程总览，关键要点有哪些
 
 :::answer
@@ -122,6 +129,7 @@ UF/DF 中的辅料浓度漂移: UF/DF 操作中，在蛋白浓度较高的情况
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是第四阶段：处方确认，关键要点有哪些
 
 :::answer
@@ -134,6 +142,7 @@ IND 申报 Timeline 学习可参考微信公众号《抗体君》微信公众账
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是赋形剂的功能作用，关键要点有哪些
 
 :::answer
@@ -144,6 +153,7 @@ IND 申报 Timeline 学习可参考微信公众号《抗体君》微信公众账
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 赋形剂的选择依据
 
 :::answer
@@ -156,6 +166,7 @@ IND 申报 Timeline 学习可参考微信公众号《抗体君》微信公众账
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是常用的赋形剂（表面活性剂），关键要点有哪些
 
 :::answer
@@ -170,6 +181,7 @@ IND 申报 Timeline 学习可参考微信公众号《抗体君》微信公众账
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是常用的赋形剂（缓冲剂），关键要点有哪些
 
 :::answer
@@ -186,6 +198,7 @@ IND 申报 Timeline 学习可参考微信公众号《抗体君》微信公众账
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是常用的赋形剂（稳定剂），关键要点有哪些
 
 :::answer
@@ -222,6 +235,7 @@ IND 申报 Timeline 学习可参考微信公众号《抗体君》微信公众账
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 浸出物和可提取物研究意义
 
 :::answer
@@ -250,6 +264,7 @@ IND 申报 Timeline 学习可参考微信公众号《抗体君》微信公众账
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是浸出物和可提取物的定义，关键要点有哪些
 
 :::answer
@@ -262,6 +277,7 @@ IND 申报 Timeline 学习可参考微信公众号《抗体君》微信公众账
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 哪些因素会影响浸出物和可提取物的
 
 :::answer
@@ -272,6 +288,7 @@ IND 申报 Timeline 学习可参考微信公众号《抗体君》微信公众账
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 浸出物和可提取物研究通常要包含哪些核心内容
 
 :::answer
@@ -302,6 +319,7 @@ IND 申报 Timeline 学习可参考微信公众号《抗体君》微信公众账
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 什么是浸出物和可提取物研究阶段，关键要点有哪些
 
 :::answer
@@ -314,6 +332,7 @@ IND 申报无强制要求。
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 什么是影响因素试验
 
 :::answer
@@ -330,6 +349,7 @@ IND 申报无强制要求。
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 影响因素试验包含哪些通常要包含哪些核心内容
 
 :::answer
@@ -342,6 +362,7 @@ IND 申报无强制要求。
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 强制试验和影响因素试验的区别
 
 :::answer
@@ -356,6 +377,7 @@ IND 申报无强制要求。
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 什么是二甲基硅油，关键要点有哪些
 
 :::answer
@@ -364,6 +386,7 @@ IND 申报无强制要求。
 
 :::
 
+<!-- cmc-question-id: Q23 -->
 ## 什么是制剂处方开发，关键要点有哪些
 
 :::answer
@@ -376,6 +399,7 @@ IND 申报无强制要求。
 
 :::
 
+<!-- cmc-question-id: Q24 -->
 ## 什么是缩短细胞株稳定性研究时间，关键要点有哪些
 
 :::answer

@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [异质性形成机制](/posts/cmc-knowledge/05-quality-attributes-heterogeneity-04-01.html)（21 个知识点）
-- [分析判断与工艺调控](/posts/cmc-knowledge/05-quality-attributes-heterogeneity-04-02.html)（24 个知识点）
+- [异质性形成机制](/blogs/posts/cmc-knowledge/05-quality-attributes-heterogeneity-04-01.html)（21 个知识点）
+- [分析判断与工艺调控](/blogs/posts/cmc-knowledge/05-quality-attributes-heterogeneity-04-02.html)（24 个知识点）
 
 ## 维护建议
 

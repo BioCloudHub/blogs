@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [表达系统与细胞株认知](/posts/cmc-knowledge/01-expression-cell-line-01-01.html)（22 个知识点）
-- [建系筛选与证据判断](/posts/cmc-knowledge/01-expression-cell-line-01-02.html)（21 个知识点）
+- [表达系统与细胞株认知](/blogs/posts/cmc-knowledge/01-expression-cell-line-01-01.html)（22 个知识点）
+- [建系筛选与证据判断](/blogs/posts/cmc-knowledge/01-expression-cell-line-01-02.html)（21 个知识点）
 
 ## 维护建议
 

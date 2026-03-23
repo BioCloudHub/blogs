@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“内毒素控制、低内毒素回收与活性检测”里与“开发策略与实操控制”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 20 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-06.html)
-- [返回一级专题总览](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities.html)
-- [上一细分主题](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-06-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-06.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-06-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是低内毒素回收
 
 :::answer
@@ -39,6 +41,7 @@ LER(LowEndotoxinRecovery)是指在使用国际统一的鲎试剂(LAL)药典方�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 低内毒素回收的原因
 
 :::answer
@@ -47,6 +50,7 @@ LER(LowEndotoxinRecovery)是指在使用国际统一的鲎试剂(LAL)药典方�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 为什么进行低内毒素回收试验
 
 :::answer
@@ -57,6 +61,7 @@ LER(LowEndotoxinRecovery)是指在使用国际统一的鲎试剂(LAL)药典方�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是低内毒素回收缓解措施，关键要点有哪些
 
 :::answer
@@ -65,6 +70,7 @@ LER(LowEndotoxinRecovery)是指在使用国际统一的鲎试剂(LAL)药典方�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是低内毒素回收具体实施，关键要点有哪些
 
 :::answer
@@ -77,6 +83,7 @@ LER(LowEndotoxinRecovery)是指在使用国际统一的鲎试剂(LAL)药典方�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是认识内毒素，关键要点有哪些
 
 :::answer
@@ -88,6 +95,7 @@ LER(LowEndotoxinRecovery)是指在使用国际统一的鲎试剂(LAL)药典方�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 热原/细菌内毒素控制~热源
 
 :::answer
@@ -96,6 +104,7 @@ LER(LowEndotoxinRecovery)是指在使用国际统一的鲎试剂(LAL)药典方�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 热原/细菌内毒素控制~内毒素
 
 :::answer
@@ -105,6 +114,7 @@ LER(LowEndotoxinRecovery)是指在使用国际统一的鲎试剂(LAL)药典方�
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 热原/细菌内毒素控制~热源和内毒之间是什么关系
 
 :::answer
@@ -114,6 +124,7 @@ LER(LowEndotoxinRecovery)是指在使用国际统一的鲎试剂(LAL)药典方�
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 热原/细菌内毒素控制~控制
 
 :::answer
@@ -125,6 +136,7 @@ LER(LowEndotoxinRecovery)是指在使用国际统一的鲎试剂(LAL)药典方�
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 热原/细菌内毒素控制~内毒素质量标准
 
 :::answer
@@ -136,6 +148,7 @@ LER(LowEndotoxinRecovery)是指在使用国际统一的鲎试剂(LAL)药典方�
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 热原/细菌内毒素控制~内毒素检查方法
 
 :::answer
@@ -144,6 +157,7 @@ LER(LowEndotoxinRecovery)是指在使用国际统一的鲎试剂(LAL)药典方�
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 热原/细菌内毒素控制~过程控制
 
 :::answer
@@ -155,6 +169,7 @@ LER(LowEndotoxinRecovery)是指在使用国际统一的鲎试剂(LAL)药典方�
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是 Fab 相关作用机制-VEGF，关键要点有哪些
 
 :::answer
@@ -175,6 +190,7 @@ VEGF 的这些生物学功能是通过结合与刺激内皮细胞表面的 VEGF 
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是 Fab 相关作用机制-HER2，关键要点有哪些
 
 :::answer
@@ -193,6 +209,7 @@ HER2 的高表达与癌症发生，癌症预后不良都有很强的 关联性�
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是 Fab 相关作用机制-CD20，关键要点有哪些
 
 :::answer
@@ -219,6 +236,7 @@ CD20 基因敲除小鼠的 B 细胞发育、组织定位、信号传导、增殖
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 什么是 Fc 相关作用机制-ADCC，关键要点有哪些
 
 :::answer
@@ -229,6 +247,7 @@ CD20 基因敲除小鼠的 B 细胞发育、组织定位、信号传导、增殖
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 什么是杂质检测~内毒素，关键要点有哪些
 
 :::answer
@@ -237,6 +256,7 @@ CD20 基因敲除小鼠的 B 细胞发育、组织定位、信号传导、增殖
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是活性检测~ADCC，关键要点有哪些
 
 :::answer
@@ -245,6 +265,7 @@ CD20 基因敲除小鼠的 B 细胞发育、组织定位、信号传导、增殖
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是活性检测~细胞因子测定，关键要点有哪些
 
 :::answer

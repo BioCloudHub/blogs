@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“工艺表征深化、DoE 修正与上游表征总结”里与“研究框架与统计基础”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 21 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/10-process-characterization-validation-statistics-05.html)
-- [返回一级专题总览](/posts/cmc-knowledge/10-process-characterization-validation-statistics.html)
-- [下一细分主题](/posts/cmc-knowledge/10-process-characterization-validation-statistics-05-02.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics-05.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics.html)
+- [下一细分主题](/blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics-05-02.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是工艺表征研究的目的，关键要点有哪些
 
 :::answer
@@ -39,6 +41,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 上游工艺表征研究通常要包含哪些核心内容
 
 :::answer
@@ -53,6 +56,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是步骤三：确定 pCPP 和 pKPP，关键要点有哪些
 
 :::answer
@@ -67,6 +71,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是步骤四：建立缩小模型，关键要点有哪些
 
 :::answer
@@ -77,6 +82,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是步骤五：工艺表征实验，关键要点有哪些
 
 :::answer
@@ -85,6 +91,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是步骤七：确定 CPP 和 KPP，关键要点有哪些
 
 :::answer
@@ -93,6 +100,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是 FMEA 风险评估工具
 
 :::answer
@@ -102,6 +110,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是常见的上游工艺 pCPP，关键要点有哪些
 
 :::answer
@@ -110,6 +119,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是 pCPP 和 kPP 的范围确定，关键要点有哪些
 
 :::answer
@@ -118,6 +128,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 为什么要重视缩小模型建立
 
 :::answer
@@ -134,6 +145,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是缩小模型建立前的准备工作，关键要点有哪些
 
 :::answer
@@ -145,6 +157,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是缩小模型的检测指标，关键要点有哪些
 
 :::answer
@@ -154,6 +167,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是缩小模型建立成功的标准，关键要点有哪些
 
 :::answer
@@ -162,6 +176,7 @@ KPAs 和 COAs 能满足规定的限度需求。
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是缩小模型等效性验证-TOST，关键要点有哪些
 
 :::answer
@@ -171,6 +186,7 @@ KPAs 和 COAs 能满足规定的限度需求。
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是缩小模型等效性验证-PCA，关键要点有哪些
 
 :::answer
@@ -179,6 +195,7 @@ PCA（principalcomponentsanalysis）即主成分分析技术，又称主分量�
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是上游工艺缩小模型的修正，关键要点有哪些
 
 :::answer
@@ -187,6 +204,7 @@ PCA（principalcomponentsanalysis）即主成分分析技术，又称主分量�
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 什么是上游工艺缩小模型开发的难点，关键要点有哪些
 
 :::answer
@@ -195,6 +213,7 @@ PCA（principalcomponentsanalysis）即主成分分析技术，又称主分量�
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 什么是建立缩小模型所需要典型生产批次数，关键要点有哪些
 
 :::answer
@@ -203,6 +222,7 @@ PCA（principalcomponentsanalysis）即主成分分析技术，又称主分量�
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是 DoE 实验：筛选实验，关键要点有哪些
 
 :::answer
@@ -211,6 +231,7 @@ DOE(DesignofExperiments)是一种实验设计方法,用于探索和验证因素�
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是 DoE 实验：响应面实验，关键要点有哪些
 
 :::answer
@@ -223,6 +244,7 @@ DOE(DesignofExperiments)是一种实验设计方法,用于探索和验证因素�
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 开展 DoE 实验的考虑要点
 
 :::answer

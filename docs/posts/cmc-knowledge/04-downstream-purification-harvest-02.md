@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [收获纯化原理](/posts/cmc-knowledge/04-downstream-purification-harvest-02-01.html)（25 个知识点）
-- [过滤控制与异常处理](/posts/cmc-knowledge/04-downstream-purification-harvest-02-02.html)（21 个知识点）
+- [收获纯化原理](/blogs/posts/cmc-knowledge/04-downstream-purification-harvest-02-01.html)（25 个知识点）
+- [过滤控制与异常处理](/blogs/posts/cmc-knowledge/04-downstream-purification-harvest-02-02.html)（21 个知识点）
 
 ## 维护建议
 

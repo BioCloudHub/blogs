@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [病毒无菌基础](/posts/cmc-knowledge/07-viral-safety-sterility-control-04-01.html)（22 个知识点）
-- [清除控制与风险判断](/posts/cmc-knowledge/07-viral-safety-sterility-control-04-02.html)（20 个知识点）
+- [病毒无菌基础](/blogs/posts/cmc-knowledge/07-viral-safety-sterility-control-04-01.html)（22 个知识点）
+- [清除控制与风险判断](/blogs/posts/cmc-knowledge/07-viral-safety-sterility-control-04-02.html)（20 个知识点）
 
 ## 维护建议
 

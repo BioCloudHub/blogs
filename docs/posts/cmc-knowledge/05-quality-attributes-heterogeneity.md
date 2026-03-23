@@ -27,10 +27,10 @@ article: false
 
 ## 二级主题
 
-- [糖型、聚集与异质性形成机制](/posts/cmc-knowledge/05-quality-attributes-heterogeneity-01.html)（47 个知识点 / 2 个细分主题）
-- [聚集影响、电荷异质性与培养环境因素](/posts/cmc-knowledge/05-quality-attributes-heterogeneity-02.html)（46 个知识点 / 2 个细分主题）
-- [异质性分析方法、酸碱变体与片段问题](/posts/cmc-knowledge/05-quality-attributes-heterogeneity-03.html)（46 个知识点 / 2 个细分主题）
-- [糖基化修饰、唾液酸与二氧化碳影响](/posts/cmc-knowledge/05-quality-attributes-heterogeneity-04.html)（45 个知识点 / 2 个细分主题）
+- [糖型、聚集与异质性形成机制](/blogs/posts/cmc-knowledge/05-quality-attributes-heterogeneity-01.html)（47 个知识点 / 2 个细分主题）
+- [聚集影响、电荷异质性与培养环境因素](/blogs/posts/cmc-knowledge/05-quality-attributes-heterogeneity-02.html)（46 个知识点 / 2 个细分主题）
+- [异质性分析方法、酸碱变体与片段问题](/blogs/posts/cmc-knowledge/05-quality-attributes-heterogeneity-03.html)（46 个知识点 / 2 个细分主题）
+- [糖基化修饰、唾液酸与二氧化碳影响](/blogs/posts/cmc-knowledge/05-quality-attributes-heterogeneity-04.html)（45 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 

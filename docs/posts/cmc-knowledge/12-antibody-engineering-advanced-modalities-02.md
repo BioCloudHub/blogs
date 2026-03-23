@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [机制靶点与技术基础](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-02-01.html)（21 个知识点）
-- [开发策略与实操控制](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-02-02.html)（21 个知识点）
+- [机制靶点与技术基础](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-02-01.html)（21 个知识点）
+- [开发策略与实操控制](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-02-02.html)（21 个知识点）
 
 ## 维护建议
 

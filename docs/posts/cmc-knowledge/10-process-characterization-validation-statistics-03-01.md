@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“统计学基础、抽样、QbD 与上游验证”里与“研究框架与统计基础”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 24 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/10-process-characterization-validation-statistics-03.html)
-- [返回一级专题总览](/posts/cmc-knowledge/10-process-characterization-validation-statistics.html)
-- [下一细分主题](/posts/cmc-knowledge/10-process-characterization-validation-statistics-03-02.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics-03.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics.html)
+- [下一细分主题](/blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics-03-02.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是标准差与相对标准差，关键要点有哪些
 
 :::answer
@@ -41,6 +43,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 什么是残差，关键要点有哪些
 
 :::answer
@@ -51,6 +54,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是大数定律，关键要点有哪些
 
 :::answer
@@ -73,6 +77,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是中心极限定理，关键要点有哪些
 
 :::answer
@@ -91,6 +96,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是方差齐性，关键要点有哪些
 
 :::answer
@@ -121,6 +127,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是 t 检验，关键要点有哪些
 
 :::answer
@@ -139,6 +146,7 @@ t 检验是戈斯特为了观测酿酒质量而发明的，并于 1908 年在 Bi
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是集中趋势，关键要点有哪些
 
 :::answer
@@ -151,6 +159,7 @@ t 检验是戈斯特为了观测酿酒质量而发明的，并于 1908 年在 Bi
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是离散趋势，关键要点有哪些
 
 :::answer
@@ -164,6 +173,7 @@ t 检验是戈斯特为了观测酿酒质量而发明的，并于 1908 年在 Bi
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是抽样方法，关键要点有哪些
 
 :::answer
@@ -172,6 +182,7 @@ t 检验是戈斯特为了观测酿酒质量而发明的，并于 1908 年在 Bi
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是 QbD 理念下药品开发流程，关键要点有哪些
 
 :::answer
@@ -180,6 +191,7 @@ t 检验是戈斯特为了观测酿酒质量而发明的，并于 1908 年在 Bi
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## Step3：风险评估
 
 :::answer
@@ -188,6 +200,7 @@ t 检验是戈斯特为了观测酿酒质量而发明的，并于 1908 年在 Bi
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## Step4：确定设计空间
 
 :::answer
@@ -228,6 +241,7 @@ t 检验是戈斯特为了观测酿酒质量而发明的，并于 1908 年在 Bi
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是 DoE
 
 :::answer
@@ -256,6 +270,7 @@ DoE 技术以最有效的方式识别“很少的”因素，然后将过程引�
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是 DOE 和 OFAT 的比较，关键要点有哪些
 
 :::answer
@@ -267,11 +282,11 @@ DoE 技术以最有效的方式识别“很少的”因素，然后将过程引�
 - 考虑不同因素间的相互影响
 - 通过最少的实验次数获得尽可能多的信息
 - 能更好的找到系统的最优区间。
-
 - **PAR 与设计空间的区别：** 证明了的可接受范围的组合并不构成设计空间。然而，基于单变 量实验的可接受范围可以提供工艺方面的有用的知识。DoE 研究可得出设计空间。
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## DoE 的应用场景
 
 :::answer
@@ -282,6 +297,7 @@ DoE 技术以最有效的方式识别“很少的”因素，然后将过程引�
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## DOE 的三项基本原则
 
 :::answer
@@ -292,6 +308,7 @@ DoE 技术以最有效的方式识别“很少的”因素，然后将过程引�
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 部分因子通常怎么设计
 
 :::answer
@@ -313,6 +330,7 @@ DoE 技术以最有效的方式识别“很少的”因素，然后将过程引�
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 响应曲面通常怎么设计
 
 :::answer
@@ -323,6 +341,7 @@ DoE 技术以最有效的方式识别“很少的”因素，然后将过程引�
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 筛选通常怎么设计
 
 :::answer
@@ -339,6 +358,7 @@ DoE 技术以最有效的方式识别“很少的”因素，然后将过程引�
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 常见的常用的 DoE 分析软件有哪些，各自怎么理解
 
 :::answer
@@ -347,6 +367,7 @@ DoE 技术以最有效的方式识别“很少的”因素，然后将过程引�
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 什么是 DoE 模型评判，关键要点有哪些
 
 :::answer
@@ -357,6 +378,7 @@ DoE 技术以最有效的方式识别“很少的”因素，然后将过程引�
 
 :::
 
+<!-- cmc-question-id: Q23 -->
 ## 什么是 DoE 目的，关键要点有哪些
 
 :::answer
@@ -365,6 +387,7 @@ DoE 技术以最有效的方式识别“很少的”因素，然后将过程引�
 
 :::
 
+<!-- cmc-question-id: Q24 -->
 ## 回归分析和方差分析
 
 :::answer
@@ -375,6 +398,7 @@ DoE 技术以最有效的方式识别“很少的”因素，然后将过程引�
 
 :::
 
+<!-- cmc-question-id: Q25 -->
 ## 随机区组设计
 
 :::answer

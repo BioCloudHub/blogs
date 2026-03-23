@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“技术转移监管交付物、政策差异与工艺定义”里与“转移管理与现场执行”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 16 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/13-development-transfer-project-management-05.html)
-- [返回一级专题总览](/posts/cmc-knowledge/13-development-transfer-project-management.html)
-- [上一细分主题](/posts/cmc-knowledge/13-development-transfer-project-management-05-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/13-development-transfer-project-management-05.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/13-development-transfer-project-management.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/13-development-transfer-project-management-05-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 监管政策有哪些关键差异
 
 :::answer
@@ -41,6 +43,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 研发成本有哪些关键差异
 
 :::answer
@@ -57,6 +60,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是物料特性，关键要点有哪些
 
 :::answer
@@ -65,6 +69,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 单抗制品生产质量整体控制要素
 
 :::answer
@@ -73,6 +78,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 为什么要重视成药性评估
 
 :::answer
@@ -91,6 +97,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## “其他潜在严重安全性风险信息”是指哪些
 
 :::answer
@@ -99,6 +106,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 如果申请人拟委托第三方（如 CRO）协助提交个例报告，如何进行报告主体的识别
 
 :::answer
@@ -107,6 +115,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 关注安全性风险
 
 :::answer
@@ -117,6 +126,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是实验条件，关键要点有哪些
 
 :::answer
@@ -126,6 +136,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是区别(目的)，关键要点有哪些
 
 :::answer
@@ -134,6 +145,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 生产控制过程中的相关考量
 
 :::answer
@@ -142,6 +154,7 @@ LER 研究应该在与工艺相关的温度和时间下进行。工艺相关是�
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是高效细胞株开发实施指导，关键要点有哪些
 
 :::answer
@@ -150,6 +163,7 @@ LER 研究应该在与工艺相关的温度和时间下进行。工艺相关是�
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是细胞株开发指导，关键要点有哪些
 
 :::answer
@@ -158,6 +172,7 @@ LER 研究应该在与工艺相关的温度和时间下进行。工艺相关是�
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 生产用细胞株质量控制要求
 
 :::answer
@@ -166,6 +181,7 @@ LER 研究应该在与工艺相关的温度和时间下进行。工艺相关是�
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是细胞株的构建流程，关键要点有哪些
 
 :::answer
@@ -174,6 +190,7 @@ LER 研究应该在与工艺相关的温度和时间下进行。工艺相关是�
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是步骤二：定义生产工艺，关键要点有哪些
 
 :::answer

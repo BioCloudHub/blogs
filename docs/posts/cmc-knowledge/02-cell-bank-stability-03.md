@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [建库基础与状态认知](/posts/cmc-knowledge/02-cell-bank-stability-03-01.html)（18 个知识点）
-- [放行管理与异常排查](/posts/cmc-knowledge/02-cell-bank-stability-03-02.html)（23 个知识点）
+- [建库基础与状态认知](/blogs/posts/cmc-knowledge/02-cell-bank-stability-03-01.html)（18 个知识点）
+- [放行管理与异常排查](/blogs/posts/cmc-knowledge/02-cell-bank-stability-03-02.html)（23 个知识点）
 
 ## 维护建议
 

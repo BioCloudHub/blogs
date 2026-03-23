@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [细胞生物学基础](/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-02-01.html)（22 个知识点）
-- [培养应用与机制理解](/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-02-02.html)（18 个知识点）
+- [细胞生物学基础](/blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-02-01.html)（22 个知识点）
+- [培养应用与机制理解](/blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-02-02.html)（18 个知识点）
 
 ## 维护建议
 

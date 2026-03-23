@@ -27,13 +27,13 @@ article: false
 
 ## 二级主题
 
-- [过程指标、方法验证与杂质标准](/posts/cmc-knowledge/06-analytical-methods-quality-standards-01.html)（44 个知识点 / 2 个细分主题）
-- [结构表征、RNA 分析与色谱基础](/posts/cmc-knowledge/06-analytical-methods-quality-standards-02.html)（44 个知识点 / 2 个细分主题）
-- [载量、参比品与工艺杂质检测](/posts/cmc-knowledge/06-analytical-methods-quality-standards-03.html)（44 个知识点 / 2 个细分主题）
-- [分辨率、HCP 去除与纯度控制](/posts/cmc-knowledge/06-analytical-methods-quality-standards-04.html)（44 个知识点 / 2 个细分主题）
-- [蛋白含量、接受标准与产品质量标准](/posts/cmc-knowledge/06-analytical-methods-quality-standards-05.html)（41 个知识点 / 2 个细分主题）
-- [HCP 覆盖率、参比品放行与细胞库检定](/posts/cmc-knowledge/06-analytical-methods-quality-standards-06.html)（39 个知识点 / 2 个细分主题）
-- [HCP 理解、一级结构表征与 GMP 表征](/posts/cmc-knowledge/06-analytical-methods-quality-standards-07.html)（42 个知识点 / 2 个细分主题）
+- [过程指标、方法验证与杂质标准](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards-01.html)（44 个知识点 / 2 个细分主题）
+- [结构表征、RNA 分析与色谱基础](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards-02.html)（44 个知识点 / 2 个细分主题）
+- [载量、参比品与工艺杂质检测](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards-03.html)（44 个知识点 / 2 个细分主题）
+- [分辨率、HCP 去除与纯度控制](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards-04.html)（44 个知识点 / 2 个细分主题）
+- [蛋白含量、接受标准与产品质量标准](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards-05.html)（41 个知识点 / 2 个细分主题）
+- [HCP 覆盖率、参比品放行与细胞库检定](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards-06.html)（39 个知识点 / 2 个细分主题）
+- [HCP 理解、一级结构表征与 GMP 表征](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards-07.html)（42 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 

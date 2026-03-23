@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [平台化与生命周期基础](/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc-01-01.html)（13 个知识点）
-- [可比性与数字化应用](/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc-01-02.html)（13 个知识点）
+- [平台化与生命周期基础](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc-01-01.html)（13 个知识点）
+- [可比性与数字化应用](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc-01-02.html)（13 个知识点）
 
 ## 维护建议
 

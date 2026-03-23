@@ -25,12 +25,20 @@ diff --git a/lib/bundle/styles/_code.scss b/lib/bundle/styles/_code.scss
 diff --git a/lib/client/components/sidebar/SidebarLinks.js b/lib/client/components/sidebar/SidebarLinks.js
 --- a/lib/client/components/sidebar/SidebarLinks.js
 +++ b/lib/client/components/sidebar/SidebarLinks.js
-@@ -20,13 +20,13 @@ export default defineComponent({
+@@ -5,6 +5,7 @@ import { defineComponent, h, ref } from "vue";
+ import { useRoute, useRoutePath } from "vuepress/client";
+ import SidebarChild from "@theme-hope/components/sidebar/SidebarChild";
+ import SidebarGroup from "@theme-hope/components/sidebar/SidebarGroup";
++import { isActiveItem } from "@theme-hope/utils/isActiveItem";
+ import { isActiveSidebarItem } from "@theme-hope/utils/sidebar/isActiveSidebarItem";
+ import "../../styles/sidebar/sidebar-links.scss";
+ export default defineComponent({
+@@ -20,13 +21,13 @@ export default defineComponent({
      setup(props) {
          const route = useRoute();
          const routePath = useRoutePath();
 -        const openGroupIndex = ref(-1);
-+        const getActiveGroupIndex = () => props.config.findIndex((item) => isActiveSidebarItem(route, item));
++        const getActiveGroupIndex = () => props.config.findIndex((item) => isActiveSidebarItem(route, item) || isActiveItem(route, item));
 +        const openGroupIndex = ref(getActiveGroupIndex());
          const toggleGroup = (index) => {
              openGroupIndex.value = index === openGroupIndex.value ? -1 : index;
@@ -44,3 +52,125 @@ diff --git a/lib/client/components/sidebar/SidebarLinks.js b/lib/client/componen
          return () => h("ul", { class: "vp-sidebar-links" }, props.config.map((config, index) => h("li", "children" in config
              ? h(SidebarGroup, {
                  config,
+diff --git a/lib/client/components/sidebar/SidebarGroup.js b/lib/client/components/sidebar/SidebarGroup.js
+--- a/lib/client/components/sidebar/SidebarGroup.js
++++ b/lib/client/components/sidebar/SidebarGroup.js
+@@
+-import { computed, defineComponent, h, ref, resolveComponent } from "vue";
++import { computed, defineComponent, h, ref, resolveComponent, Transition } from "vue";
+@@
+-            return h("section", { class: "vp-sidebar-group" }, [
+-                h(collapsible ? "button" : "p", {
+-                    class: [
+-                        "vp-sidebar-header",
+-                        {
+-                            // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
+-                            clickable: collapsible || link,
+-                            exact: exact.value,
+-                            active: active.value,
+-                        },
+-                    ],
+-                    ...(collapsible
+-                        ? {
+-                            type: "button",
+-                            onClick: () => {
+-                                hasBeenToggled.value = true;
+-                                emit("toggle");
+-                            },
+-                        }
+-                        : {}),
+-                }, [
+-                    // Icon
+-                    h(resolveComponent("VPIcon"), { icon, sizing: "both" }),
+-                    // Title
+-                    link
+-                        ? h(AutoLink, {
+-                            class: "vp-sidebar-title no-external-link-icon",
+-                            config: { text, link },
+-                        })
+-                        : h("span", { class: "vp-sidebar-title" }, text),
+-                    // Arrow
+-                    collapsible
+-                        ? h("span", {
+-                            class: ["vp-arrow", shouldOpen.value ? "down" : "end"],
+-                        })
+-                        : null,
+-                ]),
+-                shouldOpen.value || !collapsible
+-                    ? h(SidebarLinks, { key: prefix, config: children })
+-                    : null,
+-            ]);
++            const header = h(collapsible ? "button" : "p", {
++                class: [
++                    "vp-sidebar-header",
++                    {
++                        // eslint-disable-next-line @typescript-eslint/prefer-nullish-coalescing
++                        clickable: collapsible || link,
++                        exact: exact.value,
++                        active: active.value,
++                    },
++                ],
++                ...(collapsible
++                    ? {
++                        type: "button",
++                        onClick: () => {
++                            hasBeenToggled.value = true;
++                            emit("toggle");
++                        },
++                    }
++                    : {}),
++            }, [
++                // Icon
++                h(resolveComponent("VPIcon"), { icon, sizing: "both" }),
++                // Title
++                link
++                    ? h(AutoLink, {
++                        class: "vp-sidebar-title no-external-link-icon",
++                        config: { text, link },
++                    })
++                    : h("span", { class: "vp-sidebar-title" }, text),
++                // Arrow
++                collapsible
++                    ? h("span", {
++                        class: ["vp-arrow", shouldOpen.value ? "down" : "end"],
++                    })
++                    : null,
++            ]);
++            const links = shouldOpen.value || !collapsible
++                ? h(SidebarLinks, {
++                    key: prefix,
++                    config: children,
++                    class: "vp-sidebar-group-items bc-sidebar-group-items",
++                })
++                : null;
++            return h("section", { class: "vp-sidebar-group" }, [
++                header,
++                h(Transition, { name: "bc-sidebar-group" }, () => links),
++            ]);
+         };
+     },
+ });
+diff --git a/lib/client/utils/sidebar/isActiveSidebarItem.js b/lib/client/utils/sidebar/isActiveSidebarItem.js
+--- a/lib/client/utils/sidebar/isActiveSidebarItem.js
++++ b/lib/client/utils/sidebar/isActiveSidebarItem.js
+@@
+-import { isActiveLink } from "vuepress-shared/client";
++import { isActiveLink, normalizePath } from "vuepress-shared/client";
+ import { isActiveItem } from "@theme-hope/utils/isActiveItem";
++const isLinkPrefixActive = (route, link) => {
++    if (!link)
++        return false;
++    const routePath = normalizePath(route.path);
++    const linkPath = normalizePath(link);
++    if (!routePath || !linkPath)
++        return false;
++    return routePath.startsWith(`${linkPath}-`);
++};
+ export const isActiveSidebarItem = (route, item) => "children" in item
+-    ? (Boolean(item.prefix) && isActiveLink(route, item.prefix)) ||
+-        item.children.some((child) => isActiveSidebarItem(route, child))
++    ? (Boolean(item.link) && isActiveItem(route, item)) ||
++        isLinkPrefixActive(route, item.link) ||
++        (Boolean(item.prefix) && isActiveLink(route, item.prefix)) ||
++        item.children.some((child) => isActiveSidebarItem(route, child))
+     : isActiveItem(route, item);

@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“癌症认知、抗体工程基础与微量元素影响”里与“培养应用与机制理解”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 18 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-02.html)
-- [返回一级专题总览](/posts/cmc-knowledge/14-cell-biology-culture-fundamentals.html)
-- [上一细分主题](/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-02-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-02.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-02-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是 scFv 单链抗体，关键要点有哪些
 
 :::answer
@@ -57,6 +59,7 @@ Linker 的设计：最常见的 linker 是灵活性较好的(Gly4-Ser)3，这不
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 什么是小分子抗体，关键要点有哪些
 
 :::answer
@@ -73,6 +76,7 @@ Linker 的设计：最常见的 linker 是灵活性较好的(Gly4-Ser)3，这不
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是杂质，关键要点有哪些
 
 :::answer
@@ -99,6 +103,7 @@ Linker 的设计：最常见的 linker 是灵活性较好的(Gly4-Ser)3，这不
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是质量研究-杂质研究不足，关键要点有哪些
 
 :::answer
@@ -107,6 +112,7 @@ Linker 的设计：最常见的 linker 是灵活性较好的(Gly4-Ser)3，这不
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是 First in Class，关键要点有哪些
 
 :::answer
@@ -115,6 +121,7 @@ First in class 的字面意思是“同类最优”，也就是说这是一款�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是 me too，关键要点有哪些
 
 :::answer
@@ -132,6 +139,7 @@ metoo 即便在专利期也不需要授权。
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是 fast follow，关键要点有哪些
 
 :::answer
@@ -148,6 +156,7 @@ metoo 即便在专利期也不需要授权。
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 生物制品质量控制-工艺相关杂质
 
 :::answer
@@ -164,6 +173,7 @@ metoo 即便在专利期也不需要授权。
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是杂质评估，关键要点有哪些
 
 :::answer
@@ -172,6 +182,7 @@ metoo 即便在专利期也不需要授权。
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是 IgG1 优势，关键要点有哪些
 
 :::answer
@@ -180,6 +191,7 @@ metoo 即便在专利期也不需要授权。
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是 IgG2 劣势，关键要点有哪些
 
 :::answer
@@ -188,6 +200,7 @@ IgG2 在体内很容易形成二聚体以及多聚集，ADC 药物浓度会越�
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是 IgG4 劣势，关键要点有哪些
 
 :::answer
@@ -196,6 +209,7 @@ IgG4 可诱导抗体依赖性细胞介导的吞噬作用（ADCP），但 IgG4 �
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是杂质概述，关键要点有哪些
 
 :::answer
@@ -212,6 +226,7 @@ IgG4 可诱导抗体依赖性细胞介导的吞噬作用（ADCP），但 IgG4 �
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是糖蛋白的合成场所，关键要点有哪些
 
 :::answer
@@ -220,6 +235,7 @@ IgG4 可诱导抗体依赖性细胞介导的吞噬作用（ADCP），但 IgG4 �
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 细胞死亡的方式及影响因素是怎样的
 
 :::answer
@@ -236,6 +252,7 @@ IgG4 可诱导抗体依赖性细胞介导的吞噬作用（ADCP），但 IgG4 �
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 细胞分裂的周期是怎么样的
 
 :::answer
@@ -244,6 +261,7 @@ IgG4 可诱导抗体依赖性细胞介导的吞噬作用（ADCP），但 IgG4 �
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 锌离子对细胞生长以及产物质量有何影响
 
 :::answer
@@ -252,6 +270,7 @@ IgG4 可诱导抗体依赖性细胞介导的吞噬作用（ADCP），但 IgG4 �
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 铜离子对细胞生长以及产物质量有何影响
 
 :::answer

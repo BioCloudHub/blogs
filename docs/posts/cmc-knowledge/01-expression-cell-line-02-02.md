@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“载体设计、单克隆筛选与单克隆性证明”里与“建系筛选与证据判断”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 22 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/01-expression-cell-line-02.html)
-- [返回一级专题总览](/posts/cmc-knowledge/01-expression-cell-line.html)
-- [上一细分主题](/posts/cmc-knowledge/01-expression-cell-line-02-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/01-expression-cell-line-02.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/01-expression-cell-line.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/01-expression-cell-line-02-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 常见的:常用重组蛋白生产的表达系统有哪些，各自怎么理解
 
 :::answer
@@ -37,6 +39,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## :哺乳动物细胞表达系统有哪些缺点
 
 :::answer
@@ -53,6 +56,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## :CHO 表达系统有哪些优点
 
 :::answer
@@ -69,6 +73,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是:CHO 细胞系的来源，关键要点有哪些
 
 :::answer
@@ -77,6 +82,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## :有哪些厂商可以提供 CHO 细胞系
 
 :::answer
@@ -85,6 +91,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## :筛选压力对细胞生长和产物表达有何影响
 
 :::answer
@@ -109,6 +116,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## :表达系统的选择依据是什么
 
 :::answer
@@ -123,6 +131,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是:CHO-S,CHO-DG44 和 CHO-K1 的优缺点，关键要点有哪些
 
 :::answer
@@ -165,6 +174,7 @@ CHO-DG44 抗体表达量处于 CHO-K1 和 CHO-S 中间水平。
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 常见的常用的细胞转染的方法有哪些，各自怎么理解
 
 :::answer
@@ -183,6 +193,7 @@ CHO-DG44 抗体表达量处于 CHO-K1 和 CHO-S 中间水平。
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 常见的电转法的优缺点有哪些，各自怎么理解
 
 :::answer
@@ -197,6 +208,7 @@ CHO-DG44 抗体表达量处于 CHO-K1 和 CHO-S 中间水平。
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 常见的脂质体转染法的优缺点有哪些，各自怎么理解
 
 :::answer
@@ -210,6 +222,7 @@ CHO-DG44 抗体表达量处于 CHO-K1 和 CHO-S 中间水平。
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 常见的影响细胞转染效率的因素有哪些，各自怎么理解
 
 :::answer
@@ -256,6 +269,7 @@ CHO-DG44 抗体表达量处于 CHO-K1 和 CHO-S 中间水平。
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 瞬转和稳转有什么区别
 
 :::answer
@@ -272,6 +286,7 @@ CHO-DG44 抗体表达量处于 CHO-K1 和 CHO-S 中间水平。
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 常见的常用的载体有哪些，各自怎么理解
 
 :::answer
@@ -292,6 +307,7 @@ CHO-DG44 抗体表达量处于 CHO-K1 和 CHO-S 中间水平。
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 载体至少应具备哪些条件
 
 :::answer
@@ -308,6 +324,7 @@ CHO-DG44 抗体表达量处于 CHO-K1 和 CHO-S 中间水平。
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 常见的目的基因获得的方法有哪些，各自怎么理解
 
 :::answer
@@ -319,6 +336,7 @@ CHO-DG44 抗体表达量处于 CHO-K1 和 CHO-S 中间水平。
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 一般 CHO-K1 细胞 DT 是多少
 
 :::answer
@@ -328,6 +346,7 @@ CHO-DG44 抗体表达量处于 CHO-K1 和 CHO-S 中间水平。
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 常规单抗项目克隆筛选应该重点关注哪些质量结果
 
 :::answer
@@ -336,6 +355,7 @@ CHO-DG44 抗体表达量处于 CHO-K1 和 CHO-S 中间水平。
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 常见的目前常用的单克隆获取方法主要有哪些，各自怎么理解
 
 :::answer
@@ -350,6 +370,7 @@ CHO-DG44 抗体表达量处于 CHO-K1 和 CHO-S 中间水平。
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 单克隆筛选 Fed-batch 评估的筛选的依据是什么
 
 :::answer
@@ -366,6 +387,7 @@ CHO-DG44 抗体表达量处于 CHO-K1 和 CHO-S 中间水平。
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 采用有限稀释进行单克隆铺板的原理是什么
 
 :::answer
@@ -375,6 +397,7 @@ CHO-DG44 抗体表达量处于 CHO-K1 和 CHO-S 中间水平。
 
 :::
 
+<!-- cmc-question-id: Q23 -->
 ## 细胞株的单克隆性证明的必要性是什么
 
 :::answer

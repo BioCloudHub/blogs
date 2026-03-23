@@ -3,7 +3,7 @@ home: true
 title: BioCloudHub
 heroText: 生物制药技术博客
 tagline: CMC · 生物分析 · AI 药物研发 · 云原生工程
-heroImage: /img/logo.png
+heroImage: /logo.png
 actions:
   - text: 进入技术博客
     link: /posts/
@@ -25,54 +25,95 @@ features:
     details: 以 Kubernetes 与云原生技术支撑规模化研发交付。
 ---
 
-<div class="home-intro">
-  <p class="home-lead">
-    面向生物制药团队的工程化知识站，聚焦可执行的流程、参数与技术方案，帮助研发、分析与平台团队建立统一的方法体系。
-  </p>
-
-  <div class="metric-grid">
-    <article class="metric-card">
-      <h3>3900+</h3>
-      <p>CMC 问答知识点</p>
-    </article>
-    <article class="metric-card">
-      <h3>4</h3>
-      <p>核心技术板块</p>
-    </article>
-    <article class="metric-card">
-      <h3>端到端</h3>
-      <p>研发到生产的技术链路</p>
-    </article>
-  </div>
+<div class="home-hero-extensions">
+  <HomeBio3D />
 </div>
 
-## 技术主线
-
-<div class="track-grid">
-  <a class="track-card" href="/posts/cmc-knowledge/">
-    <h3>CMC 知识体系</h3>
-    <p>围绕细胞株开发、上游下游工艺、质量属性与法规要求构建系统化知识图谱。</p>
-    <span>进入专题</span>
-  </a>
-  <a class="track-card" href="/posts/drug-discovery/">
-    <h3>AI 药物研发</h3>
-    <p>关注分子表示、生成模型、虚拟筛选与临床统计分析的落地实践。</p>
-    <span>查看文章</span>
-  </a>
-  <a class="track-card" href="/posts/bioanalytics/">
-    <h3>生物分析与组学</h3>
-    <p>覆盖 WGS、蛋白质组和单细胞分析流程，强调可复现数据处理方法。</p>
-    <span>查看文章</span>
-  </a>
-  <a class="track-card" href="/posts/computational-infrastructure/">
-    <h3>计算工程平台</h3>
-    <p>以 Kubernetes、容器化和自动化运维支撑生物医药场景的高可靠交付。</p>
-    <span>查看文章</span>
-  </a>
+<div class="home-content-split">
+  <section class="col-left">
+    <div class="home-intro">
+      <p class="home-lead">
+        面向生物制药团队的工程化知识站，聚焦可执行的流程、参数与技术方案，帮助研发、分析与平台团队建立统一的方法体系。
+      </p>
+      <p class="home-lead">
+        内容覆盖从候选分子筛选、工艺开发、分析方法学、质量体系到计算平台建设的全流程实践，强调“可落地、可复用、可审计”。
+      </p>
+      <div class="metric-grid">
+        <article class="metric-card">
+          <h3>3900+</h3>
+          <p>CMC 问答知识点</p>
+        </article>
+        <article class="metric-card">
+          <h3>4</h3>
+          <p>核心技术板块</p>
+        </article>
+        <article class="metric-card">
+          <h3>端到端</h3>
+          <p>研发到生产的技术链路</p>
+        </article>
+        <article class="metric-card">
+          <h3>持续更新</h3>
+          <p>围绕法规、工艺与平台迭代同步演进</p>
+        </article>
+      </div>
+    </div>
+    <h2>核心能力矩阵</h2>
+    <div class="track-grid">
+      <a class="track-card" href="./posts/cmc-knowledge/">
+        <h3>法规与质量体系</h3>
+        <p>覆盖 GMP、ICH 与申报审评关键问题，建立质量导向的研发与生产协作机制。</p>
+        <span>查看体系</span>
+      </a>
+      <a class="track-card" href="./posts/computational-infrastructure/">
+        <h3>数字化研发平台</h3>
+        <p>以云原生、数据治理和自动化流程实现研发效率提升与合规留痕。</p>
+        <span>查看架构</span>
+      </a>
+    </div>
+  </section>
+  <div class="col-gap" aria-hidden="true"></div>
+  <section class="col-right">
+    <h2>技术主线</h2>
+    <div class="track-grid">
+      <a class="track-card" href="./posts/cmc-knowledge/">
+        <h3>CMC 知识体系</h3>
+        <p>围绕细胞株开发、上游下游工艺、质量属性与法规要求构建系统化知识图谱。</p>
+        <span>进入专题</span>
+      </a>
+      <a class="track-card" href="./posts/drug-discovery/">
+        <h3>AI 药物研发</h3>
+        <p>关注分子表示、生成模型、虚拟筛选与临床统计分析的落地实践。</p>
+        <span>查看文章</span>
+      </a>
+      <a class="track-card" href="./posts/bioanalytics/">
+        <h3>生物分析与组学</h3>
+        <p>覆盖 WGS、蛋白质组和单细胞分析流程，强调可复现数据处理方法。</p>
+        <span>查看文章</span>
+      </a>
+      <a class="track-card" href="./posts/computational-infrastructure/">
+        <h3>计算工程平台</h3>
+        <p>以 Kubernetes、容器化和自动化运维支撑生物医药场景的高可靠交付。</p>
+        <span>查看文章</span>
+      </a>
+    </div>
+    <h2>本站定位</h2>
+    <ul>
+      <li>面向工艺开发、分析开发、生物信息与平台工程团队。</li>
+      <li>强调参数化、标准化、可复用的技术实践。</li>
+      <li>用统一技术语言连接研发、生产与数字化系统。</li>
+    </ul>
+    <h2>服务与交付</h2>
+    <div class="track-grid">
+      <a class="track-card" href="./about/">
+        <h3>专题知识交付</h3>
+        <p>围绕具体技术主题形成结构化知识包，便于团队培训、复盘与内化。</p>
+        <span>了解方式</span>
+      </a>
+      <a class="track-card" href="./posts/">
+        <h3>实践模板沉淀</h3>
+        <p>提供方法学模板、流程框架和检查清单，帮助项目快速启动与稳定执行。</p>
+        <span>浏览模板</span>
+      </a>
+    </div>
+  </section>
 </div>
-
-## 本站定位
-
-- 面向工艺开发、分析开发、生物信息与平台工程团队。
-- 强调参数化、标准化、可复用的技术实践。
-- 用统一技术语言连接研发、生产与数字化系统。

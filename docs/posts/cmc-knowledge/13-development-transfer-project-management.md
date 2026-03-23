@@ -27,12 +27,12 @@ article: false
 
 ## 二级主题
 
-- [细胞株替换、研发流程与 CMC 基础](/posts/cmc-knowledge/13-development-transfer-project-management-01.html)（43 个知识点 / 2 个细分主题）
-- [CMC 常见问题、技术转移与供应商管理](/posts/cmc-knowledge/13-development-transfer-project-management-02.html)（42 个知识点 / 2 个细分主题）
-- [物料验收、批记录与 TSE/BSE 来源](/posts/cmc-knowledge/13-development-transfer-project-management-03.html)（41 个知识点 / 2 个细分主题）
-- [TSE/BSE 风险控制、排产与准备阶段交付物](/posts/cmc-knowledge/13-development-transfer-project-management-04.html)（40 个知识点 / 2 个细分主题）
-- [技术转移监管交付物、政策差异与工艺定义](/posts/cmc-knowledge/13-development-transfer-project-management-05.html)（35 个知识点 / 2 个细分主题）
-- [FMEA、生产许可证与上游生产质控](/posts/cmc-knowledge/13-development-transfer-project-management-06.html)（38 个知识点 / 2 个细分主题）
+- [细胞株替换、研发流程与 CMC 基础](/blogs/posts/cmc-knowledge/13-development-transfer-project-management-01.html)（43 个知识点 / 2 个细分主题）
+- [CMC 常见问题、技术转移与供应商管理](/blogs/posts/cmc-knowledge/13-development-transfer-project-management-02.html)（42 个知识点 / 2 个细分主题）
+- [物料验收、批记录与 TSE/BSE 来源](/blogs/posts/cmc-knowledge/13-development-transfer-project-management-03.html)（41 个知识点 / 2 个细分主题）
+- [TSE/BSE 风险控制、排产与准备阶段交付物](/blogs/posts/cmc-knowledge/13-development-transfer-project-management-04.html)（40 个知识点 / 2 个细分主题）
+- [技术转移监管交付物、政策差异与工艺定义](/blogs/posts/cmc-knowledge/13-development-transfer-project-management-05.html)（35 个知识点 / 2 个细分主题）
+- [FMEA、生产许可证与上游生产质控](/blogs/posts/cmc-knowledge/13-development-transfer-project-management-06.html)（38 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 

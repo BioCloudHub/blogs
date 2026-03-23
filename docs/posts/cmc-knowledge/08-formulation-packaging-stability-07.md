@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [处方稳定性基础](/posts/cmc-knowledge/08-formulation-packaging-stability-07-01.html)（17 个知识点）
-- [包材工艺与研究实操](/posts/cmc-knowledge/08-formulation-packaging-stability-07-02.html)（20 个知识点）
+- [处方稳定性基础](/blogs/posts/cmc-knowledge/08-formulation-packaging-stability-07-01.html)（17 个知识点）
+- [包材工艺与研究实操](/blogs/posts/cmc-knowledge/08-formulation-packaging-stability-07-02.html)（20 个知识点）
 
 ## 维护建议
 

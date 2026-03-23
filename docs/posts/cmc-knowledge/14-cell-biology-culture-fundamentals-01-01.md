@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“糖蛋白、细胞死亡、IgG 亚型与癌症免疫”里与“细胞生物学基础”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 21 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-01.html)
-- [返回一级专题总览](/posts/cmc-knowledge/14-cell-biology-culture-fundamentals.html)
-- [下一细分主题](/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-01-02.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-01.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals.html)
+- [下一细分主题](/blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-01-02.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是糖蛋白的合成场所，关键要点有哪些
 
 :::answer
@@ -35,6 +37,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 细胞死亡的方式及影响因素是怎样的
 
 :::answer
@@ -46,6 +49,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 细胞分裂的周期是怎么样的
 
 :::answer
@@ -59,6 +63,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 锌离子对细胞生长以及产物质量有何影响
 
 :::answer
@@ -75,6 +80,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 铜离子对细胞生长以及产物质量有何影响
 
 :::answer
@@ -91,6 +97,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## “First in class”药物是什么意思
 
 :::answer
@@ -99,6 +106,7 @@ First in class 的字面意思是“同类第一”，也就是说这是一款�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## “me too”药物是什么意思
 
 :::answer
@@ -113,6 +121,7 @@ First in class 的字面意思是“同类第一”，也就是说这是一款�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## “fast follow”药物是什么意思
 
 :::answer
@@ -121,6 +130,7 @@ First in class 的字面意思是“同类第一”，也就是说这是一款�
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是“fast follow”药物包含那些，关键要点有哪些
 
 :::answer
@@ -147,6 +157,7 @@ First in class 的字面意思是“同类第一”，也就是说这是一款�
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是“First in class"和“fast follow”药物的优缺点，关键要点有哪些
 
 :::answer
@@ -181,6 +192,7 @@ First in class 的字面意思是“同类第一”，也就是说这是一款�
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是原液为何会出现粉色，关键要点有哪些
 
 :::answer
@@ -192,6 +204,7 @@ First in class 的字面意思是“同类第一”，也就是说这是一款�
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是原液为何会出现棕色，关键要点有哪些
 
 :::answer
@@ -206,6 +219,7 @@ First in class 的字面意思是“同类第一”，也就是说这是一款�
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 常见的抗体药物的物理检查有哪些，各自怎么理解
 
 :::answer
@@ -215,6 +229,7 @@ First in class 的字面意思是“同类第一”，也就是说这是一款�
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是生物制品杂质的定义及分类，关键要点有哪些
 
 :::answer
@@ -228,6 +243,7 @@ First in class 的字面意思是“同类第一”，也就是说这是一款�
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 杂质对药物的影响
 
 :::answer
@@ -237,6 +253,7 @@ First in class 的字面意思是“同类第一”，也就是说这是一款�
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是杂质的来源，关键要点有哪些
 
 :::answer
@@ -253,6 +270,7 @@ First in class 的字面意思是“同类第一”，也就是说这是一款�
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 什么是 IgG 抗体有 4 种亚型，关键要点有哪些
 
 :::answer
@@ -261,6 +279,7 @@ First in class 的字面意思是“同类第一”，也就是说这是一款�
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 什么是 IgG1 生理特性，关键要点有哪些
 
 :::answer
@@ -279,13 +298,12 @@ IgG1 是现阶段最常被使用的 Fc 亚型，科学家在此基础上通过 F
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是 IgG2 生理特性，关键要点有哪些
 
 :::answer
 
-- **A：** 方法如下
-
-IgG2 主要用来中和抗原或阻断受体配体的结合，其 CDC 和 ADCC 效应表现非常弱，在早期基于其上市的仅为 EGFR 抗体。
+- **A：** 方法如下 IgG2 主要用来中和抗原或阻断受体配体的结合，其 CDC 和 ADCC 效应表现非常弱，在早期基于其上市的仅为 EGFR 抗体。
 
 但随着免疫检查点研究的兴起，越来越多的基于 IgG2 的药物进入临床并上市，IgG2 虽然和 C1q 的结合比较弱，但当抗原或抗体溶度较高时仍旧可以引发 CDC 效应，同时 IgG2 是唯一可以结合 FcγRIIa (CD32a)的亚型，而且这种结合可以通过单核苷酸多态性（SNP）进行调节，这种多形性可影响 IgG2 的功能活性。
 
@@ -295,6 +313,7 @@ IgG2 主要用来中和抗原或阻断受体配体的结合，其 CDC 和 ADCC �
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是 IgG3 生理特性，关键要点有哪些
 
 :::answer
@@ -309,6 +328,7 @@ IgG3 与 FcγRs 的结合能力最强，能引发 ADCC 和 ADCP，且 CDC 效应
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 什么是 IgG4 生理特性，关键要点有哪些
 
 :::answer

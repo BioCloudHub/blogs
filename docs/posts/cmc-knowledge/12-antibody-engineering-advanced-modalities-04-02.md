@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“ADC 研发阶段、基因治疗纯化与内毒素控制”里与“开发策略与实操控制”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 19 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-04.html)
-- [返回一级专题总览](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities.html)
-- [上一细分主题](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-04-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-04.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-04-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是病毒载体类基因治疗制品工艺验证的考虑因素，关键要点有哪些
 
 :::answer
@@ -47,6 +49,7 @@ PPQ 证明了在商业化生产规模下工艺设计的有效性和工艺控制�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 什么是病毒载体基因治疗制品分装工艺的考虑因素，关键要点有哪些
 
 :::answer
@@ -61,6 +64,7 @@ PPQ 证明了在商业化生产规模下工艺设计的有效性和工艺控制�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是病毒载体类基因治疗制品工艺验证中 UPB 的采样和检测要求，关键要点有哪些
 
 :::answer
@@ -77,6 +81,7 @@ UPB 的检测通常应涵盖工艺验证的连续多批次，检测项目以非�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是基因治疗制品生产所用质粒的生产及稳定性考察，关键要点有哪些
 
 :::answer
@@ -91,6 +96,7 @@ UPB 的检测通常应涵盖工艺验证的连续多批次，检测项目以非�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是基因治疗制品所用质粒的工艺表征和工艺验证研究，关键要点有哪些
 
 :::answer
@@ -107,6 +113,7 @@ UPB 的检测通常应涵盖工艺验证的连续多批次，检测项目以非�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是病毒载体基因治疗制品生产工艺的稳定性研究，关键要点有哪些
 
 :::answer
@@ -129,6 +136,7 @@ UPB 的检测通常应涵盖工艺验证的连续多批次，检测项目以非�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是双抗定义，关键要点有哪些
 
 :::answer
@@ -145,6 +153,7 @@ UPB 的检测通常应涵盖工艺验证的连续多批次，检测项目以非�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## BiTE、DART、TRBA 都是什么
 
 :::answer
@@ -155,6 +164,7 @@ UPB 的检测通常应涵盖工艺验证的连续多批次，检测项目以非�
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 双抗构建的 3 大原则
 
 :::answer
@@ -193,6 +203,7 @@ Q 2020 年药明生物在 biologydrivesthediscoveryofbispecificantibodiesasinnov
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是含有 Fc 区的双特异性抗体技术手段，关键要点有哪些
 
 :::answer
@@ -201,6 +212,7 @@ Q 2020 年药明生物在 biologydrivesthediscoveryofbispecificantibodiesasinnov
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是不含 Fc 区的双特异性抗体技术手段，关键要点有哪些
 
 :::answer
@@ -215,6 +227,7 @@ BiTE 技术研究者克服了 scFv 稳定性差、表达量低、溶解性低等
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 双抗的亲和力设计
 
 :::answer
@@ -225,6 +238,7 @@ BiTE 技术研究者克服了 scFv 稳定性差、表达量低、溶解性低等
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是双抗体纯化过程中可能包含的杂质，关键要点有哪些
 
 :::answer
@@ -233,6 +247,7 @@ BiTE 技术研究者克服了 scFv 稳定性差、表达量低、溶解性低等
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是双抗工艺开发，关键要点有哪些
 
 :::answer
@@ -247,6 +262,7 @@ BiTE 技术研究者克服了 scFv 稳定性差、表达量低、溶解性低等
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是 Fc 融合蛋白
 
 :::answer
@@ -256,6 +272,7 @@ BiTE 技术研究者克服了 scFv 稳定性差、表达量低、溶解性低等
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是 Fc 融合蛋白表征技术，关键要点有哪些
 
 :::answer
@@ -264,6 +281,7 @@ Fc-Fusion 的生物配体多种多样，所以其分子结构也复杂多样，�
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 什么是内毒素
 
 :::answer
@@ -273,6 +291,7 @@ Fc-Fusion 的生物配体多种多样，所以其分子结构也复杂多样，�
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 内毒素可能带来哪些风险
 
 :::answer
@@ -285,6 +304,7 @@ Fc-Fusion 的生物配体多种多样，所以其分子结构也复杂多样，�
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 内毒素的控制标准
 
 :::answer

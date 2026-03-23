@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“二次干燥、冷冻容器与检查案例”里与“体系认知与核心概念”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 22 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-13.html)
-- [返回一级专题总览](/posts/cmc-knowledge/15-integrated-topics-and-quality-system.html)
-- [下一细分主题](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-13-02.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-13.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system.html)
+- [下一细分主题](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-13-02.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是二次干燥，关键要点有哪些
 
 :::answer
@@ -39,6 +41,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 为什么要重视N 端序列分析
 
 :::answer
@@ -59,6 +62,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## N 端序列分析的方法
 
 :::answer
@@ -68,6 +72,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是 Edman 降解法原理，关键要点有哪些
 
 :::answer
@@ -76,6 +81,7 @@ Edman 降解法是由菲尔•埃德曼首先创立，用于肽链或蛋白质 N
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是 Edman 降解法第二步：Edman 降解，关键要点有哪些
 
 :::answer
@@ -84,6 +90,7 @@ Edman 降解法是由菲尔•埃德曼首先创立，用于肽链或蛋白质 N
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么样的样品不适合用 Edman 降解法 N 端测序来分析序列
 
 :::answer
@@ -92,6 +99,7 @@ Edman 降解法是由菲尔•埃德曼首先创立，用于肽链或蛋白质 N
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 影响 Edman 降解结果的因素
 
 :::answer
@@ -106,6 +114,7 @@ Edman 降解法是由菲尔•埃德曼首先创立，用于肽链或蛋白质 N
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是 N 端测序其它方法，关键要点有哪些
 
 :::answer
@@ -120,6 +129,7 @@ Edman 降解法与质谱法不同，其不需要借助蛋白数据库便可以�
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 数据整理与分析
 
 :::answer
@@ -128,6 +138,7 @@ Edman 降解法与质谱法不同，其不需要借助蛋白数据库便可以�
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是因子间的交互作用
 
 :::answer
@@ -136,6 +147,7 @@ Edman 降解法与质谱法不同，其不需要借助蛋白数据库便可以�
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 实验失败怎么处理
 
 :::answer
@@ -144,6 +156,7 @@ Edman 降解法与质谱法不同，其不需要借助蛋白数据库便可以�
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是 KPP 的理解，关键要点有哪些
 
 :::answer
@@ -152,6 +165,7 @@ Edman 降解法与质谱法不同，其不需要借助蛋白数据库便可以�
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是肽段覆盖率
 
 :::answer
@@ -160,6 +174,7 @@ Edman 降解法与质谱法不同，其不需要借助蛋白数据库便可以�
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 为什么要重视肽段覆盖率分析
 
 :::answer
@@ -168,6 +183,7 @@ Edman 降解法与质谱法不同，其不需要借助蛋白数据库便可以�
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是酶切，关键要点有哪些
 
 :::answer
@@ -176,6 +192,7 @@ Edman 降解法与质谱法不同，其不需要借助蛋白数据库便可以�
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是肽段覆盖率实验样品要求，关键要点有哪些
 
 :::answer
@@ -184,6 +201,7 @@ Edman 降解法与质谱法不同，其不需要借助蛋白数据库便可以�
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 如何能得到更高的肽段覆盖率
 
 :::answer
@@ -192,6 +210,7 @@ Edman 降解法与质谱法不同，其不需要借助蛋白数据库便可以�
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 步骤六：数据整理与分析
 
 :::answer
@@ -200,6 +219,7 @@ Edman 降解法与质谱法不同，其不需要借助蛋白数据库便可以�
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是抗体药物原液储存方式，关键要点有哪些
 
 :::answer
@@ -208,6 +228,7 @@ Edman 降解法与质谱法不同，其不需要借助蛋白数据库便可以�
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是抗体药物原液冷冻的优势，关键要点有哪些
 
 :::answer
@@ -219,6 +240,7 @@ Edman 降解法与质谱法不同，其不需要借助蛋白数据库便可以�
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 什么是原液冷冻蛋白质浓度研究，关键要点有哪些
 
 :::answer
@@ -227,6 +249,7 @@ Edman 降解法与质谱法不同，其不需要借助蛋白数据库便可以�
 
 :::
 
+<!-- cmc-question-id: Q23 -->
 ## 什么是原液冷冻保护剂的添加，关键要点有哪些
 
 :::answer

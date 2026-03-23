@@ -2,7 +2,7 @@
 import { useDebounceFn } from "@vueuse/core";
 import { createSearchWorker, useSearchOptions } from "@vuepress/plugin-slimsearch/client";
 import { computed, nextTick, onMounted, onUnmounted, ref, shallowRef, watch } from "vue";
-import { useRoute, useRouteLocale, useRouter, withBase } from "vuepress/client";
+import { ClientOnly, useRoute, useRouteLocale, useRouter, withBase } from "vuepress/client";
 import ROOT_SEARCH_INDEX from "@temp/slimsearch/root.js";
 import { store } from "@temp/slimsearch/store.js";
 import {
@@ -1305,141 +1305,143 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <section class="bc-search-page">
-    <aside class="bc-search-sidebar">
-      <div class="bc-search-sidebar-search">
-        <label class="bc-search-input-shell">
-          <span class="bc-search-input-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <path
-                d="M10.5 4a6.5 6.5 0 1 0 4.07 11.57l4.43 4.43 1.41-1.41-4.43-4.43A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-          <input
-            ref="inputRef"
-            v-model="draftQuery"
-            type="search"
-            inputmode="search"
-            autocomplete="off"
-            spellcheck="false"
-            placeholder="输入关键词、问题编号、主题词"
-          >
-        </label>
-      </div>
-
-      <div class="bc-search-sidebar-results">
-        <div class="bc-search-panel-head">
-          <h2>命中结果</h2>
-          <span v-if="routeQuery && flatHits.length" class="bc-search-result-count">
-            {{ resultCountText }}
-          </span>
+  <ClientOnly>
+    <section class="bc-search-page">
+      <aside class="bc-search-sidebar">
+        <div class="bc-search-sidebar-search">
+          <label class="bc-search-input-shell">
+            <span class="bc-search-input-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M10.5 4a6.5 6.5 0 1 0 4.07 11.57l4.43 4.43 1.41-1.41-4.43-4.43A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <input
+              ref="inputRef"
+              v-model="draftQuery"
+              type="search"
+              inputmode="search"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="输入关键词、问题编号、主题词"
+            >
+          </label>
         </div>
 
-        <div v-if="searchError" class="bc-search-empty error">
-          {{ searchError }}
-        </div>
+        <div class="bc-search-sidebar-results">
+          <div class="bc-search-panel-head">
+            <h2>命中结果</h2>
+            <span v-if="routeQuery && flatHits.length" class="bc-search-result-count">
+              {{ resultCountText }}
+            </span>
+          </div>
 
-        <div v-else-if="isSearching" class="bc-search-empty">
-          搜索中...
-        </div>
+          <div v-if="searchError" class="bc-search-empty error">
+            {{ searchError }}
+          </div>
 
-        <div v-else-if="!routeQuery" class="bc-search-empty">
-          输入关键词开始搜索
-        </div>
+          <div v-else-if="isSearching" class="bc-search-empty">
+            搜索中...
+          </div>
 
-        <div v-else-if="!flatHits.length" class="bc-search-empty">
-          没有匹配结果
-        </div>
+          <div v-else-if="!routeQuery" class="bc-search-empty">
+            输入关键词开始搜索
+          </div>
 
-        <div v-else class="bc-search-hit-list-wrap">
-          <ol ref="hitListRef" class="bc-search-hit-list">
-            <li v-for="(hit, index) in flatHits" :key="hit.key">
-              <button
-                :ref="(element) => setHitButtonRef(element, index)"
-                class="bc-search-hit-card"
-                :class="{ active: index === activeIndex }"
-                type="button"
-                @click="selectHit(index)"
-              >
-                <div class="bc-search-hit-meta">
-                  <div class="bc-search-hit-badges">
-                    <span
-                      v-for="badge in hit.badges"
-                      :key="`${hit.key}-${badge}`"
-                      class="bc-search-hit-badge"
-                    >
-                      {{ badge }}
-                    </span>
+          <div v-else-if="!flatHits.length" class="bc-search-empty">
+            没有匹配结果
+          </div>
+
+          <div v-else class="bc-search-hit-list-wrap">
+            <ol ref="hitListRef" class="bc-search-hit-list">
+              <li v-for="(hit, index) in flatHits" :key="hit.key">
+                <button
+                  :ref="(element) => setHitButtonRef(element, index)"
+                  class="bc-search-hit-card"
+                  :class="{ active: index === activeIndex }"
+                  type="button"
+                  @click="selectHit(index)"
+                >
+                  <div class="bc-search-hit-meta">
+                    <div class="bc-search-hit-badges">
+                      <span
+                        v-for="badge in hit.badges"
+                        :key="`${hit.key}-${badge}`"
+                        class="bc-search-hit-badge"
+                      >
+                        {{ badge }}
+                      </span>
+                    </div>
+                    <span class="bc-search-hit-page" :title="hit.pageTitle" v-html="hit.pageTitleHtml"></span>
                   </div>
-                  <span class="bc-search-hit-page" :title="hit.pageTitle" v-html="hit.pageTitleHtml"></span>
-                </div>
-                <p v-if="hit.sectionLabel" class="bc-search-hit-section">{{ hit.sectionLabel }}</p>
-                <p class="bc-search-hit-snippet" v-html="hit.snippetHtml"></p>
-              </button>
-            </li>
-          </ol>
+                  <p v-if="hit.sectionLabel" class="bc-search-hit-section">{{ hit.sectionLabel }}</p>
+                  <p class="bc-search-hit-snippet" v-html="hit.snippetHtml"></p>
+                </button>
+              </li>
+            </ol>
 
-          <button
-            v-if="showSidebarScrollMarker"
-            class="bc-search-hit-scrollmark"
-            type="button"
-            :style="activeScrollMarkerStyle"
-            :aria-label="activeScrollMarkerTooltip"
-            @click="scrollActiveHitIntoView"
-            @mouseenter="handleMarkerPointerMove"
-            @mousemove="handleMarkerPointerMove"
-            @mouseleave="hideMarkerTooltip"
-            @focus="handleMarkerFocus"
-            @blur="hideMarkerTooltip"
-          >
-            <span class="bc-search-hit-scrollmark-dot" aria-hidden="true">🦠</span>
-          </button>
+            <button
+              v-if="showSidebarScrollMarker"
+              class="bc-search-hit-scrollmark"
+              type="button"
+              :style="activeScrollMarkerStyle"
+              :aria-label="activeScrollMarkerTooltip"
+              @click="scrollActiveHitIntoView"
+              @mouseenter="handleMarkerPointerMove"
+              @mousemove="handleMarkerPointerMove"
+              @mouseleave="hideMarkerTooltip"
+              @focus="handleMarkerFocus"
+              @blur="hideMarkerTooltip"
+            >
+              <span class="bc-search-hit-scrollmark-dot" aria-hidden="true">🦠</span>
+            </button>
 
-          <div
-            v-if="markerTooltip.visible"
-            class="bc-search-hit-scrollmark-tooltip"
-            :style="activeScrollMarkerTooltipStyle"
-            role="tooltip"
-          >
-            {{ activeScrollMarkerTooltip }}
+            <div
+              v-if="markerTooltip.visible"
+              class="bc-search-hit-scrollmark-tooltip"
+              :style="activeScrollMarkerTooltipStyle"
+              role="tooltip"
+            >
+              {{ activeScrollMarkerTooltip }}
+            </div>
           </div>
         </div>
-      </div>
-    </aside>
+      </aside>
 
-    <section class="bc-search-preview">
-      <div v-if="selectedHit" class="bc-search-preview-head">
-        <div class="bc-search-preview-copy">
-          <h2>{{ selectedHit.sectionLabel || selectedHit.pageTitle }}</h2>
-          <p>{{ selectedHit.pageTitle }}</p>
+      <section class="bc-search-preview">
+        <div v-if="selectedHit" class="bc-search-preview-head">
+          <div class="bc-search-preview-copy">
+            <h2>{{ selectedHit.sectionLabel || selectedHit.pageTitle }}</h2>
+            <p>{{ selectedHit.pageTitle }}</p>
+          </div>
+          <a
+            class="bc-search-toolbar-button bc-search-preview-open"
+            :href="selectedHit.href"
+            target="_blank"
+            rel="noopener noreferrer"
+          >
+            打开原文
+          </a>
         </div>
-        <a
-          class="bc-search-toolbar-button bc-search-preview-open"
-          :href="selectedHit.href"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          打开原文
-        </a>
-      </div>
 
-      <div v-if="!routeQuery" class="bc-search-preview-empty">
-        选择结果后在这里预览原文
-      </div>
+        <div v-if="!routeQuery" class="bc-search-preview-empty">
+          选择结果后在这里预览原文
+        </div>
 
-      <div v-else-if="!selectedHit && !isSearching" class="bc-search-preview-empty">
-        暂无可预览内容
-      </div>
+        <div v-else-if="!selectedHit && !isSearching" class="bc-search-preview-empty">
+          暂无可预览内容
+        </div>
 
-      <iframe
-        v-else-if="selectedHit"
-        class="bc-search-preview-frame"
-        :src="selectedHit.previewHref"
-        title="搜索结果原文预览"
-        loading="lazy"
-      />
+        <iframe
+          v-else-if="selectedHit"
+          class="bc-search-preview-frame"
+          :src="selectedHit.previewHref"
+          title="搜索结果原文预览"
+          loading="lazy"
+        />
+      </section>
     </section>
-  </section>
+  </ClientOnly>
 </template>

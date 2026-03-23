@@ -27,8 +27,8 @@ article: false
 
 ## 二级主题
 
-- [收获澄清、层析捕获与纯化主流程](/posts/cmc-knowledge/04-downstream-purification-harvest-01.html)（50 个知识点 / 2 个细分主题）
-- [除菌过滤、无菌检查与收获异常](/posts/cmc-knowledge/04-downstream-purification-harvest-02.html)（46 个知识点 / 2 个细分主题）
+- [收获澄清、层析捕获与纯化主流程](/blogs/posts/cmc-knowledge/04-downstream-purification-harvest-01.html)（50 个知识点 / 2 个细分主题）
+- [除菌过滤、无菌检查与收获异常](/blogs/posts/cmc-knowledge/04-downstream-purification-harvest-02.html)（46 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 

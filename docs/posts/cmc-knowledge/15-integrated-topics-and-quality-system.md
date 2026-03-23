@@ -27,19 +27,19 @@ article: false
 
 ## 二级主题
 
-- [worst-case、ISF 与质量属性基础](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-01.html)（48 个知识点 / 2 个细分主题）
-- [接受标准、结构差异与 ADA 机制](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-02.html)（49 个知识点 / 2 个细分主题）
-- [ADA 影响、聚集因素与验证确认](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-03.html)（50 个知识点 / 2 个细分主题）
-- [设备管理、QA/QC 与 ICH Q5A](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-04.html)（50 个知识点 / 2 个细分主题）
-- [ICH Q5A、上市申请与下游工艺控制](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-05.html)（50 个知识点 / 2 个细分主题）
-- [原液质量标准、Qp 提升与 Specification](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-06.html)（47 个知识点 / 2 个细分主题）
-- [一级结构、微量元素与 PB 试验设计](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-07.html)（46 个知识点 / 2 个细分主题）
-- [PB 设计、发放管理与微生物/热原](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-08.html)（47 个知识点 / 2 个细分主题）
-- [热原、翻译后修饰与 E2B 数据元素](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-09.html)（44 个知识点 / 2 个细分主题）
-- [个例报告、检定与药品有效期管理](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-10.html)（47 个知识点 / 2 个细分主题）
-- [有效期意义、文件体系与再验证](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-11.html)（47 个知识点 / 2 个细分主题）
-- [抗体质量属性、偏差结论与干燥研究](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-12.html)（47 个知识点 / 2 个细分主题）
-- [二次干燥、冷冻容器与检查案例](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-13.html)（47 个知识点 / 2 个细分主题）
+- [worst-case、ISF 与质量属性基础](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-01.html)（48 个知识点 / 2 个细分主题）
+- [接受标准、结构差异与 ADA 机制](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-02.html)（49 个知识点 / 2 个细分主题）
+- [ADA 影响、聚集因素与验证确认](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-03.html)（50 个知识点 / 2 个细分主题）
+- [设备管理、QA/QC 与 ICH Q5A](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-04.html)（50 个知识点 / 2 个细分主题）
+- [ICH Q5A、上市申请与下游工艺控制](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-05.html)（50 个知识点 / 2 个细分主题）
+- [原液质量标准、Qp 提升与 Specification](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-06.html)（47 个知识点 / 2 个细分主题）
+- [一级结构、微量元素与 PB 试验设计](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-07.html)（46 个知识点 / 2 个细分主题）
+- [PB 设计、发放管理与微生物/热原](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-08.html)（47 个知识点 / 2 个细分主题）
+- [热原、翻译后修饰与 E2B 数据元素](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-09.html)（44 个知识点 / 2 个细分主题）
+- [个例报告、检定与药品有效期管理](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-10.html)（47 个知识点 / 2 个细分主题）
+- [有效期意义、文件体系与再验证](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-11.html)（47 个知识点 / 2 个细分主题）
+- [抗体质量属性、偏差结论与干燥研究](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-12.html)（47 个知识点 / 2 个细分主题）
+- [二次干燥、冷冻容器与检查案例](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-13.html)（47 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 

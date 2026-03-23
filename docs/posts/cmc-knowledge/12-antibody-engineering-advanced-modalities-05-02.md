@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“内毒素检测、ADC 开发关键点与靶点数据库”里与“开发策略与实操控制”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 17 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-05.html)
-- [返回一级专题总览](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities.html)
-- [上一细分主题](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-05-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-05.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-05-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是细菌内毒素，关键要点有哪些
 
 :::answer
@@ -57,6 +59,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 药物及临床试验范围都包含哪些？疫苗是否包含在内
 
 :::answer
@@ -65,6 +68,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是 ADC 药物开发的关键点，关键要点有哪些
 
 :::answer
@@ -77,6 +81,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## ADC 药物的质量控制
 
 :::answer
@@ -89,6 +94,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是 ADC 药物抗体
 
 :::answer
@@ -115,6 +121,7 @@ IgG1 是 ADC 常用的亚型，主要原因如下：（详见如下问答） 01-
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是 ADC 药物对抗分子选择的考量，关键要点有哪些
 
 :::answer
@@ -141,6 +148,7 @@ ADC 药物多采用人源化单抗亚型中的 IgG1 分子，其优势是对靶�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是认识 ADC 药物，关键要点有哪些
 
 :::answer
@@ -149,6 +157,7 @@ ADC 药物多采用人源化单抗亚型中的 IgG1 分子，其优势是对靶�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## ADC 药物开发面临的 8 大挑战
 
 :::answer
@@ -165,6 +174,7 @@ ADCs 的研发和生产也面临着诸多挑战和困难。
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是 01~ADC 药物复杂的药代动力学特征，关键要点有哪些
 
 :::answer
@@ -203,6 +213,7 @@ ADC 主要作用机制如下： 01-ADC 由静脉注射进入体内后，通过�
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是 02~ADC 药物的毒性，关键要点有哪些
 
 :::answer
@@ -221,6 +232,7 @@ ADC 药物的毒性主要来源于 2 个方面，即抗体分子产生的毒性�
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是 03~ADC 药物的稳定性，关键要点有哪些
 
 :::answer
@@ -237,6 +249,7 @@ ADC 药物的毒性主要来源于 2 个方面，即抗体分子产生的毒性�
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是 04~ADC 药物的耐药性，关键要点有哪些
 
 :::answer
@@ -253,6 +266,7 @@ ADC 药物的毒性主要来源于 2 个方面，即抗体分子产生的毒性�
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 05~ADC 药物 CQA 控制
 
 :::answer
@@ -267,6 +281,7 @@ ADC 产品质量研究包括有效载荷/连接子部分、裸抗部分、ADC �
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 06~ADC 药代动力学分析面临的挑战
 
 :::answer
@@ -275,6 +290,7 @@ ADC 产品质量研究包括有效载荷/连接子部分、裸抗部分、ADC �
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## ADC 药物生产面临的挑战
 
 :::answer
@@ -287,6 +303,7 @@ ADC 产品质量研究包括有效载荷/连接子部分、裸抗部分、ADC �
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是 ADC 药物免疫原性，关键要点有哪些
 
 :::answer
@@ -303,6 +320,7 @@ ADC 免疫原性评估的关键是风险评估、适当的检测和 ADA 结构�
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 常用药物靶点数据库通常包括哪些关键点
 
 :::answer

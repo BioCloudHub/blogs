@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“动物接种、指示病毒与无菌/微生物限度”里与“病毒无菌基础”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 23 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/07-viral-safety-sterility-control-02.html)
-- [返回一级专题总览](/posts/cmc-knowledge/07-viral-safety-sterility-control.html)
-- [下一细分主题](/posts/cmc-knowledge/07-viral-safety-sterility-control-02-02.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/07-viral-safety-sterility-control-02.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/07-viral-safety-sterility-control.html)
+- [下一细分主题](/blogs/posts/cmc-knowledge/07-viral-safety-sterility-control-02-02.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是病毒因子检查-动物体内接种法检测外源病毒因子，关键要点有哪些
 
 :::answer
@@ -45,6 +47,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 什么是病毒因子检查-逆转录病毒及其他内源性病毒或病毒核酸的检测，关键要点有哪些
 
 :::answer
@@ -59,6 +62,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是病毒因子检查-牛源性病毒检测，关键要点有哪些
 
 :::answer
@@ -71,6 +75,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是病毒因子检查-猪源性病毒检测，关键要点有哪些
 
 :::answer
@@ -83,6 +88,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是病毒因子检查-其他特定病毒的检测，关键要点有哪些
 
 :::answer
@@ -91,6 +97,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是成瘤性检测，关键要点有哪些
 
 :::answer
@@ -113,6 +120,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是致瘤性检测，关键要点有哪些
 
 :::answer
@@ -122,6 +130,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是步骤七：低 pH 病毒灭活，关键要点有哪些
 
 :::answer
@@ -132,6 +141,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是步骤十一：除病毒过滤，关键要点有哪些
 
 :::answer
@@ -142,6 +152,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是高浓度无菌注射液灌装技术难点及解决措施，关键要点有哪些
 
 :::answer
@@ -172,22 +183,20 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是除病毒过滤原理，关键要点有哪些
 
 :::answer
-
-A
 
 - **除病毒过滤原理：** 除病毒过滤的病毒清除的作用机制是基于粒径排阻：病毒大于滤膜孔径，产品穿过滤膜而病毒被滞留。吸附机理：对于尺寸小于膜孔的病毒，通过电荷、范德华、氢键等作用力捕获病毒。
 - **验证：** 基于粒径排阻的滤膜是设计用来有效清除直径 20nm 的细小病毒，因此能够极其有效地去除直径 80-100nm 的小鼠白血病病毒，工业界对各种品牌滤膜清除验证一致证明对小鼠白血病病毒清除的高效性。
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是非最终灭菌产品的过滤除菌法规要求，关键要点有哪些
 
 :::answer
-
-A
 
 2010 版 GMP 附录一《无菌药品》：第七十五条非最终灭菌产品的过滤除菌应当符合以下要求：可最终灭菌的产品不得以过滤除菌工艺替代最终灭菌工艺。
 
@@ -211,11 +220,10 @@ A
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 常见的除病毒过滤工艺考量到底有哪些，各自怎么理解
 
 :::answer
-
-A
 
 除病毒过滤是基于粒径排阻原理，能够稳健清除各类病毒，且可进行工艺后完整性测试确保工艺的有效性，已被业界广泛接受。
 
@@ -233,6 +241,7 @@ A
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 病毒安全性控制的一般原则
 
 :::answer
@@ -255,6 +264,7 @@ A
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 病毒来源控制
 
 :::answer
@@ -271,11 +281,10 @@ A
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 生产过程病毒控制
 
 :::answer
-
-- **A：** 方法如下
 
 01 产品生产工艺：生物制品生产过程包含的理化工艺步骤可能具有一定的病毒清除作用，通过工艺开发和验证可证明生产工艺对于潜在病毒污染的整体清除作用。
 
@@ -295,6 +304,7 @@ A
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 什么是产品病毒污染的检测，关键要点有哪些
 
 :::answer
@@ -311,6 +321,7 @@ A
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 什么是细菌截留试验，关键要点有哪些
 
 :::answer
@@ -353,6 +364,7 @@ A
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是灭菌，关键要点有哪些
 
 :::answer
@@ -397,15 +409,14 @@ A
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是除病毒验证的必要性，关键要点有哪些
 
 :::answer
 
 - 01 CHO 细胞培养过程中有可能发生外源性病毒污染，各国药监机构要求临床试验前和生产阶段前的申报材料中，纯化工艺必须经过病毒清除/灭活验证，以确保无论是临床试验患者注射用，还是推向市场的产品，均不会出现病毒污染，酿成重大医疗事故。 02 法规：美国、欧盟法规建立相对较早，体系相对健全
 - 国内法规发布较晚，主要在参照美国、欧盟法规的基础上，结合自身实际，做了一定的完善。 ICH Q5a（R1）VIRAL SAFETY EVALUATION OF BIOTECHNOLOGY PRODUCTS DERIVED FROM CELL LINES OF HUMAN OR ANIMAL ORIGIN，1999 《中国药典》三部，生物制品通则-生物制品病毒安全性控制，2020 年版 生物组织提取制品和真核细胞表达制品的病毒安全性评价的技术审评一般原则，药品评审中心，2005.12
-- 血液制品去除／灭活病毒技术方法及验证指导原则，NMPA，2002.05 Technical Report No.83-Virus Contamination in Biomanufacturing: Risk Mitigation, Preparedness, and Response，PDA，2019 Guidance for Industry -Process Validation: General Principles and Practices，FDA，2011 补充 Virus Filtration is a type of dead-end filtration to remove the possible virus in the products by size.
-
-病毒过滤是一种死端过滤，通过尺寸去除产品中可能存在的病毒。
+- 血液制品去除／灭活病毒技术方法及验证指导原则，NMPA，2002.05 Technical Report No.83-Virus Contamination in Biomanufacturing: Risk Mitigation, Preparedness, and Response，PDA，2019 Guidance for Industry -Process Validation: General Principles and Practices，FDA，2011 补充 Virus Filtration is a type of dead-end filtration to remove the possible virus in the products by size. 病毒过滤是一种死端过滤，通过尺寸去除产品中可能存在的病毒。
 
 Virus Clearance Test 病毒清除测试 “The objective of viral clearance studies is to assess process step(s) that can be considered to be effective in inactivating/removing viruses and to estimate quantitatively the overall level of virus reduction … This should be achieved by the deliberate addition (“spiking”) of significant amounts of a virus to the crude material and/or to different fractions … It is not necessary to evaluate or characterize every step of a manufacturing process if adequate clearance is demonstrated by the use of fewer steps.”
 
@@ -417,6 +428,7 @@ Virus Clearance Test 病毒清除测试 “The objective of viral clearance stud
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 什么是除病毒的工艺，关键要点有哪些
 
 :::answer
@@ -429,6 +441,7 @@ Virus Clearance Test 病毒清除测试 “The objective of viral clearance stud
 
 :::
 
+<!-- cmc-question-id: Q23 -->
 ## 什么是病毒灭活/去除工艺的验证考虑要点，关键要点有哪些
 
 :::answer
@@ -445,11 +458,10 @@ Virus Clearance Test 病毒清除测试 “The objective of viral clearance stud
 
 :::
 
+<!-- cmc-question-id: Q24 -->
 ## 什么是病毒清除验证常用指示病毒，关键要点有哪些
 
 :::answer
-
-。
 
 01 病毒清除/灭活验证中，最好的情况是把每种可能出现的污染病毒都做一次验证，研究数据越多、覆盖面越广、报告说服力越强，但考虑时间、人力和资金的成本，每种病毒都做一遍，不太现实。
 

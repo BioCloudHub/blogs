@@ -27,8 +27,8 @@ article: false
 
 ## 二级主题
 
-- [糖蛋白、细胞死亡、IgG 亚型与癌症免疫](/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-01.html)（42 个知识点 / 2 个细分主题）
-- [癌症认知、抗体工程基础与微量元素影响](/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-02.html)（40 个知识点 / 2 个细分主题）
+- [糖蛋白、细胞死亡、IgG 亚型与癌症免疫](/blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-01.html)（42 个知识点 / 2 个细分主题）
+- [癌症认知、抗体工程基础与微量元素影响](/blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-02.html)（40 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 

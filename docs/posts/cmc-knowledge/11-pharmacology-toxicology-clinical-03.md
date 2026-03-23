@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [药理临床基础](/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-03-01.html)（20 个知识点）
-- [开发设计与变更判断](/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-03-02.html)（19 个知识点）
+- [药理临床基础](/blogs/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-03-01.html)（20 个知识点）
+- [开发设计与变更判断](/blogs/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-03-02.html)（19 个知识点）
 
 ## 维护建议
 

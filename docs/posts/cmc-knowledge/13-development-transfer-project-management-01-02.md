@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“细胞株替换、研发流程与 CMC 基础”里与“转移管理与现场执行”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 21 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/13-development-transfer-project-management-01.html)
-- [返回一级专题总览](/posts/cmc-knowledge/13-development-transfer-project-management.html)
-- [上一细分主题](/posts/cmc-knowledge/13-development-transfer-project-management-01-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/13-development-transfer-project-management-01.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/13-development-transfer-project-management.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/13-development-transfer-project-management-01-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是生物药成药性研究的目的，关键要点有哪些
 
 :::answer
@@ -53,6 +55,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 什么时候开展成药性评估
 
 :::answer
@@ -61,6 +64,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是成药性评估基本思路，关键要点有哪些
 
 :::answer
@@ -79,6 +83,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 常见的成药性评估中重点关注的蛋白质量属性有哪些，各自怎么理解
 
 :::answer
@@ -98,6 +103,7 @@ QbD 方法中将有必要识别和评估影响产品安全性和有效性的质�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是生物制药 PM 的职责，关键要点有哪些
 
 :::answer
@@ -118,6 +124,7 @@ QbD 方法中将有必要识别和评估影响产品安全性和有效性的质�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 生物制药 PM 需具备哪些软实力素质
 
 :::answer
@@ -128,6 +135,7 @@ QbD 方法中将有必要识别和评估影响产品安全性和有效性的质�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 生物制药 PM 需具备哪些专业素质
 
 :::answer
@@ -142,6 +150,7 @@ PPT 的展现最好能以结果为导向，关注目标，逻辑清晰。
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是生物药 PM 必读的十本经典书籍，关键要点有哪些
 
 :::answer
@@ -150,6 +159,7 @@ PPT 的展现最好能以结果为导向，关注目标，逻辑清晰。
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是生物药工艺技术转移流程，关键要点有哪些
 
 :::answer
@@ -166,6 +176,7 @@ A
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是阶段 4： 批文和生产，关键要点有哪些
 
 :::answer
@@ -177,6 +188,7 @@ A
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是生物制药行业网站，关键要点有哪些
 
 :::answer
@@ -187,6 +199,7 @@ A
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是专利查询网站，关键要点有哪些
 
 :::answer
@@ -195,6 +208,7 @@ A
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是关键点一：抗体的选择和生产，关键要点有哪些
 
 :::answer
@@ -205,6 +219,7 @@ A
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是关键点三：耦连药物的选择和生产，关键要点有哪些
 
 :::answer
@@ -214,6 +229,7 @@ A
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是书籍下载网站，关键要点有哪些
 
 :::answer
@@ -222,6 +238,7 @@ A
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是文献下载网站，关键要点有哪些
 
 :::answer
@@ -230,6 +247,7 @@ A
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 什么是美国法规与药品信息查询网站，关键要点有哪些
 
 :::answer
@@ -238,6 +256,7 @@ A
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 什么是生物药研发理念转变，关键要点有哪些
 
 :::answer
@@ -248,6 +267,7 @@ A
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 风险管理理念有哪些关键差异
 
 :::answer
@@ -274,6 +294,7 @@ BLA 申报：由于 BLA 申报以后产品可以上市销售，面对的人群�
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是 CMC 研究
 
 :::answer
@@ -282,6 +303,7 @@ CMC 全称为 Chemical Manufacturing and Controls，包括生产工艺、杂质�
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## CMC 研究包含哪些通常要包含哪些核心内容
 
 :::answer

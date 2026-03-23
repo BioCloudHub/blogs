@@ -27,7 +27,7 @@ article: false
 
 ## 二级主题
 
-- [平台化开发、可比性、生命周期与数字化 CMC](/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc-01.html)（26 个知识点 / 2 个细分主题）
+- [平台化开发、可比性、生命周期与数字化 CMC](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc-01.html)（26 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 

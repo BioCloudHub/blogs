@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“分辨率、HCP 去除与纯度控制”里与“验证放行与标准应用”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 22 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/06-analytical-methods-quality-standards-04.html)
-- [返回一级专题总览](/posts/cmc-knowledge/06-analytical-methods-quality-standards.html)
-- [上一细分主题](/posts/cmc-knowledge/06-analytical-methods-quality-standards-04-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards-04.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards-04-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是 HCP 去除-亲和层析，关键要点有哪些
 
 :::answer
@@ -53,6 +55,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 什么是 HCP 去除-中和 pH 优化，关键要点有哪些
 
 :::answer
@@ -79,6 +82,7 @@ pH 诱导的 HCP 沉淀也可以在细胞培养收获阶段实现，但是研究
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是 HCP 去除-混合模式层析，关键要点有哪些
 
 :::answer
@@ -101,6 +105,7 @@ pH 诱导的 HCP 沉淀也可以在细胞培养收获阶段实现，但是研究
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是 HCP 去除-絮凝，关键要点有哪些
 
 :::answer
@@ -117,6 +122,7 @@ pH 诱导的 HCP 沉淀也可以在细胞培养收获阶段实现，但是研究
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 辅料 CQA 的分析技术
 
 :::answer
@@ -135,6 +141,7 @@ X 射线粉末衍射法、DCS 法、TGA 法、NIR 法、固态核磁 SSNMR、KFT
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 辅料质控相关的指导原则和质量标准
 
 :::answer
@@ -147,6 +154,7 @@ ICHQ3D 用于原料药和制剂的金属杂质控制，对于辅料而言，也�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是检验和检测的区别，关键要点有哪些
 
 :::answer
@@ -177,6 +185,7 @@ ICHQ3D 用于原料药和制剂的金属杂质控制，对于辅料而言，也�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是参比品/对照品/参考品的区别，关键要点有哪些
 
 :::answer
@@ -195,6 +204,7 @@ ICHQ3D 用于原料药和制剂的金属杂质控制，对于辅料而言，也�
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 质量研究内容～含量和其他特性
 
 :::answer
@@ -209,6 +219,7 @@ ICHQ3D 用于原料药和制剂的金属杂质控制，对于辅料而言，也�
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是质量标准，关键要点有哪些
 
 :::answer
@@ -229,6 +240,7 @@ ADC 原液和制剂一般包括外观和性状、鉴别、理化性质、纯度�
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 鉴别与一致性分析
 
 :::answer
@@ -237,6 +249,7 @@ ADC 原液和制剂一般包括外观和性状、鉴别、理化性质、纯度�
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是质量研究-结构表征研究不足，关键要点有哪些
 
 :::answer
@@ -245,6 +258,7 @@ ADC 原液和制剂一般包括外观和性状、鉴别、理化性质、纯度�
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 质量标准拟定缺乏合理的拟定依据
 
 :::answer
@@ -253,6 +267,7 @@ ADC 原液和制剂一般包括外观和性状、鉴别、理化性质、纯度�
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是质量研究-对照品信息不全面，关键要点有哪些
 
 :::answer
@@ -261,6 +276,7 @@ ADC 原液和制剂一般包括外观和性状、鉴别、理化性质、纯度�
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是 license-in，关键要点有哪些
 
 :::answer
@@ -270,6 +286,7 @@ ADC 原液和制剂一般包括外观和性状、鉴别、理化性质、纯度�
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是 license-out，关键要点有哪些
 
 :::answer
@@ -284,6 +301,7 @@ license-in 和 license-out 引入的方式不同，前者是为引入方付费�
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 分析方法开发
 
 :::answer
@@ -293,6 +311,7 @@ license-in 和 license-out 引入的方式不同，前者是为引入方付费�
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 分析方法验证
 
 :::answer
@@ -302,6 +321,7 @@ license-in 和 license-out 引入的方式不同，前者是为引入方付费�
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 分析方法转移
 
 :::answer
@@ -311,6 +331,7 @@ license-in 和 license-out 引入的方式不同，前者是为引入方付费�
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 持续的分析方法性能监测
 
 :::answer
@@ -329,6 +350,7 @@ license-in 和 license-out 引入的方式不同，前者是为引入方付费�
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 生物制品质量控制-鉴别实验
 
 :::answer
@@ -337,6 +359,7 @@ license-in 和 license-out 引入的方式不同，前者是为引入方付费�
 
 :::
 
+<!-- cmc-question-id: Q23 -->
 ## 生物制品质量控制-纯度和异构体
 
 :::answer

@@ -1,6 +1,6 @@
 <script setup lang="ts">
 import { computed, nextTick, onMounted, onUnmounted, ref, watch } from "vue";
-import { useRoute, useRouter } from "vuepress/client";
+import { ClientOnly, useRoute, useRouter } from "vuepress/client";
 import {
   SEARCH_LAUNCH_EVENT,
   SEARCH_PATH,
@@ -30,11 +30,7 @@ const relaySearchLaunchToParent = (): boolean => {
   }
 };
 
-const shortcutLabel = computed(() =>
-  typeof navigator !== "undefined" && /Mac|iPhone|iPad|iPod/.test(navigator.platform)
-    ? "Cmd K"
-    : "Ctrl K",
-);
+const shortcutLabel = ref("Ctrl K");
 
 const canSubmit = computed(() => Boolean(normalizeQuery(draftQuery.value)));
 
@@ -110,6 +106,8 @@ watch(isDialogOpen, (open) => {
 });
 
 onMounted(() => {
+  shortcutLabel.value =
+    /Mac|iPhone|iPad|iPod/.test(navigator.platform) ? "Cmd K" : "Ctrl K";
   window.addEventListener(SEARCH_LAUNCH_EVENT, handleLaunchEvent);
   window.addEventListener("keydown", handleEscape);
 });
@@ -122,84 +120,86 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <button
-    class="bc-search-launch"
-    type="button"
-    aria-label="打开搜索工作台"
-    @click="openSearchDialog"
-  >
-    <span class="bc-search-launch-icon" aria-hidden="true">
-      <svg viewBox="0 0 24 24" focusable="false">
-        <path
-          d="M10.5 4a6.5 6.5 0 1 0 4.07 11.57l4.43 4.43 1.41-1.41-4.43-4.43A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"
-          fill="currentColor"
-        />
-      </svg>
-    </span>
-    <span class="bc-search-launch-label">搜索工作台</span>
-    <span class="bc-search-launch-shortcut">{{ shortcutLabel }}</span>
-  </button>
-
-  <Teleport to="body">
-    <div
-      v-if="isDialogOpen"
-      class="bc-search-launch-dialog-backdrop"
-      role="presentation"
-      @click.self="closeSearchDialog"
+  <ClientOnly>
+    <button
+      class="bc-search-launch"
+      type="button"
+      aria-label="打开搜索工作台"
+      @click="openSearchDialog"
     >
-      <form
-        class="bc-search-launch-dialog"
-        role="dialog"
-        aria-modal="true"
-        aria-labelledby="bc-search-launch-title"
-        @submit.prevent="submitSearch"
+      <span class="bc-search-launch-icon" aria-hidden="true">
+        <svg viewBox="0 0 24 24" focusable="false">
+          <path
+            d="M10.5 4a6.5 6.5 0 1 0 4.07 11.57l4.43 4.43 1.41-1.41-4.43-4.43A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"
+            fill="currentColor"
+          />
+        </svg>
+      </span>
+      <span class="bc-search-launch-label">搜索工作台</span>
+      <span class="bc-search-launch-shortcut">{{ shortcutLabel }}</span>
+    </button>
+
+    <Teleport to="body">
+      <div
+        v-if="isDialogOpen"
+        class="bc-search-launch-dialog-backdrop"
+        role="presentation"
+        @click.self="closeSearchDialog"
       >
-        <div class="bc-search-launch-dialog-head">
-          <div class="bc-search-launch-dialog-copy">
-            <p class="bc-search-launch-dialog-eyebrow">站内搜索</p>
-            <h2 id="bc-search-launch-title">输入关键词后进入搜索页</h2>
+        <form
+          class="bc-search-launch-dialog"
+          role="dialog"
+          aria-modal="true"
+          aria-labelledby="bc-search-launch-title"
+          @submit.prevent="submitSearch"
+        >
+          <div class="bc-search-launch-dialog-head">
+            <div class="bc-search-launch-dialog-copy">
+              <p class="bc-search-launch-dialog-eyebrow">站内搜索</p>
+              <h2 id="bc-search-launch-title">输入关键词后进入搜索页</h2>
+            </div>
+            <button
+              class="bc-search-launch-dialog-close"
+              type="button"
+              aria-label="关闭搜索弹窗"
+              @click="closeSearchDialog"
+            >
+              <span aria-hidden="true">×</span>
+            </button>
           </div>
-          <button
-            class="bc-search-launch-dialog-close"
-            type="button"
-            aria-label="关闭搜索弹窗"
-            @click="closeSearchDialog"
-          >
-            <span aria-hidden="true">×</span>
-          </button>
-        </div>
 
-        <label class="bc-search-input-shell bc-search-launch-dialog-input">
-          <span class="bc-search-input-icon" aria-hidden="true">
-            <svg viewBox="0 0 24 24" focusable="false">
-              <path
-                d="M10.5 4a6.5 6.5 0 1 0 4.07 11.57l4.43 4.43 1.41-1.41-4.43-4.43A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"
-                fill="currentColor"
-              />
-            </svg>
-          </span>
-          <input
-            ref="inputRef"
-            v-model="draftQuery"
-            type="search"
-            inputmode="search"
-            autocomplete="off"
-            spellcheck="false"
-            placeholder="例如：层析、Q40、病毒清除"
-          >
-        </label>
+          <label class="bc-search-input-shell bc-search-launch-dialog-input">
+            <span class="bc-search-input-icon" aria-hidden="true">
+              <svg viewBox="0 0 24 24" focusable="false">
+                <path
+                  d="M10.5 4a6.5 6.5 0 1 0 4.07 11.57l4.43 4.43 1.41-1.41-4.43-4.43A6.5 6.5 0 0 0 10.5 4Zm0 2a4.5 4.5 0 1 1 0 9 4.5 4.5 0 0 1 0-9Z"
+                  fill="currentColor"
+                />
+              </svg>
+            </span>
+            <input
+              ref="inputRef"
+              v-model="draftQuery"
+              type="search"
+              inputmode="search"
+              autocomplete="off"
+              spellcheck="false"
+              placeholder="例如：层析、Q40、病毒清除"
+            >
+          </label>
 
-        <div class="bc-search-launch-dialog-foot">
-          <p>确认后进入搜索页，并直接展示结果列表和原文预览。</p>
-          <button
-            class="bc-search-toolbar-button bc-search-launch-dialog-submit"
-            type="submit"
-            :disabled="!canSubmit"
-          >
-            开始搜索
-          </button>
-        </div>
-      </form>
-    </div>
-  </Teleport>
+          <div class="bc-search-launch-dialog-foot">
+            <p>确认后进入搜索页，并直接展示结果列表和原文预览。</p>
+            <button
+              class="bc-search-toolbar-button bc-search-launch-dialog-submit"
+              type="submit"
+              :disabled="!canSubmit"
+            >
+              开始搜索
+            </button>
+          </div>
+        </form>
+      </div>
+    </Teleport>
+  </ClientOnly>
 </template>

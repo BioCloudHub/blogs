@@ -36,29 +36,29 @@ article: false
 
 - 当前知识库已取消题号式展示，后续新增内容可以直接插入对应主题，不需要整体顺延重排。
 - 目录结构按“一级专题 -> 二级主题 -> 细分主题页”组织，适合持续扩充。
-- 维护规则见 [CMC 知识库维护说明](/posts/cmc-knowledge/maintenance.html)，批量整理可执行 `pnpm cmc:organize`。
+- 维护规则见 [CMC 知识库维护说明](/blogs/posts/cmc-knowledge/maintenance.html)，批量整理可执行 `pnpm cmc:organize`。
 
 ## 一级专题目录
 
-- [细胞株与表达系统](/posts/cmc-knowledge/01-expression-cell-line.html)（83 个知识点 / 2 个二级主题 / 4 个细分主题）
-- [细胞库与稳定性](/posts/cmc-knowledge/02-cell-bank-stability.html)（128 个知识点 / 3 个二级主题 / 6 个细分主题）
-- [上游培养与工艺放大](/posts/cmc-knowledge/03-upstream-culture-scale-up.html)（267 个知识点 / 6 个二级主题 / 12 个细分主题）
-- [下游纯化与收获](/posts/cmc-knowledge/04-downstream-purification-harvest.html)（96 个知识点 / 2 个二级主题 / 4 个细分主题）
-- [质量属性与分子异质性](/posts/cmc-knowledge/05-quality-attributes-heterogeneity.html)（184 个知识点 / 4 个二级主题 / 8 个细分主题）
-- [分析方法与质量标准](/posts/cmc-knowledge/06-analytical-methods-quality-standards.html)（298 个知识点 / 7 个二级主题 / 14 个细分主题）
-- [病毒安全与无菌控制](/posts/cmc-knowledge/07-viral-safety-sterility-control.html)（218 个知识点 / 5 个二级主题 / 10 个细分主题）
-- [制剂处方与包材稳定性](/posts/cmc-knowledge/08-formulation-packaging-stability.html)（347 个知识点 / 8 个二级主题 / 16 个细分主题）
-- [法规申报与审评策略](/posts/cmc-knowledge/09-regulatory-submission-review.html)（225 个知识点 / 5 个二级主题 / 10 个细分主题）
-- [工艺表征、验证与统计设计](/posts/cmc-knowledge/10-process-characterization-validation-statistics.html)（222 个知识点 / 5 个二级主题 / 10 个细分主题）
-- [药理毒理与临床开发](/posts/cmc-knowledge/11-pharmacology-toxicology-clinical.html)（156 个知识点 / 4 个二级主题 / 8 个细分主题）
-- [抗体工程、ADC 与新型疗法](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities.html)（239 个知识点 / 6 个二级主题 / 12 个细分主题）
-- [开发流程、技术转移与项目管理](/posts/cmc-knowledge/13-development-transfer-project-management.html)（239 个知识点 / 6 个二级主题 / 12 个细分主题）
-- [细胞生物学与培养基础](/posts/cmc-knowledge/14-cell-biology-culture-fundamentals.html)（82 个知识点 / 2 个二级主题 / 4 个细分主题）
-- [综合专题与质量体系](/posts/cmc-knowledge/15-integrated-topics-and-quality-system.html)（619 个知识点 / 13 个二级主题 / 26 个细分主题）
-- [平台化开发、生命周期与数字化 CMC](/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc.html)（26 个知识点 / 1 个二级主题 / 2 个细分主题）
+- [细胞株与表达系统](/blogs/posts/cmc-knowledge/01-expression-cell-line.html)（83 个知识点 / 2 个二级主题 / 4 个细分主题）
+- [细胞库与稳定性](/blogs/posts/cmc-knowledge/02-cell-bank-stability.html)（128 个知识点 / 3 个二级主题 / 6 个细分主题）
+- [上游培养与工艺放大](/blogs/posts/cmc-knowledge/03-upstream-culture-scale-up.html)（267 个知识点 / 6 个二级主题 / 12 个细分主题）
+- [下游纯化与收获](/blogs/posts/cmc-knowledge/04-downstream-purification-harvest.html)（96 个知识点 / 2 个二级主题 / 4 个细分主题）
+- [质量属性与分子异质性](/blogs/posts/cmc-knowledge/05-quality-attributes-heterogeneity.html)（184 个知识点 / 4 个二级主题 / 8 个细分主题）
+- [分析方法与质量标准](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards.html)（298 个知识点 / 7 个二级主题 / 14 个细分主题）
+- [病毒安全与无菌控制](/blogs/posts/cmc-knowledge/07-viral-safety-sterility-control.html)（218 个知识点 / 5 个二级主题 / 10 个细分主题）
+- [制剂处方与包材稳定性](/blogs/posts/cmc-knowledge/08-formulation-packaging-stability.html)（347 个知识点 / 8 个二级主题 / 16 个细分主题）
+- [法规申报与审评策略](/blogs/posts/cmc-knowledge/09-regulatory-submission-review.html)（225 个知识点 / 5 个二级主题 / 10 个细分主题）
+- [工艺表征、验证与统计设计](/blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics.html)（222 个知识点 / 5 个二级主题 / 10 个细分主题）
+- [药理毒理与临床开发](/blogs/posts/cmc-knowledge/11-pharmacology-toxicology-clinical.html)（156 个知识点 / 4 个二级主题 / 8 个细分主题）
+- [抗体工程、ADC 与新型疗法](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities.html)（239 个知识点 / 6 个二级主题 / 12 个细分主题）
+- [开发流程、技术转移与项目管理](/blogs/posts/cmc-knowledge/13-development-transfer-project-management.html)（239 个知识点 / 6 个二级主题 / 12 个细分主题）
+- [细胞生物学与培养基础](/blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals.html)（82 个知识点 / 2 个二级主题 / 4 个细分主题）
+- [综合专题与质量体系](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system.html)（619 个知识点 / 13 个二级主题 / 26 个细分主题）
+- [平台化开发、生命周期与数字化 CMC](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc.html)（26 个知识点 / 1 个二级主题 / 2 个细分主题）
 
 ## 说明
 
 - 每个一级专题页保留原路径，旧链接不会失效。
 - 二级主题页负责语义化分组，细分主题页负责承载具体内容。
-- 详细树状导航可在 [CMC 知识导航](/posts/cmc-knowledge/cmc.html) 和左侧 sidebar 中查看。
+- 详细树状导航可在 [CMC 知识导航](/blogs/posts/cmc-knowledge/cmc.html) 和左侧 sidebar 中查看。

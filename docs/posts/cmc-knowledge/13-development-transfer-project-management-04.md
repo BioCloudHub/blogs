@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [开发流程与项目基础](/posts/cmc-knowledge/13-development-transfer-project-management-04-01.html)（20 个知识点）
-- [转移管理与现场执行](/posts/cmc-knowledge/13-development-transfer-project-management-04-02.html)（20 个知识点）
+- [开发流程与项目基础](/blogs/posts/cmc-knowledge/13-development-transfer-project-management-04-01.html)（20 个知识点）
+- [转移管理与现场执行](/blogs/posts/cmc-knowledge/13-development-transfer-project-management-04-02.html)（20 个知识点）
 
 ## 维护建议
 

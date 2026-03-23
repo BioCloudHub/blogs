@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [研究框架与统计基础](/posts/cmc-knowledge/10-process-characterization-validation-statistics-02-01.html)（24 个知识点）
-- [验证设计与参数判断](/posts/cmc-knowledge/10-process-characterization-validation-statistics-02-02.html)（22 个知识点）
+- [研究框架与统计基础](/blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics-02-01.html)（24 个知识点）
+- [验证设计与参数判断](/blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics-02-02.html)（22 个知识点）
 
 ## 维护建议
 

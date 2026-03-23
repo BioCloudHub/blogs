@@ -36,12 +36,12 @@ article: false
 
 ### 按 CMC 支撑方向
 
-- `细胞株与遗传稳定性支撑`：[基因组学数据分析入门指南](/posts/bioanalytics/genomics-analysis.html)
-- `质量表征与分析开发支撑`：[蛋白质组学数据分析方法](/posts/bioanalytics/proteomics-analysis.html)
-- `工艺机理与细胞状态分析`：[单细胞测序数据分析实战](/posts/bioanalytics/scrna-analysis.html)
+- `细胞株与遗传稳定性支撑`：[基因组学数据分析入门指南](/blogs/posts/bioanalytics/genomics-analysis.html)
+- `质量表征与分析开发支撑`：[蛋白质组学数据分析方法](/blogs/posts/bioanalytics/proteomics-analysis.html)
+- `工艺机理与细胞状态分析`：[单细胞测序数据分析实战](/blogs/posts/bioanalytics/scrna-analysis.html)
 
 ### 按技术类别
 
-- `基因组学`：[基因组学数据分析入门指南](/posts/bioanalytics/genomics-analysis.html)
-- `蛋白质组学`：[蛋白质组学数据分析方法](/posts/bioanalytics/proteomics-analysis.html)
-- `单细胞组学`：[单细胞测序数据分析实战](/posts/bioanalytics/scrna-analysis.html)
+- `基因组学`：[基因组学数据分析入门指南](/blogs/posts/bioanalytics/genomics-analysis.html)
+- `蛋白质组学`：[蛋白质组学数据分析方法](/blogs/posts/bioanalytics/proteomics-analysis.html)
+- `单细胞组学`：[单细胞测序数据分析实战](/blogs/posts/bioanalytics/scrna-analysis.html)

@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“PB 设计、发放管理与微生物/热原”里与“验证控制与案例判断”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 23 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-08.html)
-- [返回一级专题总览](/posts/cmc-knowledge/15-integrated-topics-and-quality-system.html)
-- [上一细分主题](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-08-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-08.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-08-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是库存管理的一般步骤，关键要点有哪些
 
 :::answer
@@ -47,6 +49,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 控制策略中的物料控制
 
 :::answer
@@ -55,6 +58,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是药品的生命周期管理
 
 :::answer
@@ -71,6 +75,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 产品生命周期管理技术转移活动通常要包含哪些核心内容
 
 :::answer
@@ -89,6 +94,7 @@ IND 申报前的技术转移活动不发生的 GMP 体系下，可进行简单�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是技术转移成功的可接受标准，关键要点有哪些
 
 :::answer
@@ -109,6 +115,7 @@ IND 申报前的技术转移活动不发生的 GMP 体系下，可进行简单�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是法律合同与协议，关键要点有哪些
 
 :::answer
@@ -125,6 +132,7 @@ IND 申报前的技术转移活动不发生的 GMP 体系下，可进行简单�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是转化医学理念和应用，关键要点有哪些
 
 :::answer
@@ -133,6 +141,7 @@ IND 申报前的技术转移活动不发生的 GMP 体系下，可进行简单�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是监管科学理念和应用，关键要点有哪些
 
 :::answer
@@ -147,6 +156,7 @@ IND 申报前的技术转移活动不发生的 GMP 体系下，可进行简单�
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是精准医学理念和应用，关键要点有哪些
 
 :::answer
@@ -159,6 +169,7 @@ IND 申报前的技术转移活动不发生的 GMP 体系下，可进行简单�
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 质量源于设计理念和应用
 
 :::answer
@@ -179,6 +190,7 @@ IND 申报前的技术转移活动不发生的 GMP 体系下，可进行简单�
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是 N-糖的合成路径，关键要点有哪些
 
 :::answer
@@ -188,6 +200,7 @@ IND 申报前的技术转移活动不发生的 GMP 体系下，可进行简单�
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是 N-糖的命名规则，关键要点有哪些
 
 :::answer
@@ -196,6 +209,7 @@ IND 申报前的技术转移活动不发生的 GMP 体系下，可进行简单�
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 为什么要重视N-糖质量控制
 
 :::answer
@@ -212,6 +226,7 @@ N-糖基化（聚糖与天冬酰胺的氮链相连）是生物药物中，尤其
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 影响：N-糖结构与单抗构象之间是什么关系
 
 :::answer
@@ -224,6 +239,7 @@ G0 糖型与单抗 FcCy2 结构域共有 52 个疏水性相互作用，核心岩
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 影响：N-糖结构与单抗半衰期之间是什么关系
 
 :::answer
@@ -238,6 +254,7 @@ ASGPR 可结合糖蛋白的末端半乳糖和 N-乙酰葡萄糖胺，可通过�
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是种类：岩藻糖修饰，关键要点有哪些
 
 :::answer
@@ -247,6 +264,7 @@ ASGPR 可结合糖蛋白的末端半乳糖和 N-乙酰葡萄糖胺，可通过�
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 分析：完整糖蛋白质谱分析
 
 :::answer
@@ -255,6 +273,7 @@ ASGPR 可结合糖蛋白的末端半乳糖和 N-乙酰葡萄糖胺，可通过�
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 分析：糖肽水平分析
 
 :::answer
@@ -271,6 +290,7 @@ ASGPR 可结合糖蛋白的末端半乳糖和 N-乙酰葡萄糖胺，可通过�
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 控制：法规和指南要求
 
 :::answer
@@ -279,6 +299,7 @@ ASGPR 可结合糖蛋白的末端半乳糖和 N-乙酰葡萄糖胺，可通过�
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 控制：上游工艺调控
 
 :::answer
@@ -287,6 +308,7 @@ ASGPR 可结合糖蛋白的末端半乳糖和 N-乙酰葡萄糖胺，可通过�
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 控制：下游工艺调控
 
 :::answer
@@ -295,6 +317,7 @@ ASGPR 可结合糖蛋白的末端半乳糖和 N-乙酰葡萄糖胺，可通过�
 
 :::
 
+<!-- cmc-question-id: Q23 -->
 ## 控制：产品放行控制
 
 :::answer
@@ -303,6 +326,7 @@ ASGPR 可结合糖蛋白的末端半乳糖和 N-乙酰葡萄糖胺，可通过�
 
 :::
 
+<!-- cmc-question-id: Q24 -->
 ## 什么是微生物，关键要点有哪些
 
 :::answer

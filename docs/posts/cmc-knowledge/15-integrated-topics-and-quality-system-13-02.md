@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“二次干燥、冷冻容器与检查案例”里与“验证控制与案例判断”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 25 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-13.html)
-- [返回一级专题总览](/posts/cmc-knowledge/15-integrated-topics-and-quality-system.html)
-- [上一细分主题](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-13-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-13.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-13-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是原液冷冻容器的选择，关键要点有哪些
 
 :::answer
@@ -55,6 +57,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 什么是保存时限的确定，关键要点有哪些
 
 :::answer
@@ -63,6 +66,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是完整性
 
 :::answer
@@ -71,6 +75,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是泡点测试，关键要点有哪些
 
 :::answer
@@ -85,6 +90,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是扩散流测试，关键要点有哪些
 
 :::answer
@@ -99,6 +105,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是水侵入测试，关键要点有哪些
 
 :::answer
@@ -107,6 +114,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是压力保持，关键要点有哪些
 
 :::answer
@@ -127,6 +135,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是高甘露糖型含量可接受标准，关键要点有哪些
 
 :::answer
@@ -135,6 +144,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 原液出现粉色的机理
 
 :::answer
@@ -143,6 +153,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 原液出现黄色的机理
 
 :::answer
@@ -155,6 +166,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 原液出现棕色的机理
 
 :::answer
@@ -163,6 +175,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是标准比色法
 
 :::answer
@@ -171,6 +184,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是色差计法
 
 :::answer
@@ -179,6 +193,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是细胞株构建阶段，关键要点有哪些
 
 :::answer
@@ -187,6 +202,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是二硫键相关修饰，关键要点有哪些
 
 :::answer
@@ -207,6 +223,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 翻译后修饰控制的挑战
 
 :::answer
@@ -217,6 +234,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 为什么要重视抗体稳定对成药
 
 :::answer
@@ -235,6 +253,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 影响抗体不稳定的机制
 
 :::answer
@@ -247,6 +266,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是水解作用，关键要点有哪些
 
 :::answer
@@ -255,6 +275,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是二硫键断裂，关键要点有哪些
 
 :::answer
@@ -277,6 +298,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 什么是辅料发生化学变化，关键要点有哪些
 
 :::answer
@@ -289,6 +311,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q23 -->
 ## 什么是一次性技术实施的法规要求和期望，关键要点有哪些
 
 :::answer
@@ -303,6 +326,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q24 -->
 ## 一次性技术使用质量控制
 
 :::answer
@@ -315,6 +339,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q25 -->
 ## 什么是一次耗材的相容性研究，关键要点有哪些
 
 :::answer
@@ -329,6 +354,7 @@ VA 含量为 3%~12%的 EVA 的设计灵活性与塑化 PVC 相似。
 
 :::
 
+<!-- cmc-question-id: Q26 -->
 ## 什么是案例，关键要点有哪些
 
 :::answer

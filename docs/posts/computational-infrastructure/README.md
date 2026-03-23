@@ -36,8 +36,8 @@ article: false
 
 ### 按 CMC 支撑方向
 
-- `数字化与平台支撑`：[Kubernetes 在生物医药领域的应用](/posts/computational-infrastructure/kubernetes-biotech.html)
+- `数字化与平台支撑`：[Kubernetes 在生物医药领域的应用](/blogs/posts/computational-infrastructure/kubernetes-biotech.html)
 
 ### 按技术类别
 
-- `云原生与容器化`：[Kubernetes 在生物医药领域的应用](/posts/computational-infrastructure/kubernetes-biotech.html)
+- `云原生与容器化`：[Kubernetes 在生物医药领域的应用](/blogs/posts/computational-infrastructure/kubernetes-biotech.html)

@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“ADC 靶点、药代动力学与一般要求”里与“机制靶点与技术基础”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 22 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-03.html)
-- [返回一级专题总览](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities.html)
-- [下一细分主题](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-03-02.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-03.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities.html)
+- [下一细分主题](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-03-02.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是常见 ADC 药物靶点，关键要点有哪些
 
 :::answer
@@ -35,6 +37,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 什么是 ADC 药物靶点选择方法，关键要点有哪些
 
 :::answer
@@ -43,6 +46,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是 ADC 药物靶点的选择趋势，关键要点有哪些
 
 :::answer
@@ -52,6 +56,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是 ADC 药物热门靶点，关键要点有哪些
 
 :::answer
@@ -96,6 +101,7 @@ c-Met 信号通路能被癌细胞频繁激活以促进肿瘤形成、侵袭性�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是抗体药物的靶点
 
 :::answer
@@ -104,6 +110,7 @@ c-Met 信号通路能被癌细胞频繁激活以促进肿瘤形成、侵袭性�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 开发 Her2 靶向 ADC 药物面临的挑战
 
 :::answer
@@ -134,6 +141,7 @@ c-Met 信号通路能被癌细胞频繁激活以促进肿瘤形成、侵袭性�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## N-糖结构与 ADCC、ADCP 之间是什么关系
 
 :::answer
@@ -150,6 +158,7 @@ Fc 上 N-糖末端的唾液酸可减弱单抗的 ADCC 效应，其机制可能�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 影响 ADC 有效性的关键因素
 
 :::answer
@@ -158,6 +167,7 @@ Fc 上 N-糖末端的唾液酸可减弱单抗的 ADCC 效应，其机制可能�
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是纳米抗体
 
 :::answer
@@ -182,6 +192,7 @@ Nanobody 的编码基因由 360 个左右的碱基对组成，使得 nanobody �
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是纳米抗体的优点和缺点，关键要点有哪些
 
 :::answer
@@ -218,6 +229,7 @@ Nanobody 的编码基因由 360 个左右的碱基对组成，使得 nanobody �
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是纳米抗体与癌症治疗，关键要点有哪些
 
 :::answer
@@ -234,6 +246,7 @@ Nanobody 的编码基因由 360 个左右的碱基对组成，使得 nanobody �
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是纳米抗体与效应分子，关键要点有哪些
 
 :::answer
@@ -252,6 +265,7 @@ Nanobody 的编码基因由 360 个左右的碱基对组成，使得 nanobody �
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是纳米抗体与药物传递系统，关键要点有哪些
 
 :::answer
@@ -274,6 +288,7 @@ Nanobody 的编码基因由 360 个左右的碱基对组成，使得 nanobody �
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是纳米抗体与放射性核素治疗，关键要点有哪些
 
 :::answer
@@ -290,6 +305,7 @@ Nanobody 的编码基因由 360 个左右的碱基对组成，使得 nanobody �
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是纳米抗体与光动力治疗，关键要点有哪些
 
 :::answer
@@ -298,6 +314,7 @@ Nanobody 的编码基因由 360 个左右的碱基对组成，使得 nanobody �
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是纳米抗体吸入式给药，关键要点有哪些
 
 :::answer
@@ -320,6 +337,7 @@ Nanobody 的编码基因由 360 个左右的碱基对组成，使得 nanobody �
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 什么是当前纳米抗体上市药物，关键要点有哪些
 
 :::answer
@@ -333,6 +351,7 @@ Nanobody 的编码基因由 360 个左右的碱基对组成，使得 nanobody �
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 纳米抗体应用挑战
 
 :::answer
@@ -359,16 +378,18 @@ Nanobody 的编码基因由 360 个左右的碱基对组成，使得 nanobody �
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是 ADC 药物开发的核心四要素，关键要点有哪些
 
 :::answer
 
-- linker 需要在血液循环系统中稳定存在，而定位在肿瘤细胞内或附近时能快速释放活性毒素分子，linker 的不稳定性会导致毒素分子的过早释放，造成对正常组织细胞的损伤。也有一项临床研究显示，没登素生物碱的 ADC 稳定性与不良反应呈相反的关系。因此，对于抗体，肿瘤组织和 payloads 的组合，确定具有最佳稳定性的 linker 非常重要。 （
-- ADC 一旦被内化到靶肿瘤组织中，linker 需要具有被快速裂解并释放毒性分子的能力。 （
+- linker 需要在血液循环系统中稳定存在，而定位在肿瘤细胞内或附近时能快速释放活性毒素分子，linker 的不稳定性会导致毒素分子的过早释放，造成对正常组织细胞的损伤。也有一项临床研究显示，没登素生物碱的 ADC 稳定性与不良反应呈相反的关系。因此，对于抗体，肿瘤组织和 payloads 的组合，确定具有最佳稳定性的 linker 非常重要。
+- ADC 一旦被内化到靶肿瘤组织中，linker 需要具有被快速裂解并释放毒性分子的能力。
 - 疏水性也是 linker 考虑的一个重要特性，疏水性连接集团和疏水性毒素分子通常会促进 ADC 小分子的聚集，从而引起免疫原性。目前根据是否将 linker 分为两大类：一种为可切割 linker，ADC 药物的主要类型；另一种为不可切割的 linker，区别在于是否会在细胞内被降解。
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是 ADC 药物发展史核心四要素的变迁，关键要点有哪些
 
 :::answer
@@ -411,6 +432,7 @@ ADC 技术发展的难点在于 linker 技术。
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 影响 ADCs 作用的因素
 
 :::answer
@@ -423,6 +445,7 @@ ADCs 从血液循环再到肿瘤部位的过程中，有很多因素都会影响
 
 :::
 
+<!-- cmc-question-id: Q23 -->
 ## 血液循环对 ADCs 的影响
 
 :::answer

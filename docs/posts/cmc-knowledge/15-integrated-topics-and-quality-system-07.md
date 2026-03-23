@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [体系认知与核心概念](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-07-01.html)（22 个知识点）
-- [验证控制与案例判断](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-07-02.html)（24 个知识点）
+- [体系认知与核心概念](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-07-01.html)（22 个知识点）
+- [验证控制与案例判断](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-07-02.html)（24 个知识点）
 
 ## 维护建议
 

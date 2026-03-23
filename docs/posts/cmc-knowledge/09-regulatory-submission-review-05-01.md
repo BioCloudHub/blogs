@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“EOPC/UPB、WCB 可比性与冻存活率要求”里与“申报框架与资料基础”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 21 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/09-regulatory-submission-review-05.html)
-- [返回一级专题总览](/posts/cmc-knowledge/09-regulatory-submission-review.html)
-- [下一细分主题](/posts/cmc-knowledge/09-regulatory-submission-review-05-02.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/09-regulatory-submission-review-05.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/09-regulatory-submission-review.html)
+- [下一细分主题](/blogs/posts/cmc-knowledge/09-regulatory-submission-review-05-02.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是 EOPC 和/或 UPB 检测考量，关键要点有哪些
 
 :::answer
@@ -37,6 +39,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 什么是研发转移到 IND 申报 GMP 批次技术转移，关键要点有哪些
 
 :::answer
@@ -45,6 +48,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是技术转移中的可比性研究，关键要点有哪些
 
 :::answer
@@ -53,6 +57,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是美国 FDA 药物审评机构
 
 :::answer
@@ -69,6 +74,7 @@ FDA 负责制定和执行相关的法规和政策，监管和审批产品的市�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是美国 FDA 药物审评过程，关键要点有哪些
 
 :::answer
@@ -77,6 +83,7 @@ FDA 负责制定和执行相关的法规和政策，监管和审批产品的市�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是过程二：递交 IND 申请之后，关键要点有哪些
 
 :::answer
@@ -85,6 +92,7 @@ IND(Investigationalnewdrug),一般是指尚未经过上市审批,正在进行各
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是过程六：新药注册申请，关键要点有哪些
 
 :::answer
@@ -99,6 +107,7 @@ NDA 申请提出之后 60 天内，FDA 根据提交的研究是否完整来决�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是美国 FDA 主要的加快审批途径，关键要点有哪些
 
 :::answer
@@ -123,6 +132,7 @@ NDA 申请提出之后 60 天内，FDA 根据提交的研究是否完整来决�
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是监管对返工资料提交的要求，关键要点有哪些
 
 :::answer
@@ -131,6 +141,7 @@ NDA 申请提出之后 60 天内，FDA 根据提交的研究是否完整来决�
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 蛋白药物结构确证申报资料内容通常包括哪些关键点
 
 :::answer
@@ -147,6 +158,7 @@ NDA 申请提出之后 60 天内，FDA 根据提交的研究是否完整来决�
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是工艺变更后稳定性研究，关键要点有哪些
 
 :::answer
@@ -155,6 +167,7 @@ NDA 申请提出之后 60 天内，FDA 根据提交的研究是否完整来决�
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是 IND 申报病毒清除验证要求，关键要点有哪些
 
 :::answer
@@ -163,15 +176,16 @@ NDA 申请提出之后 60 天内，FDA 根据提交的研究是否完整来决�
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是 BLA 申报病毒清除验证要求，关键要点有哪些
 
 :::answer
 
-- 通常只考察一步层析的去除能力，通常为阴离子层析 第三除病毒过滤 重复两次试验 四种病毒(MuLV,MVM,PRV,Reo-
--
+- 通常只考察一步层析的去除能力，通常为阴离子层析 第三除病毒过滤 重复两次试验 四种病毒(MuLV,MVM,PRV,Reo- -
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 中美申报病毒清除验证有哪些关键差异
 
 :::answer
@@ -180,6 +194,7 @@ NDA 申请提出之后 60 天内，FDA 根据提交的研究是否完整来决�
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是病毒清除验证在申报资料体现，关键要点有哪些
 
 :::answer
@@ -188,6 +203,7 @@ NDA 申请提出之后 60 天内，FDA 根据提交的研究是否完整来决�
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是 FDA 对细胞库要求的指导文件，关键要点有哪些
 
 :::answer
@@ -196,6 +212,7 @@ NDA 申请提出之后 60 天内，FDA 根据提交的研究是否完整来决�
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 什么是 EOPC 和 UPB 检定指导，关键要点有哪些
 
 :::answer
@@ -204,6 +221,7 @@ NDA 申请提出之后 60 天内，FDA 根据提交的研究是否完整来决�
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 什么是更多关于细胞库的学习资料，关键要点有哪些
 
 :::answer
@@ -212,6 +230,7 @@ NDA 申请提出之后 60 天内，FDA 根据提交的研究是否完整来决�
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是 EOPC 检定，关键要点有哪些
 
 :::answer
@@ -220,6 +239,7 @@ NDA 申请提出之后 60 天内，FDA 根据提交的研究是否完整来决�
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 变更内容描述
 
 :::answer
@@ -228,6 +248,7 @@ NDA 申请提出之后 60 天内，FDA 根据提交的研究是否完整来决�
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 变更风险分级
 
 :::answer

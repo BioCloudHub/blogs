@@ -27,14 +27,14 @@ article: false
 
 ## 二级主题
 
-- [细胞株稳定性研究与制剂处方导论](/posts/cmc-knowledge/08-formulation-packaging-stability-01.html)（44 个知识点 / 2 个细分主题）
-- [溶解度、高浓度制剂与成药性挑战](/posts/cmc-knowledge/08-formulation-packaging-stability-02.html)（45 个知识点 / 2 个细分主题）
-- [高浓度制剂工艺挑战与预灌封基础](/posts/cmc-knowledge/08-formulation-packaging-stability-03.html)（45 个知识点 / 2 个细分主题）
-- [预灌封、可见异物与包装质量控制](/posts/cmc-knowledge/08-formulation-packaging-stability-04.html)（45 个知识点 / 2 个细分主题）
-- [辅料特性、细胞稳定性与基质稳定性](/posts/cmc-knowledge/08-formulation-packaging-stability-05.html)（44 个知识点 / 2 个细分主题）
-- [构象稳定性、样品管理与制剂稳定性研究](/posts/cmc-knowledge/08-formulation-packaging-stability-06.html)（42 个知识点 / 2 个细分主题）
-- [稳定性方案、有效期与中间体时限管理](/posts/cmc-knowledge/08-formulation-packaging-stability-07.html)（37 个知识点 / 2 个细分主题）
-- [冻干、原液颜色与代次/PDL 选择](/posts/cmc-knowledge/08-formulation-packaging-stability-08.html)（45 个知识点 / 2 个细分主题）
+- [细胞株稳定性研究与制剂处方导论](/blogs/posts/cmc-knowledge/08-formulation-packaging-stability-01.html)（44 个知识点 / 2 个细分主题）
+- [溶解度、高浓度制剂与成药性挑战](/blogs/posts/cmc-knowledge/08-formulation-packaging-stability-02.html)（45 个知识点 / 2 个细分主题）
+- [高浓度制剂工艺挑战与预灌封基础](/blogs/posts/cmc-knowledge/08-formulation-packaging-stability-03.html)（45 个知识点 / 2 个细分主题）
+- [预灌封、可见异物与包装质量控制](/blogs/posts/cmc-knowledge/08-formulation-packaging-stability-04.html)（45 个知识点 / 2 个细分主题）
+- [辅料特性、细胞稳定性与基质稳定性](/blogs/posts/cmc-knowledge/08-formulation-packaging-stability-05.html)（44 个知识点 / 2 个细分主题）
+- [构象稳定性、样品管理与制剂稳定性研究](/blogs/posts/cmc-knowledge/08-formulation-packaging-stability-06.html)（42 个知识点 / 2 个细分主题）
+- [稳定性方案、有效期与中间体时限管理](/blogs/posts/cmc-knowledge/08-formulation-packaging-stability-07.html)（37 个知识点 / 2 个细分主题）
+- [冻干、原液颜色与代次/PDL 选择](/blogs/posts/cmc-knowledge/08-formulation-packaging-stability-08.html)（45 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 

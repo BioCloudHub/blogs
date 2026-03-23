@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“申报活性方法、药典要求与 UPB 法规指南”里与“申报框架与资料基础”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 20 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/09-regulatory-submission-review-04.html)
-- [返回一级专题总览](/posts/cmc-knowledge/09-regulatory-submission-review.html)
-- [下一细分主题](/posts/cmc-knowledge/09-regulatory-submission-review-04-02.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/09-regulatory-submission-review-04.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/09-regulatory-submission-review.html)
+- [下一细分主题](/blogs/posts/cmc-knowledge/09-regulatory-submission-review-04-02.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## IND 申报是否可不提供生物学活性的质控
 
 :::answer
@@ -35,6 +37,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 什么是 IND 和 BLA 的质量标准一样吗，关键要点有哪些
 
 :::answer
@@ -43,6 +46,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 是否一定需要提交 Pre-INDmeeting
 
 :::answer
@@ -51,6 +55,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是 IND 和 BLA 对表征研究的要求，关键要点有哪些
 
 :::answer
@@ -59,6 +64,7 @@ IND 阶段不要求进行全面的产品表征研究，只做适当的表征研�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## IND 是否需要开展 WCB 和 MCB 的稳定性研究
 
 :::answer
@@ -67,6 +73,7 @@ IND 阶段不要求进行全面的产品表征研究，只做适当的表征研�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## IND 和 BLA 申报 CMC 研究理念有哪些关键差异
 
 :::answer
@@ -75,6 +82,7 @@ IND 阶段不要求进行全面的产品表征研究，只做适当的表征研�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是 IND 申报需要提交几个月的稳定性数据，关键要点有哪些
 
 :::answer
@@ -95,6 +103,7 @@ IND 阶段不要求进行全面的产品表征研究，只做适当的表征研�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 是否需要对每批次的 UPB 进行检测
 
 :::answer
@@ -103,6 +112,7 @@ IND 和 BLA 阶段需要对临床批次的 UPB 进行检测，上市以后的检
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是 BLA 阶段需要检测几批次的 EOPC，关键要点有哪些
 
 :::answer
@@ -111,6 +121,7 @@ IND 和 BLA 阶段需要对临床批次的 UPB 进行检测，上市以后的检
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是中美申报对 MCB/WCB 检测的鉴定机构有要求吗，关键要点有哪些
 
 :::answer
@@ -119,6 +130,7 @@ IND 和 BLA 阶段需要对临床批次的 UPB 进行检测，上市以后的检
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## IND 申报阶段需要开展技术转移工作吗
 
 :::answer
@@ -127,6 +139,7 @@ IND 和 BLA 阶段需要对临床批次的 UPB 进行检测，上市以后的检
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是 IND 申报两批次的规模要一样吗，关键要点有哪些
 
 :::answer
@@ -135,6 +148,7 @@ IND 和 BLA 阶段需要对临床批次的 UPB 进行检测，上市以后的检
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是对于变更后的方法需要进行验证吗，关键要点有哪些
 
 :::answer
@@ -143,6 +157,7 @@ IND 和 BLA 阶段需要对临床批次的 UPB 进行检测，上市以后的检
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是工艺验证的三批产品就是注册申报的三批产品吗，关键要点有哪些
 
 :::answer
@@ -151,6 +166,7 @@ IND 和 BLA 阶段需要对临床批次的 UPB 进行检测，上市以后的检
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是中美 IND 申请中对 CMC 资料的要求有何不同，关键要点有哪些
 
 :::answer
@@ -169,6 +185,7 @@ IND 和 BLA 阶段需要对临床批次的 UPB 进行检测，上市以后的检
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## IND 和 BLA 阶段，国内对分段生产分别是如何要求的
 
 :::answer
@@ -181,6 +198,7 @@ BLA 阶段，根据中华人民共和国药品管理法实施条例（征求意�
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 什么是 BLA 阶段中、美、欧对微生物的检测要求分别是怎样的，关键要点有哪些
 
 :::answer
@@ -197,6 +215,7 @@ BLA 阶段，根据中华人民共和国药品管理法实施条例（征求意�
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## BLA 阶段细胞库稳定性研究中，哪些是容易被忽略的问题
 
 :::answer
@@ -209,6 +228,7 @@ BLA 阶段细胞库贮存条件下的稳定性考察通常会被遗漏。
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是药物申报 CMC 问题，关键要点有哪些
 
 :::answer
@@ -217,6 +237,7 @@ BLA 阶段细胞库贮存条件下的稳定性考察通常会被遗漏。
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是药典要求与放行检验项目，关键要点有哪些
 
 :::answer

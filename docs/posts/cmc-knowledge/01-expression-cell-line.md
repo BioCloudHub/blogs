@@ -27,8 +27,8 @@ article: false
 
 ## 二级主题
 
-- [表达系统、CHO 宿主与细胞株选择](/posts/cmc-knowledge/01-expression-cell-line-01.html)（43 个知识点 / 2 个细分主题）
-- [载体设计、单克隆筛选与单克隆性证明](/posts/cmc-knowledge/01-expression-cell-line-02.html)（40 个知识点 / 2 个细分主题）
+- [表达系统、CHO 宿主与细胞株选择](/blogs/posts/cmc-knowledge/01-expression-cell-line-01.html)（43 个知识点 / 2 个细分主题）
+- [载体设计、单克隆筛选与单克隆性证明](/blogs/posts/cmc-knowledge/01-expression-cell-line-02.html)（40 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 

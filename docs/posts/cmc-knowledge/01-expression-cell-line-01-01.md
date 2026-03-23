@@ -12,9 +12,9 @@ author: BioCloudHub
 
 *以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/01-expression-cell-line-01.html)
-- [返回一级专题总览](/posts/cmc-knowledge/01-expression-cell-line.html)
-- [下一细分主题](/posts/cmc-knowledge/01-expression-cell-line-01-02.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/01-expression-cell-line-01.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/01-expression-cell-line.html)
+- [下一细分主题](/blogs/posts/cmc-knowledge/01-expression-cell-line-01-02.html)
 
 ## 这页先抓重点
 
@@ -28,6 +28,7 @@ author: BioCloudHub
 :::
 
 
+<!-- cmc-question-id: Q2 -->
 ## 常见的常用重组蛋白生产的表达系统有哪些，各自怎么理解
 
 :::answer
@@ -40,6 +41,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 哺乳动物细胞表达系统有哪些缺点
 
 :::answer
@@ -54,6 +56,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## CHO 表达系统有哪些优点
 
 :::answer
@@ -68,6 +71,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是 CHO 细胞系的来源，关键要点有哪些
 
 :::answer
@@ -76,6 +80,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 有哪些厂商可以提供 CHO 细胞系
 
 :::answer
@@ -89,6 +94,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 筛选压力对细胞生长和产物表达有何影响
 
 :::answer
@@ -101,6 +107,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 表达系统的选择依据是什么
 
 :::answer
@@ -112,6 +119,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是 CHO-S, CHO-DG44 和 CHO-K1 的优缺点，关键要点有哪些
 
 :::answer
@@ -126,6 +134,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 常见的常用的细胞转染的方法有哪些，各自怎么理解
 
 :::answer
@@ -139,6 +148,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 常见的电转法的优缺点有哪些，各自怎么理解
 
 :::answer
@@ -148,6 +158,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 常见的脂质体转染法的优缺点有哪些，各自怎么理解
 
 :::answer
@@ -157,6 +168,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 常见的影响细胞转染效率的因素有哪些，各自怎么理解
 
 :::answer
@@ -173,6 +185,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 瞬转和稳转有什么区别
 
 :::answer
@@ -184,6 +197,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 常见的常用的载体有哪些，各自怎么理解
 
 :::answer
@@ -196,6 +210,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 载体至少应具备哪些条件
 
 :::answer
@@ -212,6 +227,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 常见的目的基因获得的方法有哪些，各自怎么理解
 
 :::answer
@@ -224,6 +240,7 @@ author: BioCloudHub
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 一般 CHO-K1 细胞 DT 是多少
 
 :::answer
@@ -236,6 +253,7 @@ DT: 一般 DT 为 18~30h，但一些项目 DT 可能超过 30h，在进行克隆
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 常规单抗项目克隆筛选应该重点关注哪些质量结果
 
 :::answer
@@ -247,6 +265,7 @@ DT: 一般 DT 为 18~30h，但一些项目 DT 可能超过 30h，在进行克隆
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 常见的目前常用的单克隆获取方法主要有哪些，各自怎么理解
 
 :::answer
@@ -259,6 +278,7 @@ DT: 一般 DT 为 18~30h，但一些项目 DT 可能超过 30h，在进行克隆
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 单克隆筛选 Fed-batch 评估的筛选的依据是什么
 
 :::answer
@@ -267,11 +287,12 @@ DT: 一般 DT 为 18~30h，但一些项目 DT 可能超过 30h，在进行克隆
 
 - **细胞生长：** 挑选最高活细胞密度适中，细胞活率维持较好的细胞株。
 - **细胞代谢：** 挑选代谢副产物积累较低的细胞株，选择细胞培养后期乳酸消耗型、且批次间乳酸代谢趋势一致的细胞株。
-- **细胞表达量：** 选择表达量和 Qp 较高的细胞株；
+- **细胞表达量：** 选择表达量和 Qp 较高的细胞株
 - **产物质量：** 选择 SEC、CEX(CIEF)、CE、N_Glycan 等质量结果在可接受范围内的细胞株，对于一些杂质，在进行筛选时应该考虑下游去除的能力进行综合评估，例如有些项目中个别细胞株 Titer 较高，但同时聚体含量高，在筛选时应该考虑下游对聚体的去除能力以及去除成本，综合评估之后决定是否选择该克隆。
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 采用有限稀释进行单克隆铺板的原理是什么
 
 :::answer
@@ -281,6 +302,7 @@ DT: 一般 DT 为 18~30h，但一些项目 DT 可能超过 30h，在进行克隆
 
 :::
 
+<!-- cmc-question-id: Q23 -->
 ## 细胞株的单克隆性证明的必要性是什么
 
 :::answer

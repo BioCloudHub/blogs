@@ -508,20 +508,106 @@ function normalizeBulletSentence(text) {
     .trim();
 }
 
+function normalizeListLine(text) {
+  let next = text
+    .replace(/\s+/g, " ")
+    .replace(/^[（(]?(?:\d+|[一二三四五六七八九十]+)[)）][.、]?\s*/u, "")
+    .trim();
+
+  next = next
+    .replace(/[；;、,，]\s*[（(]\s*$/u, "")
+    .replace(/[（(]\s*$/u, "")
+    .replace(/[；;、,，]\s*$/u, "")
+    .trim();
+
+  return next;
+}
+
+function normalizeListBlock(block) {
+  const lines = block.split("\n");
+  const output = [];
+  let current = null;
+
+  const flush = () => {
+    if (!current) return;
+    output.push(`${current.marker}${normalizeListLine(current.text)}`.trimEnd());
+    current = null;
+  };
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const rawLine = lines[index];
+    const line = rawLine.trimEnd();
+    const trimmed = line.trim();
+    const isList = /^\s*(?:[-*]|\d+\.)\s/u.test(line);
+
+    if (!trimmed) {
+      let nextIsList = false;
+      for (let lookahead = index + 1; lookahead < lines.length; lookahead += 1) {
+        const candidate = lines[lookahead].trim();
+        if (!candidate) continue;
+        nextIsList = /^\s*(?:[-*]|\d+\.)\s/u.test(lines[lookahead]);
+        break;
+      }
+      if (current && nextIsList) {
+        continue;
+      }
+      flush();
+      output.push("");
+      continue;
+    }
+
+    const match = line.match(/^(\s*)([-*]|\d+\.)\s+(.*)$/u);
+    if (match) {
+      flush();
+      current = {
+        marker: `${match[1]}${match[2]} `,
+        text: match[3],
+      };
+      continue;
+    }
+
+    if (current && (!isList || /^\s{2,}\S/u.test(line))) {
+      current.text = `${current.text} ${trimmed}`.trim();
+      continue;
+    }
+
+    flush();
+    output.push(line);
+  }
+
+  flush();
+
+  return output.join("\n").trim();
+}
+
 function convertInlineNumberingToList(block) {
   const numbered = block
-    .replace(/\s*(\d+[）)])\s*/gu, "\n$1 ")
+    .replace(/\s*([（(]?(?:\d+|[一二三四五六七八九十]+)[)）])\s*/gu, "\n$1 ")
     .split("\n")
     .map((line) => line.trim())
     .filter(Boolean);
 
-  const numberedItems = numbered.filter((line) => /^\d+[）)]\s*/u.test(line));
+  const numberedItems = numbered.filter((line) =>
+    /^[（(]?(?:\d+|[一二三四五六七八九十]+)[)）]\s*/u.test(line)
+  );
   if (numberedItems.length < 2) {
+    if (
+      numberedItems.length === 1 &&
+      /^\s*[（(]?(?:\d+|[一二三四五六七八九十]+)[)）]\s*/u.test(block)
+    ) {
+      return `- ${normalizeBulletSentence(
+        numberedItems[0].replace(/^[（(]?(?:\d+|[一二三四五六七八九十]+)[)）]\s*/u, "")
+      )}`;
+    }
     return block;
   }
 
   return numberedItems
-    .map((line) => `- ${normalizeBulletSentence(line.replace(/^\d+[）)]\s*/u, ""))}`)
+    .map((line) =>
+      `- ${normalizeBulletSentence(
+        line.replace(/^[（(]?(?:\d+|[一二三四五六七八九十]+)[)）]\s*/u, "")
+      )}`
+    )
     .join("\n");
 }
 
@@ -551,10 +637,55 @@ function splitDenseParagraph(block) {
   return sentences.join("\n\n");
 }
 
+function normalizeSymbolBullets(text) {
+  return text
+    .replace(/\*\*\s*[♀♂]\s*/gu, "**")
+    .replace(/^[ \t]*[♀♂]\s*/gmu, "- ")
+    .replace(/([。；;!?])\s*[♀♂]\s*/gu, "$1\n- ")
+    .replace(/\s+[♀♂]\s*/gu, "\n- ");
+}
+
+function collapseListSpacing(text) {
+  const lines = text.split("\n");
+  const output = [];
+  let prevWasList = false;
+
+  for (let index = 0; index < lines.length; index += 1) {
+    const line = lines[index];
+    const trimmed = line.trim();
+    const isList = /^\s*(?:[-*]|\d+\.)\s/u.test(line);
+
+    if (!trimmed && prevWasList) {
+      let nextIsList = false;
+      for (let lookahead = index + 1; lookahead < lines.length; lookahead += 1) {
+        const candidate = lines[lookahead].trim();
+        if (!candidate) continue;
+        nextIsList = /^\s*(?:[-*]|\d+\.)\s/u.test(lines[lookahead]);
+        break;
+      }
+      if (nextIsList) {
+        continue;
+      }
+    }
+
+    output.push(line);
+
+    if (trimmed) {
+      prevWasList = isList;
+    }
+  }
+
+  return output.join("\n");
+}
+
 function normalizeAnswerMarkdown(answerMarkdown) {
-  const blocks = answerMarkdown
-    .replace(/\r\n?/gu, "\n")
-    .replace(/\u00a0/gu, " ")
+  const normalizedInput = collapseListSpacing(
+    normalizeSymbolBullets(
+      answerMarkdown.replace(/\r\n?/gu, "\n").replace(/\u00a0/gu, " ")
+    )
+  );
+
+  const blocks = normalizedInput
     .replace(/[ \t]+\n/gu, "\n")
     .replace(/\n{3,}/gu, "\n\n")
     .trim()
@@ -562,7 +693,10 @@ function normalizeAnswerMarkdown(answerMarkdown) {
     .map((block) => block.trim())
     .filter(Boolean)
     .map((block) => {
-      if (/^(?:[-*]\s|\d+\.\s|>\s|```|:::|\|)/u.test(block)) {
+      if (/^(?:[-*]\s|\d+\.\s)/u.test(block)) {
+        return normalizeListBlock(block);
+      }
+      if (/^(?:>\s|```|:::|\|)/u.test(block)) {
         return block;
       }
 

@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“糖蛋白、细胞死亡、IgG 亚型与癌症免疫”里与“培养应用与机制理解”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 21 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-01.html)
-- [返回一级专题总览](/posts/cmc-knowledge/14-cell-biology-culture-fundamentals.html)
-- [上一细分主题](/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-01-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-01.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals-01-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 常见的常见细胞死亡的形式有哪些，各自怎么理解
 
 :::answer
@@ -38,6 +40,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 细胞凋亡的机制是什么
 
 :::answer
@@ -49,6 +52,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 细胞坏死的机制是什么
 
 :::answer
@@ -67,6 +71,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 细胞自噬的机制是什么
 
 :::answer
@@ -75,6 +80,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 细胞凋亡的调控策略
 
 :::answer
@@ -85,6 +91,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是 Pluronic F68，关键要点有哪些
 
 :::answer
@@ -93,6 +100,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是 MSX，关键要点有哪些
 
 :::answer
@@ -101,6 +109,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是抗体的发现，关键要点有哪些
 
 :::answer
@@ -131,6 +140,7 @@ Köhler 和 Milstein 把注射了 SRBC 的小鼠脾脏细胞取出，与 P3-X67A
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是治疗性抗体的发展阶段，关键要点有哪些
 
 :::answer
@@ -143,6 +153,7 @@ Köhler 和 Milstein 把注射了 SRBC 的小鼠脾脏细胞取出，与 P3-X67A
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是单抗药物市场动力，关键要点有哪些
 
 :::answer
@@ -173,6 +184,7 @@ Köhler 和 Milstein 把注射了 SRBC 的小鼠脾脏细胞取出，与 P3-X67A
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是生物类似药的定义，关键要点有哪些
 
 :::answer
@@ -181,17 +193,18 @@ Köhler 和 Milstein 把注射了 SRBC 的小鼠脾脏细胞取出，与 P3-X67A
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是生物类似药与仿制药的区别，关键要点有哪些
 
 :::answer
 
 - 为何不叫仿制药，而叫“类似药”？这就要谈到生物药与化学药的区别。化学药通常又称小分子药物（大分子占比很小），化学结构式简单，只要是化学结构式一致，一般就被认为活性成分相同
 - 而生物药通常又称为大分子药物，分子量通常大于 5000，由若干个氨基酸序列组成，如果要求“仿制”得完全一样，不仅要求氨基酸序列这个一级结构相同，还要求高级结构（二级/三级/四级）相同，甚至糖基化也相同。这就像去仿制一根绳子上系成的疙瘩，不仅要求绳子上每根纤维一样，而且疙瘩的立体结构也要完全一样，这是几乎不可能完成。
-
 - **美国 FDA 指出：** 生物类似药与参照药高度相似，活性成分有细微差别，但在产品的安全性、纯度和有效性方面没有临床意义的差别。 生物类似药的定价逻辑和仿制药不同，仿制药竞争是相同产品之间的制造边际成本竞争，药物价格反映边际成本，通俗讲就是打价格战，纯价格竞争；而生物类似物则由于研发成本高、边际制造成本高，专利界限模糊，另外仿制药是没有商品名的，只有通用名，而生物类似药则国家药监局会授予商品名，从而在多个层面形成竞争壁垒，在一定程度保证了生物类似药的高价格。
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 为什么要重视生物类似药对医疗健康行业
 
 :::answer
@@ -204,6 +217,7 @@ Köhler 和 Milstein 把注射了 SRBC 的小鼠脾脏细胞取出，与 P3-X67A
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是癌症
 
 :::answer
@@ -220,6 +234,7 @@ Köhler 和 Milstein 把注射了 SRBC 的小鼠脾脏细胞取出，与 P3-X67A
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 癌症的病因是什么
 
 :::answer
@@ -232,6 +247,7 @@ Köhler 和 Milstein 把注射了 SRBC 的小鼠脾脏细胞取出，与 P3-X67A
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 为什么说癌症是一种慢性疾病
 
 :::answer
@@ -260,6 +276,7 @@ Köhler 和 Milstein 把注射了 SRBC 的小鼠脾脏细胞取出，与 P3-X67A
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 什么是癌症的治疗
 
 :::answer
@@ -269,6 +286,7 @@ Köhler 和 Milstein 把注射了 SRBC 的小鼠脾脏细胞取出，与 P3-X67A
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 什么是癌症的潜伏期，关键要点有哪些
 
 :::answer
@@ -278,6 +296,7 @@ Köhler 和 Milstein 把注射了 SRBC 的小鼠脾脏细胞取出，与 P3-X67A
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是癌症的诊断，关键要点有哪些
 
 :::answer
@@ -289,6 +308,7 @@ Köhler 和 Milstein 把注射了 SRBC 的小鼠脾脏细胞取出，与 P3-X67A
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是癌症的预防，关键要点有哪些
 
 :::answer
@@ -327,6 +347,7 @@ Köhler 和 Milstein 把注射了 SRBC 的小鼠脾脏细胞取出，与 P3-X67A
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 什么是癌症与免疫，关键要点有哪些
 
 :::answer

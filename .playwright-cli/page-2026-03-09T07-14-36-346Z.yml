@@ -1,0 +1,100 @@
+- generic [ref=e2]:
+  - link "跳至主要內容" [ref=e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e4]:
+    - banner [ref=e5]:
+      - link "带我回家" [ref=e7] [cursor=pointer]:
+        - /url: /blogs/
+        - text: BioCloudHub
+      - navigation [ref=e9]:
+        - link "首页" [ref=e11] [cursor=pointer]:
+          - /url: /blogs/
+          - text: 首页
+        - link "技术博客" [ref=e13] [cursor=pointer]:
+          - /url: /blogs/posts/
+          - text: 技术博客
+        - link "CMC 知识库" [ref=e15] [cursor=pointer]:
+          - /url: /blogs/posts/cmc-knowledge/
+          - text: CMC 知识库
+        - link "药物研发" [ref=e17] [cursor=pointer]:
+          - /url: /blogs/posts/drug-discovery/
+          - text: 药物研发
+        - link "生物分析" [ref=e19] [cursor=pointer]:
+          - /url: /blogs/posts/bioanalytics/
+          - text: 生物分析
+        - link "计算工程" [ref=e21] [cursor=pointer]:
+          - /url: /blogs/posts/computational-infrastructure/
+          - text: 计算工程
+        - link "关于" [ref=e23] [cursor=pointer]:
+          - /url: /blogs/about/
+          - text: 关于
+      - button "auto icon" [ref=e26] [cursor=pointer]:
+        - img "auto icon" [ref=e27]
+    - main "生物制药技术博客" [ref=e29]:
+      - generic [ref=e32]:
+        - heading "生物制药技术博客" [level=1] [ref=e33]
+        - generic [ref=e34]: CMC · 生物分析 · AI 药物研发 · 云原生工程
+        - paragraph [ref=e35]:
+          - link "进入技术博客" [ref=e36] [cursor=pointer]:
+            - /url: /blogs/posts/
+          - link "CMC 知识库" [ref=e37] [cursor=pointer]:
+            - /url: /blogs/posts/cmc-knowledge/
+          - link "关于我们" [ref=e38] [cursor=pointer]:
+            - /url: /blogs/about/
+      - generic [ref=e41]:
+        - generic [ref=e42]:
+          - heading "CMC 工艺与质量" [level=3] [ref=e43]
+          - generic [ref=e44]: 汇总细胞株开发、工艺优化、质量属性与法规实务。
+        - generic [ref=e45]:
+          - heading "生物分析与组学" [level=3] [ref=e46]
+          - generic [ref=e47]: 覆盖基因组学、蛋白质组学、单细胞分析等完整链路。
+        - generic [ref=e48]:
+          - heading "药物研发与临床" [level=3] [ref=e49]
+          - generic [ref=e50]: 从分子发现到临床统计，连接算法与研发决策。
+        - generic [ref=e51]:
+          - heading "计算工程平台" [level=3] [ref=e52]
+          - generic [ref=e53]: 以 Kubernetes 与云原生技术支撑规模化研发交付。
+      - generic [ref=e55]:
+        - generic [ref=e56]:
+          - paragraph [ref=e57]: 面向生物制药团队的工程化知识站，聚焦可执行的流程、参数与技术方案，帮助研发、分析与平台团队建立统一的方法体系。
+          - generic [ref=e58]:
+            - article [ref=e59]:
+              - heading "3900+" [level=3] [ref=e60]
+              - paragraph [ref=e61]: CMC 问答知识点
+            - article [ref=e62]:
+              - heading "4" [level=3] [ref=e63]
+              - paragraph [ref=e64]: 核心技术板块
+            - article [ref=e65]:
+              - heading "端到端" [level=3] [ref=e66]
+              - paragraph [ref=e67]: 研发到生产的技术链路
+        - heading "技术主线" [level=2] [ref=e68]:
+          - link "技术主线" [ref=e69] [cursor=pointer]:
+            - /url: "#技术主线"
+        - generic [ref=e70]:
+          - link "CMC 知识体系 围绕细胞株开发、上游下游工艺、质量属性与法规要求构建系统化知识图谱。 进入专题" [ref=e71] [cursor=pointer]:
+            - /url: ./posts/cmc-knowledge/
+            - heading "CMC 知识体系" [level=3] [ref=e72]
+            - paragraph [ref=e73]: 围绕细胞株开发、上游下游工艺、质量属性与法规要求构建系统化知识图谱。
+            - generic [ref=e74]: 进入专题
+          - link "AI 药物研发 关注分子表示、生成模型、虚拟筛选与临床统计分析的落地实践。 查看文章" [ref=e75] [cursor=pointer]:
+            - /url: ./posts/drug-discovery/
+            - heading "AI 药物研发" [level=3] [ref=e76]
+            - paragraph [ref=e77]: 关注分子表示、生成模型、虚拟筛选与临床统计分析的落地实践。
+            - generic [ref=e78]: 查看文章
+          - link "生物分析与组学 覆盖 WGS、蛋白质组和单细胞分析流程，强调可复现数据处理方法。 查看文章" [ref=e79] [cursor=pointer]:
+            - /url: ./posts/bioanalytics/
+            - heading "生物分析与组学" [level=3] [ref=e80]
+            - paragraph [ref=e81]: 覆盖 WGS、蛋白质组和单细胞分析流程，强调可复现数据处理方法。
+            - generic [ref=e82]: 查看文章
+          - link "计算工程平台 以 Kubernetes、容器化和自动化运维支撑生物医药场景的高可靠交付。 查看文章" [ref=e83] [cursor=pointer]:
+            - /url: ./posts/computational-infrastructure/
+            - heading "计算工程平台" [level=3] [ref=e84]
+            - paragraph [ref=e85]: 以 Kubernetes、容器化和自动化运维支撑生物医药场景的高可靠交付。
+            - generic [ref=e86]: 查看文章
+        - heading "本站定位" [level=2] [ref=e87]:
+          - link "本站定位" [ref=e88] [cursor=pointer]:
+            - /url: "#本站定位"
+        - list [ref=e89]:
+          - listitem [ref=e90]: 面向工艺开发、分析开发、生物信息与平台工程团队。
+          - listitem [ref=e91]: 强调参数化、标准化、可复用的技术实践。
+          - listitem [ref=e92]: 用统一技术语言连接研发、生产与数字化系统。

@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“一级结构、微量元素与 PB 试验设计”里与“验证控制与案例判断”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 24 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-07.html)
-- [返回一级专题总览](/posts/cmc-knowledge/15-integrated-topics-and-quality-system.html)
-- [上一细分主题](/posts/cmc-knowledge/15-integrated-topics-and-quality-system-07-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-07.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-07-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是钒离子，关键要点有哪些
 
 :::answer
@@ -35,6 +37,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 什么是钴离子，关键要点有哪些
 
 :::answer
@@ -43,6 +46,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 小概率事件在假设检验起什么作用
 
 :::answer
@@ -61,6 +65,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 正态分布的 1SD、2SD、3SD 发送的概率分布是多少
 
 :::answer
@@ -69,6 +74,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是众数、中位数、均值，关键要点有哪些
 
 :::answer
@@ -77,6 +83,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 具有统计学意义最少数据的确定
 
 :::answer
@@ -103,6 +110,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是统计功效，关键要点有哪些
 
 :::answer
@@ -119,6 +127,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是自由度，关键要点有哪些
 
 :::answer
@@ -139,6 +148,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 02~阳性对照有哪些关键差异
 
 :::answer
@@ -148,6 +158,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 03~生物制品特殊有哪些关键差异
 
 :::answer
@@ -157,6 +168,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 04~菌种有哪些关键差异
 
 :::answer
@@ -166,6 +178,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是给药剂量与量效关系，关键要点有哪些
 
 :::answer
@@ -175,6 +188,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是 PK/PD 关系，关键要点有哪些
 
 :::answer
@@ -184,6 +198,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是世界卫生组织对制品相关蛋白的技术法规要求，关键要点有哪些
 
 :::answer
@@ -204,6 +219,7 @@ WHO 的指南《GuidelinesontheQuality，Safety，andEfficacyofBiologicalMedicin
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 制品相关蛋白的产生及其对产品质量的影响
 
 :::answer
@@ -212,6 +228,7 @@ WHO 的指南《GuidelinesontheQuality，Safety，andEfficacyofBiologicalMedicin
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是蛋白聚集，关键要点有哪些
 
 :::answer
@@ -223,6 +240,7 @@ WHO 的指南《GuidelinesontheQuality，Safety，andEfficacyofBiologicalMedicin
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 其他原因
 
 :::answer
@@ -232,6 +250,7 @@ WHO 的指南《GuidelinesontheQuality，Safety，andEfficacyofBiologicalMedicin
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 什么是半乳糖修饰，关键要点有哪些
 
 :::answer
@@ -241,6 +260,7 @@ WHO 的指南《GuidelinesontheQuality，Safety，andEfficacyofBiologicalMedicin
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是岩藻糖修饰，关键要点有哪些
 
 :::answer
@@ -255,6 +275,7 @@ WHO 的指南《GuidelinesontheQuality，Safety，andEfficacyofBiologicalMedicin
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是聚集，关键要点有哪些
 
 :::answer
@@ -264,6 +285,7 @@ WHO 的指南《GuidelinesontheQuality，Safety，andEfficacyofBiologicalMedicin
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 什么是 PB 实验设计
 
 :::answer
@@ -278,6 +300,7 @@ DOE 基础知识汇总 01 DOE 基础知识汇总 02 如何评价 DOE 模型的�
 
 :::
 
+<!-- cmc-question-id: Q23 -->
 ## PB 实验设计的应用场景
 
 :::answer
@@ -286,6 +309,7 @@ PB 实验设计适用于因子数量超过 8 个以上的筛选实验，其实�
 
 :::
 
+<!-- cmc-question-id: Q24 -->
 ## 析因实验设计的实验数量
 
 :::answer
@@ -294,12 +318,13 @@ PB 实验设计适用于因子数量超过 8 个以上的筛选实验，其实�
 
 :::
 
+<!-- cmc-question-id: Q25 -->
 ## PB 实验设计的特点
 
 :::answer
 
 PB 试验设计矩阵的特点是按规则生成，排列往往不具有唯一性，但试验次数都取 4 的倍数，一般 不取 2 的整数次幂。常用的试验次数 N 为 12，20，24，28，36，40，44，48 等。
 
-♀ 抗体 ♀
+- 抗体 -
 
 :::

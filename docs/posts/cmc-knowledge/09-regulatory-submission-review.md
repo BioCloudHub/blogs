@@ -27,11 +27,11 @@ article: false
 
 ## 二级主题
 
-- [IND 申报基础与 FDA 沟通会议](/posts/cmc-knowledge/09-regulatory-submission-review-01.html)（48 个知识点 / 2 个细分主题）
-- [Pre-IND、资料撰写与 UPB 要求](/posts/cmc-knowledge/09-regulatory-submission-review-02.html)（47 个知识点 / 2 个细分主题）
-- [UPB 检测、资料完整性与 EOPC/UPB 研究](/posts/cmc-knowledge/09-regulatory-submission-review-03.html)（47 个知识点 / 2 个细分主题）
-- [申报活性方法、药典要求与 UPB 法规指南](/posts/cmc-knowledge/09-regulatory-submission-review-04.html)（41 个知识点 / 2 个细分主题）
-- [EOPC/UPB、WCB 可比性与冻存活率要求](/posts/cmc-knowledge/09-regulatory-submission-review-05.html)（42 个知识点 / 2 个细分主题）
+- [IND 申报基础与 FDA 沟通会议](/blogs/posts/cmc-knowledge/09-regulatory-submission-review-01.html)（48 个知识点 / 2 个细分主题）
+- [Pre-IND、资料撰写与 UPB 要求](/blogs/posts/cmc-knowledge/09-regulatory-submission-review-02.html)（47 个知识点 / 2 个细分主题）
+- [UPB 检测、资料完整性与 EOPC/UPB 研究](/blogs/posts/cmc-knowledge/09-regulatory-submission-review-03.html)（47 个知识点 / 2 个细分主题）
+- [申报活性方法、药典要求与 UPB 法规指南](/blogs/posts/cmc-knowledge/09-regulatory-submission-review-04.html)（41 个知识点 / 2 个细分主题）
+- [EOPC/UPB、WCB 可比性与冻存活率要求](/blogs/posts/cmc-knowledge/09-regulatory-submission-review-05.html)（42 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 

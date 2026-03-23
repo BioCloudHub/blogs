@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“蛋白含量、接受标准与产品质量标准”里与“验证放行与标准应用”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 20 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/06-analytical-methods-quality-standards-05.html)
-- [返回一级专题总览](/posts/cmc-knowledge/06-analytical-methods-quality-standards.html)
-- [上一细分主题](/posts/cmc-knowledge/06-analytical-methods-quality-standards-05-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards-05.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards-05-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是 AcceptanceCriteria 接受标准，关键要点有哪些
 
 :::answer
@@ -35,6 +37,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## In-ProcessControl 过程控制
 
 :::answer
@@ -43,6 +46,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是 NormalOperatingRange(NOR)正常工作范围，关键要点有哪些
 
 :::answer
@@ -51,6 +55,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是二硫键还原的检测和监控方法，关键要点有哪些
 
 :::answer
@@ -75,6 +80,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是一级结构表征~完整蛋白水平液相质谱，关键要点有哪些
 
 :::answer
@@ -97,6 +103,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是一级结构表征~亚单位蛋白水平液相质谱，关键要点有哪些
 
 :::answer
@@ -105,6 +112,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 一级结构表征~肽段水平分析
 
 :::answer
@@ -127,6 +135,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是糖基化修饰表征~N-糖基化，关键要点有哪些
 
 :::answer
@@ -138,6 +147,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是糖基化修饰表征~O-糖基化，关键要点有哪些
 
 :::answer
@@ -156,6 +166,7 @@ Fc-Fusion 通常在非 IgG 结构域中携带多个 O-糖基化位点，由于�
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是糖基化修饰表征~唾液酸基化，关键要点有哪些
 
 :::answer
@@ -166,6 +177,7 @@ Fc-Fusion 通常在非 IgG 结构域中携带多个 O-糖基化位点，由于�
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是电荷异质体表征~电泳技术，关键要点有哪些
 
 :::answer
@@ -174,6 +186,7 @@ Fc-Fusion 通常在非 IgG 结构域中携带多个 O-糖基化位点，由于�
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是 TOST 检测的限度值确定，关键要点有哪些
 
 :::answer
@@ -186,6 +199,7 @@ FDA 在 2017 年颁布的指导原则《StatisticalApproachestoEvaluateAnalytica
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 01~方法学适用性有哪些关键差异
 
 :::answer
@@ -195,6 +209,7 @@ FDA 在 2017 年颁布的指导原则《StatisticalApproachestoEvaluateAnalytica
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是 DS 和 DP 的质量标准
 
 :::answer
@@ -241,6 +256,7 @@ DS&DP 放行质量标准制定依据
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是宿主残留 DNA，关键要点有哪些
 
 :::answer
@@ -257,6 +273,7 @@ DS&DP 放行质量标准制定依据 拓展【体药研发 CMC 知识 2500 问�
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是 HCP，关键要点有哪些
 
 :::answer
@@ -277,6 +294,7 @@ DS&DP 放行质量标准制定依据 拓展【体药研发 CMC 知识 2500 问�
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 什么是结合活性，关键要点有哪些
 
 :::answer
@@ -285,6 +303,7 @@ DS&DP 放行质量标准制定依据 拓展【体药研发 CMC 知识 2500 问�
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 什么是细胞活性，关键要点有哪些
 
 :::answer
@@ -293,6 +312,7 @@ DS&DP 放行质量标准制定依据 拓展【体药研发 CMC 知识 2500 问�
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是产品表征研究，关键要点有哪些
 
 :::answer
@@ -301,6 +321,7 @@ DS&DP 放行质量标准制定依据 拓展【体药研发 CMC 知识 2500 问�
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是产品的质量标准，关键要点有哪些
 
 :::answer

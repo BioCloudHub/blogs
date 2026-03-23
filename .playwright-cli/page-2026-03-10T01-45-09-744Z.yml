@@ -1,0 +1,228 @@
+- generic [ref=e2]:
+  - link "跳至主要內容" [ref=e3] [cursor=pointer]:
+    - /url: "#main-content"
+  - generic [ref=e4]:
+    - banner [ref=e5]:
+      - link "带我回家" [ref=e7] [cursor=pointer]:
+        - /url: /blogs/
+        - text: BioCloudHub
+      - navigation [ref=e9]:
+        - link "首页" [ref=e11] [cursor=pointer]:
+          - /url: /blogs/
+          - text: 首页
+        - link "技术博客" [ref=e13] [cursor=pointer]:
+          - /url: /blogs/posts/
+          - text: 技术博客
+        - link "CMC 知识库" [ref=e15] [cursor=pointer]:
+          - /url: /blogs/posts/cmc-knowledge/
+          - text: CMC 知识库
+        - link "药物研发" [ref=e17] [cursor=pointer]:
+          - /url: /blogs/posts/drug-discovery/
+          - text: 药物研发
+        - link "生物分析" [ref=e19] [cursor=pointer]:
+          - /url: /blogs/posts/bioanalytics/
+          - text: 生物分析
+        - link "计算工程" [ref=e21] [cursor=pointer]:
+          - /url: /blogs/posts/computational-infrastructure/
+          - text: 计算工程
+        - link "关于" [ref=e23] [cursor=pointer]:
+          - /url: /blogs/about/
+          - text: 关于
+      - generic [ref=e24]:
+        - button "auto icon" [ref=e26] [cursor=pointer]:
+          - img "auto icon" [ref=e27]
+        - button "打开搜索工作台" [ref=e29] [cursor=pointer]:
+          - img [ref=e31]
+          - generic [ref=e33]: 搜索工作台
+          - generic [ref=e34]: Cmd K
+    - complementary [ref=e37]:
+      - generic [ref=e38]:
+        - generic [ref=e39]: BioPharma
+        - strong [ref=e40]: Knowledge Atlas
+        - generic [ref=e41]: Cell line · Process · Quality
+      - list [ref=e42]:
+        - listitem [ref=e43]:
+          - button "细胞株与表达系统" [ref=e45] [cursor=pointer]:
+            - link "细胞株与表达系统" [ref=e46]:
+              - /url: /blogs/posts/cmc-knowledge/01-expression-cell-line.html
+        - listitem [ref=e48]:
+          - button "细胞库与稳定性" [ref=e50] [cursor=pointer]:
+            - link "细胞库与稳定性" [ref=e51]:
+              - /url: /blogs/posts/cmc-knowledge/02-cell-bank-stability.html
+        - listitem [ref=e53]:
+          - button "上游培养与工艺放大" [ref=e55] [cursor=pointer]:
+            - link "上游培养与工艺放大" [ref=e56]:
+              - /url: /blogs/posts/cmc-knowledge/03-upstream-culture-scale-up.html
+        - listitem [ref=e58]:
+          - button "下游纯化与收获" [ref=e60] [cursor=pointer]:
+            - link "下游纯化与收获" [ref=e61]:
+              - /url: /blogs/posts/cmc-knowledge/04-downstream-purification-harvest.html
+        - listitem [ref=e63]:
+          - button "质量属性与分子异质性" [ref=e65] [cursor=pointer]:
+            - link "质量属性与分子异质性" [ref=e66]:
+              - /url: /blogs/posts/cmc-knowledge/05-quality-attributes-heterogeneity.html
+        - listitem [ref=e68]:
+          - button "分析方法与质量标准" [ref=e70] [cursor=pointer]:
+            - link "分析方法与质量标准" [ref=e71]:
+              - /url: /blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards.html
+        - listitem [ref=e73]:
+          - button "病毒安全与无菌控制" [ref=e75] [cursor=pointer]:
+            - link "病毒安全与无菌控制" [ref=e76]:
+              - /url: /blogs/posts/cmc-knowledge/07-viral-safety-sterility-control.html
+        - listitem [ref=e78]:
+          - button "制剂处方与包材稳定性" [ref=e80] [cursor=pointer]:
+            - link "制剂处方与包材稳定性" [ref=e81]:
+              - /url: /blogs/posts/cmc-knowledge/08-formulation-packaging-stability.html
+        - listitem [ref=e83]:
+          - button "法规申报与审评策略" [ref=e85] [cursor=pointer]:
+            - link "法规申报与审评策略" [ref=e86]:
+              - /url: /blogs/posts/cmc-knowledge/09-regulatory-submission-review.html
+        - listitem [ref=e88]:
+          - button "工艺表征、验证与统计设计" [ref=e90] [cursor=pointer]:
+            - link "工艺表征、验证与统计设计" [ref=e91]:
+              - /url: /blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics.html
+        - listitem [ref=e93]:
+          - button "药理毒理与临床开发" [ref=e95] [cursor=pointer]:
+            - link "药理毒理与临床开发" [ref=e96]:
+              - /url: /blogs/posts/cmc-knowledge/11-pharmacology-toxicology-clinical.html
+        - listitem [ref=e98]:
+          - button "抗体工程、ADC 与新型疗法" [ref=e100] [cursor=pointer]:
+            - link "抗体工程、ADC 与新型疗法" [ref=e101]:
+              - /url: /blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities.html
+        - listitem [ref=e103]:
+          - button "开发流程、技术转移与项目管理" [ref=e105] [cursor=pointer]:
+            - link "开发流程、技术转移与项目管理" [ref=e106]:
+              - /url: /blogs/posts/cmc-knowledge/13-development-transfer-project-management.html
+        - listitem [ref=e108]:
+          - button "细胞生物学与培养基础" [ref=e110] [cursor=pointer]:
+            - link "细胞生物学与培养基础" [ref=e111]:
+              - /url: /blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals.html
+        - listitem [ref=e113]:
+          - button "综合专题与质量体系" [ref=e115] [cursor=pointer]:
+            - link "综合专题与质量体系" [ref=e116]:
+              - /url: /blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system.html
+        - listitem [ref=e118]:
+          - button "平台化开发、生命周期与数字化 CMC" [ref=e120] [cursor=pointer]:
+            - link "平台化开发、生命周期与数字化 CMC" [ref=e121]:
+              - /url: /blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc.html
+    - main [ref=e210]:
+      - navigation [ref=e211]:
+        - list [ref=e212]:
+          - listitem [ref=e213]:
+            - link "BioCloudHub" [ref=e214] [cursor=pointer]:
+              - /url: /blogs/
+          - listitem [ref=e215]:
+            - text: /
+            - link "技术博客" [ref=e216] [cursor=pointer]:
+              - /url: /blogs/posts/
+              - text: 技术博客
+          - listitem [ref=e217]:
+            - text: /
+            - link "CMC 知识库" [ref=e218] [cursor=pointer]:
+              - /url: /blogs/posts/cmc-knowledge/
+              - text: CMC 知识库
+          - listitem [ref=e219]:
+            - text: /
+            - link "工艺表征、验证与统计设计":
+              - /url: /blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics.html
+      - generic [ref=e220]:
+        - heading "工艺表征、验证与统计设计" [level=1] [ref=e221]
+        - generic [ref=e222]:
+          - generic "作者🖊" [ref=e223] [cursor=pointer]:
+            - img "author icon" [ref=e224]
+            - generic [ref=e227]: BioCloudHub
+            - text: 作者🖊
+          - generic "写作日期📅" [ref=e228] [cursor=pointer]:
+            - img "calendar icon" [ref=e229]
+            - generic [ref=e231]: 2026/3/6
+            - text: 写作日期📅
+          - generic "阅读时间⌛" [ref=e232] [cursor=pointer]:
+            - img "timer icon" [ref=e233]
+            - generic [ref=e235]: 大约 2 分钟
+            - text: 阅读时间⌛
+          - generic "分类🌈" [ref=e236] [cursor=pointer]:
+            - img "category icon" [ref=e237]
+            - navigation [ref=e239]: CMC 核心技术
+            - text: 分类🌈
+          - generic "标签🏷" [ref=e240] [cursor=pointer]:
+            - img "tag icon" [ref=e241]
+            - navigation [ref=e243]: CMC
+            - navigation [ref=e244]: 工艺表征
+            - navigation [ref=e245]: 统计设计
+            - text: 标签🏷
+      - complementary [ref=e247]:
+        - generic [ref=e248]: 此页内容
+        - list [ref=e250]:
+          - listitem [ref=e251]:
+            - link "专题补充" [ref=e252] [cursor=pointer]:
+              - /url: "#专题补充"
+          - listitem [ref=e253]:
+            - link "二级主题" [ref=e254] [cursor=pointer]:
+              - /url: "#二级主题"
+          - listitem [ref=e255]:
+            - link "阅读与维护" [ref=e256] [cursor=pointer]:
+              - /url: "#阅读与维护"
+      - generic [ref=e258]:
+        - blockquote [ref=e259]:
+          - paragraph [ref=e260]: 当前专题共整理 222 个知识点、5 个二级主题、10 个细分页面，已经按“先理解问题，再进入判断，再补充证据”的逻辑重组。
+        - paragraph [ref=e261]: 这不是一组零散问答，而是一套围绕工艺表征、验证与统计设计搭起来的知识结构。建议先看下面的专题补充，再决定从哪个二级主题切入。
+        - heading "专题补充" [level=2] [ref=e262]:
+          - link "专题补充" [ref=e263] [cursor=pointer]:
+            - /url: "#专题补充"
+        - generic [ref=e264]:
+          - paragraph [ref=e265]:
+            - generic [ref=e267]: 回答
+            - generic [ref=e268] [cursor=pointer]: BioCloudHub
+          - list [ref=e269]:
+            - listitem [ref=e270]:
+              - strong [ref=e271]: 这个专题真正要解决什么：
+              - text: 这个专题处理的是 CMC 里最容易从“经验判断”走向“数据说话”的部分：工艺表征、验证策略和统计设计。
+            - listitem [ref=e272]:
+              - strong [ref=e273]: 项目里最常见的痛点：
+              - text: 最常见的误区是先做实验再找统计解释，或者只做 DOE 却说不清它和 CPP、控制策略、验证结论之间的关系。
+            - listitem [ref=e274]:
+              - strong [ref=e275]: 阅读时最该抓住什么：
+              - text: 阅读时要把工艺理解、参数筛选、风险评估、实验设计、统计解释和验证结论看成一条连续链路，而不是彼此割裂的任务。
+            - listitem [ref=e276]:
+              - strong [ref=e277]: 怎样把它用到项目里：
+              - text: 如果你在做 PPQ 前准备、工艺确认、持续工艺验证或变更可比性判断，这个专题必须和“上游培养与工艺放大”“下游纯化与收获”一起看。
+        - heading "二级主题" [level=2] [ref=e278]:
+          - link "二级主题" [ref=e279] [cursor=pointer]:
+            - /url: "#二级主题"
+        - list [ref=e280]:
+          - listitem [ref=e281]:
+            - link "Protein A、低 pH 灭活与工艺验证框架" [ref=e282] [cursor=pointer]:
+              - /url: /posts/cmc-knowledge/10-process-characterization-validation-statistics-01.html
+            - text: （45 个知识点 / 2 个细分主题）
+          - listitem [ref=e283]:
+            - link "设计空间、上游表征与统计基础" [ref=e284] [cursor=pointer]:
+              - /url: /posts/cmc-knowledge/10-process-characterization-validation-statistics-02.html
+            - text: （46 个知识点 / 2 个细分主题）
+          - listitem [ref=e285]:
+            - link "统计学基础、抽样、QbD 与上游验证" [ref=e286] [cursor=pointer]:
+              - /url: /posts/cmc-knowledge/10-process-characterization-validation-statistics-03.html
+            - text: （45 个知识点 / 2 个细分主题）
+          - listitem [ref=e287]:
+            - link "TOST、设计空间与工艺表征定义" [ref=e288] [cursor=pointer]:
+              - /url: /posts/cmc-knowledge/10-process-characterization-validation-statistics-04.html
+            - text: （43 个知识点 / 2 个细分主题）
+          - listitem [ref=e289]:
+            - link "工艺表征深化、DoE 修正与上游表征总结" [ref=e290] [cursor=pointer]:
+              - /url: /posts/cmc-knowledge/10-process-characterization-validation-statistics-05.html
+            - text: （43 个知识点 / 2 个细分主题）
+        - heading "阅读与维护" [level=2] [ref=e291]:
+          - link "阅读与维护" [ref=e292] [cursor=pointer]:
+            - /url: "#阅读与维护"
+        - list [ref=e293]:
+          - listitem [ref=e294]: 一级专题页继续作为总入口，适合先按工作模块定位问题域。
+          - listitem [ref=e295]: 二级主题页负责把同一类问题收拢到一起，减少重复翻页和重复维护。
+          - listitem [ref=e296]: 细分主题页承载具体知识点，适合连续阅读、搜索命中和后续增补。
+      - navigation [ref=e298]:
+        - link "法规申报与审评策略" [ref=e299] [cursor=pointer]:
+          - /url: /blogs/posts/cmc-knowledge/09-regulatory-submission-review.html
+          - generic [ref=e300]: 上一页
+          - generic [ref=e302]: 法规申报与审评策略
+        - link "药理毒理与临床开发" [ref=e303] [cursor=pointer]:
+          - /url: /blogs/posts/cmc-knowledge/11-pharmacology-toxicology-clinical.html
+          - generic [ref=e304]: 下一页
+          - generic [ref=e306]: 药理毒理与临床开发

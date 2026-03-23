@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“结构表征、RNA 分析与色谱基础”里与“验证放行与标准应用”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 22 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/06-analytical-methods-quality-standards-02.html)
-- [返回一级专题总览](/posts/cmc-knowledge/06-analytical-methods-quality-standards.html)
-- [上一细分主题](/posts/cmc-knowledge/06-analytical-methods-quality-standards-02-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards-02.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards-02-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## RNA 水平的序列分析和技术考量
 
 :::answer
@@ -39,6 +41,7 @@ RNA-seq，即 mRNA 水平上的 NGS，可以实现对低水平基因突变的研
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 蛋白结构的全面表征分析
 
 :::answer
@@ -48,6 +51,7 @@ RNA-seq，即 mRNA 水平上的 NGS，可以实现对低水平基因突变的研
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是步骤六：蛋白 A 亲和层析，关键要点有哪些
 
 :::answer
@@ -58,6 +62,7 @@ RNA-seq，即 mRNA 水平上的 NGS，可以实现对低水平基因突变的研
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## CQA 和质量标准之间是什么关系
 
 :::answer
@@ -74,6 +79,7 @@ RNA-seq，即 mRNA 水平上的 NGS，可以实现对低水平基因突变的研
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 分析方法验证的目的以及适用范围
 
 :::answer
@@ -82,6 +88,7 @@ RNA-seq，即 mRNA 水平上的 NGS，可以实现对低水平基因突变的研
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是专属性，关键要点有哪些
 
 :::answer
@@ -110,6 +117,7 @@ RNA-seq，即 mRNA 水平上的 NGS，可以实现对低水平基因突变的研
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是准确度，关键要点有哪些
 
 :::answer
@@ -119,6 +127,7 @@ RNA-seq，即 mRNA 水平上的 NGS，可以实现对低水平基因突变的研
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是精密度，关键要点有哪些
 
 :::answer
@@ -129,6 +138,7 @@ RNA-seq，即 mRNA 水平上的 NGS，可以实现对低水平基因突变的研
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是检测限，关键要点有哪些
 
 :::answer
@@ -140,6 +150,7 @@ RNA-seq，即 mRNA 水平上的 NGS，可以实现对低水平基因突变的研
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是定量限，关键要点有哪些
 
 :::answer
@@ -160,6 +171,7 @@ RNA-seq，即 mRNA 水平上的 NGS，可以实现对低水平基因突变的研
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是线性，关键要点有哪些
 
 :::answer
@@ -178,6 +190,7 @@ RNA-seq，即 mRNA 水平上的 NGS，可以实现对低水平基因突变的研
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是范围，关键要点有哪些
 
 :::answer
@@ -189,6 +202,7 @@ RNA-seq，即 mRNA 水平上的 NGS，可以实现对低水平基因突变的研
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是 DS&DP 质量标准制定的合理性，关键要点有哪些
 
 :::answer
@@ -199,6 +213,7 @@ RNA-seq，即 mRNA 水平上的 NGS，可以实现对低水平基因突变的研
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是 HCP 清除（深层过滤），关键要点有哪些
 
 :::answer
@@ -210,6 +225,7 @@ RNA-seq，即 mRNA 水平上的 NGS，可以实现对低水平基因突变的研
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是 HCP 清除（亲和层析），关键要点有哪些
 
 :::answer
@@ -220,6 +236,7 @@ RNA-seq，即 mRNA 水平上的 NGS，可以实现对低水平基因突变的研
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是 HCP 清除（阴离子层析），关键要点有哪些
 
 :::answer
@@ -256,6 +273,7 @@ HCP 清除 AEX 通常以流穿的模式运行。
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 什么是 HCP 清除（其他步骤），关键要点有哪些
 
 :::answer
@@ -278,6 +296,7 @@ HCP 清除 AEX 通常以流穿的模式运行。
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 什么是分辨率，关键要点有哪些
 
 :::answer
@@ -286,6 +305,7 @@ HCP 清除 AEX 通常以流穿的模式运行。
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是选择性和有效性，关键要点有哪些
 
 :::answer
@@ -294,6 +314,7 @@ HCP 清除 AEX 通常以流穿的模式运行。
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是柱效，关键要点有哪些
 
 :::answer
@@ -330,6 +351,7 @@ N 与柱长成正比，柱越长，N 越大。
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 什么是线性流速和体积流速，关键要点有哪些
 
 :::answer
@@ -339,6 +361,7 @@ N 与柱长成正比，柱越长，N 越大。
 
 :::
 
+<!-- cmc-question-id: Q23 -->
 ## 什么是固定相和流动相，关键要点有哪些
 
 :::answer

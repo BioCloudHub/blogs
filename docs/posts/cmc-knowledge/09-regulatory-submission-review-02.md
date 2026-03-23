@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [申报框架与资料基础](/posts/cmc-knowledge/09-regulatory-submission-review-02-01.html)（23 个知识点）
-- [审评重点与法规应用](/posts/cmc-knowledge/09-regulatory-submission-review-02-02.html)（24 个知识点）
+- [申报框架与资料基础](/blogs/posts/cmc-knowledge/09-regulatory-submission-review-02-01.html)（23 个知识点）
+- [审评重点与法规应用](/blogs/posts/cmc-knowledge/09-regulatory-submission-review-02-02.html)（24 个知识点）
 
 ## 维护建议
 

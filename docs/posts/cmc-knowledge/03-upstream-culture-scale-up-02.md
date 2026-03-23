@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [培养原理与工艺认知](/posts/cmc-knowledge/03-upstream-culture-scale-up-02-01.html)（23 个知识点）
-- [过程控制与放大实操](/posts/cmc-knowledge/03-upstream-culture-scale-up-02-02.html)（23 个知识点）
+- [培养原理与工艺认知](/blogs/posts/cmc-knowledge/03-upstream-culture-scale-up-02-01.html)（23 个知识点）
+- [过程控制与放大实操](/blogs/posts/cmc-knowledge/03-upstream-culture-scale-up-02-02.html)（23 个知识点）
 
 ## 维护建议
 

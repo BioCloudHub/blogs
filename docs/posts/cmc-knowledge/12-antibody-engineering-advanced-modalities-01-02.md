@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“抗体效应机制、靶点基础与抗感染抗体”里与“开发策略与实操控制”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 21 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-01.html)
-- [返回一级专题总览](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities.html)
-- [上一细分主题](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-01-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-01.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-01-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是抗感染抗体药物存在的问题，关键要点有哪些
 
 :::answer
@@ -37,6 +39,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 什么是抗感染抗体药物发展趋势，关键要点有哪些
 
 :::answer
@@ -45,6 +48,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是鸡尾酒疗法，关键要点有哪些
 
 :::answer
@@ -53,6 +57,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是重组多克隆抗体，关键要点有哪些
 
 :::answer
@@ -69,6 +74,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是抗体药物偶联物，关键要点有哪些
 
 :::answer
@@ -78,6 +84,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是双特异性抗体，关键要点有哪些
 
 :::answer
@@ -92,6 +99,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是广谱抗体，关键要点有哪些
 
 :::answer
@@ -106,6 +114,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是免疫检查点
 
 :::answer
@@ -115,6 +124,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是 PD-1/PD-L1 靶点，关键要点有哪些
 
 :::answer
@@ -133,6 +143,7 @@ PD-1/PD-L1 单抗药物可以竞争性结合 PD-1 受体或 PD-L1 从而恢复 T
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是 CTLA-4 靶点，关键要点有哪些
 
 :::answer
@@ -145,6 +156,7 @@ CTLA-4 阻断剂旨在通过促进肿瘤特异性 T 细胞的活化及增殖诱�
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是 HER2 靶点，关键要点有哪些
 
 :::answer
@@ -153,6 +165,7 @@ CTLA-4 阻断剂旨在通过促进肿瘤特异性 T 细胞的活化及增殖诱�
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是 VEGF 靶点，关键要点有哪些
 
 :::answer
@@ -162,6 +175,7 @@ CTLA-4 阻断剂旨在通过促进肿瘤特异性 T 细胞的活化及增殖诱�
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是 CD20 靶点，关键要点有哪些
 
 :::answer
@@ -173,6 +187,7 @@ CD20 是在淋巴 B 细胞表面表达的糖基化蛋白，其在人体 B 细胞
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是 TNF-α 靶点，关键要点有哪些
 
 :::answer
@@ -191,6 +206,7 @@ TNF-α 属于促炎细胞因子，参与正常炎症反应和免疫反应，可�
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是 GLP-1R 靶点，关键要点有哪些
 
 :::answer
@@ -223,6 +239,7 @@ GLP-1 被 GLP-1 或人工合成的 GLP-1R 激动剂激活后，便能发挥多�
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是 CD19 靶点，关键要点有哪些
 
 :::answer
@@ -249,6 +266,7 @@ CD19 已经作为淋巴瘤和白血病的潜在治疗靶点。
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 什么是 CD3 靶点，关键要点有哪些
 
 :::answer
@@ -273,6 +291,7 @@ CD3 抗原在 T 细胞的活化、增殖等过程具有重要作用。
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 什么是 DRD2 靶点，关键要点有哪些
 
 :::answer
@@ -295,6 +314,7 @@ DRD2 通过与 β-arrestin2、DDX5 和 eEF1A2 相互作用抑制 NF-κB 信号�
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是 Calcium channel 靶点，关键要点有哪些
 
 :::answer
@@ -307,6 +327,7 @@ DRD2 通过与 β-arrestin2、DDX5 和 eEF1A2 相互作用抑制 NF-κB 信号�
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是 TOP2 靶点，关键要点有哪些
 
 :::answer
@@ -317,6 +338,7 @@ DRD2 通过与 β-arrestin2、DDX5 和 eEF1A2 相互作用抑制 NF-κB 信号�
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 什么是 AR 靶点，关键要点有哪些
 
 :::answer

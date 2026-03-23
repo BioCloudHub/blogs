@@ -27,9 +27,9 @@ article: false
 
 ## 二级主题
 
-- [冻存复苏、建库基础与细胞状态](/posts/cmc-knowledge/02-cell-bank-stability-01.html)（45 个知识点 / 2 个细分主题）
-- [生产细胞库建立、GMP 管理与法规框架](/posts/cmc-knowledge/02-cell-bank-stability-02.html)（42 个知识点 / 2 个细分主题）
-- [细胞库放行、限传代次与复苏异常排查](/posts/cmc-knowledge/02-cell-bank-stability-03.html)（41 个知识点 / 2 个细分主题）
+- [冻存复苏、建库基础与细胞状态](/blogs/posts/cmc-knowledge/02-cell-bank-stability-01.html)（45 个知识点 / 2 个细分主题）
+- [生产细胞库建立、GMP 管理与法规框架](/blogs/posts/cmc-knowledge/02-cell-bank-stability-02.html)（42 个知识点 / 2 个细分主题）
+- [细胞库放行、限传代次与复苏异常排查](/blogs/posts/cmc-knowledge/02-cell-bank-stability-03.html)（41 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 

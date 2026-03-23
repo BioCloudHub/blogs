@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“收获澄清、层析捕获与纯化主流程”里与“收获纯化原理”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 25 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/04-downstream-purification-harvest-01.html)
-- [返回一级专题总览](/posts/cmc-knowledge/04-downstream-purification-harvest.html)
-- [下一细分主题](/posts/cmc-knowledge/04-downstream-purification-harvest-01-02.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/04-downstream-purification-harvest-01.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/04-downstream-purification-harvest.html)
+- [下一细分主题](/blogs/posts/cmc-knowledge/04-downstream-purification-harvest-01-02.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 收获细胞活率对细胞培养及纯化有何影响
 
 :::answer
@@ -35,6 +37,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 抗体纯化的主要任务是什么
 
 :::answer
@@ -43,6 +46,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 如何提高抗体纯化效率
 
 :::answer
@@ -63,6 +67,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 纯化的整个层析过程主要包含哪些步骤
 
 :::answer
@@ -71,6 +76,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 发酵液澄清一般采用哪些方法
 
 :::answer
@@ -117,6 +123,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 精纯步骤常用的方法包括哪些
 
 :::answer
@@ -125,6 +132,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## Protein A 亲和层析的原理是什么
 
 :::answer
@@ -132,12 +140,11 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 亲和层析是基于生物分子与其它配基分子之间（如抗原与抗体，酶和底物，激素与受体，核酸中的互补链，多糖与蛋白复合体等）的亲和吸附原理建立起来的。
 
 - 洗脱 ProteinA 上结合的抗体，再利用酸性更强的缓冲液（PH 约 2.
-- 去除强结合杂质，进行介质再生。
-
-Theoretically, IgG molecules can bind to each of the five domains of Protein A. However, a free solution binding stoichiometry of 2.0–3.3 has been reported, suggesting that all five domains of Protein A are not simultaneously available for binding. The binding stoichiometry is expected to be even lower with immobilized Protein A resin.
+- 去除强结合杂质，进行介质再生。 Theoretically, IgG molecules can bind to each of the five domains of Protein A. However, a free solution binding stoichiometry of 2.0–3.3 has been reported, suggesting that all five domains of Protein A are not simultaneously available for binding. The binding stoichiometry is expected to be even lower with immobilized Protein A resin.
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 常见的Protein A 亲和层析的优点和缺点有哪些，各自怎么理解
 
 :::answer
@@ -163,6 +170,7 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## ProteinA 亲和层析工艺开发的重点是什么
 
 :::answer
@@ -175,6 +183,7 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## ProteinA 脱落的原因是什么
 
 :::answer
@@ -185,6 +194,7 @@ ProteinA 在使用过程中会发生脱落，脱落的主要原因是细胞培�
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是 Protein A、 Protein G、 Protein L 的区别，关键要点有哪些
 
 :::answer
@@ -210,6 +220,7 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是 Protein A 亲和层析
 
 :::answer
@@ -217,11 +228,11 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 - Protein A 步骤是纯化工艺中的第一个层析单元操作。这一步使用固定的 Protein A 填料，用于结合细胞培养液中的单克隆抗体
 - Protein A 是一种金黄色葡萄球菌细胞壁蛋白质，分子量 42 KD，它能够特异性地结合多种免疫球蛋白的 Fc 区段
 - Protein A 含有 5 个可以和抗体 IgG 分子的 Fc 段特异性结合的结构域。Protein A 作为亲和配基被偶联到琼脂糖基质上，可以特异性地和样品中的抗体分子结合，而使其他杂蛋白流穿，具有极高的选择性。1 个 Protein A 分子至少可以结合 2 个 IgG。除了 IgG，Protein A 也可以结合另一些免疫球蛋白，如用于某些种属的 IgA、IgM 的纯化
-
 - **除杂能力：** 工艺杂质如 HCP、DNA 和小分子，在流穿或清洗过程中被去除。低 pH 值的缓冲液将单克隆抗体洗脱出来并进入随后的低 pH 灭活步骤。虽然可以证明蛋白 A 层析步骤的病毒清除，但是一般抗体纯化工艺并未对该步骤做出声明。
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是澄清度（浊度），关键要点有哪些
 
 :::answer
@@ -231,6 +242,7 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是澄清和澄明概念，关键要点有哪些
 
 :::answer
@@ -241,6 +253,7 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是澄清度检查，关键要点有哪些
 
 :::answer
@@ -251,6 +264,7 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 精纯步骤常用的方法包括哪些
 
 :::answer
@@ -258,11 +272,11 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 - 主要包含以下方法： 阴离子交换层析（主要去除宿主细胞蛋白、宿主核酸）
 - 疏水作用层析（主要去除聚体、宿主细胞蛋白、蛋白 A）
 - 羟基磷灰石层析和分子筛（主要去除宿主细胞蛋白、蛋白 A、聚体、片段）
-
 - **模式：** 根据单抗等电点的特性，通常阴离子交换和疏水作用采用流穿模式，阳离子交换和磷灰石采用结合-洗脱模式。
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 什么是离子交换层析，关键要点有哪些
 
 :::answer
@@ -273,6 +287,7 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 什么是阴离子交换层析，关键要点有哪些
 
 :::answer
@@ -282,6 +297,7 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是阳离子交换层析，关键要点有哪些
 
 :::answer
@@ -296,6 +312,7 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是疏水层析，关键要点有哪些
 
 :::answer
@@ -312,6 +329,7 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 什么是羟基磷灰石层析，关键要点有哪些
 
 :::answer
@@ -326,6 +344,7 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 
 :::
 
+<!-- cmc-question-id: Q23 -->
 ## 什么是典型原液生产流程，关键要点有哪些
 
 :::answer
@@ -347,6 +366,7 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 
 :::
 
+<!-- cmc-question-id: Q24 -->
 ## 什么是步骤四：细胞培养液收获，关键要点有哪些
 
 :::answer
@@ -357,6 +377,7 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 
 :::
 
+<!-- cmc-question-id: Q25 -->
 ## 什么是步骤五：深层过滤，关键要点有哪些
 
 :::answer
@@ -367,6 +388,7 @@ Protein G 不仅与免疫球蛋白的恒定区相结合，还与白蛋白、α2-
 
 :::
 
+<!-- cmc-question-id: Q26 -->
 ## 什么是步骤八：二次深层过滤，关键要点有哪些
 
 :::answer

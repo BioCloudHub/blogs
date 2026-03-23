@@ -28,8 +28,8 @@ article: false
 
 ## 细分主题
 
-- [方法原理与指标认知](/posts/cmc-knowledge/06-analytical-methods-quality-standards-06-01.html)（19 个知识点）
-- [验证放行与标准应用](/posts/cmc-knowledge/06-analytical-methods-quality-standards-06-02.html)（20 个知识点）
+- [方法原理与指标认知](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards-06-01.html)（19 个知识点）
+- [验证放行与标准应用](/blogs/posts/cmc-knowledge/06-analytical-methods-quality-standards-06-02.html)（20 个知识点）
 
 ## 维护建议
 

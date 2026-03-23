@@ -1,0 +1,21 @@
+0 verbose cli /Users/xpy/.nvm/versions/node/v24.12.0/bin/node /Users/xpy/.nvm/versions/node/v24.12.0/bin/npm
+1 info using npm@11.6.2
+2 info using node@v24.12.0
+3 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/xpy/Coding/biocloudhub/blogs/.npmrc
+5 silly config load:file:/Users/xpy/.npmrc
+6 warn Unknown user config "python". This will stop working in the next major version of npm.
+7 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/etc/npmrc
+8 verbose title npm view gh-pages description dist-tags.latest homepage version time
+9 verbose argv "view" "--json" "--" "gh-pages" "description" "dist-tags.latest" "homepage" "version" "time"
+10 verbose logfile logs-max:10 dir:/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-03-14T13_50_29_765Z-
+11 verbose logfile /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-03-14T13_50_29_765Z-debug-0.log
+12 silly logfile start cleaning logs, removing 1 files
+13 silly logfile done cleaning log files
+14 http fetch GET 200 https://registry.npmjs.org/gh-pages 867ms (cache revalidated)
+15 verbose cwd /Users/xpy/Coding/biocloudhub/blogs
+16 verbose os Darwin 25.4.0
+17 verbose node v24.12.0
+18 verbose npm  v11.6.2
+19 verbose exit 0
+20 info ok

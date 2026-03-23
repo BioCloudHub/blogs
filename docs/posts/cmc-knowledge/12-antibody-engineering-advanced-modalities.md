@@ -27,12 +27,12 @@ article: false
 
 ## 二级主题
 
-- [抗体效应机制、靶点基础与抗感染抗体](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-01.html)（43 个知识点 / 2 个细分主题）
-- [肿瘤免疫靶点、内毒素标准与 ADC 靶抗原](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-02.html)（42 个知识点 / 2 个细分主题）
-- [ADC 靶点、药代动力学与一般要求](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-03.html)（42 个知识点 / 2 个细分主题）
-- [ADC 研发阶段、基因治疗纯化与内毒素控制](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-04.html)（41 个知识点 / 2 个细分主题）
-- [内毒素检测、ADC 开发关键点与靶点数据库](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-05.html)（34 个知识点 / 2 个细分主题）
-- [内毒素控制、低内毒素回收与活性检测](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-06.html)（37 个知识点 / 2 个细分主题）
+- [抗体效应机制、靶点基础与抗感染抗体](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-01.html)（43 个知识点 / 2 个细分主题）
+- [肿瘤免疫靶点、内毒素标准与 ADC 靶抗原](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-02.html)（42 个知识点 / 2 个细分主题）
+- [ADC 靶点、药代动力学与一般要求](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-03.html)（42 个知识点 / 2 个细分主题）
+- [ADC 研发阶段、基因治疗纯化与内毒素控制](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-04.html)（41 个知识点 / 2 个细分主题）
+- [内毒素检测、ADC 开发关键点与靶点数据库](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-05.html)（34 个知识点 / 2 个细分主题）
+- [内毒素控制、低内毒素回收与活性检测](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-06.html)（37 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 

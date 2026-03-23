@@ -27,11 +27,11 @@ article: false
 
 ## 二级主题
 
-- [病毒清除基础、成瘤性与病毒因子检测](/posts/cmc-knowledge/07-viral-safety-sterility-control-01.html)（45 个知识点 / 2 个细分主题）
-- [动物接种、指示病毒与无菌/微生物限度](/posts/cmc-knowledge/07-viral-safety-sterility-control-02.html)（45 个知识点 / 2 个细分主题）
-- [无菌保障、S/D 灭活与细胞库安全检查](/posts/cmc-knowledge/07-viral-safety-sterility-control-03.html)（43 个知识点 / 2 个细分主题）
-- [牛猪源病毒、病毒清除步骤与支原体控制](/posts/cmc-knowledge/07-viral-safety-sterility-control-04.html)（42 个知识点 / 2 个细分主题）
-- [病毒风险、逆转录病毒与污染鉴定](/posts/cmc-knowledge/07-viral-safety-sterility-control-05.html)（43 个知识点 / 2 个细分主题）
+- [病毒清除基础、成瘤性与病毒因子检测](/blogs/posts/cmc-knowledge/07-viral-safety-sterility-control-01.html)（45 个知识点 / 2 个细分主题）
+- [动物接种、指示病毒与无菌/微生物限度](/blogs/posts/cmc-knowledge/07-viral-safety-sterility-control-02.html)（45 个知识点 / 2 个细分主题）
+- [无菌保障、S/D 灭活与细胞库安全检查](/blogs/posts/cmc-knowledge/07-viral-safety-sterility-control-03.html)（43 个知识点 / 2 个细分主题）
+- [牛猪源病毒、病毒清除步骤与支原体控制](/blogs/posts/cmc-knowledge/07-viral-safety-sterility-control-04.html)（42 个知识点 / 2 个细分主题）
+- [病毒风险、逆转录病毒与污染鉴定](/blogs/posts/cmc-knowledge/07-viral-safety-sterility-control-05.html)（43 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 

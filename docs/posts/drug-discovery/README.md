@@ -33,10 +33,10 @@ article: false
 
 ### 按 CMC 支撑方向
 
-- `候选分子与可制造性支撑`：[AI 驱动的小分子药物发现](/posts/drug-discovery/ai-drug-discovery.html)
-- `注册统计与全生命周期支撑`：[临床试验数据分析方法](/posts/drug-discovery/clinical-trials.html)
+- `候选分子与可制造性支撑`：[AI 驱动的小分子药物发现](/blogs/posts/drug-discovery/ai-drug-discovery.html)
+- `注册统计与全生命周期支撑`：[临床试验数据分析方法](/blogs/posts/drug-discovery/clinical-trials.html)
 
 ### 按技术类别
 
-- `AI 药物发现`：[AI 驱动的小分子药物发现](/posts/drug-discovery/ai-drug-discovery.html)
-- `临床试验与生物统计`：[临床试验数据分析方法](/posts/drug-discovery/clinical-trials.html)
+- `AI 药物发现`：[AI 驱动的小分子药物发现](/blogs/posts/drug-discovery/ai-drug-discovery.html)
+- `临床试验与生物统计`：[临床试验数据分析方法](/blogs/posts/drug-discovery/clinical-trials.html)

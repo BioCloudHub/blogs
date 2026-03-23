@@ -1,0 +1,836 @@
+0 verbose cli /Users/xpy/.nvm/versions/node/v24.12.0/bin/node /Users/xpy/.nvm/versions/node/v24.12.0/bin/npm
+1 info using npm@11.6.2
+2 info using node@v24.12.0
+3 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/xpy/Coding/biocloudhub/blogs/.npmrc
+5 silly config load:file:/Users/xpy/.npmrc
+6 warn Unknown user config "python". This will stop working in the next major version of npm.
+7 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/etc/npmrc
+8 verbose title npm install three @types/three
+9 verbose argv "install" "three" "@types/three"
+10 verbose logfile logs-max:10 dir:/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-03-14T07_38_08_347Z-
+11 verbose logfile /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-03-14T07_38_08_347Z-debug-0.log
+12 silly logfile start cleaning logs, removing 1 files
+13 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+14 silly logfile done cleaning log files
+15 silly idealTree buildDeps
+16 silly fetch manifest three@*
+17 silly packumentCache full:https://registry.npmjs.org/three cache-miss
+18 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+19 http fetch GET 200 https://registry.npmjs.org/three 2048ms (cache miss)
+20 silly packumentCache full:https://registry.npmjs.org/three set size:undefined disposed:false
+21 silly fetch manifest @types/three@*
+22 silly packumentCache full:https://registry.npmjs.org/@types%2fthree cache-miss
+23 http fetch GET 200 https://registry.npmjs.org/@types%2fthree 1001ms (cache miss)
+24 silly packumentCache full:https://registry.npmjs.org/@types%2fthree set size:undefined disposed:false
+25 silly placeDep ROOT @types/three@0.183.1 OK for:  want: *
+26 silly placeDep ROOT three@0.183.2 OK for:  want: *
+27 silly fetch manifest @types/webxr@>=0.5.17
+28 silly packumentCache full:https://registry.npmjs.org/@types%2fwebxr cache-miss
+29 silly fetch manifest @webgpu/types@*
+30 silly packumentCache full:https://registry.npmjs.org/@webgpu%2ftypes cache-miss
+31 silly fetch manifest meshoptimizer@~1.0.1
+32 silly packumentCache full:https://registry.npmjs.org/meshoptimizer cache-miss
+33 silly fetch manifest @types/stats.js@*
+34 silly packumentCache full:https://registry.npmjs.org/@types%2fstats.js cache-miss
+35 silly fetch manifest @tweenjs/tween.js@~23.1.3
+36 silly packumentCache full:https://registry.npmjs.org/@tweenjs%2ftween.js cache-miss
+37 silly fetch manifest @dimforge/rapier3d-compat@~0.12.0
+38 silly packumentCache full:https://registry.npmjs.org/@dimforge%2frapier3d-compat cache-miss
+39 http fetch GET 200 https://registry.npmjs.org/@types%2fstats.js 960ms (cache miss)
+40 silly packumentCache full:https://registry.npmjs.org/@types%2fstats.js set size:undefined disposed:false
+41 http fetch GET 200 https://registry.npmjs.org/@types%2fwebxr 1029ms (cache miss)
+42 silly packumentCache full:https://registry.npmjs.org/@types%2fwebxr set size:undefined disposed:false
+43 http fetch GET 200 https://registry.npmjs.org/@dimforge%2frapier3d-compat 1575ms (cache miss)
+44 silly packumentCache full:https://registry.npmjs.org/@dimforge%2frapier3d-compat set size:undefined disposed:false
+45 http fetch GET 200 https://registry.npmjs.org/@tweenjs%2ftween.js 1810ms (cache miss)
+46 silly packumentCache full:https://registry.npmjs.org/@tweenjs%2ftween.js set size:undefined disposed:false
+47 http fetch GET 200 https://registry.npmjs.org/@webgpu%2ftypes 3033ms (cache miss)
+48 silly packumentCache full:https://registry.npmjs.org/@webgpu%2ftypes set size:undefined disposed:false
+49 http fetch GET 200 https://registry.npmjs.org/meshoptimizer 3198ms (cache miss)
+50 silly packumentCache full:https://registry.npmjs.org/meshoptimizer set size:undefined disposed:false
+51 silly placeDep ROOT @dimforge/rapier3d-compat@0.12.0 OK for: @types/three@0.183.1 want: ~0.12.0
+52 silly placeDep ROOT @tweenjs/tween.js@23.1.3 OK for: @types/three@0.183.1 want: ~23.1.3
+53 silly placeDep ROOT @types/stats.js@0.17.4 OK for: @types/three@0.183.1 want: *
+54 silly placeDep ROOT @types/webxr@0.5.24 OK for: @types/three@0.183.1 want: >=0.5.17
+55 silly placeDep ROOT @webgpu/types@0.1.69 OK for: @types/three@0.183.1 want: *
+56 silly placeDep ROOT meshoptimizer@1.0.1 OK for: @types/three@0.183.1 want: ~1.0.1
+57 silly reify mark retired [
+57 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/gh-pages',
+57 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/gh-pages',
+57 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/gh-pages-clean'
+57 silly reify ]
+58 silly reify mark retired [ '/Users/xpy/Coding/biocloudhub/blogs/node_modules/vue' ]
+59 silly reify mark retired [
+59 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/sass',
+59 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/sass'
+59 silly reify ]
+60 silly reify mark retired [
+60 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/@mdit/plugin-container'
+60 silly reify ]
+61 silly reify mark retired [
+61 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/vuepress-theme-hope'
+61 silly reify ]
+62 silly reify mark retired [ '/Users/xpy/Coding/biocloudhub/blogs/node_modules/cheerio' ]
+63 silly reify mark retired [
+63 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/vuepress',
+63 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/vuepress',
+63 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/vuepress-vite',
+63 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/vuepress-webpack'
+63 silly reify ]
+64 silly reify mark retired [
+64 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/@vuepress/bundler-vite'
+64 silly reify ]
+65 silly reify mark retired [ '/Users/xpy/Coding/biocloudhub/blogs/node_modules/vue-router' ]
+66 silly reify mark retired [ '/Users/xpy/Coding/biocloudhub/blogs/node_modules/@vueuse/core' ]
+67 silly reify mark retired [
+67 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/@vuepress/plugin-slimsearch'
+67 silly reify ]
+68 silly reify mark retired [
+68 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/@vuepress/plugin-search'
+68 silly reify ]
+69 silly reify moves {
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/gh-pages': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.gh-pages-6TGQiGgT',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/gh-pages': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/.gh-pages-X3gRqbQM',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/gh-pages-clean': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/.gh-pages-clean-0s0TQ95H',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/vue': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.vue-VIzVoKEm',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/sass': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.sass-ZceeviWs',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/sass': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/.sass-NWYCY6ze',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/@mdit/plugin-container': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/@mdit/.plugin-container-VxlKRYzF',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/vuepress-theme-hope': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.vuepress-theme-hope-GOfWStYr',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/cheerio': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.cheerio-c5EsnrdO',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/vuepress': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.vuepress-fAn9wPVs',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/vuepress': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/.vuepress-YmyW9j8u',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/vuepress-vite': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/.vuepress-vite-im7YHyj3',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/vuepress-webpack': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.bin/.vuepress-webpack-2LHr3H87',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/@vuepress/bundler-vite': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/@vuepress/.bundler-vite-UcAu8BJc',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/vue-router': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/.vue-router-bQmxcXDN',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/@vueuse/core': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/@vueuse/.core-GWRx2JO4',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/@vuepress/plugin-slimsearch': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/@vuepress/.plugin-slimsearch-1wHW56Tp',
+69 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/node_modules/@vuepress/plugin-search': '/Users/xpy/Coding/biocloudhub/blogs/node_modules/@vuepress/.plugin-search-NncuXD2G'
+69 silly reify }
+70 silly audit bulk request {
+70 silly audit   '@babel/helper-string-parser': [ '7.27.1' ],
+70 silly audit   '@babel/helper-validator-identifier': [ '7.28.5' ],
+70 silly audit   '@babel/parser': [ '7.29.0' ],
+70 silly audit   '@babel/types': [ '7.29.0' ],
+70 silly audit   '@esbuild/aix-ppc64': [ '0.25.12' ],
+70 silly audit   '@esbuild/android-arm': [ '0.25.12' ],
+70 silly audit   '@esbuild/android-arm64': [ '0.25.12' ],
+70 silly audit   '@esbuild/android-x64': [ '0.25.12' ],
+70 silly audit   '@esbuild/darwin-arm64': [ '0.25.12' ],
+70 silly audit   '@esbuild/darwin-x64': [ '0.25.12' ],
+70 silly audit   '@esbuild/freebsd-arm64': [ '0.25.12' ],
+70 silly audit   '@esbuild/freebsd-x64': [ '0.25.12' ],
+70 silly audit   '@esbuild/linux-arm': [ '0.25.12' ],
+70 silly audit   '@esbuild/linux-arm64': [ '0.25.12' ],
+70 silly audit   '@esbuild/linux-ia32': [ '0.25.12' ],
+70 silly audit   '@esbuild/linux-loong64': [ '0.25.12' ],
+70 silly audit   '@esbuild/linux-mips64el': [ '0.25.12' ],
+70 silly audit   '@esbuild/linux-ppc64': [ '0.25.12' ],
+70 silly audit   '@esbuild/linux-riscv64': [ '0.25.12' ],
+70 silly audit   '@esbuild/linux-s390x': [ '0.25.12' ],
+70 silly audit   '@esbuild/linux-x64': [ '0.25.12' ],
+70 silly audit   '@esbuild/netbsd-arm64': [ '0.25.12' ],
+70 silly audit   '@esbuild/netbsd-x64': [ '0.25.12' ],
+70 silly audit   '@esbuild/openbsd-arm64': [ '0.25.12' ],
+70 silly audit   '@esbuild/openbsd-x64': [ '0.25.12' ],
+70 silly audit   '@esbuild/openharmony-arm64': [ '0.25.12' ],
+70 silly audit   '@esbuild/sunos-x64': [ '0.25.12' ],
+70 silly audit   '@esbuild/win32-arm64': [ '0.25.12' ],
+70 silly audit   '@esbuild/win32-ia32': [ '0.25.12' ],
+70 silly audit   '@esbuild/win32-x64': [ '0.25.12' ],
+70 silly audit   '@jridgewell/sourcemap-codec': [ '1.5.5' ],
+70 silly audit   '@lit-labs/ssr-dom-shim': [ '1.5.1' ],
+70 silly audit   '@lit/reactive-element': [ '2.1.2' ],
+70 silly audit   '@mdit-vue/plugin-component': [ '3.0.2' ],
+70 silly audit   '@mdit-vue/plugin-frontmatter': [ '3.0.2' ],
+70 silly audit   '@mdit-vue/plugin-headers': [ '3.0.2' ],
+70 silly audit   '@mdit-vue/plugin-sfc': [ '3.0.2' ],
+70 silly audit   '@mdit-vue/plugin-title': [ '3.0.2' ],
+70 silly audit   '@mdit-vue/plugin-toc': [ '3.0.2' ],
+70 silly audit   '@mdit-vue/shared': [ '3.0.2' ],
+70 silly audit   '@mdit-vue/types': [ '3.0.2' ],
+70 silly audit   '@mdit/helper': [ '0.22.1' ],
+70 silly audit   '@mdit/plugin-alert': [ '0.22.3' ],
+70 silly audit   '@mdit/plugin-align': [ '0.23.0' ],
+70 silly audit   '@mdit/plugin-container': [ '0.22.2', '0.22.3' ],
+70 silly audit   '@mdit/plugin-attrs': [ '0.24.1' ],
+70 silly audit   '@mdit/plugin-demo': [ '0.22.3' ],
+70 silly audit   '@mdit/plugin-figure': [ '0.22.2' ],
+70 silly audit   '@mdit/plugin-footnote': [ '0.22.3' ],
+70 silly audit   '@mdit/plugin-icon': [ '0.23.0' ],
+70 silly audit   '@mdit/plugin-img-lazyload': [ '0.22.1' ],
+70 silly audit   '@mdit/plugin-img-mark': [ '0.22.2' ],
+70 silly audit   '@mdit/plugin-img-size': [ '0.22.4' ],
+70 silly audit   '@mdit/plugin-include': [ '0.22.3' ],
+70 silly audit   '@mdit/plugin-katex-slim': [ '0.25.1' ],
+70 silly audit   '@mdit/plugin-mark': [ '0.22.1' ],
+70 silly audit   '@mdit/plugin-mathjax-slim': [ '0.24.1' ],
+70 silly audit   '@mdit/plugin-plantuml': [ '0.23.0' ],
+70 silly audit   '@mdit/plugin-spoiler': [ '0.22.2' ],
+70 silly audit   '@mdit/plugin-stylize': [ '0.22.3' ],
+70 silly audit   '@mdit/plugin-sub': [ '0.23.0' ],
+70 silly audit   '@mdit/plugin-sup': [ '0.23.0' ],
+70 silly audit   '@mdit/plugin-tab': [ '0.23.0' ],
+70 silly audit   '@mdit/plugin-tasklist': [ '0.22.2' ],
+70 silly audit   '@mdit/plugin-tex': [ '0.23.0' ],
+70 silly audit   '@mdit/plugin-uml': [ '0.23.0' ],
+70 silly audit   '@nodelib/fs.scandir': [ '2.1.5' ],
+70 silly audit   '@nodelib/fs.stat': [ '2.0.5' ],
+70 silly audit   '@nodelib/fs.walk': [ '1.2.8' ],
+70 silly audit   '@parcel/watcher': [ '2.5.4' ],
+70 silly audit   '@parcel/watcher-android-arm64': [ '2.5.4' ],
+70 silly audit   '@parcel/watcher-darwin-arm64': [ '2.5.4' ],
+70 silly audit   '@parcel/watcher-darwin-x64': [ '2.5.4' ],
+70 silly audit   '@parcel/watcher-freebsd-x64': [ '2.5.4' ],
+70 silly audit   '@parcel/watcher-linux-arm-glibc': [ '2.5.4' ],
+70 silly audit   '@parcel/watcher-linux-arm-musl': [ '2.5.4' ],
+70 silly audit   '@parcel/watcher-linux-arm64-glibc': [ '2.5.4' ],
+70 silly audit   '@parcel/watcher-linux-arm64-musl': [ '2.5.4' ],
+70 silly audit   '@parcel/watcher-linux-x64-glibc': [ '2.5.4' ],
+70 silly audit   '@parcel/watcher-linux-x64-musl': [ '2.5.4' ],
+70 silly audit   '@parcel/watcher-win32-arm64': [ '2.5.4' ],
+70 silly audit   '@parcel/watcher-win32-ia32': [ '2.5.4' ],
+70 silly audit   '@parcel/watcher-win32-x64': [ '2.5.4' ],
+70 silly audit   '@pkgr/core': [ '0.2.9' ],
+70 silly audit   '@rolldown/pluginutils': [ '1.0.0-beta.53' ],
+70 silly audit   '@rollup/rollup-android-arm-eabi': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-android-arm64': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-darwin-arm64': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-darwin-x64': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-freebsd-arm64': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-freebsd-x64': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-linux-arm-gnueabihf': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-linux-arm-musleabihf': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-linux-arm64-gnu': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-linux-arm64-musl': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-linux-loong64-gnu': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-linux-loong64-musl': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-linux-ppc64-gnu': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-linux-ppc64-musl': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-linux-riscv64-gnu': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-linux-riscv64-musl': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-linux-s390x-gnu': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-linux-x64-gnu': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-linux-x64-musl': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-openbsd-x64': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-openharmony-arm64': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-win32-arm64-msvc': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-win32-ia32-msvc': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-win32-x64-gnu': [ '4.55.1' ],
+70 silly audit   '@rollup/rollup-win32-x64-msvc': [ '4.55.1' ],
+70 silly audit   '@shikijs/core': [ '3.21.0' ],
+70 silly audit   '@shikijs/engine-javascript': [ '3.21.0' ],
+70 silly audit   '@shikijs/engine-oniguruma': [ '3.21.0' ],
+70 silly audit   '@shikijs/langs': [ '3.21.0' ],
+70 silly audit   '@shikijs/themes': [ '3.21.0' ],
+70 silly audit   '@shikijs/transformers': [ '3.21.0' ],
+70 silly audit   '@shikijs/types': [ '3.21.0' ],
+70 silly audit   '@shikijs/vscode-textmate': [ '10.0.2' ],
+70 silly audit   '@stackblitz/sdk': [ '1.11.0' ],
+70 silly audit   '@types/debug': [ '4.1.12' ],
+70 silly audit   '@types/estree': [ '1.0.8' ],
+70 silly audit   '@types/fs-extra': [ '11.0.4' ],
+70 silly audit   '@types/hash-sum': [ '1.0.2' ],
+70 silly audit   '@types/hast': [ '3.0.4' ],
+70 silly audit   '@types/jsonfile': [ '6.1.4' ],
+70 silly audit   '@types/linkify-it': [ '5.0.0' ],
+70 silly audit   '@types/markdown-it': [ '14.1.2' ],
+70 silly audit   '@types/markdown-it-emoji': [ '3.0.1' ],
+70 silly audit   '@types/mdast': [ '4.0.4' ],
+70 silly audit   '@types/mdurl': [ '2.0.0' ],
+70 silly audit   '@types/ms': [ '2.1.0' ],
+70 silly audit   '@types/node': [ '25.0.9', '24.10.9' ],
+70 silly audit   '@types/picomatch': [ '4.0.2' ],
+70 silly audit   '@types/sax': [ '1.2.7' ],
+70 silly audit   '@types/trusted-types': [ '2.0.7' ],
+70 silly audit   '@types/unist': [ '3.0.3' ],
+70 silly audit   '@types/web-bluetooth': [ '0.0.21' ],
+70 silly audit   '@ungap/structured-clone': [ '1.3.0' ],
+70 silly audit   '@vitejs/plugin-vue': [ '6.0.3' ],
+70 silly audit   '@vue/compiler-core': [ '3.5.29' ],
+70 silly audit   entities: [ '7.0.1', '4.5.0', '6.0.1' ],
+70 silly audit   '@vue/compiler-dom': [ '3.5.29' ],
+70 silly audit   '@vue/compiler-sfc': [ '3.5.29' ],
+70 silly audit   '@vue/compiler-ssr': [ '3.5.29' ],
+70 silly audit   '@vue/devtools-api': [ '8.0.5', '6.6.4' ],
+70 silly audit   '@vue/devtools-kit': [ '8.0.5' ],
+70 silly audit   '@vue/devtools-shared': [ '8.0.5' ],
+70 silly audit   '@vue/reactivity': [ '3.5.29' ],
+70 silly audit   '@vue/runtime-core': [ '3.5.29' ],
+70 silly audit   '@vue/runtime-dom': [ '3.5.29' ],
+70 silly audit   '@vue/server-renderer': [ '3.5.29' ],
+70 silly audit   '@vue/shared': [ '3.5.29' ],
+70 silly audit   '@vuepress/bundler-vite': [ '2.0.0-rc.26' ],
+70 silly audit   '@vuepress/bundlerutils': [ '2.0.0-rc.26' ],
+70 silly audit   '@vuepress/cli': [ '2.0.0-rc.26' ],
+70 silly audit   '@vuepress/client': [ '2.0.0-rc.26' ],
+70 silly audit   '@vuepress/core': [ '2.0.0-rc.26' ],
+70 silly audit   '@vuepress/helper': [ '2.0.0-rc.121', '2.0.0-rc.120' ],
+70 silly audit   '@vuepress/highlighter-helper': [ '2.0.0-rc.118' ],
+70 silly audit   '@vuepress/markdown': [ '2.0.0-rc.26' ],
+70 silly audit   '@vuepress/plugin-active-header-links': [ '2.0.0-rc.118' ],
+70 silly audit   '@vuepress/plugin-back-to-top': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-blog': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-catalog': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-comment': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-copy-code': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-copyright': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-git': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-icon': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-links-check': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-markdown-chart': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-markdown-ext': [ '2.0.0-rc.121' ],
+70 silly audit   argparse: [ '2.0.1', '1.0.10' ],
+70 silly audit   'js-yaml': [ '4.1.1', '3.14.2' ],
+70 silly audit   '@vuepress/plugin-markdown-hint': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-markdown-image': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-markdown-include': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-markdown-math': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-markdown-preview': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-markdown-stylize': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-markdown-tab': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-notice': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-nprogress': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-photo-swipe': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-reading-time': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-redirect': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-rtl': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-sass-palette': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-search': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-seo': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-shiki': [ '2.0.0-rc.121' ],
+70 silly audit   nanoid: [ '5.1.6', '3.3.11' ],
+70 silly audit   '@vuepress/plugin-sitemap': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-slimsearch': [ '2.0.0-rc.121' ],
+70 silly audit   '@vuepress/plugin-theme-data': [ '2.0.0-rc.120' ],
+70 silly audit   '@vuepress/shared': [ '2.0.0-rc.26' ],
+70 silly audit   '@vuepress/utils': [ '2.0.0-rc.26' ],
+70 silly audit   '@vueuse/core': [ '14.2.0' ],
+70 silly audit   '@vueuse/metadata': [ '14.2.0' ],
+70 silly audit   '@vueuse/shared': [ '14.2.0' ],
+70 silly audit   'ansi-regex': [ '6.2.2', '5.0.1' ],
+70 silly audit   'ansi-styles': [ '4.3.0' ],
+70 silly audit   arg: [ '5.0.2' ],
+70 silly audit   'array-union': [ '2.1.0' ],
+70 silly audit   async: [ '3.2.6' ],
+70 silly audit   autoprefixer: [ '10.4.23' ],
+70 silly audit   bail: [ '2.0.2' ],
+70 silly audit   'balloon-css': [ '1.2.0' ],
+70 silly audit   'baseline-browser-mapping': [ '2.9.14' ],
+70 silly audit   'bcrypt-ts': [ '8.0.0' ],
+70 silly audit   birpc: [ '2.9.0' ],
+70 silly audit   boolbase: [ '1.0.0' ],
+70 silly audit   braces: [ '3.0.3' ],
+70 silly audit   browserslist: [ '4.28.1' ],
+70 silly audit   cac: [ '6.7.14' ],
+70 silly audit   camelcase: [ '5.3.1' ],
+70 silly audit   'caniuse-lite': [ '1.0.30001764' ],
+70 silly audit   ccount: [ '2.0.1' ],
+70 silly audit   chalk: [ '5.6.2' ],
+70 silly audit   'character-entities-html4': [ '2.1.0' ],
+70 silly audit   'character-entities-legacy': [ '3.0.0' ],
+70 silly audit   cheerio: [ '1.1.2' ],
+70 silly audit   'cheerio-select': [ '2.1.0' ],
+70 silly audit   chokidar: [ '4.0.3', '5.0.0' ],
+70 silly audit   'cli-cursor': [ '5.0.0' ],
+70 silly audit   'cli-spinners': [ '3.4.0' ],
+70 silly audit   cliui: [ '6.0.0' ],
+70 silly audit   'string-width': [ '4.2.3', '8.1.0' ],
+70 silly audit   'strip-ansi': [ '6.0.1', '7.1.2' ],
+70 silly audit   'color-convert': [ '2.0.1' ],
+70 silly audit   'color-name': [ '1.1.4' ],
+70 silly audit   'comma-separated-tokens': [ '2.0.3' ],
+70 silly audit   commander: [ '14.0.2', '13.1.0' ],
+70 silly audit   commondir: [ '1.0.1' ],
+70 silly audit   'connect-history-api-fallback': [ '2.0.0' ],
+70 silly audit   'copy-anything': [ '4.0.5' ],
+70 silly audit   'create-codepen': [ '2.0.0' ],
+70 silly audit   'css-select': [ '5.2.2' ],
+70 silly audit   'css-what': [ '6.2.2' ],
+70 silly audit   csstype: [ '3.2.3' ],
+70 silly audit   debug: [ '4.4.3' ],
+70 silly audit   decamelize: [ '1.2.0' ],
+70 silly audit   dequal: [ '2.0.3' ],
+70 silly audit   'detect-libc': [ '2.1.2' ],
+70 silly audit   devlop: [ '1.1.0' ],
+70 silly audit   dijkstrajs: [ '1.0.3' ],
+70 silly audit   'dir-glob': [ '3.0.1' ],
+70 silly audit   'dom-serializer': [ '2.0.0' ],
+70 silly audit   domelementtype: [ '2.3.0' ],
+70 silly audit   domhandler: [ '5.0.3' ],
+70 silly audit   domutils: [ '3.2.2' ],
+70 silly audit   'electron-to-chromium': [ '1.5.267' ],
+70 silly audit   'email-addresses': [ '5.0.0' ],
+70 silly audit   'emoji-regex': [ '8.0.0' ],
+70 silly audit   'encoding-sniffer': [ '0.2.1' ],
+70 silly audit   envinfo: [ '7.21.0' ],
+70 silly audit   esbuild: [ '0.25.12' ],
+70 silly audit   escalade: [ '3.2.0' ],
+70 silly audit   'escape-string-regexp': [ '1.0.5' ],
+70 silly audit   esprima: [ '4.0.1' ],
+70 silly audit   'estree-walker': [ '2.0.2' ],
+70 silly audit   extend: [ '3.0.2' ],
+70 silly audit   'extend-shallow': [ '2.0.1' ],
+70 silly audit   'fast-glob': [ '3.3.3' ],
+70 silly audit   fastq: [ '1.20.1' ],
+70 silly audit   fdir: [ '6.5.0' ],
+70 silly audit   fflate: [ '0.8.2' ],
+70 silly audit   'filename-reserved-regex': [ '2.0.0' ],
+70 silly audit   filenamify: [ '4.3.0' ],
+70 silly audit   'fill-range': [ '7.1.1' ],
+70 silly audit   'find-cache-dir': [ '3.3.2' ],
+70 silly audit   'find-up': [ '4.1.0' ],
+70 silly audit   'fraction.js': [ '5.3.4' ],
+70 silly audit   'fs-extra': [ '11.3.3' ],
+70 silly audit   fsevents: [ '2.3.3' ],
+70 silly audit   'get-caller-file': [ '2.0.5' ],
+70 silly audit   'get-east-asian-width': [ '1.4.0' ],
+70 silly audit   'gh-pages': [ '6.3.0' ],
+70 silly audit   giscus: [ '1.6.0' ],
+70 silly audit   'glob-parent': [ '5.1.2' ],
+70 silly audit   globby: [ '11.1.0' ],
+70 silly audit   'graceful-fs': [ '4.2.11' ],
+70 silly audit   'gray-matter': [ '4.0.3' ],
+70 silly audit   'hash-sum': [ '2.0.0' ],
+70 silly audit   'hast-util-from-html': [ '2.0.3' ],
+70 silly audit   'hast-util-from-parse5': [ '8.0.3' ],
+70 silly audit   'hast-util-parse-selector': [ '4.0.0' ],
+70 silly audit   'hast-util-sanitize': [ '5.0.2' ],
+70 silly audit   'hast-util-to-html': [ '9.0.5' ],
+70 silly audit   'hast-util-whitespace': [ '3.0.0' ],
+70 silly audit   hastscript: [ '9.0.1' ],
+70 silly audit   hookable: [ '5.5.3' ],
+70 silly audit   'html-void-elements': [ '3.0.0' ],
+70 silly audit   htmlparser2: [ '10.0.0' ],
+70 silly audit   'iconv-lite': [ '0.6.3' ],
+70 silly audit   ignore: [ '5.3.2' ],
+70 silly audit   immutable: [ '5.1.4' ],
+70 silly audit   'is-extendable': [ '0.1.1' ],
+70 silly audit   'is-extglob': [ '2.1.1' ],
+70 silly audit   'is-fullwidth-code-point': [ '3.0.0' ],
+70 silly audit   'is-glob': [ '4.0.3' ],
+70 silly audit   'is-interactive': [ '2.0.0' ],
+70 silly audit   'is-number': [ '7.0.0' ],
+70 silly audit   'is-plain-obj': [ '4.1.0' ],
+70 silly audit   'is-unicode-supported': [ '2.1.0' ],
+70 silly audit   'is-what': [ '5.5.0' ],
+70 silly audit   jsonfile: [ '6.2.0' ],
+70 silly audit   'kind-of': [ '6.0.3' ],
+70 silly audit   lilconfig: [ '3.1.3' ],
+70 silly audit   'linkify-it': [ '5.0.0' ],
+70 silly audit   lit: [ '3.3.2' ],
+70 silly audit   'lit-element': [ '4.2.2' ],
+70 silly audit   'lit-html': [ '3.3.2' ],
+70 silly audit   'locate-path': [ '5.0.0' ],
+70 silly audit   'log-symbols': [ '7.0.1' ],
+70 silly audit   'magic-string': [ '0.30.21' ],
+70 silly audit   'make-dir': [ '3.1.0' ],
+70 silly audit   'markdown-it': [ '14.1.0' ],
+70 silly audit   'markdown-it-anchor': [ '9.2.0' ],
+70 silly audit   'markdown-it-emoji': [ '3.0.0' ],
+70 silly audit   'mdast-util-to-hast': [ '13.2.1' ],
+70 silly audit   mdurl: [ '2.0.0' ],
+70 silly audit   merge2: [ '1.4.1' ],
+70 silly audit   'micromark-util-character': [ '2.1.1' ],
+70 silly audit   'micromark-util-encode': [ '2.0.1' ],
+70 silly audit   'micromark-util-sanitize-uri': [ '2.0.1' ],
+70 silly audit   'micromark-util-symbol': [ '2.0.1' ],
+70 silly audit   'micromark-util-types': [ '2.0.2' ],
+70 silly audit   micromatch: [ '4.0.8' ],
+70 silly audit   picomatch: [ '2.3.1', '4.0.3' ],
+70 silly audit   'mimic-function': [ '5.0.1' ],
+70 silly audit   mitt: [ '3.0.1' ],
+70 silly audit   ms: [ '2.1.3' ],
+70 silly audit   'node-addon-api': [ '7.1.1' ],
+70 silly audit   'node-releases': [ '2.0.27' ],
+70 silly audit   'nth-check': [ '2.1.1' ],
+70 silly audit   onetime: [ '7.0.0' ],
+70 silly audit   'oniguruma-parser': [ '0.12.1' ],
+70 silly audit   'oniguruma-to-es': [ '4.3.4' ],
+70 silly audit   ora: [ '9.0.0' ],
+70 silly audit   'p-limit': [ '2.3.0' ],
+70 silly audit   'p-locate': [ '4.1.0' ],
+70 silly audit   'p-try': [ '2.2.0' ],
+70 silly audit   parse5: [ '7.3.0' ],
+70 silly audit   'parse5-htmlparser2-tree-adapter': [ '7.1.0' ],
+70 silly audit   'parse5-parser-stream': [ '7.1.2' ],
+70 silly audit   'path-exists': [ '4.0.0' ],
+70 silly audit   'path-type': [ '4.0.0' ],
+70 silly audit   'perfect-debounce': [ '2.0.0' ],
+70 silly audit   photoswipe: [ '5.4.4' ],
+70 silly audit   picocolors: [ '1.1.1' ],
+70 silly audit   'pkg-dir': [ '4.2.0' ],
+70 silly audit   pngjs: [ '5.0.0' ],
+70 silly audit   postcss: [ '8.5.6' ],
+70 silly audit   'postcss-load-config': [ '6.0.1' ],
+70 silly audit   'postcss-value-parser': [ '4.2.0' ],
+70 silly audit   'property-information': [ '7.1.0' ],
+70 silly audit   'punycode.js': [ '2.3.1' ],
+70 silly audit   qrcode: [ '1.5.4' ],
+70 silly audit   'queue-microtask': [ '1.2.3' ],
+70 silly audit   readdirp: [ '4.1.2', '5.0.0' ],
+70 silly audit   regex: [ '6.1.0' ],
+70 silly audit   'regex-recursion': [ '6.0.2' ],
+70 silly audit   'regex-utilities': [ '2.3.0' ],
+70 silly audit   'rehype-parse': [ '9.0.1' ],
+70 silly audit   'rehype-sanitize': [ '6.0.0' ],
+70 silly audit   'rehype-stringify': [ '10.0.1' ],
+70 silly audit   'require-directory': [ '2.1.1' ],
+70 silly audit   'require-main-filename': [ '2.0.0' ],
+70 silly audit   'restore-cursor': [ '5.1.0' ],
+70 silly audit   reusify: [ '1.1.0' ],
+70 silly audit   rfdc: [ '1.4.1' ],
+70 silly audit   rollup: [ '4.55.1' ],
+70 silly audit   'run-parallel': [ '1.2.0' ],
+70 silly audit   'safer-buffer': [ '2.1.2' ],
+70 silly audit   sass: [ '1.97.2' ],
+70 silly audit   sax: [ '1.4.4' ],
+70 silly audit   'section-matter': [ '1.0.0' ],
+70 silly audit   semver: [ '6.3.1' ],
+70 silly audit   'set-blocking': [ '2.0.0' ],
+70 silly audit   shiki: [ '3.21.0' ],
+70 silly audit   'signal-exit': [ '4.1.0' ],
+70 silly audit   sitemap: [ '9.0.0' ],
+70 silly audit   slash: [ '3.0.0' ],
+70 silly audit   slimsearch: [ '2.3.0' ],
+70 silly audit   'source-map-js': [ '1.2.1' ],
+70 silly audit   'space-separated-tokens': [ '2.0.2' ],
+70 silly audit   speakingurl: [ '14.0.1' ],
+70 silly audit   'sprintf-js': [ '1.0.3' ],
+70 silly audit   'stdin-discarder': [ '0.2.2' ],
+70 silly audit   'stringify-entities': [ '4.0.4' ],
+70 silly audit   'strip-bom-string': [ '1.0.0' ],
+70 silly audit   'strip-outer': [ '1.0.1' ],
+70 silly audit   superjson: [ '2.2.6' ],
+70 silly audit   synckit: [ '0.11.12' ],
+70 silly audit   tinyglobby: [ '0.2.15' ],
+70 silly audit   'to-regex-range': [ '5.0.1' ],
+70 silly audit   'trim-lines': [ '3.0.1' ],
+70 silly audit   'trim-repeated': [ '1.0.0' ],
+70 silly audit   trough: [ '2.2.0' ],
+70 silly audit   'uc.micro': [ '2.1.0' ],
+70 silly audit   undici: [ '7.18.2' ],
+70 silly audit   'undici-types': [ '7.16.0' ],
+70 silly audit   unified: [ '11.0.5' ],
+70 silly audit   'unist-util-is': [ '6.0.1' ],
+70 silly audit   'unist-util-position': [ '5.0.0' ],
+70 silly audit   'unist-util-stringify-position': [ '4.0.0' ],
+70 silly audit   'unist-util-visit': [ '5.0.0' ],
+70 silly audit   'unist-util-visit-parents': [ '6.0.2' ],
+70 silly audit   universalify: [ '2.0.1' ],
+70 silly audit   upath: [ '2.0.1' ],
+70 silly audit   'update-browserslist-db': [ '1.2.3' ],
+70 silly audit   vfile: [ '6.0.3' ],
+70 silly audit   'vfile-location': [ '5.0.3' ],
+70 silly audit   'vfile-message': [ '4.0.3' ],
+70 silly audit   vite: [ '7.1.12' ],
+70 silly audit   vue: [ '3.5.29' ],
+70 silly audit   'vue-router': [ '4.6.4' ],
+70 silly audit   vuepress: [ '2.0.0-rc.26' ],
+70 silly audit   'vuepress-plugin-components': [ '2.0.0-rc.102' ],
+70 silly audit   'vuepress-plugin-md-enhance': [ '2.0.0-rc.102' ],
+70 silly audit   'vuepress-shared': [ '2.0.0-rc.99' ],
+70 silly audit   'vuepress-theme-hope': [ '2.0.0-rc.102' ],
+70 silly audit   'web-namespaces': [ '2.0.1' ],
+70 silly audit   'whatwg-encoding': [ '3.1.1' ],
+70 silly audit   'whatwg-mimetype': [ '4.0.0' ],
+70 silly audit   'which-module': [ '2.0.1' ],
+70 silly audit   'wrap-ansi': [ '6.2.0' ],
+70 silly audit   y18n: [ '4.0.3' ],
+70 silly audit   yargs: [ '15.4.1' ],
+70 silly audit   'yargs-parser': [ '18.1.3' ],
+70 silly audit   yoctocolors: [ '2.1.2' ],
+70 silly audit   zwitch: [ '2.0.4' ],
+70 silly audit   '@types/three': [ '0.183.1' ],
+70 silly audit   three: [ '0.183.2' ],
+70 silly audit   '@dimforge/rapier3d-compat': [ '0.12.0' ],
+70 silly audit   '@tweenjs/tween.js': [ '23.1.3' ],
+70 silly audit   '@types/stats.js': [ '0.17.4' ],
+70 silly audit   '@types/webxr': [ '0.5.24' ],
+70 silly audit   '@webgpu/types': [ '0.1.69' ],
+70 silly audit   meshoptimizer: [ '1.0.1' ]
+70 silly audit }
+71 http cache meshoptimizer@https://registry.npmjs.org/meshoptimizer/-/meshoptimizer-1.0.1.tgz 0ms (cache hit)
+72 http cache @tweenjs/tween.js@https://registry.npmjs.org/@tweenjs/tween.js/-/tween.js-23.1.3.tgz 0ms (cache hit)
+73 http cache @types/stats.js@https://registry.npmjs.org/@types/stats.js/-/stats.js-0.17.4.tgz 0ms (cache hit)
+74 http cache @types/webxr@https://registry.npmjs.org/@types/webxr/-/webxr-0.5.24.tgz 0ms (cache hit)
+75 http cache @dimforge/rapier3d-compat@https://registry.npmjs.org/@dimforge/rapier3d-compat/-/rapier3d-compat-0.12.0.tgz 0ms (cache hit)
+76 http cache three@https://registry.npmjs.org/three/-/three-0.183.2.tgz 0ms (cache hit)
+77 http cache @webgpu/types@https://registry.npmjs.org/@webgpu/types/-/types-0.1.69.tgz 0ms (cache hit)
+78 http cache @types/three@https://registry.npmjs.org/@types/three/-/three-0.183.1.tgz 0ms (cache hit)
+79 http cache @vueuse/core@https://registry.npmjs.org/@vueuse/core/-/core-14.2.0.tgz 0ms (cache hit)
+80 http cache @vuepress/plugin-search@https://registry.npmjs.org/@vuepress/plugin-search/-/plugin-search-2.0.0-rc.121.tgz 0ms (cache hit)
+81 http cache @vuepress/bundler-vite@https://registry.npmjs.org/@vuepress/bundler-vite/-/bundler-vite-2.0.0-rc.26.tgz 0ms (cache hit)
+82 http cache vue-router@https://registry.npmjs.org/vue-router/-/vue-router-4.6.4.tgz 0ms (cache hit)
+83 http cache @vuepress/plugin-slimsearch@https://registry.npmjs.org/@vuepress/plugin-slimsearch/-/plugin-slimsearch-2.0.0-rc.121.tgz 0ms (cache hit)
+84 http cache vuepress@https://registry.npmjs.org/vuepress/-/vuepress-2.0.0-rc.26.tgz 0ms (cache hit)
+85 http cache cheerio@https://registry.npmjs.org/cheerio/-/cheerio-1.1.2.tgz 0ms (cache hit)
+86 http cache vuepress-theme-hope@https://registry.npmjs.org/vuepress-theme-hope/-/vuepress-theme-hope-2.0.0-rc.102.tgz 0ms (cache hit)
+87 http cache @mdit/plugin-container@https://registry.npmjs.org/@mdit/plugin-container/-/plugin-container-0.22.3.tgz 0ms (cache hit)
+88 http cache sass@https://registry.npmjs.org/sass/-/sass-1.97.2.tgz 0ms (cache hit)
+89 http cache vue@https://registry.npmjs.org/vue/-/vue-3.5.29.tgz 0ms (cache hit)
+90 http cache gh-pages@https://registry.npmjs.org/gh-pages/-/gh-pages-6.3.0.tgz 0ms (cache hit)
+91 http cache chokidar@https://registry.npmjs.org/chokidar/-/chokidar-5.0.0.tgz 0ms (cache hit)
+92 http cache commander@https://registry.npmjs.org/commander/-/commander-13.1.0.tgz 0ms (cache hit)
+93 silly tarball no local data for meshoptimizer@https://registry.npmjs.org/meshoptimizer/-/meshoptimizer-1.0.1.tgz. Extracting by manifest.
+94 silly tarball no local data for @tweenjs/tween.js@https://registry.npmjs.org/@tweenjs/tween.js/-/tween.js-23.1.3.tgz. Extracting by manifest.
+95 silly tarball no local data for @types/stats.js@https://registry.npmjs.org/@types/stats.js/-/stats.js-0.17.4.tgz. Extracting by manifest.
+96 silly tarball no local data for @types/webxr@https://registry.npmjs.org/@types/webxr/-/webxr-0.5.24.tgz. Extracting by manifest.
+97 silly tarball no local data for @dimforge/rapier3d-compat@https://registry.npmjs.org/@dimforge/rapier3d-compat/-/rapier3d-compat-0.12.0.tgz. Extracting by manifest.
+98 silly tarball no local data for three@https://registry.npmjs.org/three/-/three-0.183.2.tgz. Extracting by manifest.
+99 silly tarball no local data for @webgpu/types@https://registry.npmjs.org/@webgpu/types/-/types-0.1.69.tgz. Extracting by manifest.
+100 silly tarball no local data for @types/three@https://registry.npmjs.org/@types/three/-/three-0.183.1.tgz. Extracting by manifest.
+101 http cache readdirp@https://registry.npmjs.org/readdirp/-/readdirp-5.0.0.tgz 0ms (cache hit)
+102 http cache @vue/devtools-api@https://registry.npmjs.org/@vue/devtools-api/-/devtools-api-6.6.4.tgz 0ms (cache hit)
+103 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 243ms
+104 silly audit report {
+104 silly audit report   immutable: [
+104 silly audit report     {
+104 silly audit report       id: 1114168,
+104 silly audit report       url: 'https://github.com/advisories/GHSA-wf6x-7x77-mvgw',
+104 silly audit report       title: 'Immutable is vulnerable to Prototype Pollution',
+104 silly audit report       severity: 'high',
+104 silly audit report       vulnerable_versions: '>=5.0.0 <5.1.5',
+104 silly audit report       cwe: [Array],
+104 silly audit report       cvss: [Object]
+104 silly audit report     }
+104 silly audit report   ],
+104 silly audit report   'markdown-it': [
+104 silly audit report     {
+104 silly audit report       id: 1113190,
+104 silly audit report       url: 'https://github.com/advisories/GHSA-38c4-r59v-3vqw',
+104 silly audit report       title: 'markdown-it is has a Regular Expression Denial of Service (ReDoS)',
+104 silly audit report       severity: 'moderate',
+104 silly audit report       vulnerable_versions: '>=13.0.0 <14.1.1',
+104 silly audit report       cwe: [Array],
+104 silly audit report       cvss: [Object]
+104 silly audit report     }
+104 silly audit report   ],
+104 silly audit report   rollup: [
+104 silly audit report     {
+104 silly audit report       id: 1113515,
+104 silly audit report       url: 'https://github.com/advisories/GHSA-mw96-cpmx-2vgc',
+104 silly audit report       title: 'Rollup 4 has Arbitrary File Write via Path Traversal',
+104 silly audit report       severity: 'high',
+104 silly audit report       vulnerable_versions: '>=4.0.0 <4.59.0',
+104 silly audit report       cwe: [Array],
+104 silly audit report       cvss: [Object]
+104 silly audit report     }
+104 silly audit report   ],
+104 silly audit report   undici: [
+104 silly audit report     {
+104 silly audit report       id: 1114591,
+104 silly audit report       url: 'https://github.com/advisories/GHSA-f269-vfmq-vjvj',
+104 silly audit report       title: 'Undici: Malicious WebSocket 64-bit length overflows parser and crashes the client',
+104 silly audit report       severity: 'high',
+104 silly audit report       vulnerable_versions: '>=7.0.0 <7.24.0',
+104 silly audit report       cwe: [Array],
+104 silly audit report       cvss: [Object]
+104 silly audit report     },
+104 silly audit report     {
+104 silly audit report       id: 1114593,
+104 silly audit report       url: 'https://github.com/advisories/GHSA-2mjp-6q6p-2qxm',
+104 silly audit report       title: 'Undici has an HTTP Request/Response Smuggling issue',
+104 silly audit report       severity: 'moderate',
+104 silly audit report       vulnerable_versions: '>=7.0.0 <7.24.0',
+104 silly audit report       cwe: [Array],
+104 silly audit report       cvss: [Object]
+104 silly audit report     },
+104 silly audit report     {
+104 silly audit report       id: 1114637,
+104 silly audit report       url: 'https://github.com/advisories/GHSA-vrm6-8vpv-qv8q',
+104 silly audit report       title: 'Undici has Unbounded Memory Consumption in WebSocket permessage-deflate Decompression',
+104 silly audit report       severity: 'high',
+104 silly audit report       vulnerable_versions: '>=7.0.0 <7.24.0',
+104 silly audit report       cwe: [Array],
+104 silly audit report       cvss: [Object]
+104 silly audit report     },
+104 silly audit report     {
+104 silly audit report       id: 1114639,
+104 silly audit report       url: 'https://github.com/advisories/GHSA-v9p9-hfj2-hcw8',
+104 silly audit report       title: 'Undici has Unhandled Exception in WebSocket Client Due to Invalid server_max_window_bits Validation',
+104 silly audit report       severity: 'high',
+104 silly audit report       vulnerable_versions: '>=7.0.0 <7.24.0',
+104 silly audit report       cwe: [Array],
+104 silly audit report       cvss: [Object]
+104 silly audit report     },
+104 silly audit report     {
+104 silly audit report       id: 1114641,
+104 silly audit report       url: 'https://github.com/advisories/GHSA-4992-7rv2-5pvq',
+104 silly audit report       title: 'Undici has CRLF Injection in undici via `upgrade` option',
+104 silly audit report       severity: 'moderate',
+104 silly audit report       vulnerable_versions: '>=7.0.0 <7.24.0',
+104 silly audit report       cwe: [Array],
+104 silly audit report       cvss: [Object]
+104 silly audit report     },
+104 silly audit report     {
+104 silly audit report       id: 1114643,
+104 silly audit report       url: 'https://github.com/advisories/GHSA-phc3-fgpg-7m6h',
+104 silly audit report       title: 'Undici has Unbounded Memory Consumption in its DeduplicationHandler via Response Buffering that leads to DoS',
+104 silly audit report       severity: 'moderate',
+104 silly audit report       vulnerable_versions: '>=7.17.0 <7.24.0',
+104 silly audit report       cwe: [Array],
+104 silly audit report       cvss: [Object]
+104 silly audit report     }
+104 silly audit report   ]
+104 silly audit report }
+105 silly packumentCache corgi:https://registry.npmjs.org/immutable cache-miss
+106 silly packumentCache corgi:https://registry.npmjs.org/markdown-it cache-miss
+107 silly packumentCache corgi:https://registry.npmjs.org/rollup cache-miss
+108 silly packumentCache corgi:https://registry.npmjs.org/undici cache-miss
+109 http fetch GET 200 https://registry.npmjs.org/@types/stats.js/-/stats.js-0.17.4.tgz 242ms (cache miss)
+110 http fetch GET 200 https://registry.npmjs.org/rollup 212ms (cache revalidated)
+111 silly packumentCache corgi:https://registry.npmjs.org/rollup set size:2543476 disposed:false
+112 http fetch GET 200 https://registry.npmjs.org/@types/webxr/-/webxr-0.5.24.tgz 1019ms (cache miss)
+113 http fetch GET 200 https://registry.npmjs.org/@webgpu/types/-/types-0.1.69.tgz 1056ms (cache miss)
+114 http fetch GET 200 https://registry.npmjs.org/meshoptimizer/-/meshoptimizer-1.0.1.tgz 1121ms (cache miss)
+115 http fetch GET 200 https://registry.npmjs.org/immutable 887ms (cache revalidated)
+116 silly packumentCache corgi:https://registry.npmjs.org/immutable set size:108496 disposed:false
+117 http fetch GET 200 https://registry.npmjs.org/markdown-it 928ms (cache revalidated)
+118 silly packumentCache corgi:https://registry.npmjs.org/markdown-it set size:123533 disposed:false
+119 http fetch GET 200 https://registry.npmjs.org/@tweenjs/tween.js/-/tween.js-23.1.3.tgz 1403ms (cache miss)
+120 http fetch GET 200 https://registry.npmjs.org/undici 1187ms (cache miss)
+121 silly packumentCache corgi:https://registry.npmjs.org/undici set size:undefined disposed:false
+122 silly packumentCache corgi:https://registry.npmjs.org/sass cache-miss
+123 http fetch GET 200 https://registry.npmjs.org/sass 1235ms (cache updated)
+124 silly packumentCache corgi:https://registry.npmjs.org/sass set size:undefined disposed:false
+125 silly packumentCache corgi:https://registry.npmjs.org/@mdit-vue%2fplugin-component cache-miss
+126 silly packumentCache corgi:https://registry.npmjs.org/@mdit-vue%2fplugin-frontmatter cache-miss
+127 silly packumentCache corgi:https://registry.npmjs.org/@mdit-vue%2fplugin-headers cache-miss
+128 silly packumentCache corgi:https://registry.npmjs.org/@mdit-vue%2fplugin-sfc cache-miss
+129 silly packumentCache corgi:https://registry.npmjs.org/@mdit-vue%2fplugin-title cache-miss
+130 silly packumentCache corgi:https://registry.npmjs.org/@mdit-vue%2fplugin-toc cache-miss
+131 silly packumentCache corgi:https://registry.npmjs.org/@mdit-vue%2fshared cache-miss
+132 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fhelper cache-miss
+133 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-alert cache-miss
+134 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-align cache-miss
+135 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-container cache-miss
+136 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-attrs cache-miss
+137 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-demo cache-miss
+138 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-figure cache-miss
+139 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-footnote cache-miss
+140 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-icon cache-miss
+141 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-img-lazyload cache-miss
+142 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-img-mark cache-miss
+143 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-img-size cache-miss
+144 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-include cache-miss
+145 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-katex-slim cache-miss
+146 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-mark cache-miss
+147 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-mathjax-slim cache-miss
+148 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-plantuml cache-miss
+149 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-spoiler cache-miss
+150 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-stylize cache-miss
+151 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-sub cache-miss
+152 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-sup cache-miss
+153 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-tab cache-miss
+154 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-tasklist cache-miss
+155 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-tex cache-miss
+156 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-uml cache-miss
+157 silly packumentCache corgi:https://registry.npmjs.org/@vuepress%2fmarkdown cache-miss
+158 silly packumentCache corgi:https://registry.npmjs.org/markdown-it-anchor cache-miss
+159 http fetch GET 200 https://registry.npmjs.org/@dimforge/rapier3d-compat/-/rapier3d-compat-0.12.0.tgz 2876ms (cache miss)
+160 http fetch GET 200 https://registry.npmjs.org/@mdit-vue%2fplugin-component 256ms (cache revalidated)
+161 silly packumentCache corgi:https://registry.npmjs.org/@mdit-vue%2fplugin-component set size:39090 disposed:false
+162 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-alert 336ms (cache revalidated)
+163 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-alert set size:24584 disposed:false
+164 http fetch GET 200 https://registry.npmjs.org/@mdit-vue%2fplugin-title 365ms (cache revalidated)
+165 silly packumentCache corgi:https://registry.npmjs.org/@mdit-vue%2fplugin-title set size:33897 disposed:false
+166 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-figure 365ms (cache revalidated)
+167 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-figure set size:56185 disposed:false
+168 http fetch GET 200 https://registry.npmjs.org/@mdit-vue%2fplugin-sfc 367ms (cache revalidated)
+169 silly packumentCache corgi:https://registry.npmjs.org/@mdit-vue%2fplugin-sfc set size:31375 disposed:false
+170 http fetch GET 200 https://registry.npmjs.org/@mdit-vue%2fplugin-headers 372ms (cache revalidated)
+171 silly packumentCache corgi:https://registry.npmjs.org/@mdit-vue%2fplugin-headers set size:33180 disposed:false
+172 http fetch GET 200 https://registry.npmjs.org/@mdit-vue%2fshared 511ms (cache revalidated)
+173 silly packumentCache corgi:https://registry.npmjs.org/@mdit-vue%2fshared set size:30863 disposed:false
+174 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-icon 590ms (cache revalidated)
+175 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-icon set size:18453 disposed:false
+176 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-plantuml 687ms (cache revalidated)
+177 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-plantuml set size:21930 disposed:false
+178 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-katex-slim 709ms (cache revalidated)
+179 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-katex-slim set size:28256 disposed:false
+180 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-attrs 723ms (cache revalidated)
+181 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-attrs set size:66743 disposed:false
+182 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-mathjax-slim 737ms (cache revalidated)
+183 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-mathjax-slim set size:23562 disposed:false
+184 http fetch GET 200 https://registry.npmjs.org/@mdit-vue%2fplugin-toc 769ms (cache revalidated)
+185 silly packumentCache corgi:https://registry.npmjs.org/@mdit-vue%2fplugin-toc set size:34626 disposed:false
+186 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-demo 777ms (cache revalidated)
+187 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-demo set size:29917 disposed:false
+188 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-mark 873ms (cache revalidated)
+189 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-mark set size:55005 disposed:false
+190 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-container 879ms (cache revalidated)
+191 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-container set size:56769 disposed:false
+192 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-stylize 922ms (cache revalidated)
+193 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-stylize set size:57966 disposed:false
+194 http fetch GET 200 https://registry.npmjs.org/@mdit%2fhelper 984ms (cache revalidated)
+195 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fhelper set size:12374 disposed:false
+196 http fetch GET 200 https://registry.npmjs.org/@mdit-vue%2fplugin-frontmatter 1002ms (cache revalidated)
+197 silly packumentCache corgi:https://registry.npmjs.org/@mdit-vue%2fplugin-frontmatter set size:27396 disposed:false
+198 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-img-mark 1031ms (cache revalidated)
+199 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-img-mark set size:56521 disposed:false
+200 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-include 1082ms (cache revalidated)
+201 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-include set size:57594 disposed:false
+202 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-sup 1083ms (cache revalidated)
+203 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-sup set size:58313 disposed:false
+204 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-tex 1100ms (cache revalidated)
+205 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-tex set size:56509 disposed:false
+206 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-sub 1108ms (cache revalidated)
+207 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-sub set size:58313 disposed:false
+208 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-tab 1111ms (cache revalidated)
+209 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-tab set size:53292 disposed:false
+210 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-img-size 1208ms (cache revalidated)
+211 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-img-size set size:59294 disposed:false
+212 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-spoiler 1221ms (cache revalidated)
+213 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-spoiler set size:18467 disposed:false
+214 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-img-lazyload 1226ms (cache revalidated)
+215 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-img-lazyload set size:55795 disposed:false
+216 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-tasklist 1257ms (cache revalidated)
+217 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-tasklist set size:56582 disposed:false
+218 http fetch GET 200 https://registry.npmjs.org/markdown-it-anchor 1263ms (cache revalidated)
+219 silly packumentCache corgi:https://registry.npmjs.org/markdown-it-anchor set size:85861 disposed:false
+220 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-footnote 1347ms (cache revalidated)
+221 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-footnote set size:55447 disposed:false
+222 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-uml 1351ms (cache revalidated)
+223 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-uml set size:58298 disposed:false
+224 http fetch GET 200 https://registry.npmjs.org/@types/three/-/three-0.183.1.tgz 4298ms (cache miss)
+225 http fetch GET 200 https://registry.npmjs.org/@mdit%2fplugin-align 1793ms (cache revalidated)
+226 silly packumentCache corgi:https://registry.npmjs.org/@mdit%2fplugin-align set size:61395 disposed:false
+227 http fetch GET 200 https://registry.npmjs.org/@vuepress%2fmarkdown 2089ms (cache updated)
+228 silly packumentCache corgi:https://registry.npmjs.org/@vuepress%2fmarkdown set size:undefined disposed:false
+229 silly packumentCache corgi:https://registry.npmjs.org/@vuepress%2fbundler-vite cache-miss
+230 silly packumentCache corgi:https://registry.npmjs.org/vite cache-miss
+231 http fetch GET 200 https://registry.npmjs.org/@vuepress%2fbundler-vite 737ms (cache updated)
+232 silly packumentCache corgi:https://registry.npmjs.org/@vuepress%2fbundler-vite set size:undefined disposed:false
+233 http fetch GET 200 https://registry.npmjs.org/vite 1116ms (cache updated)
+234 silly packumentCache corgi:https://registry.npmjs.org/vite set size:undefined disposed:false
+235 silly packumentCache corgi:https://registry.npmjs.org/cheerio cache-miss
+236 http fetch GET 200 https://registry.npmjs.org/cheerio 592ms (cache miss)
+237 silly packumentCache corgi:https://registry.npmjs.org/cheerio set size:undefined disposed:false
+238 verbose stack Error: aborted
+238 verbose stack     at TLSSocket.socketCloseListener (node:_http_client:535:19)
+238 verbose stack     at TLSSocket.emit (node:events:520:35)
+238 verbose stack     at node:net:346:12
+238 verbose stack     at Socket.done (node:_tls_wrap:649:7)
+238 verbose stack     at Object.onceWrapper (node:events:623:26)
+238 verbose stack     at Socket.emit (node:events:520:35)
+238 verbose stack     at TCP.<anonymous> (node:net:346:12)
+239 error code ECONNRESET
+240 error network aborted
+241 error network This is a problem related to network connectivity.
+241 error network In most cases you are behind a proxy or have bad network settings.
+241 error network
+241 error network If you are behind a proxy, please make sure that the
+241 error network 'proxy' config is set properly.  See: 'npm help config'
+242 silly unfinished npm timer reify 1773473888716
+243 silly unfinished npm timer reify:unpack 1773473895082
+244 silly unfinished npm timer reifyNode:node_modules/three 1773473895082
+245 verbose cwd /Users/xpy/Coding/biocloudhub/blogs
+246 verbose os Darwin 25.4.0
+247 verbose node v24.12.0
+248 verbose npm  v11.6.2
+249 verbose exit 1
+250 verbose code 1
+251 error A complete log of this run can be found in: /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-03-14T07_38_08_347Z-debug-0.log

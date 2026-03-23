@@ -14,14 +14,36 @@ export default defineUserConfig({
   title: "BioCloudHub",
   description: "生物制药行业技术博客：CMC、药物研发、生物分析与计算工程",
 
-  base: "/",
+  base: "/blogs/",
 
-  bundler: viteBundler(),
+  head: [
+    ["link", { rel: "icon", href: "/blogs/logo-animated.svg" }],
+    ["meta", { name: "keywords", content: "生物制药, CMC, 药物研发, 生物分析, 计算工程, 数字化实验室, BioCloudHub" }],
+    ["meta", { name: "theme-color", content: "#3b82f6" }],
+    ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
+    ["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black" }],
+  ],
+
+  bundler: viteBundler({
+    viteOptions: {
+      build: {
+        chunkSizeWarningLimit: 1000,
+      },
+    },
+  }),
 
   plugins: [
     {
+      name: "register-components",
+      clientConfigFile: resolve(__dirname, "./register-components.ts"),
+    },
+    {
       name: "answer-glow",
       clientConfigFile: resolve(__dirname, "./answer-glow.ts"),
+    },
+    {
+      name: "home-animations",
+      clientConfigFile: resolve(__dirname, "./home-animations.ts"),
     },
     {
       name: "search-ui",
@@ -44,24 +66,24 @@ export default defineUserConfig({
   },
 
   theme: hopeTheme({
-    hostname: "https://example.com",
+    hostname: "https://biocloudhub.github.io",
 
     author: {
       name: "BioCloudHub",
     },
 
-    logo: "/logo.png",
+    logo: "/logo-animated.svg",
 
-    favicon: "/logo.png",
+    favicon: "/logo-animated.svg",
 
     navbar: [
-      { text: "首页", link: "/", icon: "home" },
-      { text: "技术博客", link: "/posts/", icon: "blog" },
-      { text: "CMC 知识库", link: "/posts/cmc-knowledge/", icon: "note" },
-      { text: "药物研发", link: "/posts/drug-discovery/", icon: "pill" },
-      { text: "生物分析", link: "/posts/bioanalytics/", icon: "dna" },
-      { text: "计算工程", link: "/posts/computational-infrastructure/", icon: "cloud" },
-      { text: "关于", link: "/about/", icon: "user" },
+      { text: "首页", link: "/", icon: "home", activeMatch: "^/$" },
+      { text: "CMC 知识库", link: "/posts/cmc-knowledge/", icon: "note", activeMatch: "^/posts/cmc-knowledge/" },
+      { text: "药物研发", link: "/posts/drug-discovery/", icon: "pill", activeMatch: "^/posts/drug-discovery/" },
+      { text: "生物分析", link: "/posts/bioanalytics/", icon: "dna", activeMatch: "^/posts/bioanalytics/" },
+      { text: "计算工程", link: "/posts/computational-infrastructure/", icon: "cloud", activeMatch: "^/posts/computational-infrastructure/" },
+      { text: "内容索引", link: "/article/", icon: "list", activeMatch: "^/article/" },
+      { text: "关于", link: "/about/", icon: "user", activeMatch: "^/about/" },
     ],
 
     navbarLayout: {
@@ -92,7 +114,7 @@ export default defineUserConfig({
       excerptLength: 180,
       medias: {
         GitHub: "https://github.com/",
-        Email: "mailto:contact@biocloudhub.com",
+        Email: "mailto:biocloudhub@outlook.com",
       },
     },
 

@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“Pre-IND、资料撰写与 UPB 要求”里与“审评重点与法规应用”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 24 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/09-regulatory-submission-review-02.html)
-- [返回一级专题总览](/posts/cmc-knowledge/09-regulatory-submission-review.html)
-- [上一细分主题](/posts/cmc-knowledge/09-regulatory-submission-review-02-01.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/09-regulatory-submission-review-02.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/09-regulatory-submission-review.html)
+- [上一细分主题](/blogs/posts/cmc-knowledge/09-regulatory-submission-review-02-01.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是申报资料格式撰写不符合要求，关键要点有哪些
 
 :::answer
@@ -37,6 +39,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## 什么是 Mab 相关的文献资料下载网站，关键要点有哪些
 
 :::answer
@@ -45,6 +48,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是中文与英文资料下载网站，关键要点有哪些
 
 :::answer
@@ -53,6 +57,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是上市后药学变更研究概述，关键要点有哪些
 
 :::answer
@@ -79,6 +84,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是上市后生产工艺的变更，关键要点有哪些
 
 :::answer
@@ -89,6 +95,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是上市后生产场地的变更，关键要点有哪些
 
 :::answer
@@ -98,6 +105,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是上市后细胞株或表达载体的变更，关键要点有哪些
 
 :::answer
@@ -107,6 +115,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是上市后质量标准的变更，关键要点有哪些
 
 :::answer
@@ -125,6 +134,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 工艺变更后缩小模型是否需要重新建立
 
 :::answer
@@ -137,6 +147,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是 IND 与和 BLA 概述，关键要点有哪些
 
 :::answer
@@ -145,6 +156,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## IND 与和 BLA 申报 CMC 研究差异点
 
 :::answer
@@ -155,6 +167,7 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 生申报资料内容有哪些关键差异
 
 :::answer
@@ -167,6 +180,7 @@ CTD 申报资料撰写参考“抗体药 IND 申报 CTD 资料撰写指南（药
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## CMC 研究在申报资料中如何体现
 
 :::answer
@@ -175,6 +189,7 @@ CTD 申报资料撰写参考“抗体药 IND 申报 CTD 资料撰写指南（药
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## CMC 研究在申报资料中如何体现
 
 :::answer
@@ -186,6 +201,7 @@ CTD 申报资料撰写参考“抗体药 IND 申报 CTD 资料撰写指南（药
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 什么是 IND 阶段缩短项目 Timeline 策略，关键要点有哪些
 
 :::answer
@@ -196,6 +212,7 @@ IND Timeline 生物药 IND 申报标准的 18 个 Timeline 如下图所示：
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## 什么是 UPB 和 EOPC 的留样和检测，关键要点有哪些
 
 :::answer
@@ -204,6 +221,7 @@ IND Timeline 生物药 IND 申报标准的 18 个 Timeline 如下图所示：
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 中美药典无菌检查法有哪些关键差异
 
 :::answer
@@ -219,6 +237,7 @@ IND Timeline 生物药 IND 申报标准的 18 个 Timeline 如下图所示：
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## IND 和 BLA 申报异常毒性试验有哪些关键差异
 
 :::answer
@@ -227,6 +246,7 @@ IND Timeline 生物药 IND 申报标准的 18 个 Timeline 如下图所示：
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是药学相似性研究，关键要点有哪些
 
 :::answer
@@ -258,6 +278,7 @@ IND Timeline 生物药 IND 申报标准的 18 个 Timeline 如下图所示：
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 什么是 IND 申报需要提交 GMP 批次吗，关键要点有哪些
 
 :::answer
@@ -269,6 +290,7 @@ IND 申报不强制要求提交 GMP 批次数据，但通常企业在进行 IND 
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 什么是生物药 IND 申报需要提交几批次数据，关键要点有哪些
 
 :::answer
@@ -277,6 +299,7 @@ IND 申报不强制要求提交 GMP 批次数据，但通常企业在进行 IND 
 
 :::
 
+<!-- cmc-question-id: Q23 -->
 ## DP 稳定性数据 1 个月是否满足 IND 申报
 
 :::answer
@@ -297,17 +320,14 @@ IND 申报不强制要求提交 GMP 批次数据，但通常企业在进行 IND 
 
 :::
 
+<!-- cmc-question-id: Q24 -->
 ## 什么是 UPB 的定义，关键要点有哪些
 
 :::answer
 
-01）UPB 定义。UPB 是“Unprocessed Bulk”的缩写，中文翻译为“未加工收获液”。在以哺乳动物细胞培养生产抗体药物的过程中，UPB 是指在细胞培养结束时的料液，包含培养上清、细胞、细胞碎片、目的蛋白等物质。
-
-02）UPB 和 HCCF 的区别。HCCF 是“Harvest Cell Culture Fluid”的缩写，中文翻译为“收获的细胞培养液”。HCCF 是指收获的料液经过进行离心、深层过滤等步骤处理后的液体混合物，而 UPB 是不经过离心、深层过滤等步骤处理的混合物。
-
-03）UPB 和 EOPC 的区别。
-
-EOPC 是“End of production cell”的缩写，中文翻译为“生产终末细胞”。
+- UPB 定义。UPB 是“Unprocessed Bulk”的缩写，中文翻译为“未加工收获液”。在以哺乳动物细胞培养生产抗体药物的过程中，UPB 是指在细胞培养结束时的料液，包含培养上清、细胞、细胞碎片、目的蛋白等物质。
+- UPB 和 HCCF 的区别。HCCF 是“Harvest Cell Culture Fluid”的缩写，中文翻译为“收获的细胞培养液”。HCCF 是指收获的料液经过进行离心、深层过滤等步骤处理后的液体混合物，而 UPB 是不经过离心、深层过滤等步骤处理的混合物。
+- UPB 和 EOPC 的区别。 EOPC 是“End of production cell”的缩写，中文翻译为“生产终末细胞”。
 
 EOPC 是指在细胞培养结束时取细胞进行建库，其建库的工艺参数可根据种子细胞传代工艺或者其他研究可行的传代工艺进行设定。
 
@@ -315,6 +335,7 @@ UPB 和 EOPC 是两个不同的维度考虑，EOPC 检测主要从细胞层面�
 
 :::
 
+<!-- cmc-question-id: Q25 -->
 ## 什么是各国法规对 UPB 检测的要求，关键要点有哪些
 
 :::answer

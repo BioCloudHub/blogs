@@ -10,11 +10,11 @@ author: BioCloudHub
 
 > 本页把“ADC 研发阶段、基因治疗纯化与内毒素控制”里与“机制靶点与技术基础”最常见、最容易混淆、也最影响判断的知识点集中整理在一起，共 22 个知识点。
 
-_以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。_
+*以下内容用于专业学习与团队知识沉淀，具体项目判断请结合产品类型、项目阶段、法规要求和实验数据综合评估。*
 
-- [返回二级主题总览](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-04.html)
-- [返回一级专题总览](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities.html)
-- [下一细分主题](/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-04-02.html)
+- [返回二级主题总览](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-04.html)
+- [返回一级专题总览](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities.html)
+- [下一细分主题](/blogs/posts/cmc-knowledge/12-antibody-engineering-advanced-modalities-04-02.html)
 
 ## 这页先抓重点
 
@@ -27,6 +27,8 @@ _以下内容用于专业学习与团队知识沉淀，具体项目判断请结�
 
 :::
 
+
+<!-- cmc-question-id: Q2 -->
 ## 什么是 ADC 产品不同研发阶段的考虑，关键要点有哪些
 
 :::answer
@@ -55,6 +57,7 @@ ADC 产品结构、生产工艺和供应链等的复杂性对评估变更的潜�
 
 :::
 
+<!-- cmc-question-id: Q3 -->
 ## ADC 产品开发风险评估与控制
 
 :::answer
@@ -75,6 +78,7 @@ ADC 产品是大分子药物和小分子药物的结合，其从产品设计、�
 
 :::
 
+<!-- cmc-question-id: Q4 -->
 ## 什么是 ADC 药物生产用物料，关键要点有哪些
 
 :::answer
@@ -84,6 +88,7 @@ ADC 产品是大分子药物和小分子药物的结合，其从产品设计、�
 
 :::
 
+<!-- cmc-question-id: Q5 -->
 ## 什么是有效载荷/连接子/有效载荷-连接子，关键要点有哪些
 
 :::answer
@@ -100,6 +105,7 @@ ADC 产品是大分子药物和小分子药物的结合，其从产品设计、�
 
 :::
 
+<!-- cmc-question-id: Q6 -->
 ## 什么是 ADC 原液，关键要点有哪些
 
 :::answer
@@ -111,6 +117,7 @@ ADC 产品是大分子药物和小分子药物的结合，其从产品设计、�
 
 :::
 
+<!-- cmc-question-id: Q7 -->
 ## 什么是 ADC 制剂，关键要点有哪些
 
 :::answer
@@ -141,6 +148,7 @@ ADC 制剂生产工艺一般包括原液解冻、除菌过滤、无菌灌装、�
 
 :::
 
+<!-- cmc-question-id: Q8 -->
 ## 什么是 ADC 药物基本概念，关键要点有哪些
 
 :::answer
@@ -159,6 +167,7 @@ ADC 对抗原的识别导致 ADC 通过内吞途径进入细胞内，通过溶�
 
 :::
 
+<!-- cmc-question-id: Q9 -->
 ## 什么是 ADC 药物质量研究概述，关键要点有哪些
 
 :::answer
@@ -173,6 +182,7 @@ ADC 产品质量研究包括有效载荷/连接子部分、裸抗部分、ADC �
 
 :::
 
+<!-- cmc-question-id: Q10 -->
 ## 什么是 ADC 药物质量研究～有效载荷/连接子，关键要点有哪些
 
 :::answer
@@ -189,6 +199,7 @@ ADC 产品质量研究包括有效载荷/连接子部分、裸抗部分、ADC �
 
 :::
 
+<!-- cmc-question-id: Q11 -->
 ## 什么是 ADC 药物质量研究～裸抗，关键要点有哪些
 
 :::answer
@@ -203,6 +214,7 @@ ADC 产品质量研究包括有效载荷/连接子部分、裸抗部分、ADC �
 
 :::
 
+<!-- cmc-question-id: Q12 -->
 ## 什么是 ADC 药物质量研究～ ADC 原液/制剂，关键要点有哪些
 
 :::answer
@@ -215,6 +227,7 @@ ADC 产品综合了抗体药物的靶向性和小分子药物的细胞毒性优�
 
 :::
 
+<!-- cmc-question-id: Q13 -->
 ## 什么是 TNFR-Fc 抗体融合蛋白的结构与功能，关键要点有哪些
 
 :::answer
@@ -241,6 +254,7 @@ Wyeth 公司于 1998 年开发的 Ⅱ 型 TNF 受体 Etanercept（TNFR-Fc）被�
 
 :::
 
+<!-- cmc-question-id: Q14 -->
 ## 什么是 TNFR-Fc 抗体融合蛋白的生物学活性，关键要点有哪些
 
 :::answer
@@ -261,6 +275,7 @@ Kenji[66]过转基因技术在鸡内表达 TNFR，发现血清中的产物活性
 
 :::
 
+<!-- cmc-question-id: Q15 -->
 ## 什么是 Fc 融合蛋白，关键要点有哪些
 
 :::answer
@@ -270,6 +285,7 @@ Kenji[66]过转基因技术在鸡内表达 TNFR，发现血清中的产物活性
 
 :::
 
+<!-- cmc-question-id: Q16 -->
 ## 是否需要对纯化每一层析步骤样品做微生物限度和内毒素两个检测
 
 :::answer
@@ -278,6 +294,7 @@ Kenji[66]过转基因技术在鸡内表达 TNFR，发现血清中的产物活性
 
 :::
 
+<!-- cmc-question-id: Q17 -->
 ## ADC 制剂灌装和单抗制剂灌装有什么区别
 
 :::answer
@@ -294,6 +311,7 @@ ADC 的配方开发必须找到合适的 pH 值缓冲体系和辅料，以同时
 
 :::
 
+<!-- cmc-question-id: Q18 -->
 ## 微生物控制~细菌内毒素
 
 :::answer
@@ -320,6 +338,7 @@ ADC 的配方开发必须找到合适的 pH 值缓冲体系和辅料，以同时
 
 :::
 
+<!-- cmc-question-id: Q19 -->
 ## 什么是基因治疗药物基础知识，关键要点有哪些
 
 :::answer
@@ -329,6 +348,7 @@ ADC 的配方开发必须找到合适的 pH 值缓冲体系和辅料，以同时
 
 :::
 
+<!-- cmc-question-id: Q20 -->
 ## 什么是基因治疗制品原辅料分类，关键要点有哪些
 
 :::answer
@@ -341,6 +361,7 @@ ADC 的配方开发必须找到合适的 pH 值缓冲体系和辅料，以同时
 
 :::
 
+<!-- cmc-question-id: Q21 -->
 ## 基因治疗制品中原材料残留的质量控制
 
 :::answer
@@ -353,6 +374,7 @@ ADC 的配方开发必须找到合适的 pH 值缓冲体系和辅料，以同时
 
 :::
 
+<!-- cmc-question-id: Q22 -->
 ## 基因治疗制品生产工艺设计/研究的考虑因素
 
 :::answer
@@ -371,6 +393,7 @@ ADC 的配方开发必须找到合适的 pH 值缓冲体系和辅料，以同时
 
 :::
 
+<!-- cmc-question-id: Q23 -->
 ## 什么是病毒载体类基因治疗制品的纯化工艺选择，关键要点有哪些
 
 :::answer

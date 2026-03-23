@@ -1,0 +1,5 @@
+[    4782ms] [ERROR] Failed to load resource: the server responded with a status of 404 (Not Found) @ http://127.0.0.1:8080/favicon.ico:0
+[   15099ms] [ERROR] Failed to load resource: net::ERR_CONNECTION_CLOSED @ https://cdn.jsdelivr.net/npm/iconify-icon@2:0
+[   15103ms] [WARNING] [Vue warn]: Unhandled error during execution of mounted hook 
+  at <Vuepress> @ http://127.0.0.1:8080/blogs/.vuepress/.cache/deps/chunk-QVH7HXGF.js?v=4f30e431:2196
+[   15110ms] Event

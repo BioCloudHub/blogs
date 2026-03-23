@@ -27,11 +27,11 @@ article: false
 
 ## 二级主题
 
-- [Protein A、低 pH 灭活与工艺验证框架](/posts/cmc-knowledge/10-process-characterization-validation-statistics-01.html)（45 个知识点 / 2 个细分主题）
-- [设计空间、上游表征与统计基础](/posts/cmc-knowledge/10-process-characterization-validation-statistics-02.html)（46 个知识点 / 2 个细分主题）
-- [统计学基础、抽样、QbD 与上游验证](/posts/cmc-knowledge/10-process-characterization-validation-statistics-03.html)（45 个知识点 / 2 个细分主题）
-- [TOST、设计空间与工艺表征定义](/posts/cmc-knowledge/10-process-characterization-validation-statistics-04.html)（43 个知识点 / 2 个细分主题）
-- [工艺表征深化、DoE 修正与上游表征总结](/posts/cmc-knowledge/10-process-characterization-validation-statistics-05.html)（43 个知识点 / 2 个细分主题）
+- [Protein A、低 pH 灭活与工艺验证框架](/blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics-01.html)（45 个知识点 / 2 个细分主题）
+- [设计空间、上游表征与统计基础](/blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics-02.html)（46 个知识点 / 2 个细分主题）
+- [统计学基础、抽样、QbD 与上游验证](/blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics-03.html)（45 个知识点 / 2 个细分主题）
+- [TOST、设计空间与工艺表征定义](/blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics-04.html)（43 个知识点 / 2 个细分主题）
+- [工艺表征深化、DoE 修正与上游表征总结](/blogs/posts/cmc-knowledge/10-process-characterization-validation-statistics-05.html)（43 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 

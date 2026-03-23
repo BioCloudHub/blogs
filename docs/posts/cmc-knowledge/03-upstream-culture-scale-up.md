@@ -27,12 +27,12 @@ article: false
 
 ## 二级主题
 
-- [上游开发策略、工艺放大与降温设计](/posts/cmc-knowledge/03-upstream-culture-scale-up-01.html)（46 个知识点 / 2 个细分主题）
-- [培养控制、代谢调节与工艺模式](/posts/cmc-knowledge/03-upstream-culture-scale-up-02.html)（46 个知识点 / 2 个细分主题）
-- [培养系统、指示细胞与生长因子基础](/posts/cmc-knowledge/03-upstream-culture-scale-up-03.html)（46 个知识点 / 2 个细分主题）
-- [培养基成分稳定性、储存与物料控制](/posts/cmc-knowledge/03-upstream-culture-scale-up-04.html)（42 个知识点 / 2 个细分主题）
-- [细胞培养生产控制、质量输出与辅料作用](/posts/cmc-knowledge/03-upstream-culture-scale-up-05.html)（40 个知识点 / 2 个细分主题）
-- [维生素、细胞结团与渗透压异常](/posts/cmc-knowledge/03-upstream-culture-scale-up-06.html)（47 个知识点 / 2 个细分主题）
+- [上游开发策略、工艺放大与降温设计](/blogs/posts/cmc-knowledge/03-upstream-culture-scale-up-01.html)（46 个知识点 / 2 个细分主题）
+- [培养控制、代谢调节与工艺模式](/blogs/posts/cmc-knowledge/03-upstream-culture-scale-up-02.html)（46 个知识点 / 2 个细分主题）
+- [培养系统、指示细胞与生长因子基础](/blogs/posts/cmc-knowledge/03-upstream-culture-scale-up-03.html)（46 个知识点 / 2 个细分主题）
+- [培养基成分稳定性、储存与物料控制](/blogs/posts/cmc-knowledge/03-upstream-culture-scale-up-04.html)（42 个知识点 / 2 个细分主题）
+- [细胞培养生产控制、质量输出与辅料作用](/blogs/posts/cmc-knowledge/03-upstream-culture-scale-up-05.html)（40 个知识点 / 2 个细分主题）
+- [维生素、细胞结团与渗透压异常](/blogs/posts/cmc-knowledge/03-upstream-culture-scale-up-06.html)（47 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 

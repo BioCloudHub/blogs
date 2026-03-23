@@ -27,10 +27,10 @@ article: false
 
 ## 二级主题
 
-- [药效学基础、临床阶段与既往使用经验](/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-01.html)（41 个知识点 / 2 个细分主题）
-- [病毒安全检查、给药方式与 II/III 期可行性](/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-02.html)（39 个知识点 / 2 个细分主题）
-- [临床药理、生物等效与药学变更考量](/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-03.html)（39 个知识点 / 2 个细分主题）
-- [临床药学变更、II 期设计与 CDC 活性](/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-04.html)（37 个知识点 / 2 个细分主题）
+- [药效学基础、临床阶段与既往使用经验](/blogs/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-01.html)（41 个知识点 / 2 个细分主题）
+- [病毒安全检查、给药方式与 II/III 期可行性](/blogs/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-02.html)（39 个知识点 / 2 个细分主题）
+- [临床药理、生物等效与药学变更考量](/blogs/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-03.html)（39 个知识点 / 2 个细分主题）
+- [临床药学变更、II 期设计与 CDC 活性](/blogs/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-04.html)（37 个知识点 / 2 个细分主题）
 
 ## 阅读与维护
 
