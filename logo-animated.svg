@@ -1,70 +1,75 @@
-<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 256 256" fill="none" role="img" aria-label="BioCloudHub antibody icon animated">
   <defs>
-    <linearGradient id="grad1" x1="0%" y1="0%" x2="100%" y2="100%">
-      <stop offset="0%" style="stop-color:#3b82f6;stop-opacity:1" />
-      <stop offset="100%" style="stop-color:#10b981;stop-opacity:1" />
+    <linearGradient id="logo-bg" x1="40" y1="28" x2="220" y2="230" gradientUnits="userSpaceOnUse">
+      <stop offset="0" stop-color="#30c2f4" />
+      <stop offset="0.48" stop-color="#169bd8" />
+      <stop offset="1" stop-color="#0a78c8" />
     </linearGradient>
-    <filter id="glow" x="-20%" y="-20%" width="140%" height="140%">
-      <feGaussianBlur stdDeviation="2" result="blur" />
-      <feComposite in="SourceGraphic" in2="blur" operator="over" />
+    <radialGradient id="logo-glow" cx="0" cy="0" r="1" gradientUnits="userSpaceOnUse" gradientTransform="translate(88 62) rotate(37) scale(148)">
+      <stop offset="0" stop-color="#9ce7ff" stop-opacity="0.5" />
+      <stop offset="1" stop-color="#9ce7ff" stop-opacity="0" />
+    </radialGradient>
+    <filter id="logo-shadow" x="8" y="10" width="240" height="242" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+      <feDropShadow dx="0" dy="9" stdDeviation="8" flood-color="#0a3257" flood-opacity="0.3" />
     </filter>
   </defs>
 
-  <!-- Left Heavy Chain -->
-  <path class="chain heavy-left" d="M100 180 L100 100 L60 40" stroke="url(#grad1)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
-  
-  <!-- Right Heavy Chain -->
-  <path class="chain heavy-right" d="M100 180 L100 100 L140 40" stroke="url(#grad1)" stroke-width="12" stroke-linecap="round" stroke-linejoin="round" />
-  
-  <!-- Left Light Chain -->
-  <path class="chain light-left" d="M80 80 L50 35" stroke="#60a5fa" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
-  
-  <!-- Right Light Chain -->
-  <path class="chain light-right" d="M120 80 L150 35" stroke="#34d399" stroke-width="10" stroke-linecap="round" stroke-linejoin="round" />
+  <g class="logo-float" filter="url(#logo-shadow)">
+    <rect class="logo-core" x="16" y="16" width="224" height="224" rx="58" fill="url(#logo-bg)" />
+    <rect x="16" y="16" width="224" height="224" rx="58" fill="url(#logo-glow)" />
+    <rect x="16.75" y="16.75" width="222.5" height="222.5" rx="57.25" stroke="rgba(255,255,255,0.28)" stroke-width="1.5" />
+  </g>
 
-  <!-- Connecting Disulfide Bonds (Simplified as dots/lines) -->
-  <circle class="bond" cx="100" cy="110" r="3" fill="#ffffff" />
-  <circle class="bond" cx="100" cy="120" r="3" fill="#ffffff" />
+  <g class="logo-float" stroke="#ffffff" stroke-width="11" stroke-linecap="round" stroke-linejoin="round">
+    <path class="chain stem" d="M128 182V126" />
+    <path class="chain" d="M128 126L108 95" />
+    <path class="chain" d="M117 113L94 79" />
+    <path class="chain" d="M128 126L148 95" />
+    <path class="chain" d="M139 113L162 79" />
+  </g>
 
   <style>
+    .logo-float {
+      transform-box: fill-box;
+      transform-origin: center;
+      animation: logo-float 6.2s ease-in-out infinite;
+    }
+
+    .logo-core {
+      animation: logo-core-pulse 4.2s ease-in-out infinite;
+    }
+
     .chain {
-      opacity: 0;
-      animation: draw 2s ease-out forwards, float 6s ease-in-out infinite 2s;
-    }
-    
-    .heavy-left { animation-delay: 0s, 2s; }
-    .heavy-right { animation-delay: 0.2s, 2s; }
-    .light-left { animation-delay: 0.5s, 2.2s; }
-    .light-right { animation-delay: 0.7s, 2.2s; }
-    
-    .bond {
-      opacity: 0;
-      animation: fade-in 1s ease-out forwards 1.5s;
+      stroke-dasharray: 84;
+      stroke-dashoffset: 84;
+      animation: chain-draw 0.52s ease-out forwards;
     }
 
-    @keyframes draw {
-      0% {
-        opacity: 0;
-        stroke-dasharray: 200;
-        stroke-dashoffset: 200;
-        transform: translateY(10px);
+    .chain:nth-child(1) { animation-delay: 0s; }
+    .chain:nth-child(2) { animation-delay: 0.08s; }
+    .chain:nth-child(3) { animation-delay: 0.14s; }
+    .chain:nth-child(4) { animation-delay: 0.2s; }
+    .chain:nth-child(5) { animation-delay: 0.26s; }
+
+    @keyframes chain-draw {
+      from {
+        stroke-dashoffset: 84;
+        opacity: 0.2;
       }
-      100% {
-        opacity: 1;
-        stroke-dasharray: 200;
+      to {
         stroke-dashoffset: 0;
-        transform: translateY(0);
+        opacity: 1;
       }
     }
 
-    @keyframes float {
+    @keyframes logo-float {
       0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-3px); }
+      50% { transform: translateY(-2.5px); }
     }
 
-    @keyframes fade-in {
-      from { opacity: 0; transform: scale(0); }
-      to { opacity: 1; transform: scale(1); }
+    @keyframes logo-core-pulse {
+      0%, 100% { filter: saturate(1) brightness(1); }
+      50% { filter: saturate(1.06) brightness(1.05); }
     }
   </style>
 </svg>
