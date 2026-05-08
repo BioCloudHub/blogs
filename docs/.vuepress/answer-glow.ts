@@ -1,5 +1,6 @@
 import { onMounted } from "vue";
 import { defineClientConfig } from "vuepress/client";
+import katexCssText from "katex/dist/katex.min.css?raw";
 
 const CARD_SELECTOR = ".hint-container.answer";
 const CARD_TITLE_SELECTOR = ".hint-container-title";
@@ -204,6 +205,64 @@ export default defineClientConfig({
 
       if (title) title.remove();
 
+      const flowSymbolMatcher = /[─│┌┐└┘├┤┬┴┼▼▲◀▶→←↑↓↘↙↗↖⇩⇧⬇⬆⇣⇡]/gu;
+      const flowConnectorMatcher = /[─│┌┐└┘├┤┬┴┼▼▲◀▶→←↑↓↘↙↗↖⇩⇧⬇⬆⇣⇡]/u;
+      const arrowOnlyLineMatcher = /^[\s\u3000]*[▼▲◀▶→←↑↓↘↙↗↖⇩⇧⬇⬆⇣⇡\-–—=<>|│]+[\s\u3000]*$/u;
+      const codeSyntaxMatcher = /[{}();]/u;
+      const zeroWidthMatcher = /[\u200b\u200c\u200d\ufeff]/gu;
+
+      clone.querySelectorAll<HTMLElement>('div[class^="language-"], div[class*=" language-"]').forEach((block) => {
+        const code = block.querySelector<HTMLElement>("pre code");
+        if (!code) return;
+
+        const text = code.textContent ?? "";
+        const lines = text.split(/\r?\n/gu).map((line) => line.replace(/[ \t]+$/gu, ""));
+        const nonEmptyLines = lines.filter((line) => line.trim().length > 0);
+        const symbolCount = (text.match(flowSymbolMatcher) || []).length;
+        const connectorLineCount = nonEmptyLines.filter((line) => flowConnectorMatcher.test(line)).length;
+        const arrowOnlyLineCount = nonEmptyLines.filter((line) => arrowOnlyLineMatcher.test(line)).length;
+        const shortLineCount = nonEmptyLines.filter((line) => line.trim().length <= 36).length;
+        const shortLineRatio = nonEmptyLines.length > 0 ? shortLineCount / nonEmptyLines.length : 0;
+        const className = block.className;
+        const isExplicitFlowLanguage = /\blanguage-(?:flow|mermaid)\b/u.test(className);
+        const likelyCodeBlock = codeSyntaxMatcher.test(text);
+        const looksLikeFlowChart =
+          isExplicitFlowLanguage ||
+          (nonEmptyLines.length >= 5 &&
+            !likelyCodeBlock &&
+            (symbolCount >= 4 ||
+              (connectorLineCount >= 3 && arrowOnlyLineCount >= 2) ||
+              (arrowOnlyLineCount >= 2 && shortLineRatio >= 0.65)));
+
+        if (!looksLikeFlowChart) return;
+
+        block.classList.add("bc-flow-compact");
+
+        // Remove visual blank rows in highlighted code to avoid overly sparse flowchart blocks.
+        code.querySelectorAll<HTMLElement>(".line").forEach((line) => {
+          const content = (line.textContent ?? "").replace(zeroWidthMatcher, "").trim();
+          if (!content) line.remove();
+        });
+
+        Array.from(code.childNodes).forEach((node) => {
+          if (node.nodeType !== Node.TEXT_NODE) return;
+          const content = (node.textContent ?? "").replace(zeroWidthMatcher, "").trim();
+          if (!content) node.remove();
+        });
+
+        const compact = lines
+          .map((line) => line.replace(zeroWidthMatcher, ""))
+          .filter((line) => line.trim().length > 0)
+          .join("\n")
+          .trimEnd();
+
+        if (!compact) return;
+
+        if (!code.querySelector(".line")) {
+          code.textContent = compact;
+        }
+      });
+
       return clone.innerHTML.trim();
     };
 
@@ -218,6 +277,11 @@ export default defineClientConfig({
     let cachedQrDataUrl: string | null = null;
     let cachedQrValue: string | null = null;
     let cachedLogoDataUrl: string | null = null;
+    const SHARE_CARD_META_TEXT = "解读生物制药，让知识触手可及";
+    const SHARE_QR_SIZE = 104;
+    const SHARE_QR_CODE_WIDTH = 460;
+    const SHARE_QR_CAPTION_TOP = "扫码查看原文";
+    const SHARE_CARD_BOTTOM_SAFE_AREA = 42;
 
     const blobToDataUrl = (blob: Blob): Promise<string> =>
       new Promise((resolve, reject) => {
@@ -231,7 +295,7 @@ export default defineClientConfig({
       if (cachedLogoDataUrl) return cachedLogoDataUrl;
 
       const baseUrl = new URL(__VUEPRESS_BASE__, window.location.origin);
-      const logoUrl = new URL("logo.png", baseUrl);
+      const logoUrl = new URL("img/logo.png", baseUrl);
       const response = await fetch(logoUrl.toString());
 
       if (!response.ok) {
@@ -242,6 +306,14 @@ export default defineClientConfig({
       const dataUrl = await blobToDataUrl(blob);
       cachedLogoDataUrl = dataUrl;
       return dataUrl;
+    };
+
+    const buildShareQrValue = (): string => {
+      const url = new URL(window.location.href);
+      url.search = "";
+      url.hash = "";
+      url.pathname = url.pathname.replace(/\/index\.html$/iu, "/").replace(/\/{2,}/gu, "/");
+      return url.toString();
     };
 
     const getQrDataUrl = async (value: string): Promise<string> => {
@@ -258,9 +330,9 @@ export default defineClientConfig({
       }
 
       const dataUrl = await toDataURL(value, {
-        errorCorrectionLevel: "H",
-        width: 240,
-        margin: 1,
+        errorCorrectionLevel: "M",
+        width: SHARE_QR_CODE_WIDTH,
+        margin: 2,
         color: {
           dark: "#0b2436",
           light: "#ffffff",
@@ -270,6 +342,22 @@ export default defineClientConfig({
       cachedQrDataUrl = dataUrl;
       cachedQrValue = value;
       return dataUrl;
+    };
+
+    const waitForDocumentFonts = async (): Promise<void> => {
+      const fontSet = (document as Document & { fonts?: FontFaceSet }).fonts;
+      if (!fontSet?.ready) return;
+
+      try {
+        await Promise.race([
+          fontSet.ready.then(() => undefined),
+          new Promise<void>((resolve) => {
+            window.setTimeout(resolve, 600);
+          }),
+        ]);
+      } catch {
+        // ignore font readiness errors
+      }
     };
 
     const tokenizeText = (value: string): string[] => {
@@ -370,12 +458,13 @@ export default defineClientConfig({
       qrDataUrl?: string,
       logoDataUrl?: string,
     ): Promise<Blob> => {
-      const width = 980;
-      const padding = 42;
-      const panelInset = 20;
+      const width = 860;
+      const padding = 28;
+      const panelInset = 22;
       const dpr = Math.min(window.devicePixelRatio || 1, 2);
-      const qrSize = qrDataUrl ? 80 : 0;
-      const maxTextWidth = width - padding * 2 - panelInset * 2;
+      const qrSize = qrDataUrl ? SHARE_QR_SIZE : 0;
+      const textRightInset = 0;
+      const maxTextWidth = width - padding * 2 - panelInset * 2 - textRightInset;
 
       const canvas = document.createElement("canvas");
       const ctx = canvas.getContext("2d");
@@ -395,23 +484,26 @@ export default defineClientConfig({
       const chipHeight = 22;
       const headerGap = 8;
       const metaLineHeight = 16;
-      const headerHeight = Math.max(qrSize, chipHeight + headerGap + metaLineHeight);
-      const headerToQuestionGap = 12;
+      const headerHeight = chipHeight + headerGap + metaLineHeight;
+      const headerVisualHeight = headerHeight;
+      const headerToQuestionGap = 0;
       const topGap = headerToQuestionGap;
       const dividerGap = 4;
-      const footerGap = 28;
+      const footerGap = 24;
+      const footerOutsideSpace = 0;
 
       let height =
         panelInset * 2 +
         padding * 2 +
-        headerHeight +
+        headerVisualHeight +
         topGap +
         questionLines.length * questionLineHeight +
         dividerGap +
         answerLines.length * answerLineHeight +
-        footerGap;
+        footerGap +
+        footerOutsideSpace;
 
-      height = Math.max(height, 380);
+      height = Math.max(height + 10, 420);
 
       canvas.width = Math.floor(width * dpr);
       canvas.height = Math.floor(height * dpr);
@@ -420,30 +512,30 @@ export default defineClientConfig({
       ctx.scale(dpr, dpr);
 
       const bg = ctx.createLinearGradient(0, 0, width, height);
-      bg.addColorStop(0, "#f1f8fd");
-      bg.addColorStop(0.5, "#f8fbff");
-      bg.addColorStop(1, "#ffffff");
+      bg.addColorStop(0, "#eef5ff");
+      bg.addColorStop(0.48, "#f5f9ff");
+      bg.addColorStop(1, "#fbfdff");
       ctx.fillStyle = bg;
       ctx.fillRect(0, 0, width, height);
 
-      const glowLeft = ctx.createRadialGradient(60, 40, 0, 180, 140, 520);
-      glowLeft.addColorStop(0, "rgba(47, 164, 122, 0.2)");
+      const glowLeft = ctx.createRadialGradient(80, 48, 0, 200, 150, 520);
+      glowLeft.addColorStop(0, "rgba(36, 142, 201, 0.16)");
       glowLeft.addColorStop(1, "rgba(47, 164, 122, 0)");
       ctx.fillStyle = glowLeft;
       ctx.fillRect(0, 0, width, height);
 
-      const glowRight = ctx.createRadialGradient(width - 60, 40, 0, width - 220, 180, 520);
-      glowRight.addColorStop(0, "rgba(15, 111, 134, 0.22)");
+      const glowRight = ctx.createRadialGradient(width - 68, 52, 0, width - 230, 190, 520);
+      glowRight.addColorStop(0, "rgba(13, 108, 184, 0.16)");
       glowRight.addColorStop(1, "rgba(15, 111, 134, 0)");
       ctx.fillStyle = glowRight;
       ctx.fillRect(0, 0, width, height);
 
-      ctx.fillStyle = "rgba(15, 155, 215, 0.1)";
+      ctx.fillStyle = "rgba(15, 155, 215, 0.08)";
       ctx.beginPath();
       ctx.arc(width - 120, 90, 120, 0, Math.PI * 2);
       ctx.fill();
 
-      ctx.fillStyle = "rgba(60, 165, 109, 0.08)";
+      ctx.fillStyle = "rgba(41, 143, 192, 0.07)";
       ctx.beginPath();
       ctx.arc(120, height - 100, 140, 0, Math.PI * 2);
       ctx.fill();
@@ -451,42 +543,42 @@ export default defineClientConfig({
       const panelX = panelInset;
       const panelY = panelInset;
       const panelWidth = width - panelInset * 2;
-      const panelHeight = height - panelInset * 2;
+      const panelHeight = height - panelInset * 2 - footerOutsideSpace;
 
       ctx.save();
-      ctx.shadowColor = "rgba(11, 21, 38, 0.12)";
-      ctx.shadowBlur = 30;
-      ctx.shadowOffsetY = 10;
+      ctx.shadowColor = "rgba(11, 21, 38, 0.14)";
+      ctx.shadowBlur = 14;
+      ctx.shadowOffsetY = 6;
       const cardFill = ctx.createLinearGradient(panelX, panelY, panelX + panelWidth, panelY + panelHeight);
-      cardFill.addColorStop(0, "rgba(247, 253, 255, 0.98)");
-      cardFill.addColorStop(0.6, "rgba(242, 250, 248, 0.98)");
-      cardFill.addColorStop(1, "rgba(255, 255, 255, 0.98)");
+      cardFill.addColorStop(0, "rgba(248, 252, 255, 0.99)");
+      cardFill.addColorStop(0.58, "rgba(242, 248, 255, 0.99)");
+      cardFill.addColorStop(1, "rgba(255, 255, 255, 0.99)");
       ctx.fillStyle = cardFill;
       drawRoundedRect(ctx, panelX, panelY, panelWidth, panelHeight, 20);
       ctx.fill();
       ctx.restore();
 
-      ctx.strokeStyle = "rgba(13, 27, 42, 0.08)";
-      ctx.lineWidth = 1;
-      drawRoundedRect(ctx, panelX, panelY, panelWidth, panelHeight, 20);
+      ctx.strokeStyle = "rgba(22, 53, 89, 0.28)";
+      ctx.lineWidth = 1.2;
+      drawRoundedRect(ctx, panelX + 0.5, panelY + 0.5, panelWidth - 1, panelHeight - 1, 20);
       ctx.stroke();
 
       ctx.save();
       drawRoundedRect(ctx, panelX, panelY, panelWidth, panelHeight, 20);
       ctx.clip();
-      const topWash = ctx.createLinearGradient(panelX, panelY, panelX, panelY + 90);
-      topWash.addColorStop(0, "rgba(15, 111, 134, 0.12)");
+      const topWash = ctx.createLinearGradient(panelX, panelY, panelX, panelY + 102);
+      topWash.addColorStop(0, "rgba(37, 118, 196, 0.1)");
       topWash.addColorStop(1, "rgba(15, 111, 134, 0)");
       ctx.fillStyle = topWash;
-      ctx.fillRect(panelX, panelY, panelWidth, 90);
+      ctx.fillRect(panelX, panelY, panelWidth, 102);
 
-      const topDividerY = panelY + 84;
+      const topDividerY = panelY + 96;
       const topDividerX = panelX + 24;
       const topDividerWidth = panelWidth - 48;
       const topDividerGradient = ctx.createLinearGradient(topDividerX, topDividerY, topDividerX + topDividerWidth, topDividerY);
-      topDividerGradient.addColorStop(0, "rgba(15, 111, 134, 0.6)");
-      topDividerGradient.addColorStop(0.6, "rgba(47, 164, 122, 0.35)");
-      topDividerGradient.addColorStop(1, "rgba(47, 164, 122, 0)");
+      topDividerGradient.addColorStop(0, "rgba(14, 89, 164, 0.52)");
+      topDividerGradient.addColorStop(0.6, "rgba(53, 132, 198, 0.26)");
+      topDividerGradient.addColorStop(1, "rgba(53, 132, 198, 0)");
       ctx.strokeStyle = topDividerGradient;
       ctx.lineWidth = 2;
       ctx.beginPath();
@@ -495,8 +587,8 @@ export default defineClientConfig({
       ctx.stroke();
 
       const bottomWash = ctx.createLinearGradient(panelX, panelY + panelHeight - 80, panelX, panelY + panelHeight);
-      bottomWash.addColorStop(0, "rgba(15, 111, 134, 0)");
-      bottomWash.addColorStop(1, "rgba(15, 111, 134, 0.08)");
+      bottomWash.addColorStop(0, "rgba(13, 108, 184, 0)");
+      bottomWash.addColorStop(1, "rgba(13, 108, 184, 0.07)");
       ctx.fillStyle = bottomWash;
       ctx.fillRect(panelX, panelY + panelHeight - 80, panelWidth, 80);
 
@@ -595,7 +687,8 @@ export default defineClientConfig({
 
       let x = panelX + padding;
       const headerTop = panelY + padding;
-      let y = headerTop;
+      const brandOffsetY = 6;
+      let y = headerTop + brandOffsetY;
 
       const chipText = "BioCloudHub";
       ctx.font = "700 12px \"IBM Plex Sans\", \"PingFang SC\", sans-serif";
@@ -614,7 +707,7 @@ export default defineClientConfig({
       ctx.textBaseline = "top";
       ctx.fillStyle = "rgba(13, 27, 42, 0.55)";
       ctx.font = "600 12px \"IBM Plex Sans\", \"PingFang SC\", sans-serif";
-      ctx.fillText("专业问答分享卡片", x, y + chipHeight + headerGap);
+      ctx.fillText(SHARE_CARD_META_TEXT, x, y + chipHeight + headerGap);
       ctx.textBaseline = "alphabetic";
 
       if (qrDataUrl) {
@@ -627,8 +720,9 @@ export default defineClientConfig({
         qrImage.src = qrDataUrl;
         await qrLoaded;
 
-        const qrX = panelX + panelWidth - padding - qrSize;
-        const qrY = headerTop + (headerHeight - qrSize) / 2;
+        const qrMargin = 10;
+        const qrX = panelX + panelWidth - qrMargin - qrSize;
+        const qrY = panelY + qrMargin;
 
         ctx.save();
         ctx.fillStyle = "#ffffff";
@@ -652,23 +746,23 @@ export default defineClientConfig({
           logoImage.src = logoDataUrl;
           await logoLoaded;
 
-          const logoSize = 22;
+          const logoSize = 20;
           const logoX = qrX + (qrSize - logoSize) / 2;
           const logoY = qrY + (qrSize - logoSize) / 2;
-          ctx.save();
-          ctx.fillStyle = "#ffffff";
-          drawRoundedRect(ctx, logoX - 4, logoY - 4, logoSize + 8, logoSize + 8, 6);
-          ctx.fill();
-          ctx.strokeStyle = "rgba(13, 27, 42, 0.12)";
-          ctx.lineWidth = 1;
-          drawRoundedRect(ctx, logoX - 4, logoY - 4, logoSize + 8, logoSize + 8, 6);
-          ctx.stroke();
-          ctx.restore();
           ctx.drawImage(logoImage, logoX, logoY, logoSize, logoSize);
         }
+
+        ctx.textAlign = "center";
+        ctx.textBaseline = "top";
+        ctx.fillStyle = "rgba(13, 31, 54, 0.68)";
+        ctx.font = "600 11px \"IBM Plex Sans\", \"PingFang SC\", sans-serif";
+        ctx.fillText(SHARE_QR_CAPTION_TOP, qrX + qrSize / 2, qrY + qrSize + 4);
+        ctx.textAlign = "left";
+        ctx.textBaseline = "alphabetic";
       }
 
-      y = headerTop + headerHeight + headerToQuestionGap;
+      const contentStartY = headerTop + brandOffsetY + headerVisualHeight + headerToQuestionGap;
+      y = Math.max(contentStartY, topDividerY + 16);
 
       ctx.fillStyle = "#0f6f86";
       ctx.font = "700 12px \"IBM Plex Sans\", \"PingFang SC\", sans-serif";
@@ -696,10 +790,10 @@ export default defineClientConfig({
         y += answerLineHeight;
       });
 
-      ctx.fillStyle = "rgba(13, 27, 42, 0.45)";
+      ctx.fillStyle = "rgba(13, 31, 54, 0.56)";
       ctx.font = "600 12px \"IBM Plex Sans\", \"PingFang SC\", sans-serif";
-      ctx.textAlign = "left";
-      ctx.fillText("BioCloudHub · 分享", x, panelY + panelHeight - 24);
+      ctx.textAlign = "right";
+      ctx.fillText("BioCloudHub-分享", panelX + panelWidth - 16, panelY + panelHeight - 18);
 
       const blob = await new Promise<Blob | null>((resolve) => {
         canvas.toBlob((result) => resolve(result), "image/png");
@@ -719,16 +813,20 @@ export default defineClientConfig({
       logoDataUrl?: string,
     ) => {
       const hasQr = Boolean(qrDataUrl);
+      const shareRootPadding = 24;
+      const shareRootBottomPadding = shareRootPadding + 18;
       const css = `
+        ${katexCssText}
+
         .bc-share-root {
           position: relative;
           width: 100%;
           box-sizing: border-box;
-          padding: 26px;
+          padding: ${shareRootPadding}px ${shareRootPadding}px ${shareRootBottomPadding}px;
           background:
-            radial-gradient(1200px 600px at -10% -10%, rgba(47, 164, 122, 0.18), transparent 60%),
-            radial-gradient(900px 520px at 110% 0%, rgba(15, 111, 134, 0.22), transparent 60%),
-            linear-gradient(180deg, #f1f8fd 0%, #f8fbff 45%, #ffffff 100%);
+            radial-gradient(1200px 600px at -10% -10%, rgba(36, 142, 201, 0.16), transparent 60%),
+            radial-gradient(900px 520px at 110% 0%, rgba(13, 108, 184, 0.16), transparent 60%),
+            linear-gradient(180deg, #eef5ff 0%, #f5f9ff 45%, #fbfdff 100%);
           font-family: "IBM Plex Sans", "PingFang SC", "Segoe UI", sans-serif;
           color: #0b2436;
           overflow: hidden;
@@ -736,8 +834,8 @@ export default defineClientConfig({
         .bc-share-blob {
           position: absolute;
           border-radius: 999px;
-          filter: blur(2px);
-          opacity: 0.6;
+          filter: blur(1px);
+          opacity: 0.46;
           z-index: 0;
         }
         .bc-share-blob.one {
@@ -745,27 +843,29 @@ export default defineClientConfig({
           height: 240px;
           right: -60px;
           top: -80px;
-          background: radial-gradient(circle, rgba(15, 155, 215, 0.22), rgba(15, 155, 215, 0));
+          background: radial-gradient(circle, rgba(34, 134, 214, 0.2), rgba(34, 134, 214, 0));
         }
         .bc-share-blob.two {
           width: 260px;
           height: 260px;
           left: -80px;
           bottom: -100px;
-          background: radial-gradient(circle, rgba(58, 165, 115, 0.2), rgba(58, 165, 115, 0));
+          background: radial-gradient(circle, rgba(66, 156, 226, 0.18), rgba(66, 156, 226, 0));
         }
         .bc-share-card {
           position: relative;
           z-index: 1;
-          background: linear-gradient(160deg, rgba(247, 253, 255, 0.98) 0%, rgba(242, 250, 248, 0.98) 60%, rgba(255, 255, 255, 0.98) 100%);
-          border-radius: 20px;
-          padding: 30px;
-          border: 1px solid rgba(13, 27, 42, 0.06);
+          background: linear-gradient(160deg, rgba(248, 254, 255, 0.99) 0%, rgba(242, 250, 248, 0.99) 56%, rgba(255, 255, 255, 0.99) 100%);
+          border-radius: 22px;
+          padding: 16px 24px 18px;
+          border: 1px solid rgba(22, 53, 89, 0.24);
           overflow: hidden;
+          margin-bottom: 0;
           box-shadow:
-            0 18px 40px rgba(11, 21, 38, 0.08),
-            0 0 0 1px rgba(15, 111, 134, 0.05),
-            inset 0 1px 0 rgba(255, 255, 255, 0.9);
+            0 8px 14px rgba(11, 21, 38, 0.13),
+            0 2px 6px rgba(11, 21, 38, 0.08),
+            0 0 0 1px rgba(16, 70, 124, 0.16),
+            inset 0 1px 0 rgba(255, 255, 255, 0.96);
         }
         .bc-share-card::before {
           content: "";
@@ -773,9 +873,9 @@ export default defineClientConfig({
           left: 0;
           right: 0;
           top: 0;
-          height: 84px;
-          background: linear-gradient(120deg, rgba(15, 111, 134, 0.18), rgba(47, 164, 122, 0.1), transparent);
-          opacity: 0.6;
+          height: 92px;
+          background: linear-gradient(120deg, rgba(14, 89, 164, 0.14), rgba(53, 132, 198, 0.08), transparent);
+          opacity: 0.72;
           z-index: 1;
           pointer-events: none;
         }
@@ -783,10 +883,10 @@ export default defineClientConfig({
           position: absolute;
           left: 24px;
           right: 24px;
-          top: 84px;
+          top: 92px;
           height: 2px;
-          background: linear-gradient(90deg, rgba(15, 111, 134, 0.6), rgba(47, 164, 122, 0.35), rgba(47, 164, 122, 0));
-          opacity: 0.7;
+          background: linear-gradient(90deg, rgba(14, 89, 164, 0.5), rgba(53, 132, 198, 0.24), rgba(53, 132, 198, 0));
+          opacity: 0.74;
           z-index: 1;
           pointer-events: none;
         }
@@ -796,15 +896,19 @@ export default defineClientConfig({
           left: 0;
           right: 0;
           bottom: 0;
-          height: 64px;
-          background: linear-gradient(180deg, rgba(15, 111, 134, 0), rgba(15, 111, 134, 0.08));
-          opacity: 0.6;
+          height: 74px;
+          background: linear-gradient(180deg, rgba(13, 108, 184, 0), rgba(13, 108, 184, 0.06));
+          opacity: 0.7;
           z-index: 1;
           pointer-events: none;
         }
         .bc-share-content {
           position: relative;
           z-index: 2;
+          padding-bottom: 14px;
+        }
+        .bc-share-root.has-qr .bc-share-content {
+          padding-right: 0;
         }
         .bc-share-bio-net {
           position: absolute;
@@ -864,38 +968,75 @@ export default defineClientConfig({
           stroke-width: 0.8;
         }
         .bc-share-header {
-          display: flex;
-          align-items: flex-start;
-          justify-content: space-between;
-          gap: 16px;
+          position: relative;
+          display: block;
           margin-bottom: 0;
+          padding-top: 6px;
         }
         .bc-share-brand {
+          display: block;
+        }
+        .bc-share-root.has-qr .bc-share-header {
+          padding-right: ${SHARE_QR_SIZE + 24}px;
+        }
+        .bc-share-brand-main {
+          display: flex;
+          align-items: center;
+          gap: 10px;
+        }
+        .bc-share-brand-text {
           display: flex;
           flex-direction: column;
-          gap: 6px;
+          align-items: flex-start;
+          gap: 2px;
+          min-width: 0;
+        }
+        .bc-share-brand-logo-wrap {
+          position: relative;
+          display: inline-flex;
+          width: 56px;
+          height: 56px;
+          border-radius: 12px;
+          padding: 6px;
+          box-sizing: border-box;
+          background: linear-gradient(140deg, rgba(255, 255, 255, 0.99), rgba(237, 247, 251, 0.98));
+          border: 1.2px solid rgba(15, 111, 134, 0.34);
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.96),
+            0 10px 18px rgba(13, 27, 42, 0.12),
+            0 0 0 1px rgba(255, 255, 255, 0.64);
+        }
+        .bc-share-brand-logo {
+          width: 100%;
+          height: 100%;
+          display: block;
+          object-fit: contain;
+          border-radius: 0;
+          background: transparent;
+          border: 0;
+          box-sizing: border-box;
         }
         .bc-share-chip {
           display: inline-flex;
           align-items: center;
-          gap: 8px;
-          padding: 6px 12px;
+          gap: 9px;
+          padding: 6px 11px;
           border-radius: 999px;
-          background: linear-gradient(135deg, #0f6f86, #2fa47a);
+          background: linear-gradient(132deg, #0c697f, #23906f 58%, #32b187 100%);
           color: #fff;
-          font-size: 12px;
-          font-weight: 700;
-          letter-spacing: 0.08em;
-          text-transform: uppercase;
+          font-size: 12.5px;
+          font-weight: 720;
+          letter-spacing: 0.015em;
           box-shadow:
-            inset 0 0 0 1px rgba(255, 255, 255, 0.25),
-            0 8px 18px rgba(15, 111, 134, 0.18);
+            inset 0 0 0 1px rgba(255, 255, 255, 0.27),
+            0 10px 22px rgba(15, 111, 134, 0.2);
         }
         .bc-share-meta {
           font-size: 12px;
-          color: rgba(13, 27, 42, 0.55);
+          color: rgba(13, 27, 42, 0.56);
           font-weight: 600;
-          letter-spacing: 0.04em;
+          letter-spacing: 0.01em;
+          margin: 0;
         }
         .bc-share-label {
           font-size: 12px;
@@ -903,19 +1044,29 @@ export default defineClientConfig({
           font-weight: 700;
           letter-spacing: 0.12em;
           text-transform: uppercase;
-          margin-bottom: 4px;
+          margin-bottom: 1px;
+        }
+        .bc-share-question-label {
+          margin-top: 22px;
         }
         .bc-share-question {
-          font-size: 24px;
+          font-size: 25px;
           font-weight: 650;
-          line-height: 1.35;
+          line-height: 1.32;
           color: #0b2436;
-          margin-bottom: 10px;
+          margin-bottom: 6px;
+          overflow-wrap: anywhere;
+          word-break: break-word;
+        }
+        .bc-share-root.has-qr .bc-share-question-label,
+        .bc-share-root.has-qr .bc-share-question {
+          max-width: calc(100% - ${SHARE_QR_SIZE + 18}px);
         }
         .bc-share-answer {
           font-size: 16px;
-          line-height: 1.7;
-          color: #1b2c44;
+          line-height: 1.72;
+          color: #1a314a;
+          overflow-wrap: anywhere;
         }
         .bc-share-answer h1,
         .bc-share-answer h2,
@@ -939,23 +1090,226 @@ export default defineClientConfig({
         .bc-share-answer strong {
           color: #0d4255;
         }
+        .bc-share-answer .katex-display,
+        .bc-share-answer mjx-container[display="true"] {
+          display: block;
+          margin: 10px 0 14px;
+          overflow-x: auto;
+          overflow-y: hidden;
+          text-align: center;
+        }
+        .bc-share-answer .katex,
+        .bc-share-answer mjx-container {
+          max-width: 100%;
+          font-size: 1em;
+        }
+        .bc-share-answer .katex-display > .katex {
+          display: inline-block;
+          white-space: nowrap;
+        }
+        .bc-share-answer .katex .base {
+          white-space: nowrap;
+        }
         .bc-share-answer code {
           font-family: "IBM Plex Mono", "SFMono-Regular", Menlo, Consolas, monospace;
-          font-size: 0.95em;
-          background: rgba(13, 27, 42, 0.06);
-          padding: 2px 6px;
+          font-size: 0.9em;
+          background: rgba(15, 111, 134, 0.09);
+          border: 1px solid rgba(15, 111, 134, 0.18);
+          padding: 2px 7px;
           border-radius: 6px;
+          color: #12344e;
         }
         .bc-share-answer pre {
-          background: rgba(13, 27, 42, 0.05);
-          padding: 10px 12px;
-          border-radius: 10px;
-          overflow: hidden;
-          margin: 8px 0 12px;
+          margin: 8px 0 10px;
+          padding: 14px 16px;
+          border-radius: 14px;
+          border: 1px solid rgba(15, 111, 134, 0.22);
+          background: linear-gradient(180deg, rgba(250, 253, 255, 0.98), rgba(240, 248, 255, 0.98));
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.9),
+            0 8px 20px rgba(13, 27, 42, 0.07);
+          color: #12344e;
+          overflow: auto;
         }
         .bc-share-answer pre code {
           background: none;
+          border: 0;
           padding: 0;
+          color: inherit;
+          font-size: 13px;
+          line-height: 1.58;
+          white-space: pre-wrap;
+          word-break: break-word;
+        }
+        .bc-share-answer .shiki,
+        .bc-share-answer .vp-code {
+          width: 100%;
+          max-width: 100%;
+          overflow-x: auto;
+        }
+        .bc-share-answer .shiki code,
+        .bc-share-answer .vp-code code {
+          white-space: pre !important;
+          word-break: normal !important;
+          overflow-wrap: normal !important;
+        }
+        .bc-share-answer .shiki .line,
+        .bc-share-answer .vp-code .line {
+          display: block;
+          white-space: pre;
+          line-height: 1.58;
+        }
+        .bc-share-answer .language-mermaid .line,
+        .bc-share-answer .language-flow .line {
+          display: block;
+          white-space: pre;
+          line-height: 1.58;
+          margin: 0;
+          min-height: 0;
+        }
+        .bc-share-answer div[class^="language-"],
+        .bc-share-answer div[class*=" language-"] {
+          margin: 8px 0 10px;
+          border-radius: 12px;
+          border: 1px solid rgba(15, 111, 134, 0.24);
+          background: linear-gradient(180deg, rgba(250, 253, 255, 0.99), rgba(240, 248, 255, 0.99));
+          box-shadow:
+            inset 0 1px 0 rgba(255, 255, 255, 0.92),
+            0 8px 20px rgba(13, 27, 42, 0.07);
+          overflow: auto;
+        }
+        .bc-share-answer div[class^="language-"]::before,
+        .bc-share-answer div[class*=" language-"]::before,
+        .bc-share-answer div[class^="language-"]::after,
+        .bc-share-answer div[class*=" language-"]::after {
+          content: none !important;
+          display: none !important;
+        }
+        .bc-share-answer div[class^="language-"] pre,
+        .bc-share-answer div[class*=" language-"] pre {
+          margin: 0;
+          border: 0;
+          border-radius: 0;
+          box-shadow: none;
+          background: transparent;
+          padding: 10px 12px;
+        }
+        .bc-share-answer div[class^="language-"] code,
+        .bc-share-answer div[class*=" language-"] code {
+          border: 0;
+          background: transparent;
+          color: #12344e;
+          padding: 0;
+          font-size: 13px;
+          line-height: 1.58;
+          white-space: pre !important;
+          word-break: normal !important;
+          overflow-wrap: normal !important;
+        }
+        .bc-share-answer div.bc-flow-compact,
+        .bc-share-answer div[class^="language-"].bc-flow-compact,
+        .bc-share-answer div[class*=" language-"].bc-flow-compact {
+          margin: 0 !important;
+          border-radius: 10px;
+          overflow-x: auto;
+          overflow-y: visible;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .bc-share-answer .bc-flow-compact::-webkit-scrollbar {
+          width: 0 !important;
+          height: 0 !important;
+          display: none !important;
+        }
+        .bc-share-answer .bc-flow-compact pre {
+          margin: 0 !important;
+          padding: 8px 12px !important;
+          overflow-x: auto;
+          overflow-y: visible;
+          scrollbar-width: none;
+          -ms-overflow-style: none;
+        }
+        .bc-share-answer .bc-flow-compact pre::-webkit-scrollbar {
+          width: 0 !important;
+          height: 0 !important;
+          display: none !important;
+        }
+        .bc-share-answer .bc-flow-compact code {
+          display: block;
+          margin: 0 !important;
+          padding: 0 !important;
+          font-size: 12px !important;
+          line-height: 1.16 !important;
+          letter-spacing: 0 !important;
+          white-space: pre !important;
+          word-break: normal !important;
+          overflow-wrap: normal !important;
+        }
+        .bc-share-answer .bc-flow-compact p {
+          margin: 0 !important;
+          padding: 0 !important;
+          line-height: 1.16 !important;
+        }
+        .bc-share-answer .bc-flow-compact span {
+          margin: 0 !important;
+          padding: 0 !important;
+          line-height: inherit !important;
+        }
+        .bc-share-answer .bc-flow-compact .line {
+          display: block;
+          line-height: 1.16 !important;
+          margin: 0 !important;
+          padding: 0 !important;
+          min-height: 0 !important;
+        }
+        .bc-share-answer .bc-flow-compact .line:empty,
+        .bc-share-answer .bc-flow-compact .line > span:empty {
+          display: none !important;
+        }
+        .bc-share-answer .bc-flow-compact + * {
+          margin-top: 0 !important;
+        }
+        .bc-share-answer .token.comment,
+        .bc-share-answer .token.prolog,
+        .bc-share-answer .token.doctype,
+        .bc-share-answer .token.cdata {
+          color: #6f7f92;
+        }
+        .bc-share-answer .token.punctuation,
+        .bc-share-answer .token.operator {
+          color: #4a6078;
+        }
+        .bc-share-answer .token.keyword,
+        .bc-share-answer .token.atrule,
+        .bc-share-answer .token.selector {
+          color: #0f6f86;
+          font-weight: 600;
+        }
+        .bc-share-answer .token.string,
+        .bc-share-answer .token.attr-value {
+          color: #2f7e4a;
+        }
+        .bc-share-answer .token.function,
+        .bc-share-answer .token.class-name {
+          color: #87550f;
+        }
+        .bc-share-answer .token.number,
+        .bc-share-answer .token.boolean,
+        .bc-share-answer .token.constant {
+          color: #235db8;
+        }
+        .bc-share-answer .line-numbers-wrapper,
+        .bc-share-answer .copy-code-button,
+        .bc-share-answer .vp-copy-code-button,
+        .bc-share-answer [class*="copy-code-button"],
+        .bc-share-answer .line-numbers,
+        .bc-share-answer .line-number,
+        .bc-share-answer .code-block-title-bar,
+        .bc-share-answer .collapsed-lines,
+        .bc-share-answer [class*="line-numbers-mode"] .line-numbers-wrapper,
+        .bc-share-answer [class*="line-numbers-mode"]::before,
+        .bc-share-answer [class*="line-numbers-mode"]::after {
+          display: none !important;
         }
         .bc-share-answer blockquote {
           margin: 10px 0 14px;
@@ -973,28 +1327,89 @@ export default defineClientConfig({
           max-width: 100%;
           border-radius: 12px;
         }
+        .bc-share-answer table {
+          width: 100%;
+          border-collapse: separate;
+          border-spacing: 0;
+          margin: 10px 0 14px;
+          background: rgba(255, 255, 255, 0.9);
+          border: 1px solid rgba(13, 27, 42, 0.2);
+          border-radius: 12px;
+          overflow: hidden;
+          font-size: 14px;
+          line-height: 1.5;
+        }
+        .bc-share-answer th,
+        .bc-share-answer td {
+          border-right: 1px solid rgba(13, 27, 42, 0.16);
+          border-bottom: 1px solid rgba(13, 27, 42, 0.16);
+          padding: 6px 9px;
+          text-align: left;
+          vertical-align: top;
+        }
+        .bc-share-answer table tr > :last-child {
+          border-right: 0;
+        }
+        .bc-share-answer table tr:last-child > :is(th, td) {
+          border-bottom: 0;
+        }
+        .bc-share-answer th {
+          background: rgba(15, 111, 134, 0.08);
+          color: #0b2436;
+          font-weight: 600;
+          text-align: center;
+          border-radius: 0;
+        }
+        .bc-share-answer .table-container,
+        .bc-share-answer .chart-container,
+        .bc-share-answer .echarts-container {
+          border: 1px solid rgba(13, 27, 42, 0.16);
+          border-radius: 12px;
+          padding: 8px;
+          background: rgba(255, 255, 255, 0.94);
+          margin: 10px 0 14px;
+          box-sizing: border-box;
+          overflow: hidden;
+        }
+        .bc-share-answer .table-container table {
+          margin: 0;
+          border-radius: 10px;
+        }
+        .bc-share-answer > *:last-child {
+          margin-bottom: 0 !important;
+        }
         .bc-share-footer {
-          margin-top: 16px;
+          position: relative;
+          z-index: 2;
+          margin-top: 8px;
           text-align: right;
           font-size: 12px;
-          color: rgba(13, 27, 42, 0.45);
+          color: rgba(13, 31, 54, 0.58);
           font-weight: 600;
+          line-height: 1.45;
+          letter-spacing: 0.02em;
+          pointer-events: none;
         }
         .bc-share-qr-wrap {
           display: flex;
+          flex-direction: column;
           align-items: center;
-          flex-shrink: 0;
-          margin-top: 2px;
+          gap: 3px;
+          position: absolute;
+          right: 10px;
+          top: 10px;
+          z-index: 3;
+          width: ${SHARE_QR_SIZE + 8}px;
         }
         .bc-share-qr {
           position: relative;
-          width: 80px;
-          height: 80px;
-          padding: 4px;
-          border-radius: 11px;
-          background: #ffffff;
-          border: 1px solid rgba(13, 27, 42, 0.12);
-          box-shadow: 0 8px 18px rgba(11, 21, 38, 0.08);
+          width: ${SHARE_QR_SIZE}px;
+          height: ${SHARE_QR_SIZE}px;
+          padding: 6px;
+          border-radius: 16px;
+          background: linear-gradient(145deg, #ffffff, #f4fbff);
+          border: 1px solid rgba(13, 27, 42, 0.14);
+          box-shadow: 0 12px 24px rgba(11, 21, 38, 0.12);
           box-sizing: border-box;
         }
         .bc-share-qr-img {
@@ -1009,13 +1424,21 @@ export default defineClientConfig({
           left: 50%;
           top: 50%;
           transform: translate(-50%, -50%);
-          width: 20px;
-          height: 20px;
-          border-radius: 6px;
-          background: #ffffff;
-          padding: 3px;
-          box-shadow: 0 0 0 1px rgba(13, 27, 42, 0.12);
+          width: 18px;
+          height: 18px;
+          border-radius: 0;
+          background: transparent;
+          padding: 0;
+          box-shadow: none;
           box-sizing: border-box;
+        }
+        .bc-share-qr-caption {
+          width: 100%;
+          text-align: center;
+          font-size: 10px;
+          line-height: 1.2;
+          color: rgba(13, 31, 54, 0.62);
+          letter-spacing: 0.01em;
         }
       `;
       const qrBlock = hasQr
@@ -1025,11 +1448,12 @@ export default defineClientConfig({
               <img class="bc-share-qr-img" src="${qrDataUrl}" alt="QR code" />
               ${logoDataUrl ? `<img class="bc-share-qr-logo" src="${logoDataUrl}" alt="" />` : ""}
             </div>
+            <div class="bc-share-qr-caption">${SHARE_QR_CAPTION_TOP}</div>
           </div>
         `
         : "";
       const html = `
-        <div class="bc-share-root">
+        <div class="bc-share-root${hasQr ? " has-qr" : ""}">
           <div class="bc-share-blob one"></div>
           <div class="bc-share-blob two"></div>
           <div class="bc-share-card">
@@ -1069,17 +1493,22 @@ export default defineClientConfig({
             <div class="bc-share-content">
               <div class="bc-share-header">
                 <div class="bc-share-brand">
-                  <div class="bc-share-chip">BioCloudHub</div>
-                  <div class="bc-share-meta">专业问答分享卡片</div>
+                  <div class="bc-share-brand-main">
+                    ${logoDataUrl ? `<span class="bc-share-brand-logo-wrap"><img class="bc-share-brand-logo" src="${logoDataUrl}" alt="BioCloudHub logo" /></span>` : ""}
+                    <div class="bc-share-brand-text">
+                      <div class="bc-share-chip">BioCloudHub</div>
+                      <div class="bc-share-meta">${SHARE_CARD_META_TEXT}</div>
+                    </div>
+                  </div>
                 </div>
                 ${qrBlock}
               </div>
-              <div class="bc-share-label">问题</div>
+              <div class="bc-share-label bc-share-question-label">问题</div>
               <div class="bc-share-question">${escapeHtml(question)}</div>
-            <div class="bc-share-label">回答</div>
+              <div class="bc-share-label">回答</div>
               <div class="bc-share-answer">${answerHtml}</div>
-              <div class="bc-share-footer">BioCloudHub · 分享</div>
             </div>
+            <div class="bc-share-footer">BioCloudHub-分享</div>
           </div>
         </div>
       `;
@@ -1096,7 +1525,15 @@ export default defineClientConfig({
       container.style.pointerEvents = "none";
       container.innerHTML = `<style>${markup.css}</style>${markup.html}`;
       document.body.append(container);
-      const height = Math.ceil(container.scrollHeight);
+      // Force layout before measuring to reduce underestimation on complex content blocks.
+      void container.offsetHeight;
+      const root = container.querySelector<HTMLElement>(".bc-share-root");
+      const rootRect = root?.getBoundingClientRect();
+      const rootHeight = rootRect ? Math.ceil(rootRect.height) : 0;
+      const rootOffsetHeight = root ? Math.ceil(root.offsetHeight) : 0;
+      // Keep top/bottom spacing symmetric, while ignoring decorative absolute layers
+      // that may inflate scrollHeight and create extra blank area at the bottom.
+      const height = Math.max(rootHeight, rootOffsetHeight);
       container.remove();
       return height;
     };
@@ -1110,7 +1547,7 @@ export default defineClientConfig({
       const svg = `
         <svg xmlns="http://www.w3.org/2000/svg" width="${width}" height="${height}">
           <foreignObject width="100%" height="100%">
-            <div xmlns="http://www.w3.org/1999/xhtml">
+            <div xmlns="http://www.w3.org/1999/xhtml" style="width:${width}px;height:${height}px;">
               <style>${markup.css}</style>
               ${markup.html}
             </div>
@@ -1160,9 +1597,10 @@ export default defineClientConfig({
       const answerHtml = extractAnswerHtml(card) || escapeHtml(answerText);
 
       showToast("正在生成分享卡片…", "info");
+      await waitForDocumentFonts();
 
       try {
-        const shareUrl = window.location.href;
+        const shareUrl = buildShareQrValue();
         let qrDataUrl = "";
         let logoDataUrl = "";
 
@@ -1178,7 +1616,7 @@ export default defineClientConfig({
           logoDataUrl = "";
         }
 
-        const width = 980;
+        const width = 860;
         const markup = buildShareCardContent(question, answerHtml, qrDataUrl, logoDataUrl);
         const height = measureShareCardHeight(markup, width);
         const blob = await renderShareCardImage(markup, width, height);
@@ -1199,7 +1637,7 @@ export default defineClientConfig({
         showToast("已生成图片文件", "success");
       } catch (error) {
         try {
-          const shareUrl = window.location.href;
+          const shareUrl = buildShareQrValue();
           let qrDataUrl = "";
           let logoDataUrl = "";
 

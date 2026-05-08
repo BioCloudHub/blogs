@@ -31,8 +31,4 @@ article: false
 - [药理临床基础](/blogs/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-01-01.html)（21 个知识点）
 - [开发设计与变更判断](/blogs/posts/cmc-knowledge/11-pharmacology-toxicology-clinical-01-02.html)（20 个知识点）
 
-## 维护建议
 
-- 当前页面保留为二级主题导航页，适合先判断自己要解决的是哪一类问题。
-- 细分页已经取消题号式展示，后续新增内容可以直接补到最合适的位置。
-- 若通过站内搜索进入单个知识点，也可以回到本页查看同主题下的相邻内容。

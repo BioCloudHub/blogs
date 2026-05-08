@@ -1,0 +1,25 @@
+'Log files:
+/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-04-28T01_34_17_859Z-debug-0.log
+
+# npm resolution error report
+
+While resolving: biocloudhub-blog@undefined
+Found: @vuepress/plugin-photo-swipe@2.0.0-rc.121
+node_modules/@vuepress/plugin-photo-swipe
+  @vuepress/plugin-photo-swipe@"2.0.0-rc.121" from vuepress-theme-hope@2.0.0-rc.102
+  node_modules/vuepress-theme-hope
+    dev vuepress-theme-hope@"^2.0.0-rc.102" from the root project
+  dev @vuepress/plugin-photo-swipe@"2.0.0-rc.128" from the root project
+
+Could not resolve dependency:
+dev @vuepress/plugin-photo-swipe@"2.0.0-rc.128" from the root project
+
+Conflicting peer dependency: vuepress@2.0.0-rc.28
+node_modules/vuepress
+  peer vuepress@"2.0.0-rc.28" from @vuepress/plugin-photo-swipe@2.0.0-rc.128
+  node_modules/@vuepress/plugin-photo-swipe
+    dev @vuepress/plugin-photo-swipe@"2.0.0-rc.128" from the root project
+
+Fix the upstream dependency conflict, or retry
+this command with --force or --legacy-peer-deps
+to accept an incorrect (and potentially broken) dependency resolution.

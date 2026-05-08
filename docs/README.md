@@ -3,7 +3,7 @@ home: true
 title: BioCloudHub
 heroText: 生物制药技术博客
 tagline: CMC · 生物分析 · AI 药物研发 · 云原生工程
-heroImage: /logo.png
+heroImage: /img/logo.png
 actions:
   - text: 进入技术博客
     link: /posts/

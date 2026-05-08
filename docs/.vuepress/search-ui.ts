@@ -6,6 +6,7 @@ import {
   SEARCH_LAUNCH_EVENT,
   SEARCH_PATH,
   SEARCH_PREVIEW_QUERY_KEY,
+  SEARCH_PREVIEW_SYNC_MESSAGE,
   SEARCH_TARGET_HEADING_QUERY_KEY,
   SEARCH_TARGET_SNIPPET_QUERY_KEY,
 } from "./search-constants";
@@ -19,7 +20,22 @@ const SEARCH_PREVIEW_SKIP_SELECTOR =
 const SEARCH_PREVIEW_BLOCK_SELECTOR =
   "h1, h2, h3, h4, h5, h6, p, li, blockquote, dd, dt, td, th";
 
+interface PreviewRuntimeState {
+  highlightTerms: string[];
+  targetHeading: string;
+  targetSnippet: string;
+}
+
+interface PreviewSyncMessagePayload {
+  type: typeof SEARCH_PREVIEW_SYNC_MESSAGE;
+  hash?: string;
+  highlightTerms?: unknown;
+  targetHeading?: unknown;
+  targetSnippet?: unknown;
+}
+
 let previewRefreshTimer = 0;
+let previewRuntimeState: PreviewRuntimeState | null = null;
 
 const dispatchSearchLaunchEvent = (targetWindow: Window = window): void => {
   targetWindow.dispatchEvent(new CustomEvent(SEARCH_LAUNCH_EVENT));
@@ -46,12 +62,18 @@ const isTypingTarget = (target: EventTarget | null): boolean => {
   return ["INPUT", "TEXTAREA", "SELECT"].includes(target.tagName);
 };
 
-const clearPreviewHighlights = (): void => {
+const clearPreviewTargetClass = (): void => {
   if (typeof document === "undefined") return;
 
   document.querySelectorAll<HTMLElement>(`.${SEARCH_PREVIEW_TARGET_CLASS}`).forEach((node) => {
     node.classList.remove(SEARCH_PREVIEW_TARGET_CLASS);
   });
+};
+
+const clearPreviewHighlights = (): void => {
+  if (typeof document === "undefined") return;
+
+  clearPreviewTargetClass();
 
   document
     .querySelectorAll<HTMLElement>(
@@ -72,13 +94,28 @@ const getPreviewSearchParams = (): URLSearchParams => new URL(window.location.hr
 const isPreviewMode = (): boolean =>
   getPreviewSearchParams().get(SEARCH_PREVIEW_QUERY_KEY) === "1";
 
-const getHighlightTerms = (): string[] => {
-  const raw = getPreviewSearchParams().get(SEARCH_HIGHLIGHT_QUERY_KEY);
+const escapeRegExp = (value: string): string =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
 
-  if (!raw) return [];
+const normalizeTargetText = (value: string): string =>
+  value
+    .replace(/\s+/gu, " ")
+    .replace(/(?:\.{3,}|…)+/gu, " ")
+    .replace(/^[\s\-–—,，。:：;；、.]+|[\s\-–—,，。:：;；、.]+$/gu, "")
+    .trim();
+
+const normalizeHighlightTerms = (value: unknown): string[] => {
+  if (Array.isArray(value)) {
+    return value
+      .map((item) => (typeof item === "string" ? item.trim() : ""))
+      .filter(Boolean)
+      .sort((left, right) => right.length - left.length);
+  }
+
+  if (typeof value !== "string") return [];
 
   try {
-    const parsed = JSON.parse(raw);
+    const parsed = JSON.parse(value);
 
     if (Array.isArray(parsed)) {
       return parsed
@@ -90,24 +127,54 @@ const getHighlightTerms = (): string[] => {
     // ignore malformed highlight payloads and fall back to whitespace splitting
   }
 
-  return raw
+  return value
     .split(/\s+/u)
     .map((item) => item.trim())
     .filter(Boolean)
     .sort((left, right) => right.length - left.length);
 };
 
-const escapeRegExp = (value: string): string =>
-  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+const normalizePreviewHash = (value: unknown): string => {
+  if (typeof value !== "string") return "";
 
-const normalizeTargetText = (value: string): string =>
-  value.replace(/\s+/gu, " ").replace(/…/gu, "").trim();
+  const normalizedValue = value.trim();
 
-const getTargetHeading = (): string =>
-  normalizeTargetText(getPreviewSearchParams().get(SEARCH_TARGET_HEADING_QUERY_KEY) ?? "");
+  if (!normalizedValue) return "";
 
-const getTargetSnippet = (): string =>
-  normalizeTargetText(getPreviewSearchParams().get(SEARCH_TARGET_SNIPPET_QUERY_KEY) ?? "");
+  return normalizedValue.startsWith("#") ? normalizedValue : `#${normalizedValue}`;
+};
+
+const readPreviewRuntimeStateFromUrl = (): PreviewRuntimeState => {
+  const searchParams = getPreviewSearchParams();
+
+  return {
+    highlightTerms: normalizeHighlightTerms(searchParams.get(SEARCH_HIGHLIGHT_QUERY_KEY)),
+    targetHeading: normalizeTargetText(searchParams.get(SEARCH_TARGET_HEADING_QUERY_KEY) ?? ""),
+    targetSnippet: normalizeTargetText(searchParams.get(SEARCH_TARGET_SNIPPET_QUERY_KEY) ?? ""),
+  };
+};
+
+const syncPreviewRuntimeStateFromUrl = (): void => {
+  previewRuntimeState = isPreviewMode() ? readPreviewRuntimeStateFromUrl() : null;
+};
+
+const getPreviewRuntimeState = (): PreviewRuntimeState => {
+  if (!previewRuntimeState) {
+    syncPreviewRuntimeStateFromUrl();
+  }
+
+  return previewRuntimeState ?? {
+    highlightTerms: [],
+    targetHeading: "",
+    targetSnippet: "",
+  };
+};
+
+const getHighlightTerms = (): string[] => getPreviewRuntimeState().highlightTerms;
+
+const getTargetHeading = (): string => getPreviewRuntimeState().targetHeading;
+
+const getTargetSnippet = (): string => getPreviewRuntimeState().targetSnippet;
 
 const buildTargetTextCandidates = (value: string): string[] => {
   const normalizedValue = normalizeTargetText(value);
@@ -315,13 +382,95 @@ const scrollPreviewToHash = (hash: string): void => {
     return;
   }
 
-  clearPreviewHighlights();
-  applyPreviewHighlights();
+  clearPreviewTargetClass();
+  markPreviewTarget();
   target.scrollIntoView({
     behavior: "auto",
     block: "start",
     inline: "nearest",
   });
+};
+
+const replacePreviewLocationState = (state: PreviewRuntimeState, hash = ""): void => {
+  if (!isPreviewMode()) return;
+
+  const url = new URL(window.location.href);
+
+  if (state.highlightTerms.length) {
+    url.searchParams.set(SEARCH_HIGHLIGHT_QUERY_KEY, JSON.stringify(state.highlightTerms));
+  } else {
+    url.searchParams.delete(SEARCH_HIGHLIGHT_QUERY_KEY);
+  }
+
+  if (state.targetHeading) {
+    url.searchParams.set(SEARCH_TARGET_HEADING_QUERY_KEY, state.targetHeading);
+  } else {
+    url.searchParams.delete(SEARCH_TARGET_HEADING_QUERY_KEY);
+  }
+
+  if (state.targetSnippet) {
+    url.searchParams.set(SEARCH_TARGET_SNIPPET_QUERY_KEY, state.targetSnippet);
+  } else {
+    url.searchParams.delete(SEARCH_TARGET_SNIPPET_QUERY_KEY);
+  }
+
+  const normalizedHash = normalizePreviewHash(hash);
+  const nextUrl = `${url.pathname}${url.search}${normalizedHash}`;
+
+  window.history.replaceState(window.history.state, "", nextUrl);
+};
+
+const scrollPreviewToCurrentTarget = (): void => {
+  const target = resolvePreviewTarget();
+
+  if (!target) return;
+
+  target.scrollIntoView({
+    behavior: "auto",
+    block: "start",
+    inline: "nearest",
+  });
+};
+
+const isSameStringArray = (left: string[], right: string[]): boolean =>
+  left.length === right.length && left.every((value, index) => value === right[index]);
+
+const handlePreviewSyncMessage = (event: MessageEvent): void => {
+  if (!isPreviewMode()) return;
+  if (event.origin !== window.location.origin) return;
+
+  const payload = event.data as PreviewSyncMessagePayload | null;
+
+  if (!payload || payload.type !== SEARCH_PREVIEW_SYNC_MESSAGE) return;
+
+  const nextState: PreviewRuntimeState = {
+    highlightTerms: normalizeHighlightTerms(payload.highlightTerms),
+    targetHeading: normalizeTargetText(typeof payload.targetHeading === "string" ? payload.targetHeading : ""),
+    targetSnippet: normalizeTargetText(typeof payload.targetSnippet === "string" ? payload.targetSnippet : ""),
+  };
+  const currentState = getPreviewRuntimeState();
+  const highlightTermsChanged = !isSameStringArray(currentState.highlightTerms, nextState.highlightTerms);
+  const nextHash = normalizePreviewHash(payload.hash);
+
+  previewRuntimeState = nextState;
+  replacePreviewLocationState(nextState, nextHash);
+
+  if (highlightTermsChanged) {
+    clearPreviewHighlights();
+    applyPreviewHighlights();
+  } else {
+    clearPreviewTargetClass();
+    markPreviewTarget();
+  }
+
+  syncPreviewTocTitles();
+
+  if (nextHash) {
+    scrollPreviewToHash(nextHash);
+    return;
+  }
+
+  scrollPreviewToCurrentTarget();
 };
 
 const handlePreviewAnchorClick = (event: MouseEvent): void => {
@@ -397,6 +546,8 @@ const syncRouteMode = (path: string): void => {
   const isPreview = isPreviewMode();
   const isSearchRoute = path === SEARCH_PATH;
 
+  syncPreviewRuntimeStateFromUrl();
+
   document.documentElement.classList.toggle("search-preview-mode", isPreview);
   document.documentElement.classList.toggle("search-route-mode", isSearchRoute);
 
@@ -412,6 +563,7 @@ const syncRouteMode = (path: string): void => {
       }, 120);
     });
   } else {
+    previewRuntimeState = null;
     clearPreviewHighlights();
   }
 };
@@ -452,11 +604,12 @@ export default defineClientConfig({
     });
 
     document.addEventListener("click", handlePreviewAnchorClick, true);
+    window.addEventListener("message", handlePreviewSyncMessage);
     window.addEventListener("hashchange", () => {
       if (!isPreviewMode()) return;
 
-      clearPreviewHighlights();
-      applyPreviewHighlights();
+      clearPreviewTargetClass();
+      markPreviewTarget();
       syncPreviewTocTitles();
     });
   },

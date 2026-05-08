@@ -1,0 +1,84 @@
+0 verbose cli /Users/xpy/.nvm/versions/node/v24.12.0/bin/node /Users/xpy/.nvm/versions/node/v24.12.0/bin/npm
+1 info using npm@11.6.2
+2 info using node@v24.12.0
+3 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/xpy/Coding/biocloudhub/blogs/.npmrc
+5 silly config load:file:/Users/xpy/.npmrc
+6 warn Unknown user config "python". This will stop working in the next major version of npm.
+7 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/etc/npmrc
+8 verbose title npm i @vuepress/plugin-photo-swipe@next
+9 verbose argv "i" "--save-dev" "@vuepress/plugin-photo-swipe@next"
+10 verbose logfile logs-max:10 dir:/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-04-28T01_34_17_859Z-
+11 verbose logfile /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-04-28T01_34_17_859Z-debug-0.log
+12 silly logfile start cleaning logs, removing 1 files
+13 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+14 silly logfile done cleaning log files
+15 silly packumentCache corgi:https://registry.npmjs.org/@vuepress%2fplugin-photo-swipe cache-miss
+16 http fetch GET https://registry.npmjs.org/npm attempt 1 failed with ECONNRESET
+17 http fetch GET 200 https://registry.npmjs.org/@vuepress%2fplugin-photo-swipe 1897ms (cache revalidated)
+18 silly packumentCache corgi:https://registry.npmjs.org/@vuepress%2fplugin-photo-swipe set size:68613 disposed:false
+19 silly idealTree buildDeps
+20 silly fetch manifest @vuepress/plugin-photo-swipe@2.0.0-rc.128
+21 silly packumentCache full:https://registry.npmjs.org/@vuepress%2fplugin-photo-swipe cache-miss
+22 http fetch GET 200 https://registry.npmjs.org/@vuepress%2fplugin-photo-swipe 998ms (cache miss)
+23 silly packumentCache full:https://registry.npmjs.org/@vuepress%2fplugin-photo-swipe set size:undefined disposed:false
+24 silly fetch manifest vuepress@^2.0.0-rc.26
+25 silly packumentCache full:https://registry.npmjs.org/vuepress cache-miss
+26 http fetch GET 200 https://registry.npmjs.org/vuepress 2248ms (cache updated)
+27 silly packumentCache full:https://registry.npmjs.org/vuepress set size:undefined disposed:false
+28 silly fetch manifest @vuepress/bundler-vite@^2.0.0-rc.26
+29 silly packumentCache full:https://registry.npmjs.org/@vuepress%2fbundler-vite cache-miss
+30 http fetch GET 200 https://registry.npmjs.org/@vuepress%2fbundler-vite 458ms (cache updated)
+31 silly packumentCache full:https://registry.npmjs.org/@vuepress%2fbundler-vite set size:undefined disposed:false
+32 silly fetch manifest @vuepress/bundler-webpack@2.0.0-rc.28
+33 silly packumentCache full:https://registry.npmjs.org/@vuepress%2fbundler-webpack cache-miss
+34 http fetch GET 200 https://registry.npmjs.org/@vuepress%2fbundler-webpack 519ms (cache updated)
+35 silly packumentCache full:https://registry.npmjs.org/@vuepress%2fbundler-webpack set size:undefined disposed:false
+36 verbose stack Error: could not resolve
+36 verbose stack     at PlaceDep.failPeerConflict (/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/place-dep.js:503:25)
+36 verbose stack     at new PlaceDep (/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/place-dep.js:157:21)
+36 verbose stack     at #buildDepStep (/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:945:18)
+36 verbose stack     at async Arborist.buildIdealTree (/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/build-ideal-tree.js:182:7)
+36 verbose stack     at async Promise.all (index 1)
+36 verbose stack     at async Arborist.reify (/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/node_modules/@npmcli/arborist/lib/arborist/reify.js:114:5)
+36 verbose stack     at async Install.exec (/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/lib/commands/install.js:150:5)
+36 verbose stack     at async Npm.exec (/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/lib/npm.js:208:9)
+36 verbose stack     at async module.exports (/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/lib/cli/entry.js:67:5)
+37 error code ERESOLVE
+38 error ERESOLVE could not resolve
+39 error
+40 error While resolving: biocloudhub-blog@undefined
+40 error Found: @vuepress/plugin-photo-swipe@2.0.0-rc.121[2m[22m
+40 error [2mnode_modules/@vuepress/plugin-photo-swipe[22m
+40 error   @vuepress/plugin-photo-swipe@"2.0.0-rc.121" from vuepress-theme-hope@2.0.0-rc.102[2m[22m
+40 error   [2mnode_modules/vuepress-theme-hope[22m
+40 error     [34mdev[39m vuepress-theme-hope@"^2.0.0-rc.102" from the root project
+40 error   [34mdev[39m @vuepress/plugin-photo-swipe@"2.0.0-rc.128" from the root project
+40 error
+40 error Could not resolve dependency:
+40 error [34mdev[39m @vuepress/plugin-photo-swipe@"2.0.0-rc.128" from the root project
+40 error
+40 error Conflicting peer dependency: vuepress@2.0.0-rc.28[2m[22m
+40 error [2mnode_modules/vuepress[22m
+40 error   [95mpeer[39m vuepress@"2.0.0-rc.28" from @vuepress/plugin-photo-swipe@2.0.0-rc.128[2m[22m
+40 error   [2mnode_modules/@vuepress/plugin-photo-swipe[22m
+40 error     [34mdev[39m @vuepress/plugin-photo-swipe@"2.0.0-rc.128" from the root project
+40 error
+40 error Fix the upstream dependency conflict, or retry
+40 error this command with --force or --legacy-peer-deps
+40 error to accept an incorrect (and potentially broken) dependency resolution.
+41 error
+41 error
+41 error For a full report see:
+41 error /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-04-28T01_34_17_859Z-eresolve-report.txt
+42 silly unfinished npm timer reify 1777340058225
+43 silly unfinished npm timer reify:loadTrees 1777340058241
+44 silly unfinished npm timer idealTree:buildDeps 1777340060205
+45 silly unfinished npm timer idealTree:#root 1777340060206
+46 verbose cwd /Users/xpy/Coding/biocloudhub/blogs
+47 verbose os Darwin 25.4.0
+48 verbose node v24.12.0
+49 verbose npm  v11.6.2
+50 verbose exit 1
+51 verbose code 1
+52 error A complete log of this run can be found in: /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-04-28T01_34_17_859Z-debug-0.log

@@ -31,6 +31,7 @@ const relaySearchLaunchToParent = (): boolean => {
 };
 
 const shortcutLabel = ref("Ctrl K");
+const SEARCH_HINT_TEXT = "搜索提示：支持关键词搜索，多关键词用空格隔开。";
 
 const canSubmit = computed(() => Boolean(normalizeQuery(draftQuery.value)));
 
@@ -156,7 +157,7 @@ onUnmounted(() => {
           <div class="bc-search-launch-dialog-head">
             <div class="bc-search-launch-dialog-copy">
               <p class="bc-search-launch-dialog-eyebrow">站内搜索</p>
-              <h2 id="bc-search-launch-title">输入关键词后进入搜索页</h2>
+              <h2 id="bc-search-launch-title">{{ SEARCH_HINT_TEXT }}</h2>
             </div>
             <button
               class="bc-search-launch-dialog-close"
@@ -184,12 +185,12 @@ onUnmounted(() => {
               inputmode="search"
               autocomplete="off"
               spellcheck="false"
-              placeholder="例如：层析、Q40、病毒清除"
+              placeholder="例如：病毒清除 Q40"
             >
           </label>
 
           <div class="bc-search-launch-dialog-foot">
-            <p>确认后进入搜索页，并直接展示结果列表和原文预览。</p>
+            <p>{{ SEARCH_HINT_TEXT }}</p>
             <button
               class="bc-search-toolbar-button bc-search-launch-dialog-submit"
               type="submit"

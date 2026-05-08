@@ -1,7 +1,7 @@
 <script setup lang="ts">
 import { useDebounceFn } from "@vueuse/core";
 import { createSearchWorker, useSearchOptions } from "@vuepress/plugin-slimsearch/client";
-import { computed, nextTick, onMounted, onUnmounted, ref, shallowRef, watch } from "vue";
+import { computed, nextTick, onMounted, onUnmounted, reactive, ref, shallowRef, watch } from "vue";
 import { ClientOnly, useRoute, useRouteLocale, useRouter, withBase } from "vuepress/client";
 import ROOT_SEARCH_INDEX from "@temp/slimsearch/root.js";
 import { store } from "@temp/slimsearch/store.js";
@@ -9,6 +9,7 @@ import {
   SEARCH_FOCUS_EVENT,
   SEARCH_HIGHLIGHT_QUERY_KEY,
   SEARCH_PATH,
+  SEARCH_PREVIEW_SYNC_MESSAGE,
   SEARCH_PREVIEW_QUERY_KEY,
   SEARCH_TARGET_HEADING_QUERY_KEY,
   SEARCH_TARGET_SNIPPET_QUERY_KEY,
@@ -17,6 +18,7 @@ import {
 type SearchResult = Awaited<ReturnType<ReturnType<typeof createSearchWorker>["search"]>>[number];
 type MatchedItem = SearchResult["contents"][number];
 type Word = string | [tag: string, content: string];
+type PreviewFrameKey = "primary" | "secondary";
 
 interface SearchHit {
   key: string;
@@ -41,6 +43,14 @@ interface SearchHitGroup {
   order: number;
 }
 
+interface PreviewFrameSyncPayload {
+  type: typeof SEARCH_PREVIEW_SYNC_MESSAGE;
+  hash: string;
+  highlightTerms: string[];
+  targetHeading: string;
+  targetSnippet: string;
+}
+
 interface SlimSearchStoredField {
   h?: string;
   t?: string[];
@@ -52,6 +62,14 @@ interface SlimSearchRootIndex {
   storedFields: Record<string, SlimSearchStoredField>;
 }
 
+interface PageSearchMeta {
+  anchorOrder: Map<string, number>;
+  anchorTitle: Map<string, string>;
+  orderedAnchors: Array<{ anchor: string; title: string; position: number }>;
+  content: string;
+  pageTitle: string;
+}
+
 const HIT_BADGE: Record<MatchedItem["type"], string> = {
   title: "标题",
   heading: "小节",
@@ -60,10 +78,11 @@ const HIT_BADGE: Record<MatchedItem["type"], string> = {
 };
 
 const SEARCH_DELAY = 180;
-const CJK_QUERY_RE = /[\u3400-\u9fff\u3040-\u30ff\uac00-\ud7af]/u;
+const PREVIEW_LOADING_DELAY = 120;
 const FALLBACK_PAGE_POSITION = Number.MAX_SAFE_INTEGER;
 const MIN_SCROLLBAR_THUMB_HEIGHT = 18;
 const HIERARCHY_SEPARATOR_RE = /\s*[：:]\s*/gu;
+const SEARCH_HINT_TEXT = "搜索提示：支持关键词搜索，多关键词用空格隔开。";
 
 const route = useRoute();
 const router = useRouter();
@@ -71,9 +90,22 @@ const routeLocale = useRouteLocale();
 const searchOptions = useSearchOptions();
 
 const inputRef = ref<HTMLInputElement | null>(null);
+const previewFramePrimaryRef = ref<HTMLIFrameElement | null>(null);
+const previewFrameSecondaryRef = ref<HTMLIFrameElement | null>(null);
 const hitListRef = ref<HTMLOListElement | null>(null);
 const hitButtonRefs = ref<HTMLElement[]>([]);
 const draftQuery = ref("");
+const previewFrameSrc = reactive<Record<PreviewFrameKey, string>>({
+  primary: "",
+  secondary: "",
+});
+const previewFrameLoaded = reactive<Record<PreviewFrameKey, boolean>>({
+  primary: false,
+  secondary: false,
+});
+const activePreviewFrame = ref<PreviewFrameKey>("primary");
+const pendingPreviewFrame = ref<PreviewFrameKey | null>(null);
+const previewLoadingVisible = ref(false);
 const isSearching = ref(false);
 const searchError = ref("");
 const activeIndex = ref(-1);
@@ -95,31 +127,16 @@ let searchRequestId = 0;
 let searchWorker: ReturnType<typeof createSearchWorker> | null = null;
 let hitListResizeObserver: ResizeObserver | null = null;
 let hitListMeasureFrame = 0;
-const searchSegmenter =
-  typeof Intl !== "undefined" && "Segmenter" in Intl
-    ? new Intl.Segmenter("zh-CN", { granularity: "word" })
-    : null;
+let previewLoadingTimer = 0;
+const previewPrefetchedPathnames = new Set<string>();
 const pageMetaMap = (() => {
   const normalizeContentValue = (value: string): string =>
     value.replace(/\s+/gu, " ").trim();
   const rootSearchData = JSON.parse(ROOT_SEARCH_INDEX) as SlimSearchRootIndex;
-  const metaMap = new Map<
-    string,
-    {
-      anchorOrder: Map<string, number>;
-      anchorTitle: Map<string, string>;
-      orderedAnchors: Array<{ anchor: string; title: string; position: number }>;
-      content: string;
-    }
-  >();
+  const metaMap = new Map<string, PageSearchMeta>();
 
   const appendContent = (
-    pageMeta: {
-      anchorOrder: Map<string, number>;
-      anchorTitle: Map<string, string>;
-      orderedAnchors: Array<{ anchor: string; title: string; position: number }>;
-      content: string;
-    },
+    pageMeta: PageSearchMeta,
     value: string | undefined,
   ): number => {
     const normalizedValue = normalizeContentValue(value ?? "");
@@ -131,6 +148,11 @@ const pageMetaMap = (() => {
     pageMeta.content = pageMeta.content ? `${pageMeta.content} ${normalizedValue}` : normalizedValue;
 
     return position;
+  };
+  const appendStoredFieldList = (pageMeta: PageSearchMeta, values: string[] | undefined): void => {
+    for (const value of values ?? []) {
+      appendContent(pageMeta, value);
+    }
   };
 
   for (const [shortId, documentId] of Object.entries(rootSearchData.documentIds).sort(
@@ -148,11 +170,12 @@ const pageMetaMap = (() => {
     const pageMeta =
       metaMap.get(pagePath) ??
       (() => {
-        const nextMeta = {
+        const nextMeta: PageSearchMeta = {
           anchorOrder: new Map<string, number>(),
           anchorTitle: new Map<string, string>(),
           orderedAnchors: [] as Array<{ anchor: string; title: string; position: number }>,
           content: "",
+          pageTitle: "",
         };
 
         metaMap.set(pagePath, nextMeta);
@@ -161,9 +184,14 @@ const pageMetaMap = (() => {
       })();
 
     if (!anchor) {
-      for (const text of storedField.t ?? []) {
-        appendContent(pageMeta, text);
+      const pageTitle = normalizeContentValue(storedField.h ?? "");
+
+      if (pageTitle && !pageMeta.pageTitle) {
+        pageMeta.pageTitle = pageTitle;
       }
+
+      appendStoredFieldList(pageMeta, storedField.t);
+      appendStoredFieldList(pageMeta, storedField.c);
 
       continue;
     }
@@ -181,13 +209,16 @@ const pageMetaMap = (() => {
       });
     }
 
-    for (const text of storedField.t ?? []) {
-      appendContent(pageMeta, text);
-    }
+    appendStoredFieldList(pageMeta, storedField.t);
+    appendStoredFieldList(pageMeta, storedField.c);
   }
 
   return metaMap;
 })();
+
+const pagePathToIdMap = new Map<string, number>(
+  store.map((pagePath, pageId) => [pagePath, pageId]),
+);
 
 const normalizeString = (value: unknown): string => {
   if (Array.isArray(value)) return typeof value[0] === "string" ? value[0] : "";
@@ -198,23 +229,63 @@ const normalizeString = (value: unknown): string => {
 const normalizeQuery = (value: unknown): string =>
   normalizeString(value).trim().replace(/\s+/g, " ");
 
-const buildWorkerQuery = (query: string): string => {
-  if (!query || !CJK_QUERY_RE.test(query)) return query;
+const dedupeTerms = (terms: string[]): string[] => Array.from(new Set(terms.filter(Boolean)));
 
-  const terms = query
-    .split(/\s+/u)
-    .flatMap((chunk) => {
-      if (!chunk) return [];
-      if (!CJK_QUERY_RE.test(chunk)) return [chunk];
-      if (!searchSegmenter) return chunk.split("");
+const collectQueryTerms = (query: string): string[] =>
+  dedupeTerms(
+    normalizeQuery(query)
+      .split(/\s+/u)
+      .map((term) => term.trim())
+      .filter(Boolean),
+  ).sort((left, right) => right.length - left.length);
 
-      return Array.from(searchSegmenter.segment(chunk))
-        .map(({ segment }) => segment.trim())
-        .filter(Boolean);
-    })
-    .filter(Boolean);
+const buildSearchQueries = (query: string): string[] => {
+  const normalized = normalizeQuery(query);
 
-  return terms.length ? terms.join(" ") : query;
+  if (!normalized) return [];
+
+  const queryTerms = collectQueryTerms(normalized);
+
+  if (queryTerms.length <= 1) return [normalized];
+
+  return dedupeTerms([normalized, ...queryTerms.slice(0, 8)]);
+};
+
+const getMatchedItemMergeKey = (item: MatchedItem): string => {
+  const itemAnchor =
+    "anchor" in item && typeof item.anchor === "string" && item.anchor
+      ? item.anchor
+      : "";
+  const itemIndex =
+    "index" in item && typeof item.index === "number"
+      ? `${item.index}`
+      : "";
+
+  return `${item.type}:${item.id}:${itemAnchor}:${itemIndex}`;
+};
+
+const mergeSearchResultContents = (left: MatchedItem[], right: MatchedItem[]): MatchedItem[] => {
+  const mergedContents: MatchedItem[] = [];
+  const seen = new Set<string>();
+
+  [...left, ...right].forEach((item) => {
+    const mergeKey = getMatchedItemMergeKey(item);
+
+    if (seen.has(mergeKey)) return;
+
+    seen.add(mergeKey);
+    mergedContents.push(item);
+  });
+
+  return mergedContents;
+};
+
+const getSearchResultPageKey = (result: SearchResult): string => {
+  const firstContent = result.contents[0];
+
+  if (firstContent) return `${firstContent.id}`;
+
+  return `title:${result.title}`;
 };
 
 const normalizeHit = (value: unknown): number => {
@@ -406,17 +477,44 @@ const normalizeComparableText = (value: string): string =>
   value.toLocaleLowerCase("zh-CN").replace(/\s+/gu, " ").trim();
 
 const normalizeLookupText = (value: string): string =>
-  value.replace(/\s+/gu, " ").replace(/…/gu, "").trim();
+  value
+    .replace(/\s+/gu, " ")
+    .replace(/(?:\.{3,}|…)+/gu, " ")
+    .replace(/^[\s\-–—,，。:：;；、.]+|[\s\-–—,，。:：;；、.]+$/gu, "")
+    .trim();
 
-const collectQueryTerms = (query: string): string[] =>
-  Array.from(
-    new Set(
-      normalizeQuery(query)
-        .split(/\s+/u)
-        .map((term) => term.trim())
-        .filter(Boolean),
-    ),
-  ).sort((left, right) => right.length - left.length);
+const escapeRegExp = (value: string): string =>
+  value.replace(/[.*+?^${}()|[\]\\]/g, "\\$&");
+
+const hasWordLikeChars = (value: string): boolean => /[\p{L}\p{N}_-]/u.test(value);
+
+const isBoundaryChar = (value: string): boolean => !/[\p{L}\p{N}_-]/u.test(value);
+
+const hasWholeWordMatch = (sourceText: string, term: string): boolean => {
+  const source = normalizeComparableText(sourceText);
+  const normalizedTerm = normalizeComparableText(term);
+
+  if (!source || !normalizedTerm) return false;
+  if (!hasWordLikeChars(normalizedTerm)) return source.includes(normalizedTerm);
+
+  const escapedTerm = escapeRegExp(normalizedTerm);
+  const matcher = new RegExp(escapedTerm, "gu");
+  let matched = matcher.exec(source);
+
+  while (matched) {
+    const start = matched.index;
+    const end = start + matched[0].length;
+    const previousChar = start > 0 ? source[start - 1] : "";
+    const nextChar = end < source.length ? source[end] : "";
+    const leftBoundary = !previousChar || isBoundaryChar(previousChar);
+    const rightBoundary = !nextChar || isBoundaryChar(nextChar);
+
+    if (leftBoundary && rightBoundary) return true;
+    matched = matcher.exec(source);
+  }
+
+  return false;
+};
 
 const applyQueryHighlight = (display: Word[][], query: string): Word[][] => {
   const normalizedDisplay = normalizeDisplay(display);
@@ -531,6 +629,184 @@ const buildPreviewHref = (
   return `${withBase(path)}${nextQuery ? `?${nextQuery}` : ""}${nextHash}`;
 };
 
+const normalizePreviewHash = (value: string): string => {
+  const normalizedValue = value.trim();
+
+  if (!normalizedValue) return "";
+
+  return normalizedValue.startsWith("#") ? normalizedValue : `#${normalizedValue}`;
+};
+
+const parsePreviewHighlightTerms = (value: string | null): string[] => {
+  if (!value) return [];
+
+  try {
+    const parsed = JSON.parse(value);
+
+    if (Array.isArray(parsed)) {
+      return parsed
+        .map((term) => (typeof term === "string" ? term.trim() : ""))
+        .filter(Boolean)
+        .sort((left, right) => right.length - left.length);
+    }
+  } catch {
+    // fallback to whitespace parsing when payload is not JSON
+  }
+
+  return value
+    .split(/\s+/u)
+    .map((term) => term.trim())
+    .filter(Boolean)
+    .sort((left, right) => right.length - left.length);
+};
+
+const resolvePreviewUrl = (value: string): URL | null => {
+  if (typeof window === "undefined") return null;
+
+  try {
+    return new URL(value, window.location.origin);
+  } catch {
+    return null;
+  }
+};
+
+const resolvePreviewPathname = (value: string): string => resolvePreviewUrl(value)?.pathname ?? "";
+
+const buildPreviewSyncPayload = (previewHref: string): PreviewFrameSyncPayload | null => {
+  const previewUrl = resolvePreviewUrl(previewHref);
+
+  if (!previewUrl) return null;
+
+  return {
+    type: SEARCH_PREVIEW_SYNC_MESSAGE,
+    hash: normalizePreviewHash(previewUrl.hash),
+    highlightTerms: parsePreviewHighlightTerms(previewUrl.searchParams.get(SEARCH_HIGHLIGHT_QUERY_KEY)),
+    targetHeading: normalizeLookupText(previewUrl.searchParams.get(SEARCH_TARGET_HEADING_QUERY_KEY) ?? ""),
+    targetSnippet: normalizeLookupText(previewUrl.searchParams.get(SEARCH_TARGET_SNIPPET_QUERY_KEY) ?? ""),
+  };
+};
+
+const getInactivePreviewFrameKey = (frameKey: PreviewFrameKey): PreviewFrameKey =>
+  frameKey === "primary" ? "secondary" : "primary";
+
+const getPreviewFrameElement = (frameKey: PreviewFrameKey): HTMLIFrameElement | null =>
+  frameKey === "primary" ? previewFramePrimaryRef.value : previewFrameSecondaryRef.value;
+
+const setPreviewFrameSrc = (frameKey: PreviewFrameKey, value: string): void => {
+  previewFrameSrc[frameKey] = value;
+  previewFrameLoaded[frameKey] = false;
+};
+
+const prefetchPreviewPath = (previewHref: string): void => {
+  if (typeof document === "undefined") return;
+
+  const previewUrl = resolvePreviewUrl(previewHref);
+  const pathname = previewUrl?.pathname;
+
+  if (!pathname || previewPrefetchedPathnames.has(pathname)) return;
+
+  previewPrefetchedPathnames.add(pathname);
+
+  const prefetchLink = document.createElement("link");
+  prefetchLink.rel = "prefetch";
+  prefetchLink.as = "document";
+  prefetchLink.href = pathname;
+  document.head.appendChild(prefetchLink);
+};
+
+const resetPreviewFrames = (): void => {
+  previewFrameSrc.primary = "";
+  previewFrameSrc.secondary = "";
+  previewFrameLoaded.primary = false;
+  previewFrameLoaded.secondary = false;
+  activePreviewFrame.value = "primary";
+  pendingPreviewFrame.value = null;
+};
+
+const postPreviewSyncMessage = (
+  payload: PreviewFrameSyncPayload,
+  frameKey: PreviewFrameKey = activePreviewFrame.value,
+): boolean => {
+  if (typeof window === "undefined") return false;
+
+  const previewWindow = getPreviewFrameElement(frameKey)?.contentWindow;
+
+  if (!previewWindow) return false;
+
+  previewWindow.postMessage(payload, window.location.origin);
+
+  return true;
+};
+
+const tryActivateLoadedPreviewFrame = (
+  frameKey: PreviewFrameKey,
+  nextPreviewHref: string,
+): boolean => {
+  const frameHref = previewFrameSrc[frameKey];
+
+  if (!frameHref) return false;
+  if (!previewFrameLoaded[frameKey]) return false;
+  if (resolvePreviewPathname(frameHref) !== resolvePreviewPathname(nextPreviewHref)) return false;
+
+  const payload = buildPreviewSyncPayload(nextPreviewHref);
+
+  if (!payload || !postPreviewSyncMessage(payload, frameKey)) return false;
+
+  activePreviewFrame.value = frameKey;
+  if (pendingPreviewFrame.value === frameKey) {
+    pendingPreviewFrame.value = null;
+  }
+
+  return true;
+};
+
+const syncPreviewFrame = (nextPreviewHref: string): void => {
+  if (!nextPreviewHref) {
+    resetPreviewFrames();
+    return;
+  }
+
+  const currentFrameKey = activePreviewFrame.value;
+  const currentPreviewHref = previewFrameSrc[currentFrameKey];
+
+  if (!currentPreviewHref) {
+    setPreviewFrameSrc(currentFrameKey, nextPreviewHref);
+    pendingPreviewFrame.value = null;
+    return;
+  }
+
+  if (resolvePreviewPathname(currentPreviewHref) === resolvePreviewPathname(nextPreviewHref)) {
+    if (!previewFrameLoaded[currentFrameKey]) {
+      setPreviewFrameSrc(currentFrameKey, nextPreviewHref);
+      pendingPreviewFrame.value = null;
+      return;
+    }
+
+    const payload = buildPreviewSyncPayload(nextPreviewHref);
+
+    if (payload && postPreviewSyncMessage(payload, currentFrameKey)) {
+      return;
+    }
+
+    setPreviewFrameSrc(currentFrameKey, nextPreviewHref);
+    pendingPreviewFrame.value = null;
+    return;
+  }
+
+  const nextFrameKey = getInactivePreviewFrameKey(currentFrameKey);
+
+  if (tryActivateLoadedPreviewFrame(nextFrameKey, nextPreviewHref)) {
+    return;
+  }
+
+  if (previewFrameSrc[nextFrameKey] === nextPreviewHref && pendingPreviewFrame.value === nextFrameKey) {
+    return;
+  }
+
+  setPreviewFrameSrc(nextFrameKey, nextPreviewHref);
+  pendingPreviewFrame.value = nextFrameKey;
+};
+
 const mergeHighlightTerms = (...highlightGroups: string[][]): string[] =>
   Array.from(new Set(highlightGroups.flat().filter(Boolean))).sort(
     (left, right) => right.length - left.length,
@@ -547,9 +823,37 @@ const resolveWholeQueryRank = (
   if (!normalizedQuery) return 0;
 
   const titleText = normalizeComparableText(`${pageTitle} ${sectionLabel}`);
+  const bodyLookup = normalizeComparableText(bodyText);
+  const normalizedTerms = collectQueryTerms(query)
+    .map((term) => normalizeComparableText(term))
+    .filter(Boolean);
+  const isMultiTerms = normalizedTerms.length > 1;
 
-  if (titleText.includes(normalizedQuery)) return 2;
-  if (normalizeComparableText(bodyText).includes(normalizedQuery)) return 1;
+  const titleHasWholeQueryWord = hasWholeWordMatch(titleText, normalizedQuery);
+  const bodyHasWholeQueryWord = hasWholeWordMatch(bodyLookup, normalizedQuery);
+  const titleHasWholeQuery = titleText.includes(normalizedQuery);
+  const bodyHasWholeQuery = bodyLookup.includes(normalizedQuery);
+
+  if (titleHasWholeQueryWord) return 10;
+  if (bodyHasWholeQueryWord) return 9;
+  if (titleHasWholeQuery) return 8;
+  if (bodyHasWholeQuery) return 7;
+
+  if (isMultiTerms) {
+    const titleWholeMatchedCount = normalizedTerms.filter((term) => hasWholeWordMatch(titleText, term)).length;
+    const bodyWholeMatchedCount = normalizedTerms.filter((term) => hasWholeWordMatch(bodyLookup, term)).length;
+    const titleMatchedCount = normalizedTerms.filter((term) => titleText.includes(term)).length;
+    const bodyMatchedCount = normalizedTerms.filter((term) => bodyLookup.includes(term)).length;
+    const allTermsCount = normalizedTerms.length;
+
+    if (titleWholeMatchedCount === allTermsCount) return 6;
+    if (bodyWholeMatchedCount === allTermsCount) return 5;
+    if (titleMatchedCount === allTermsCount) return 4;
+    if (bodyMatchedCount === allTermsCount) return 3;
+
+    if (Math.max(titleWholeMatchedCount, bodyWholeMatchedCount) >= 2) return 2;
+    if (Math.max(titleMatchedCount, bodyMatchedCount) >= 2) return 1;
+  }
 
   return 0;
 };
@@ -647,12 +951,23 @@ const groupResultItems = (items: MatchedItem[]): SearchHitGroup[] => {
 
   items.forEach((item, index) => {
     const anchor = "anchor" in item && item.anchor ? item.anchor : null;
+    const normalizedDisplay = normalizeLookupText(toPlainText(item.display, " ")).slice(0, 160);
+    const customFieldIndex =
+      item.type === "customField" && typeof item.index === "number" ? item.index : index;
     const key =
-      item.type === "customField"
-        ? `${item.type}:${item.index}:${index}`
-        : anchor
-          ? `anchor:${anchor}`
-          : `${item.type}:${index}`;
+      item.type === "heading"
+        ? anchor
+          ? `heading:${anchor}`
+          : `heading:${index}`
+        : item.type === "title"
+          ? `title:${index}`
+          : item.type === "customField"
+            ? anchor
+              ? `custom:${anchor}:${customFieldIndex}`
+              : `custom:${customFieldIndex}`
+            : anchor
+              ? `text:${anchor}:${normalizedDisplay || index}`
+              : `text:${normalizedDisplay || index}`;
     const existingGroup = groupMap.get(key);
 
     if (existingGroup) {
@@ -668,7 +983,23 @@ const groupResultItems = (items: MatchedItem[]): SearchHitGroup[] => {
     });
   });
 
-  return [...groupMap.values()].sort((left, right) => left.order - right.order);
+  const groups = [...groupMap.values()].sort((left, right) => left.order - right.order);
+  const anchorsWithBody = new Set(
+    groups
+      .filter(
+        (group) =>
+          Boolean(group.anchor) &&
+          group.items.some((item) => item.type === "text" || item.type === "customField"),
+      )
+      .map((group) => group.anchor as string),
+  );
+
+  return groups.filter((group) => {
+    if (!group.anchor) return true;
+    if (!anchorsWithBody.has(group.anchor)) return true;
+
+    return group.items.some((item) => item.type !== "heading");
+  });
 };
 
 const buildLookupCandidates = (bodyDisplay: Word[][]): string[] => {
@@ -815,6 +1146,269 @@ const resolveSnippetDisplay = (
   return representativeItem ? normalizeDisplay(representativeItem.display) : [];
 };
 
+const buildFallbackSnippetDisplayFromWindow = (
+  sourceText: string,
+  start: number,
+  end: number,
+): Word[][] => {
+  const normalizedSource = sourceText.replace(/\s+/gu, " ").trim();
+
+  if (!normalizedSource) return [];
+
+  const clampedStart = Math.max(0, start);
+  const clampedEnd = Math.min(normalizedSource.length, end);
+  const snippetCore = normalizedSource.slice(clampedStart, clampedEnd).trim();
+
+  if (!snippetCore) return [];
+
+  const prefix = clampedStart > 0 ? "... " : "";
+  const suffix = clampedEnd < normalizedSource.length ? " ..." : "";
+
+  return [[`${prefix}${snippetCore}${suffix}`]];
+};
+
+const resolveFallbackSnippetWindow = (
+  sourceLength: number,
+  matchIndex: number,
+  matchLength: number,
+): { start: number; end: number } => ({
+  start: Math.max(0, matchIndex - 44),
+  end: Math.min(sourceLength, matchIndex + Math.max(matchLength, 1) + 88),
+});
+
+const mergeFallbackSnippetWindows = (
+  sourceLength: number,
+  matches: Array<{ index: number; length: number; isWholeQuery: boolean }>,
+  maxWindows = 3,
+): Array<{ start: number; end: number; primaryIndex: number; isWholeQuery: boolean }> => {
+  if (!matches.length || sourceLength <= 0 || maxWindows <= 0) return [];
+
+  const windows = matches
+    .map(({ index, length, isWholeQuery }) => {
+      const { start, end } = resolveFallbackSnippetWindow(sourceLength, index, length);
+
+      return {
+        start,
+        end,
+        primaryIndex: index,
+        isWholeQuery,
+      };
+    })
+    .sort((left, right) => left.start - right.start || left.primaryIndex - right.primaryIndex);
+  const merged: Array<{ start: number; end: number; primaryIndex: number; isWholeQuery: boolean }> = [];
+  const mergeGap = 18;
+
+  windows.forEach((windowItem) => {
+    const previous = merged.at(-1);
+
+    if (!previous || windowItem.start > previous.end + mergeGap) {
+      merged.push({ ...windowItem });
+      return;
+    }
+
+    previous.end = Math.max(previous.end, windowItem.end);
+    previous.primaryIndex = Math.min(previous.primaryIndex, windowItem.primaryIndex);
+    previous.isWholeQuery = previous.isWholeQuery || windowItem.isWholeQuery;
+  });
+
+  return merged
+    .sort((left, right) => {
+      if (left.isWholeQuery !== right.isWholeQuery) {
+        return Number(right.isWholeQuery) - Number(left.isWholeQuery);
+      }
+
+      return left.start - right.start;
+    })
+    .slice(0, maxWindows);
+};
+
+const collectMatchPositions = (source: string, term: string, maxMatches = 2): number[] => {
+  if (!source || !term || maxMatches <= 0) return [];
+
+  const positions: number[] = [];
+  let fromIndex = 0;
+
+  while (fromIndex < source.length && positions.length < maxMatches) {
+    const index = source.indexOf(term, fromIndex);
+
+    if (index < 0) break;
+
+    positions.push(index);
+    fromIndex = index + Math.max(term.length, 1);
+  }
+
+  return positions;
+};
+
+const resolveFallbackAnchorInfo = (
+  pageMeta: PageSearchMeta,
+  matchIndex: number,
+): { anchor: string; title: string } | null => {
+  const candidate = [...pageMeta.orderedAnchors]
+    .filter(({ anchor, position }) => Boolean(anchor) && Number.isFinite(position) && position <= matchIndex)
+    .sort((left, right) => right.position - left.position)[0];
+
+  if (!candidate || !candidate.anchor) return null;
+
+  return {
+    anchor: candidate.anchor,
+    title: candidate.title,
+  };
+};
+
+const buildFallbackSearchResults = (
+  query: string,
+  existingPageIds: Set<number> = new Set<number>(),
+): SearchResult[] => {
+  const normalizedQuery = normalizeComparableText(query);
+  const normalizedTerms = collectQueryTerms(query)
+    .map((term) => normalizeComparableText(term))
+    .filter(Boolean);
+
+  if (!normalizedQuery || !normalizedTerms.length) return [];
+
+  const fallbackCandidates: Array<{
+    result: SearchResult;
+    wholeQueryMatched: boolean;
+    matchedTermCount: number;
+    firstMatchIndex: number;
+  }> = [];
+
+  pageMetaMap.forEach((pageMeta, pagePath) => {
+    const pageId = pagePathToIdMap.get(pagePath);
+
+    if (typeof pageId !== "number" || existingPageIds.has(pageId)) return;
+
+    const normalizedContent = normalizeComparableText(pageMeta.content);
+
+    if (!normalizedContent) return;
+
+    const wholeQueryMatched = normalizedContent.includes(normalizedQuery);
+    const matchedTermCount = normalizedTerms.reduce(
+      (count, term) => (normalizedContent.includes(term) ? count + 1 : count),
+      0,
+    );
+
+    if (!wholeQueryMatched && matchedTermCount === 0) return;
+
+    const contents: MatchedItem[] = [];
+    const addedHeadingAnchors = new Set<string>();
+    const rawMatches: Array<{ index: number; length: number; isWholeQuery: boolean }> = [];
+
+    if (wholeQueryMatched) {
+      collectMatchPositions(normalizedContent, normalizedQuery, 2).forEach((index) => {
+        rawMatches.push({
+          index,
+          length: normalizedQuery.length,
+          isWholeQuery: true,
+        });
+      });
+    }
+
+    normalizedTerms.forEach((term) => {
+      collectMatchPositions(normalizedContent, term, 2).forEach((index) => {
+        rawMatches.push({
+          index,
+          length: term.length,
+          isWholeQuery: false,
+        });
+      });
+    });
+
+    const matchMap = new Map<number, { length: number; isWholeQuery: boolean }>();
+
+    rawMatches.forEach(({ index, length, isWholeQuery }) => {
+      const existingMatch = matchMap.get(index);
+
+      if (!existingMatch) {
+        matchMap.set(index, { length, isWholeQuery });
+        return;
+      }
+
+      matchMap.set(index, {
+        length: Math.max(existingMatch.length, length),
+        isWholeQuery: existingMatch.isWholeQuery || isWholeQuery,
+      });
+    });
+
+    const resolvedMatches = [...matchMap.entries()]
+      .map(([index, value]) => ({
+        index,
+        length: value.length,
+        isWholeQuery: value.isWholeQuery,
+      }))
+      .sort((left, right) => {
+        if (left.isWholeQuery !== right.isWholeQuery) {
+          return Number(right.isWholeQuery) - Number(left.isWholeQuery);
+        }
+
+        return left.index - right.index;
+      })
+      .slice(0, 4);
+
+    if (!resolvedMatches.length) return;
+
+    const mergedWindows = mergeFallbackSnippetWindows(normalizedContent.length, resolvedMatches, 3);
+
+    mergedWindows.forEach(({ start, end, primaryIndex }) => {
+      const snippetDisplay = buildFallbackSnippetDisplayFromWindow(pageMeta.content, start, end);
+
+      if (!snippetDisplay.length) return;
+
+      const anchorInfo = resolveFallbackAnchorInfo(pageMeta, primaryIndex);
+
+      if (anchorInfo?.title && !addedHeadingAnchors.has(anchorInfo.anchor)) {
+        contents.push({
+          type: "heading",
+          id: pageId,
+          anchor: anchorInfo.anchor,
+          display: [[anchorInfo.title]],
+        });
+        addedHeadingAnchors.add(anchorInfo.anchor);
+      }
+
+      contents.push({
+        type: "text",
+        id: pageId,
+        ...(anchorInfo ? { anchor: anchorInfo.anchor } : {}),
+        display: snippetDisplay,
+      });
+    });
+
+    if (!contents.length) return;
+    const firstMatchIndex = mergedWindows[0]?.primaryIndex ?? Number.MAX_SAFE_INTEGER;
+
+    fallbackCandidates.push({
+      result: {
+        title: pageMeta.pageTitle || pagePath,
+        contents,
+      },
+      wholeQueryMatched,
+      matchedTermCount,
+      firstMatchIndex,
+    });
+  });
+
+  return fallbackCandidates
+    .sort((left, right) => {
+      if (left.wholeQueryMatched !== right.wholeQueryMatched) {
+        return Number(right.wholeQueryMatched) - Number(left.wholeQueryMatched);
+      }
+
+      if (left.matchedTermCount !== right.matchedTermCount) {
+        return right.matchedTermCount - left.matchedTermCount;
+      }
+
+      if (left.firstMatchIndex !== right.firstMatchIndex) {
+        return left.firstMatchIndex - right.firstMatchIndex;
+      }
+
+      return left.result.title.localeCompare(right.result.title, "zh-CN");
+    })
+    .slice(0, 220)
+    .map((candidate) => candidate.result);
+};
+
 const compareSearchHits = (left: SearchHit, right: SearchHit): number => {
   if (right.wholeQueryRank !== left.wholeQueryRank) {
     return right.wholeQueryRank - left.wholeQueryRank;
@@ -829,6 +1423,160 @@ const compareSearchHits = (left: SearchHit, right: SearchHit): number => {
   }
 
   return left.contentRank - right.contentRank;
+};
+
+const decodeHtmlEntities = (value: string): string =>
+  value
+    .replace(/&nbsp;/gu, " ")
+    .replace(/&gt;/gu, ">")
+    .replace(/&lt;/gu, "<")
+    .replace(/&amp;/gu, "&")
+    .replace(/&#39;/gu, "'")
+    .replace(/&quot;/gu, "\"");
+
+const toSnippetLookupText = (snippetHtml: string): string =>
+  normalizeLookupText(decodeHtmlEntities(snippetHtml.replace(/<[^>]*>/gu, " ")));
+
+const resolveHitPagePath = (href: string): string => href.split("#")[0]?.split("?")[0] ?? href;
+const toTitleLookupText = (value: string): string => normalizeLookupText(value);
+
+const isBodyLikeHit = (hit: SearchHit): boolean =>
+  hit.type === "text" || hit.type === "customField";
+
+const commonPrefixLength = (left: string, right: string): number => {
+  const maxLength = Math.min(left.length, right.length);
+  let index = 0;
+
+  while (index < maxLength && left[index] === right[index]) {
+    index += 1;
+  }
+
+  return index;
+};
+
+const commonSuffixLength = (left: string, right: string): number => {
+  const maxLength = Math.min(left.length, right.length);
+  let offset = 0;
+
+  while (offset < maxLength && left[left.length - 1 - offset] === right[right.length - 1 - offset]) {
+    offset += 1;
+  }
+
+  return offset;
+};
+
+const isLikelySameHitTitle = (leftTitle: string, rightTitle: string): boolean => {
+  if (!leftTitle || !rightTitle) return false;
+  if (leftTitle === rightTitle) return true;
+
+  const [longer, shorter] =
+    leftTitle.length >= rightTitle.length
+      ? [leftTitle, rightTitle]
+      : [rightTitle, leftTitle];
+
+  if (shorter.length >= 10 && longer.includes(shorter)) return true;
+
+  const prefixLength = commonPrefixLength(leftTitle, rightTitle);
+  const suffixLength = commonSuffixLength(leftTitle, rightTitle);
+
+  if (prefixLength >= 12) return true;
+
+  return prefixLength >= 8 && suffixLength >= 8;
+};
+
+const isLikelySameParagraphSnippet = (leftSnippet: string, rightSnippet: string): boolean => {
+  if (!leftSnippet || !rightSnippet) return false;
+
+  const [longer, shorter] =
+    leftSnippet.length >= rightSnippet.length
+      ? [leftSnippet, rightSnippet]
+      : [rightSnippet, leftSnippet];
+
+  if (shorter.length >= 16 && longer.includes(shorter)) return true;
+  if (shorter.length < 24) return false;
+
+  const prefix = shorter.slice(0, 16);
+  const suffix = shorter.slice(-16);
+
+  return longer.includes(prefix) && longer.includes(suffix);
+};
+
+const mergeHitsByParagraph = (sortedHits: SearchHit[]): SearchHit[] => {
+  const mergedHits: Array<
+    SearchHit & { snippetLookup: string; pagePath: string; sectionKey: string; pageTitleKey: string }
+  > = [];
+
+  sortedHits.forEach((hit) => {
+    const snippetLookup = toSnippetLookupText(hit.snippetHtml);
+    const pagePath = resolveHitPagePath(hit.href);
+    const sectionKey = toTitleLookupText(hit.sectionLabel || "");
+    const pageTitleKey = toTitleLookupText(hit.pageTitle);
+    const existingIndex = mergedHits.findIndex(
+      (existingHit) => {
+        if (!isBodyLikeHit(existingHit) || !isBodyLikeHit(hit)) return false;
+        const snippetMatched = isLikelySameParagraphSnippet(existingHit.snippetLookup, snippetLookup);
+
+        if (existingHit.pagePath === pagePath) {
+          if (
+            sectionKey &&
+            existingHit.sectionKey &&
+            isLikelySameHitTitle(existingHit.sectionKey, sectionKey)
+          ) {
+            return true;
+          }
+
+          if (snippetMatched) return true;
+        }
+
+        if (!snippetMatched) return false;
+
+        if (
+          sectionKey &&
+          existingHit.sectionKey &&
+          isLikelySameHitTitle(existingHit.sectionKey, sectionKey)
+        ) {
+          return true;
+        }
+
+        return isLikelySameHitTitle(existingHit.pageTitleKey, pageTitleKey);
+      },
+    );
+
+    if (existingIndex < 0) {
+      mergedHits.push({
+        ...hit,
+        snippetLookup,
+        pagePath,
+        sectionKey,
+        pageTitleKey,
+      });
+      return;
+    }
+
+    const existingHit = mergedHits[existingIndex];
+    const badges = Array.from(new Set([...existingHit.badges, ...hit.badges]));
+    const preferredHit = compareSearchHits(hit, existingHit) < 0 ? hit : existingHit;
+    const richerSnippetHit = snippetLookup.length > existingHit.snippetLookup.length ? hit : existingHit;
+
+    mergedHits[existingIndex] = {
+      ...preferredHit,
+      badges,
+      snippetHtml: richerSnippetHit.snippetHtml,
+      href: richerSnippetHit.href,
+      previewHref: richerSnippetHit.previewHref,
+      sectionLabel: richerSnippetHit.sectionLabel || preferredHit.sectionLabel,
+      snippetLookup: snippetLookup.length > existingHit.snippetLookup.length
+        ? snippetLookup
+        : existingHit.snippetLookup,
+      pagePath: resolveHitPagePath(preferredHit.href),
+      sectionKey: sectionKey || existingHit.sectionKey,
+      pageTitleKey: pageTitleKey || existingHit.pageTitleKey,
+    };
+  });
+
+  return mergedHits.map(
+    ({ snippetLookup: _snippetLookup, pagePath: _pagePath, sectionKey: _sectionKey, pageTitleKey: _pageTitleKey, ...hit }) => hit,
+  );
 };
 
 const flattenResults = (searchResults: SearchResult[], fallbackQuery: string): SearchHit[] =>
@@ -903,16 +1651,26 @@ const flattenResults = (searchResults: SearchResult[], fallbackQuery: string): S
   });
 
 const flatHits = computed<SearchHit[]>(() =>
-  flattenResults(results.value, routeQuery.value).sort(compareSearchHits),
+  mergeHitsByParagraph(flattenResults(results.value, routeQuery.value).sort(compareSearchHits)),
 );
 const routeQuery = computed(() => normalizeQuery(route.query.q));
 const routeHit = computed(() => normalizeHit(route.query.hit));
 const selectedHit = computed<SearchHit | null>(() => flatHits.value[activeIndex.value] ?? null);
+const isPreviewLoading = computed(() => {
+  if (!selectedHit.value) return false;
+
+  const pendingFrameKey = pendingPreviewFrame.value;
+
+  if (pendingFrameKey) return !previewFrameLoaded[pendingFrameKey];
+
+  return !previewFrameLoaded[activePreviewFrame.value];
+});
+const isPreviewLoadingVisible = computed(() => isPreviewLoading.value && previewLoadingVisible.value);
 const selectedHitOrder = computed(() =>
   activeIndex.value >= 0 && activeIndex.value < flatHits.value.length ? activeIndex.value + 1 : 0,
 );
 const resultCountText = computed(() =>
-  flatHits.value.length ? `${selectedHitOrder.value || 1}/${flatHits.value.length}` : "",
+  flatHits.value.length ? `${selectedHitOrder.value}/${flatHits.value.length}` : "",
 );
 const activeScrollMarkerRatio = computed(() => {
   if (!flatHits.value.length || activeIndex.value < 0) return 0;
@@ -949,6 +1707,31 @@ const activeScrollMarkerTooltipStyle = computed(() => ({
   left: `${markerTooltip.value.x}px`,
   top: `${markerTooltip.value.y}px`,
 }));
+
+const handlePreviewFrameLoad = (frameKey: PreviewFrameKey): void => {
+  previewFrameLoaded[frameKey] = true;
+
+  const hit = selectedHit.value;
+
+  if (!hit) return;
+
+  const currentPreviewHref = previewFrameSrc[frameKey];
+
+  if (!currentPreviewHref) return;
+  if (resolvePreviewPathname(currentPreviewHref) !== resolvePreviewPathname(hit.previewHref)) return;
+
+  const payload = buildPreviewSyncPayload(hit.previewHref);
+
+  if (!payload) return;
+
+  window.requestAnimationFrame(() => {
+    postPreviewSyncMessage(payload, frameKey);
+    activePreviewFrame.value = frameKey;
+    if (pendingPreviewFrame.value === frameKey) {
+      pendingPreviewFrame.value = null;
+    }
+  });
+};
 
 const buildRouteQuery = (query: string, hit?: number, focus = false): Record<string, string> => {
   const nextQuery: Record<string, string> = {};
@@ -1000,18 +1783,67 @@ const runSearch = async (query: string, requestedHit: number): Promise<void> => 
   isSearching.value = true;
 
   try {
-    const nextResults = await searchWorker.search(
-      buildWorkerQuery(query),
-      routeLocale.value,
-      searchOptions.value,
+    const normalizedQuery = normalizeQuery(query);
+
+    if (!normalizedQuery) {
+      results.value = [];
+      activeIndex.value = -1;
+      isSearching.value = false;
+      await syncRouteState("");
+      return;
+    }
+
+    const queryVariants = buildSearchQueries(normalizedQuery).filter(Boolean);
+    const mergedByPage = new Map<string, SearchResult>();
+
+    const variantResultsGroups = await Promise.all(
+      queryVariants.map((queryVariant) =>
+        searchWorker.search(queryVariant, routeLocale.value, searchOptions.value),
+      ),
     );
 
     if (searchId !== searchRequestId) return;
 
-    results.value = nextResults;
+    variantResultsGroups.flat().forEach((result) => {
+      const pageKey = getSearchResultPageKey(result);
+      const existing = mergedByPage.get(pageKey);
+
+      if (!existing) {
+        mergedByPage.set(pageKey, result);
+        return;
+      }
+
+      mergedByPage.set(pageKey, {
+        ...existing,
+        contents: mergeSearchResultContents(existing.contents, result.contents),
+      });
+    });
+
+    const fallbackResults = buildFallbackSearchResults(normalizedQuery);
+
+    fallbackResults.forEach((result) => {
+      const pageKey = getSearchResultPageKey(result);
+      const existing = mergedByPage.get(pageKey);
+
+      if (!existing) {
+        mergedByPage.set(pageKey, result);
+        return;
+      }
+
+      mergedByPage.set(pageKey, {
+        ...existing,
+        contents: mergeSearchResultContents(existing.contents, result.contents),
+      });
+    });
+
+    const combinedResults = [...mergedByPage.values()];
+
+    if (searchId !== searchRequestId) return;
+
+    results.value = combinedResults;
     isSearching.value = false;
 
-    const nextHits = flattenResults(nextResults, query);
+    const nextHits = flattenResults(combinedResults, normalizedQuery);
 
     if (!nextHits.length) {
       activeIndex.value = -1;
@@ -1047,6 +1879,7 @@ const commitDraftQuery = useDebounceFn((value: string) => {
 }, SEARCH_DELAY);
 
 const selectHit = (index: number): void => {
+  if (index < 0 || index >= flatHits.value.length) return;
   activeIndex.value = index;
   void syncRouteState(routeQuery.value, index);
 };
@@ -1193,6 +2026,40 @@ const handleMarkerFocus = (event: FocusEvent): void => {
 };
 
 watch(
+  selectedHit,
+  (hit) => {
+    syncPreviewFrame(hit?.previewHref ?? "");
+  },
+  { immediate: true },
+);
+
+watch(
+  isPreviewLoading,
+  (loading) => {
+    if (typeof window === "undefined") {
+      previewLoadingVisible.value = loading;
+      return;
+    }
+
+    if (previewLoadingTimer) {
+      window.clearTimeout(previewLoadingTimer);
+      previewLoadingTimer = 0;
+    }
+
+    if (!loading) {
+      previewLoadingVisible.value = false;
+      return;
+    }
+
+    previewLoadingTimer = window.setTimeout(() => {
+      previewLoadingVisible.value = true;
+      previewLoadingTimer = 0;
+    }, PREVIEW_LOADING_DELAY);
+  },
+  { immediate: true },
+);
+
+watch(
   () => [routeQuery.value, routeHit.value] as const,
   ([query, hit], previousState) => {
     if (draftQuery.value !== query) {
@@ -1238,6 +2105,22 @@ watch(
 watch(
   flatHits,
   () => {
+    const hitCandidates = flatHits.value.slice(0, 8);
+
+    if (activeIndex.value >= 0) {
+      const activeHit = flatHits.value[activeIndex.value];
+      const previousHit = flatHits.value[activeIndex.value - 1];
+      const nextHit = flatHits.value[activeIndex.value + 1];
+
+      if (activeHit) hitCandidates.unshift(activeHit);
+      if (previousHit) hitCandidates.unshift(previousHit);
+      if (nextHit) hitCandidates.unshift(nextHit);
+    }
+
+    hitCandidates.forEach((hit) => {
+      prefetchPreviewPath(hit.previewHref);
+    });
+
     nextTick(() => {
       scheduleMeasureHitListMetrics();
     });
@@ -1300,6 +2183,10 @@ onUnmounted(() => {
   if (hitListMeasureFrame && typeof window !== "undefined") {
     window.cancelAnimationFrame(hitListMeasureFrame);
   }
+  if (previewLoadingTimer && typeof window !== "undefined") {
+    window.clearTimeout(previewLoadingTimer);
+    previewLoadingTimer = 0;
+  }
   searchWorker?.terminate();
 });
 </script>
@@ -1325,9 +2212,10 @@ onUnmounted(() => {
               inputmode="search"
               autocomplete="off"
               spellcheck="false"
-              placeholder="输入关键词、问题编号、主题词"
+              placeholder="输入关键词（多个关键词用空格隔开）"
             >
           </label>
+          <p class="bc-search-panel-tip">{{ SEARCH_HINT_TEXT }}</p>
         </div>
 
         <div class="bc-search-sidebar-results">
@@ -1346,9 +2234,7 @@ onUnmounted(() => {
             搜索中...
           </div>
 
-          <div v-else-if="!routeQuery" class="bc-search-empty">
-            输入关键词开始搜索
-          </div>
+          <div v-else-if="!routeQuery" class="bc-search-empty">{{ SEARCH_HINT_TEXT }}</div>
 
           <div v-else-if="!flatHits.length" class="bc-search-empty">
             没有匹配结果
@@ -1413,11 +2299,11 @@ onUnmounted(() => {
       <section class="bc-search-preview">
         <div v-if="selectedHit" class="bc-search-preview-head">
           <div class="bc-search-preview-copy">
-            <h2>{{ selectedHit.sectionLabel || selectedHit.pageTitle }}</h2>
-            <p>{{ selectedHit.pageTitle }}</p>
+            <h2 class="bc-search-preview-title">{{ selectedHit.sectionLabel || selectedHit.pageTitle }}</h2>
+            <p class="bc-search-preview-crumb">{{ selectedHit.pageTitle }}</p>
           </div>
           <a
-            class="bc-search-toolbar-button bc-search-preview-open"
+            class="bc-search-toolbar-button bc-search-preview-open bc-search-preview-open-crumb"
             :href="selectedHit.href"
             target="_blank"
             rel="noopener noreferrer"
@@ -1434,13 +2320,32 @@ onUnmounted(() => {
           暂无可预览内容
         </div>
 
-        <iframe
-          v-else-if="selectedHit"
-          class="bc-search-preview-frame"
-          :src="selectedHit.previewHref"
-          title="搜索结果原文预览"
-          loading="lazy"
-        />
+        <div v-else-if="selectedHit" class="bc-search-preview-frame-stack">
+          <div v-if="isPreviewLoadingVisible" class="bc-search-preview-loading" aria-hidden="true">
+            <p class="bc-search-preview-loading-label">原文预览加载中</p>
+            <span class="bc-search-preview-loading-line"></span>
+            <span class="bc-search-preview-loading-line short"></span>
+            <span class="bc-search-preview-loading-line tiny"></span>
+          </div>
+          <iframe
+            ref="previewFramePrimaryRef"
+            class="bc-search-preview-frame"
+            :class="{ active: activePreviewFrame === 'primary' }"
+            :src="previewFrameSrc.primary || 'about:blank'"
+            title="搜索结果原文预览"
+            loading="eager"
+            @load="handlePreviewFrameLoad('primary')"
+          />
+          <iframe
+            ref="previewFrameSecondaryRef"
+            class="bc-search-preview-frame"
+            :class="{ active: activePreviewFrame === 'secondary' }"
+            :src="previewFrameSrc.secondary || 'about:blank'"
+            title="搜索结果原文预览"
+            loading="eager"
+            @load="handlePreviewFrameLoad('secondary')"
+          />
+        </div>
       </section>
     </section>
   </ClientOnly>

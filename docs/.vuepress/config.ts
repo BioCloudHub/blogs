@@ -17,11 +17,32 @@ export default defineUserConfig({
   base: "/blogs/",
 
   head: [
-    ["link", { rel: "icon", href: "/blogs/logo-animated.svg" }],
+    ["link", { rel: "icon", type: "image/png", href: "/blogs/img/logo.png" }],
+    ["link", { rel: "shortcut icon", type: "image/png", href: "/blogs/img/logo.png" }],
+    ["link", { rel: "apple-touch-icon", href: "/blogs/img/logo.png" }],
     ["meta", { name: "keywords", content: "生物制药, CMC, 药物研发, 生物分析, 计算工程, 数字化实验室, BioCloudHub" }],
     ["meta", { name: "theme-color", content: "#3b82f6" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],
     ["meta", { name: "apple-mobile-web-app-status-bar-style", content: "black" }],
+    [
+      "style",
+      {},
+      `html.search-route-mode .vp-sidebar,html.search-route-mode .sidebar-mask,html.search-route-mode .toggle-sidebar-wrapper,html.search-route-mode .vp-breadcrumb,html.search-route-mode .vp-page-title,html.search-route-mode .vp-page-meta,html.search-route-mode .vp-page-nav,html.search-route-mode .page-info,html.search-route-mode .vp-footer-wrapper,html.search-route-mode .vp-toc-place-holder,html.search-route-mode .vp-toc{display:none!important;}html.search-preview-mode .vp-navbar,html.search-preview-mode .vp-sidebar,html.search-preview-mode .sidebar-mask,html.search-preview-mode .toggle-sidebar-wrapper,html.search-preview-mode .vp-toggle-sidebar-button,html.search-preview-mode .vp-breadcrumb,html.search-preview-mode .vp-page-meta,html.search-preview-mode .vp-page-nav,html.search-preview-mode .page-info,html.search-preview-mode .vp-footer-wrapper,html.search-preview-mode .blogger-info,html.search-preview-mode .theme-hope-sidebar,html.search-preview-mode .blog-mask{display:none!important;}`,
+    ],
+    [
+      "script",
+      {},
+      `(() => {
+  try {
+    const url = new URL(window.location.href);
+    const isPreview = url.searchParams.get("search-preview") === "1";
+    const isSearchRoute = /\\/search(?:\\.html)?\\/?$/u.test(url.pathname);
+
+    if (isPreview) document.documentElement.classList.add("search-preview-mode");
+    if (isSearchRoute) document.documentElement.classList.add("search-route-mode");
+  } catch {}
+})();`,
+    ],
   ],
 
   bundler: viteBundler({
@@ -72,9 +93,9 @@ export default defineUserConfig({
       name: "BioCloudHub",
     },
 
-    logo: "/logo-animated.svg",
+    logo: "/img/logo.png",
 
-    favicon: "/logo-animated.svg",
+    favicon: "/img/logo.png",
 
     navbar: [
       { text: "首页", link: "/", icon: "home", activeMatch: "^/$" },
@@ -122,6 +143,9 @@ export default defineUserConfig({
       attrs: true,
       align: true,
       tasklist: true,
+      math: {
+        type: "katex",
+      },
     },
 
     plugins: {
@@ -139,6 +163,11 @@ export default defineUserConfig({
             SEARCH_PATH,
             `${SEARCH_ROUTE_PREFIX}/`,
           ].some((prefix) => page.path.startsWith(prefix)),
+      },
+      photoSwipe: {
+        download: true,
+        fullscreen: true,
+        scrollToClose: true,
       },
       blog: true,
       git: {

@@ -12,11 +12,13 @@
   "devDependencies": {
     "@mdit/plugin-container": "0.22.3",
     "@vuepress/bundler-vite": "^2.0.0-rc.26",
+    "@vuepress/plugin-photo-swipe": "2.0.0-rc.121",
     "@vuepress/plugin-search": "2.0.0-rc.121",
     "@vuepress/plugin-slimsearch": "2.0.0-rc.121",
     "@vueuse/core": "14.2.0",
     "cheerio": "^1.1.2",
     "gh-pages": "^6.3.0",
+    "katex": "^0.16.45",
     "sass": "^1.97.2",
     "vue": "^3.5.27",
     "vue-router": "^4.6.4",

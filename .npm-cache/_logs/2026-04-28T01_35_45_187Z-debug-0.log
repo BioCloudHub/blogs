@@ -1,0 +1,42 @@
+0 verbose cli /Users/xpy/.nvm/versions/node/v24.12.0/bin/node /Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@11.6.2
+2 info using node@v24.12.0
+3 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/xpy/Coding/biocloudhub/blogs/.npmrc
+5 silly config load:file:/Users/xpy/.npmrc
+6 warn Unknown user config "python". This will stop working in the next major version of npm.
+7 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/etc/npmrc
+8 verbose title npm exec @playwright/mcp@latest
+9 verbose argv "exec" "--" "@playwright/mcp@latest"
+10 verbose logfile logs-max:10 dir:/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-04-28T01_35_45_187Z-
+11 verbose logfile /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-04-28T01_35_45_187Z-debug-0.log
+12 silly logfile start cleaning logs, removing 1 files
+13 silly logfile done cleaning log files
+14 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+15 http fetch GET 200 https://registry.npmjs.org/@playwright%2fmcp 878ms (cache revalidated)
+16 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+17 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+18 warn exec The following package was not found and will be installed: @playwright/mcp@0.0.71
+19 silly idealTree buildDeps
+20 silly fetch manifest @playwright/mcp@0.0.71
+21 silly packumentCache full:https://registry.npmjs.org/@playwright%2fmcp cache-miss
+22 http cache https://registry.npmjs.org/@playwright%2fmcp 4ms (cache hit)
+23 silly packumentCache full:https://registry.npmjs.org/@playwright%2fmcp set size:969949 disposed:false
+24 silly placeDep ROOT @playwright/mcp@0.0.71 REPLACE for:  want: 0.0.71
+25 silly reify mark retired [
+25 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/@playwright/mcp',
+25 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/.bin/playwright-mcp'
+25 silly reify ]
+26 silly reify moves {
+26 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/@playwright/mcp': '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/@playwright/.mcp-WuciaL3w',
+26 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/.bin/playwright-mcp': '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/.bin/.playwright-mcp-0BfnKent'
+26 silly reify }
+27 silly audit bulk request {
+27 silly audit   fsevents: [ '2.3.2' ],
+27 silly audit   playwright: [ '1.60.0-alpha-2026-04-27' ],
+27 silly audit   'playwright-core': [ '1.60.0-alpha-2026-04-27' ],
+27 silly audit   '@playwright/mcp': [ '0.0.71' ]
+27 silly audit }
+28 http cache @playwright/mcp@https://registry.npmjs.org/@playwright/mcp/-/mcp-0.0.71.tgz 1ms (cache hit)
+29 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 261ms
+30 silly audit report {}
