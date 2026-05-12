@@ -1,23 +1,10 @@
 import { defineClientConfig } from "vuepress/client";
-import gsap from "gsap";
-import { ScrollTrigger } from "gsap/ScrollTrigger";
 
-const HOME_ROOT_SELECTOR = "main.vp-project-home";
-const REVEAL_SELECTOR = [
-  "header.vp-hero-info-wrapper",
-  ".vp-feature-item",
-  ".home-intro",
-  ".home-hero-extensions",
-  ".bio-3d-stage",
-  ".bio-3d-container",
-  ".metric-card",
-  ".track-card",
-  "#markdown-content h2",
-  "#markdown-content ul",
-].join(", ");
-const HOVER_CARD_SELECTOR = ".metric-card, .track-card, .vp-feature-item";
-const METRIC_VALUE_SELECTOR = ".metric-card h3";
-const HERO_SELECTOR = "header.vp-hero-info-wrapper";
+const HOME_ROOT = "main.vp-project-home";
+const REVEAL =
+  ".home-stat, .home-module, .home-about li, .home-section-title, .home-section-desc, .home-lead";
+const HOVER_CARDS = ".home-stat, .home-module";
+const HERO = "header.vp-hero-info-wrapper";
 
 const prefersReducedMotion = (): boolean =>
   window.matchMedia?.("(prefers-reduced-motion: reduce)")?.matches ?? false;
@@ -25,223 +12,248 @@ const prefersReducedMotion = (): boolean =>
 const prefersFinePointer = (): boolean =>
   window.matchMedia?.("(hover: hover) and (pointer: fine)")?.matches ?? false;
 
-const afterNextPaint = (task: () => void): void => {
-  window.requestAnimationFrame(() => {
-    window.requestAnimationFrame(task);
-  });
-};
+type GSAP = typeof import("gsap").default;
+type ST = typeof import("gsap/ScrollTrigger").ScrollTrigger;
 
 export default defineClientConfig({
   enhance({ router }) {
     if (typeof document === "undefined") return;
-    gsap.registerPlugin(ScrollTrigger);
 
-    let metricObserver: IntersectionObserver | null = null;
-    const revealTriggers: ScrollTrigger[] = [];
-    const animatedMetrics = new WeakSet<HTMLElement>();
-    const boundHoverCards = new WeakSet<HTMLElement>();
-    const boundHero = new WeakSet<HTMLElement>();
+    let gsap: GSAP | null = null;
+    let ScrollTrigger: ST | null = null;
+    let triggers: globalThis.ScrollTrigger[] = [];
+    let loading = false;
+    let loaded = false;
 
-    const setupReveal = (root: Element): void => {
-      const items = Array.from(root.querySelectorAll<HTMLElement>(REVEAL_SELECTOR));
+    const loadGSAP = async (): Promise<boolean> => {
+      if (loaded) return true;
+      if (loading) return false;
+      loading = true;
+      try {
+        const [gsapMod, stMod] = await Promise.all([
+          import("gsap"),
+          import("gsap/ScrollTrigger"),
+        ]);
+        gsap = gsapMod.default;
+        ScrollTrigger = stMod.ScrollTrigger;
+        gsap.registerPlugin(ScrollTrigger);
+        loaded = true;
+        return true;
+      } catch {
+        return false;
+      } finally {
+        loading = false;
+      }
+    };
+
+    /* ---- Staggered scroll reveals ---- */
+    function setupReveals(root: Element): void {
+      if (!gsap || !ScrollTrigger) return;
+      const items = Array.from(root.querySelectorAll<HTMLElement>(REVEAL));
       if (!items.length) return;
-      revealTriggers.forEach((trigger) => trigger.kill());
-      revealTriggers.length = 0;
 
-      items.forEach((item, index) => {
-        item.classList.add("bc-reveal");
-        const delay = Math.min(index * 70, 420);
-        item.style.setProperty("--bc-reveal-delay", `${delay}ms`);
-      });
+      triggers.forEach((t) => t.kill());
+      triggers.length = 0;
 
       if (prefersReducedMotion()) {
-        items.forEach((item) => {
-          item.classList.add("bc-reveal-visible");
-          item.style.removeProperty("opacity");
-          item.style.removeProperty("transform");
+        items.forEach((el) => {
+          el.style.opacity = "1";
+          el.style.transform = "none";
         });
         return;
       }
 
-      gsap.set(items, {
-        opacity: 0,
-        y: 28,
-        scale: 0.98,
-        transformOrigin: "50% 50%",
-        willChange: "transform, opacity",
-      });
+      gsap.set(items, { opacity: 0, y: 32, scale: 0.97 });
 
-      items.forEach((item, index) => {
-        const trigger = ScrollTrigger.create({
-          trigger: item,
-          start: "top 88%",
+      items.forEach((el, i) => {
+        const t = ScrollTrigger!.create({
+          trigger: el,
+          start: "top 90%",
           once: true,
           onEnter: () => {
-            item.classList.add("bc-reveal-visible");
-            gsap.to(item, {
+            gsap!.to(el, {
               opacity: 1,
               y: 0,
               scale: 1,
-              duration: 0.72,
-              delay: Math.min(index * 0.04, 0.2),
+              duration: 0.65,
+              delay: Math.min(i * 0.03, 0.16),
               ease: "power3.out",
-              clearProps: "willChange",
             });
           },
         });
-        revealTriggers.push(trigger);
+        triggers.push(t);
       });
-    };
+    }
 
-    const setupHoverGlow = (root: Element): void => {
+    /* ---- Hover glow on stat/module cards ---- */
+    function setupHoverGlow(root: Element): void {
       if (!prefersFinePointer() || prefersReducedMotion()) return;
 
-      const cards = root.querySelectorAll<HTMLElement>(HOVER_CARD_SELECTOR);
+      const cards = root.querySelectorAll<HTMLElement>(HOVER_CARDS);
       cards.forEach((card) => {
-        if (boundHoverCards.has(card)) return;
-        boundHoverCards.add(card);
-
-        const updatePosition = (event: PointerEvent): void => {
-          const rect = card.getBoundingClientRect();
-          const x = event.clientX - rect.left;
-          const y = event.clientY - rect.top;
-          card.style.setProperty("--bc-hover-x", `${x}px`);
-          card.style.setProperty("--bc-hover-y", `${y}px`);
-        };
-
-        const clearPosition = (): void => {
-          card.style.removeProperty("--bc-hover-x");
-          card.style.removeProperty("--bc-hover-y");
-        };
-
-        card.addEventListener("pointermove", updatePosition, { passive: true });
-        card.addEventListener("pointerleave", clearPosition, { passive: true });
+        card.addEventListener(
+          "pointermove",
+          (e: Event) => {
+            const ev = e as PointerEvent;
+            card.style.setProperty("--bc-hover-x", `${ev.offsetX}px`);
+            card.style.setProperty("--bc-hover-y", `${ev.offsetY}px`);
+          },
+          { passive: true },
+        );
+        card.addEventListener(
+          "pointerleave",
+          () => {
+            card.style.removeProperty("--bc-hover-x");
+            card.style.removeProperty("--bc-hover-y");
+          },
+          { passive: true },
+        );
       });
-    };
+    }
 
-    const parseMetricValue = (value: string): { prefix: string; suffix: string; number: number } | null => {
-      const match = value.match(/(-?\\d[\\d,]*)/u);
-      if (!match || match.index === undefined) return null;
-      const number = Number.parseInt(match[1].replace(/,/gu, ""), 10);
-      if (!Number.isFinite(number)) return null;
-      const prefix = value.slice(0, match.index);
-      const suffix = value.slice(match.index + match[1].length);
-      return { prefix, suffix, number };
-    };
+    /* ---- Stat counter animations ---- */
+    function setupCounters(root: Element): void {
+      if (!gsap) return;
+      const stats = Array.from(
+        root.querySelectorAll<HTMLElement>(".home-stat-num"),
+      );
+      const animated = new WeakSet<HTMLElement>();
 
-    const formatMetric = (value: number): string =>
-      Math.round(value).toLocaleString("zh-Hans-CN");
+      const parseNum = (text: string) => {
+        const m = text.match(/(-?\d[\d,]*)/);
+        if (!m || m.index === undefined) return null;
+        const n = Number.parseInt(m[1].replace(/,/g, ""), 10);
+        if (!Number.isFinite(n)) return null;
+        return {
+          prefix: text.slice(0, m.index),
+          suffix: text.slice(m.index + m[1].length),
+          num: n,
+        };
+      };
 
-    const animateMetric = (node: HTMLElement, data: { prefix: string; suffix: string; number: number }): void => {
-      if (animatedMetrics.has(node)) return;
-      animatedMetrics.add(node);
-
-      if (prefersReducedMotion()) {
-        node.textContent = `${data.prefix}${formatMetric(data.number)}${data.suffix}`;
-        return;
-      }
-
-      const metricState = { value: 0 };
-      gsap.to(metricState, {
-        value: data.number,
-        duration: 0.95,
-        ease: "power3.out",
-        onUpdate: () => {
-          node.textContent = `${data.prefix}${formatMetric(metricState.value)}${data.suffix}`;
-        },
-      });
-    };
-
-    const setupMetricCounters = (root: Element): void => {
-      const metrics = Array.from(root.querySelectorAll<HTMLElement>(METRIC_VALUE_SELECTOR));
-      if (!metrics.length) return;
-
-      metrics.forEach((metric) => {
-        const parsed = parseMetricValue(metric.textContent ?? "");
+      stats.forEach((el) => {
+        const parsed = parseNum(el.textContent ?? "");
         if (!parsed) return;
-        metric.dataset.bcMetricValue = String(parsed.number);
-        metric.dataset.bcMetricPrefix = parsed.prefix;
-        metric.dataset.bcMetricSuffix = parsed.suffix;
+
+        if (prefersReducedMotion()) {
+          el.textContent = `${parsed.prefix}${parsed.num.toLocaleString("zh-Hans-CN")}${parsed.suffix}`;
+          return;
+        }
+
+        const obs = new IntersectionObserver(
+          (entries) => {
+            entries.forEach((entry) => {
+              if (!entry.isIntersecting || animated.has(el)) return;
+              animated.add(el);
+              const state = { v: 0 };
+              gsap!.to(state, {
+                v: parsed.num,
+                duration: 1,
+                ease: "power3.out",
+                onUpdate: () => {
+                  el.textContent = `${parsed.prefix}${Math.round(state.v).toLocaleString("zh-Hans-CN")}${parsed.suffix}`;
+                },
+              });
+              obs.unobserve(el);
+            });
+          },
+          { threshold: 0.6 },
+        );
+        obs.observe(el);
       });
+    }
 
-      if (prefersReducedMotion() || !("IntersectionObserver" in window)) {
-        metrics.forEach((metric) => {
-          const parsed = parseMetricValue(metric.textContent ?? "");
-          if (parsed) {
-            metric.textContent = `${parsed.prefix}${formatMetric(parsed.number)}${parsed.suffix}`;
-          }
-        });
-        return;
-      }
+    /* ---- Hero spotlight ---- */
+    function setupHeroSpotlight(root: Element): void {
+      if (!prefersFinePointer() || prefersReducedMotion()) return;
+      const hero = root.querySelector<HTMLElement>(HERO);
+      if (!hero) return;
 
-      if (metricObserver) {
-        metricObserver.disconnect();
-      }
+      let raf = 0,
+        tx = 0,
+        ty = 0;
+      let heroRect: DOMRect = hero.getBoundingClientRect();
 
-      metricObserver = new IntersectionObserver(
-        (entries) => {
-          entries.forEach((entry) => {
-            if (!entry.isIntersecting) return;
-            const node = entry.target as HTMLElement;
-            const parsed = parseMetricValue(node.textContent ?? "");
-            if (parsed) animateMetric(node, parsed);
-            metricObserver?.unobserve(node);
-          });
+      const updateHeroRect = () => {
+        heroRect = hero.getBoundingClientRect();
+      };
+      window.addEventListener("scroll", updateHeroRect, { passive: true });
+      window.addEventListener("resize", updateHeroRect, { passive: true });
+
+      hero.addEventListener(
+        "pointermove",
+        (e: Event) => {
+          const ev = e as PointerEvent;
+          tx = ev.clientX - heroRect.left;
+          ty = ev.clientY - heroRect.top;
+          if (!raf)
+            raf = requestAnimationFrame(() => {
+              raf = 0;
+              hero.style.setProperty("--bc-hero-spot-x", `${tx}px`);
+              hero.style.setProperty("--bc-hero-spot-y", `${ty}px`);
+            });
         },
-        { threshold: 0.5 },
+        { passive: true },
       );
 
-      metrics.forEach((metric) => metricObserver?.observe(metric));
-    };
+      hero.addEventListener(
+        "pointerleave",
+        () => {
+          hero.style.setProperty("--bc-hero-spot-x", "50%");
+          hero.style.setProperty("--bc-hero-spot-y", "30%");
+        },
+        { passive: true },
+      );
+    }
 
-    const setupHeroSpotlight = (root: Element): void => {
-      if (!prefersFinePointer() || prefersReducedMotion()) return;
-      const hero = root.querySelector<HTMLElement>(HERO_SELECTOR);
-      if (!hero || boundHero.has(hero)) return;
-      boundHero.add(hero);
+    /* ---- Hero scroll effects ---- */
+    function setupHeroScroll(): void {
+      if (!gsap || !ScrollTrigger || prefersReducedMotion()) return;
+      const hero = document.querySelector<HTMLElement>(HERO);
+      const img = document.querySelector<HTMLElement>(".vp-hero-image");
+      const desc = document.querySelector<HTMLElement>("#main-description");
+      if (!hero) return;
 
-      let rafId = 0;
-      let targetX = 0;
-      let targetY = 0;
+      let tick = 0;
+      ScrollTrigger.create({
+        trigger: hero,
+        start: "top top",
+        end: "bottom top",
+        scrub: 0.8,
+        onUpdate(self) {
+          tick = (tick + 1) & 1;
+          if (tick) return;
+          const p = self.progress;
+          if (img) {
+            img.style.transform = `scale(${1 - p * 0.12}) translateY(${p * 8}px)`;
+            img.style.opacity = String(1 - p * 0.45);
+          }
+          if (desc) {
+            desc.style.opacity = String(1 - p * 0.5);
+            desc.style.transform = `translateY(${p * 4}px)`;
+          }
+        },
+      });
+    }
 
-      const apply = () => {
-        rafId = 0;
-        hero.style.setProperty("--bc-hero-spot-x", `${targetX}px`);
-        hero.style.setProperty("--bc-hero-spot-y", `${targetY}px`);
-      };
-
-      const handleMove = (event: PointerEvent) => {
-        const rect = hero.getBoundingClientRect();
-        targetX = event.clientX - rect.left;
-        targetY = event.clientY - rect.top;
-        if (!rafId) rafId = window.requestAnimationFrame(apply);
-      };
-
-      const reset = () => {
-        hero.style.setProperty("--bc-hero-spot-x", "50%");
-        hero.style.setProperty("--bc-hero-spot-y", "30%");
-      };
-
-      hero.addEventListener("pointermove", handleMove, { passive: true });
-      hero.addEventListener("pointerleave", reset, { passive: true });
-    };
-
-    const initHomeEffects = (): void => {
-      const root = document.querySelector(HOME_ROOT_SELECTOR);
+    /* ---- Init ---- */
+    async function init(): Promise<void> {
+      const root = document.querySelector(HOME_ROOT);
       if (!root) return;
-      setupReveal(root);
+
+      const ok = await loadGSAP();
+      if (!ok) return;
+
+      setupReveals(root);
       setupHoverGlow(root);
-      setupMetricCounters(root);
+      setupCounters(root);
       setupHeroSpotlight(root);
-    };
+      setupHeroScroll();
+    }
 
-    const scheduleInit = (): void => {
-      afterNextPaint(initHomeEffects);
-    };
-
-    scheduleInit();
-    router.afterEach(() => {
-      scheduleInit();
-    });
+    requestAnimationFrame(() => void init());
+    router.afterEach(
+      () => requestAnimationFrame(() => void init()),
+    );
   },
 });

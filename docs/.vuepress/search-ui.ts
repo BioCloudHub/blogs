@@ -1,6 +1,6 @@
+import { defineAsyncComponent } from "vue";
 import { defineClientConfig } from "vuepress/client";
 import SearchPageButton from "./components/SearchPageButton.vue";
-import SearchWorkspace from "./components/SearchWorkspace.vue";
 import {
   SEARCH_HIGHLIGHT_QUERY_KEY,
   SEARCH_LAUNCH_EVENT,
@@ -571,7 +571,10 @@ const syncRouteMode = (path: string): void => {
 export default defineClientConfig({
   enhance({ app, router }) {
     app.component("SearchPageButton", SearchPageButton);
-    app.component("SearchWorkspace", SearchWorkspace);
+    app.component(
+      "SearchWorkspace",
+      defineAsyncComponent(() => import("./components/SearchWorkspace.vue")),
+    );
 
     if (typeof window === "undefined") return;
 

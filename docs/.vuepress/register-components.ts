@@ -1,17 +1,25 @@
+import { defineAsyncComponent } from "vue";
 import { defineClientConfig } from "vuepress/client";
 
-import CategoryList from "./components/CategoryList.vue";
-import HomeBio3D from "./components/HomeBio3D.vue";
 import SearchPageButton from "./components/SearchPageButton.vue";
-import SearchWorkspace from "./components/SearchWorkspace.vue";
+import CategoryList from "./components/CategoryList.vue";
 import TagList from "./components/TagList.vue";
 
 export default defineClientConfig({
   enhance({ app }) {
-    app.component("CategoryList", CategoryList);
-    app.component("HomeBio3D", HomeBio3D);
+    /* Only used on the homepage — lazy-load to keep GSAP out of main bundle */
+    app.component(
+      "HomeHero",
+      defineAsyncComponent(() => import("./components/HomeHero.vue")),
+    );
+    app.component(
+      "HomePipeline",
+      defineAsyncComponent(() => import("./components/HomePipeline.vue")),
+    );
+
+    /* Used globally */
     app.component("SearchPageButton", SearchPageButton);
-    app.component("SearchWorkspace", SearchWorkspace);
+    app.component("CategoryList", CategoryList);
     app.component("TagList", TagList);
   },
 });

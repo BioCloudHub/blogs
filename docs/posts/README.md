@@ -1,99 +1,72 @@
 ---
-title: 技术博客
+title: 知识库导航
 index: true
-icon: blog
+icon: list
 article: false
 breadcrumbExclude: true
 ---
 
-# 生物制药技术博客
+# 生物制药知识库
 
-聚焦 CMC 相关技术体系，覆盖工艺开发、分析开发、质量研究与数字化支撑。
+六个专业知识库模块，系统化覆盖从工艺开发、质量体系、分析方法到法规注册与研发管理的全链路知识。
 
-## CMC 核心技术
-
-### 细胞株与表达系统
-
-- 关注宿主细胞选择、表达载体、克隆筛选与细胞株稳定性评估。
-- 相关文章：[CMC 问答导航](/blogs/posts/cmc-knowledge/cmc.html)
-
-### 上下游工艺开发
-
-- 关注培养工艺、放大策略、纯化流程与工艺鲁棒性。
-- 相关文章：[CMC 问答导航](/blogs/posts/cmc-knowledge/cmc.html)
-
-### 分析方法与质量研究
-
-- 关注质量属性、分析方法开发、结构表征与一致性研究。
-- 相关文章：[CMC 问答导航](/blogs/posts/cmc-knowledge/cmc.html)｜[蛋白质组学数据分析方法](/blogs/posts/bioanalytics/proteomics-analysis.html)｜[单细胞测序数据分析实战](/blogs/posts/bioanalytics/scrna-analysis.html)
-
-### 病毒安全与法规申报
-
-- 关注病毒清除、可比性研究、申报资料准备与全生命周期变更管理。
-- 相关文章：[CMC 问答导航](/blogs/posts/cmc-knowledge/cmc.html)｜[平台化开发、生命周期与数字化 CMC](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc.html)｜[临床试验数据分析方法](/blogs/posts/drug-discovery/clinical-trials.html)
-
-## CMC 支撑技术
-
-### 高级表征与组学
-
-- 用于支持细胞株筛选、产物结构表征、工艺机理分析和质量风险识别。
-- 相关文章：[基因组学数据分析入门指南](/blogs/posts/bioanalytics/genomics-analysis.html)｜[蛋白质组学数据分析方法](/blogs/posts/bioanalytics/proteomics-analysis.html)｜[单细胞测序数据分析实战](/blogs/posts/bioanalytics/scrna-analysis.html)
-
-### 分子设计与研发转化
-
-- 关注早期研发结果如何为后续 CMC 可制造性和候选分子优选提供输入。
-- 相关文章：[AI 驱动的小分子药物发现](/blogs/posts/drug-discovery/ai-drug-discovery.html)
-
-### 数据统计与注册支撑
-
-- 关注临床和统计结果如何反向支撑 CMC 变更、可比性与申报论证。
-- 相关文章：[临床试验数据分析方法](/blogs/posts/drug-discovery/clinical-trials.html)
-
-### 数字化与平台工程
-
-- 关注计算环境、数据管道、可追溯性与自动化交付能力。
-- 相关文章：[平台化开发、生命周期与数字化 CMC](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc.html)｜[Kubernetes 在生物医药领域的应用](/blogs/posts/computational-infrastructure/kubernetes-biotech.html)
-
-## 按技术类别浏览
-
-- `细胞株与表达系统`：[CMC 问答导航](/blogs/posts/cmc-knowledge/cmc.html)
-- `工艺开发与放大`：[CMC 问答导航](/blogs/posts/cmc-knowledge/cmc.html)
-- `分析开发与质量研究`：[CMC 问答导航](/blogs/posts/cmc-knowledge/cmc.html)｜[蛋白质组学数据分析方法](/blogs/posts/bioanalytics/proteomics-analysis.html)
-- `高级表征与组学`：[基因组学数据分析入门指南](/blogs/posts/bioanalytics/genomics-analysis.html)｜[单细胞测序数据分析实战](/blogs/posts/bioanalytics/scrna-analysis.html)
-- `法规申报与全生命周期管理`：[CMC 问答导航](/blogs/posts/cmc-knowledge/cmc.html)｜[平台化开发、生命周期与数字化 CMC](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc.html)｜[临床试验数据分析方法](/blogs/posts/drug-discovery/clinical-trials.html)
-- `数字化与平台支撑`：[平台化开发、生命周期与数字化 CMC](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc.html)｜[Kubernetes 在生物医药领域的应用](/blogs/posts/computational-infrastructure/kubernetes-biotech.html)
-
-## 按专题浏览
+## 知识库模块
 
 <div class="track-grid">
   <a class="track-card" href="./cmc-knowledge/">
     <h3>CMC 知识库</h3>
-    <p>覆盖工艺开发、质量属性、分析方法、病毒安全与法规等关键主题。</p>
-    <span>进入 CMC 专题</span>
+    <p>细胞株开发、上下游工艺、质量属性、分析方法、病毒安全与法规申报 — 20 个主题的系统化 CMC 知识图谱。</p>
+    <span>进入专题</span>
   </a>
-  <a class="track-card" href="./drug-discovery/">
-    <h3>药物研发</h3>
-    <p>AI 分子设计、虚拟筛选、临床试验统计与研发决策支持。</p>
-    <span>查看专题</span>
+  <a class="track-card" href="./gmp-quality-systems/">
+    <h3>GMP 与质量体系</h3>
+    <p>GMP 法规基础、风险管理、偏差 CAPA、变更控制、验证管理、数据完整性与质量文化 — 18 个主题。</p>
+    <span>进入专题</span>
   </a>
-  <a class="track-card" href="./bioanalytics/">
-    <h3>生物分析</h3>
-    <p>基因组学、蛋白质组学、单细胞测序的数据分析与建模实践。</p>
-    <span>查看专题</span>
+  <a class="track-card" href="./analytical-science/">
+    <h3>分析科学与方法学</h3>
+    <p>色谱、质谱、电泳、免疫分析、方法验证、结构表征与 QC 实验室管理 — 18 个主题。</p>
+    <span>进入专题</span>
   </a>
-  <a class="track-card" href="./computational-infrastructure/">
-    <h3>计算工程</h3>
-    <p>云原生架构、Kubernetes 和自动化运维在生物医药中的应用。</p>
-    <span>查看专题</span>
+  <a class="track-card" href="./bioprocess-engineering/">
+    <h3>生物工艺工程</h3>
+    <p>反应器工程、层析纯化、膜技术、冻干工艺、过程建模与工艺经济学 — 18 个主题。</p>
+    <span>进入专题</span>
+  </a>
+  <a class="track-card" href="./regulatory-strategy/">
+    <h3>法规注册策略</h3>
+    <p>全球监管体系、CTD 撰写、FDA/EMA/NMPA 沟通、上市后变更与加速审批 — 16 个主题。</p>
+    <span>进入专题</span>
+  </a>
+  <a class="track-card" href="./rd-management/">
+    <h3>研发管理与商业化</h3>
+    <p>项目管理、CDMO 治理、供应链、知识产权、ESG 与数字化研发 — 16 个主题。</p>
+    <span>进入专题</span>
   </a>
 </div>
 
-## 推荐阅读
+## 知识库结构说明
 
-- [CMC 问答导航](/blogs/posts/cmc-knowledge/cmc.html)
-- [平台化开发、生命周期与数字化 CMC](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc.html)
-- [蛋白质组学数据分析方法](/blogs/posts/bioanalytics/proteomics-analysis.html)
-- [单细胞测序数据分析实战](/blogs/posts/bioanalytics/scrna-analysis.html)
-- [临床试验数据分析方法](/blogs/posts/drug-discovery/clinical-trials.html)
-- [AI 驱动的小分子药物发现](/blogs/posts/drug-discovery/ai-drug-discovery.html)
-- [Kubernetes 在生物医药领域的应用](/blogs/posts/computational-infrastructure/kubernetes-biotech.html)
+每个知识库采用统一的三级编号体系：
+
+- **主题页**（NN）：概述本主题的核心问题和知识范围
+- **子专题页**（NN-XX）：将主题拆分为两个互补视角，串联知识上下文
+- **问答页**（NN-XX-XX）：具体的技术问答，包含基础认知与案例研判
+
+## 数据统计
+
+| 知识库 | 主题数 | 问答页数 |
+|--------|--------|----------|
+| CMC 知识库 | 20 | 320+ |
+| GMP 与质量体系 | 18 | 72 |
+| 分析科学与方法学 | 18 | 72 |
+| 生物工艺工程 | 18 | 72 |
+| 法规注册策略 | 16 | 64 |
+| 研发管理与商业化 | 16 | 64 |
+| **合计** | **106** | **660+** |
+
+## 使用方式
+
+- 点击上方卡片进入各个知识库模块
+- 使用左侧导航栏按三层结构浏览：主题 → 子专题 → 问答页面
+- 使用 `Ctrl+K` 搜索跨知识库查找内容

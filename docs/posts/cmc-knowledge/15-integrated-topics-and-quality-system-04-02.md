@@ -1,12 +1,12 @@
 ---
-title: 综合专题与质量体系：设备管理、QA/QC 与 ICH Q5A：验证控制与案例判断
+title: ICH Q5A与质量管理体系应用
 date: 2026-03-06 10:30:00
 category: CMC 核心技术
 tags: [CMC, 质量体系, 综合专题]
 author: BioCloudHub
 ---
 
-# 综合专题与质量体系：设备管理、QA/QC 与 ICH Q5A：验证控制与案例判断
+# 综合专题与质量体系：设备管理、QA/QC 与 ICH Q5A：ICH Q5A与质量管理体系应用
 
 > 本页把"设备管理、QA/QC 与 ICH Q5A"里与"验证控制与案例判断"最常见、最容易混淆、也最影响判断的知识点集中整理在一起。
 

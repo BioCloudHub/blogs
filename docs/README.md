@@ -1,11 +1,11 @@
 ---
 home: true
 title: BioCloudHub
-heroText: 生物制药技术博客
-tagline: CMC · 生物分析 · AI 药物研发 · 云原生工程
+heroText: 生物制药知识库
+tagline: CMC · GMP 质量体系 · 分析科学 · 工艺工程 · 法规注册 · 研发管理
 heroImage: /img/logo.png
 actions:
-  - text: 进入技术博客
+  - text: 浏览知识库
     link: /posts/
     type: primary
   - text: CMC 知识库
@@ -16,104 +16,99 @@ actions:
     type: default
 features:
   - title: CMC 工艺与质量
-    details: 汇总细胞株开发、工艺优化、质量属性与法规实务。
-  - title: 生物分析与组学
-    details: 覆盖基因组学、蛋白质组学、单细胞分析等完整链路。
-  - title: 药物研发与临床
-    details: 从分子发现到临床统计，连接算法与研发决策。
-  - title: 计算工程平台
-    details: 以 Kubernetes 与云原生技术支撑规模化研发交付。
+    details: 细胞株开发、上下游工艺、质量属性、分析方法与法规申报全覆盖。
+  - title: GMP 与质量体系
+    details: GMP 法规、风险管理、偏差 CAPA、验证与数据完整性体系。
+  - title: 分析科学与方法学
+    details: 色谱、质谱、电泳、免疫分析到 QC 实验室管理的方法全生命周期。
+  - title: 生物工艺工程
+    details: 反应器工程、纯化工程、过程建模、连续制造与工艺经济学。
+  - title: 法规注册策略
+    details: 全球注册路径、CTD 撰写、FDA/EMA/NMPA 沟通与上市后变更。
+  - title: 研发管理与商业化
+    details: 项目管理、CDMO 治理、供应链、知识产权与数字化研发。
 ---
 
 <div class="home-hero-extensions">
-  <HomeBio3D />
+  <HomeHero />
 </div>
 
-<div class="home-content-split">
-  <section class="col-left">
-    <div class="home-intro">
-      <p class="home-lead">
-        面向生物制药团队的工程化知识站，聚焦可执行的流程、参数与技术方案，帮助研发、分析与平台团队建立统一的方法体系。
-      </p>
-      <p class="home-lead">
-        内容覆盖从候选分子筛选、工艺开发、分析方法学、质量体系到计算平台建设的全流程实践，强调“可落地、可复用、可审计”。
-      </p>
-      <div class="metric-grid">
-        <article class="metric-card">
-          <h3>3900+</h3>
-          <p>CMC 问答知识点</p>
-        </article>
-        <article class="metric-card">
-          <h3>4</h3>
-          <p>核心技术板块</p>
-        </article>
-        <article class="metric-card">
-          <h3>端到端</h3>
-          <p>研发到生产的技术链路</p>
-        </article>
-        <article class="metric-card">
-          <h3>持续更新</h3>
-          <p>围绕法规、工艺与平台迭代同步演进</p>
-        </article>
-      </div>
+<div class="home-section">
+  <div class="home-intro">
+    <p class="home-lead">
+      面向生物制药团队的工程化知识站，聚焦可执行的流程、参数与技术方案，帮助研发、分析与平台团队建立统一的方法体系。
+    </p>
+    <p class="home-lead">
+      内容覆盖从细胞株开发、工艺放大、分析方法学、质量体系、法规注册到研发管理的全流程实践，强调"可落地、可复用、可审计"。
+    </p>
+  </div>
+
+  <div class="home-stats">
+    <div class="home-stat">
+      <span class="home-stat-num">3900+</span>
+      <span class="home-stat-label">CMC 问答知识点</span>
     </div>
-    <h2>核心能力矩阵</h2>
-    <div class="track-grid">
-      <a class="track-card" href="./posts/cmc-knowledge/">
-        <h3>法规与质量体系</h3>
-        <p>覆盖 GMP、ICH 与申报审评关键问题，建立质量导向的研发与生产协作机制。</p>
-        <span>查看体系</span>
-      </a>
-      <a class="track-card" href="./posts/computational-infrastructure/">
-        <h3>数字化研发平台</h3>
-        <p>以云原生、数据治理和自动化流程实现研发效率提升与合规留痕。</p>
-        <span>查看架构</span>
-      </a>
+    <div class="home-stat">
+      <span class="home-stat-num">6</span>
+      <span class="home-stat-label">专业知识库模块</span>
     </div>
-  </section>
-  <div class="col-gap" aria-hidden="true"></div>
-  <section class="col-right">
-    <h2>技术主线</h2>
-    <div class="track-grid">
-      <a class="track-card" href="./posts/cmc-knowledge/">
-        <h3>CMC 知识体系</h3>
-        <p>围绕细胞株开发、上游下游工艺、质量属性与法规要求构建系统化知识图谱。</p>
-        <span>进入专题</span>
-      </a>
-      <a class="track-card" href="./posts/drug-discovery/">
-        <h3>AI 药物研发</h3>
-        <p>关注分子表示、生成模型、虚拟筛选与临床统计分析的落地实践。</p>
-        <span>查看文章</span>
-      </a>
-      <a class="track-card" href="./posts/bioanalytics/">
-        <h3>生物分析与组学</h3>
-        <p>覆盖 WGS、蛋白质组和单细胞分析流程，强调可复现数据处理方法。</p>
-        <span>查看文章</span>
-      </a>
-      <a class="track-card" href="./posts/computational-infrastructure/">
-        <h3>计算工程平台</h3>
-        <p>以 Kubernetes、容器化和自动化运维支撑生物医药场景的高可靠交付。</p>
-        <span>查看文章</span>
-      </a>
+    <div class="home-stat">
+      <span class="home-stat-num">106</span>
+      <span class="home-stat-label">知识主题覆盖</span>
     </div>
-    <h2>本站定位</h2>
+    <div class="home-stat">
+      <span class="home-stat-num">持续更新</span>
+      <span class="home-stat-label">随法规与工艺迭代同步演进</span>
+    </div>
+  </div>
+</div>
+
+<div class="home-section home-section--alt">
+  <h2 class="home-section-title">知识库模块</h2>
+  <p class="home-section-desc">六大专业领域，构建系统化生物制药知识体系</p>
+
+  <div class="home-modules">
+    <a class="home-module" href="./posts/cmc-knowledge/">
+      <span class="home-module-icon">⚗️</span>
+      <h3>CMC 知识库</h3>
+      <p>20 大主题，覆盖细胞株、上下游、质量属性、法规申报与数字化 CMC。</p>
+    </a>
+    <a class="home-module" href="./posts/gmp-quality-systems/">
+      <span class="home-module-icon">✅</span>
+      <h3>GMP 与质量体系</h3>
+      <p>18 个主题，从 GMP 基础到质量文化，建立系统性合规知识。</p>
+    </a>
+    <a class="home-module" href="./posts/analytical-science/">
+      <span class="home-module-icon">🔬</span>
+      <h3>分析科学与方法学</h3>
+      <p>18 个主题，覆盖分析方法全生命周期及 QC 实验室管理实践。</p>
+    </a>
+    <a class="home-module" href="./posts/bioprocess-engineering/">
+      <span class="home-module-icon">🧬</span>
+      <h3>生物工艺工程</h3>
+      <p>18 个主题，从反应器工程到工艺经济学，构建工艺工程方法论。</p>
+    </a>
+    <a class="home-module" href="./posts/regulatory-strategy/">
+      <span class="home-module-icon">📋</span>
+      <h3>法规注册策略</h3>
+      <p>16 个主题，全球注册路径、申报策略与上市后生命周期管理。</p>
+    </a>
+    <a class="home-module" href="./posts/rd-management/">
+      <span class="home-module-icon">🏭</span>
+      <h3>研发管理与商业化</h3>
+      <p>16 个主题，项目运营、供应链、知识产权与数字化知识管理。</p>
+    </a>
+  </div>
+</div>
+
+<div class="home-section">
+  <h2 class="home-section-title">关于本站</h2>
+  <p class="home-section-desc">面向生物制药研发、生产与质量管理团队的技术实践平台</p>
+  <div class="home-about">
     <ul>
-      <li>面向工艺开发、分析开发、生物信息与平台工程团队。</li>
-      <li>强调参数化、标准化、可复用的技术实践。</li>
-      <li>用统一技术语言连接研发、生产与数字化系统。</li>
+      <li>面向<strong>工艺开发、分析开发、质量管理、法规注册与项目管理</strong>团队</li>
+      <li>强调<strong>参数化、标准化、可复用</strong>的技术实践</li>
+      <li>用统一技术语言连接<strong>研发、生产、质量与监管</strong>系统</li>
     </ul>
-    <h2>服务与交付</h2>
-    <div class="track-grid">
-      <a class="track-card" href="./about/">
-        <h3>专题知识交付</h3>
-        <p>围绕具体技术主题形成结构化知识包，便于团队培训、复盘与内化。</p>
-        <span>了解方式</span>
-      </a>
-      <a class="track-card" href="./posts/">
-        <h3>实践模板沉淀</h3>
-        <p>提供方法学模板、流程框架和检查清单，帮助项目快速启动与稳定执行。</p>
-        <span>浏览模板</span>
-      </a>
-    </div>
-  </section>
+  </div>
 </div>

@@ -1,12 +1,12 @@
 ---
-title: 综合专题与质量体系：worst-case、ISF 与质量属性基础：验证控制与案例判断
+title: 质量研究缺陷与控制策略
 date: 2026-03-06 10:30:00
 category: CMC 核心技术
 tags: [CMC, 质量体系, 综合专题]
 author: BioCloudHub
 ---
 
-# 综合专题与质量体系：worst-case、ISF 与质量属性基础：验证控制与案例判断
+# 综合专题与质量体系：worst-case、ISF 与质量属性基础：质量研究缺陷与控制策略
 
 > 本页把"worst-case、ISF 与质量属性基础"里与"验证控制与案例判断"最常见、最容易混淆、也最影响判断的知识点集中整理在一起。
 

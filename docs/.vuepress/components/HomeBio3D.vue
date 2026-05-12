@@ -61,6 +61,13 @@ const loadProgress = ref(0);
 const fps = useFps();
 const { y: scrollY } = useWindowScroll();
 
+let lastScrollTime = 0;
+let frameCount = 0;
+
+const on3DScroll = () => {
+  lastScrollTime = performance.now();
+};
+
 // Theme
 const isDark = useDark({
   selector: "html",
@@ -918,12 +925,15 @@ const animate = () => {
   animationId = requestAnimationFrame(animate);
 
   const time = clock.getElapsedTime();
+  const scrollVal = scrollY.value;
+  const scrollActive = performance.now() - lastScrollTime < 2000;
+  frameCount++;
 
   // Rotate DNA (with Scroll Influence)
   if (dnaGroup) {
-    const scrollFactor = Math.min(Math.max(scrollY.value / 1400, 0), 1);
-    dnaGroup.rotation.y = time * 0.22 + scrollY.value * 0.0022;
-    dnaGroup.rotation.x = Math.PI / 6 + scrollY.value * 0.0008;
+    const scrollFactor = Math.min(Math.max(scrollVal / 1400, 0), 1);
+    dnaGroup.rotation.y = time * 0.22 + scrollVal * 0.0022;
+    dnaGroup.rotation.x = Math.PI / 6 + scrollVal * 0.0008;
     dnaGroup.rotation.z = Math.PI / 6 + Math.sin(time * 0.7) * 0.05;
     dnaGroup.position.y = Math.sin(time * 0.5) * 0.5;
     const scale = (1 + Math.sin(time * 1.8) * 0.03 + scrollFactor * 0.04) * 0.9;
@@ -1002,7 +1012,7 @@ const animate = () => {
       mesh.scale.lerp(new THREE.Vector3(1, 1, 1), 0.1);
     }
 
-    const progress = Math.min(Math.max(scrollY.value / 1200, 0), 1);
+    const progress = Math.min(Math.max(scrollVal / 1200, 0), 1);
     const cluster = new THREE.Vector3(0, 0, -3);
     const base: THREE.Vector3 = mesh.userData.basePosition ?? mesh.position.clone();
     const target = base.clone().lerp(cluster, 1 - progress);
@@ -1063,7 +1073,7 @@ const animate = () => {
     const centerDistance = Math.hypot(targetX, targetY);
     const boost = Math.max(0, 1 - centerDistance);
     const base = isDark.value ? 0.15 : 0.05;
-    const scrollFactor = Math.min(Math.max(scrollY.value / 1400, 0), 1);
+    const scrollFactor = Math.min(Math.max(scrollVal / 1400, 0), 1);
     const energy = boost * 0.18 + pulse * (0.18 * motionScale) + scrollFactor * 0.16;
     dnaMaterial.emissiveIntensity = base + energy * 0.08;
     bloomPass.strength = 0.17 + energy * 0.12;
@@ -1091,17 +1101,21 @@ const animate = () => {
     hoverLabel.value.visible = false;
   }
 
-  updateConnections();
+  if (scrollActive || frameCount % 3 === 0) {
+    updateConnections();
+  }
 
   // Smoother, more subtle parallax
   camera.position.x += (targetX * 1.0 - camera.position.x) * 0.03;
   camera.position.y += (targetY * 1.0 - camera.position.y) * 0.03;
-  const targetZ = 15.4 - Math.min(scrollY.value / 2200, 1) * 0.22 + Math.sin(time * 0.2) * 0.03 + breathingWave * 0.02;
+  const targetZ = 15.4 - Math.min(scrollVal / 2200, 1) * 0.22 + Math.sin(time * 0.2) * 0.03 + breathingWave * 0.02;
   camera.position.z += (targetZ - camera.position.z) * 0.03;
   camera.setFocalLength(44.2 + breathingWave * 0.35 + pulse * 0.08);
   camera.lookAt(0, 0, 0);
 
-  composer.render();
+  if (scrollActive || frameCount % 4 === 0) {
+    composer.render();
+  }
 };
 
 // Click Interaction
@@ -1261,6 +1275,7 @@ watch(isDark, () => {
 onMounted(() => {
   window.addEventListener("click", handleClick);
   window.addEventListener("pointermove", handlePointerMove, { passive: true });
+  window.addEventListener("scroll", on3DScroll, { passive: true });
   document.addEventListener("visibilitychange", handleVisibilityChange);
 
   // Simulate loading
@@ -1276,6 +1291,7 @@ onMounted(() => {
 onBeforeUnmount(() => {
   window.removeEventListener("click", handleClick);
   window.removeEventListener("pointermove", handlePointerMove as any);
+  window.removeEventListener("scroll", on3DScroll);
   document.removeEventListener("visibilitychange", handleVisibilityChange);
   cancelAnimationFrame(animationId);
 

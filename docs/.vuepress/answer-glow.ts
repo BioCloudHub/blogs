@@ -86,7 +86,9 @@ export default defineClientConfig({
     let activeCard: HTMLElement | null = null;
     let hierarchyFormatFrame = 0;
     let hierarchyFormatTimer = 0;
+    let hierarchyFormatted = false;
     let suppressSidebarNavigation = false;
+    let sidebarFirstLoaded = false;
     let toastTimer = 0;
 
     const ensureToast = (): HTMLElement => {
@@ -120,6 +122,53 @@ export default defineClientConfig({
 
     const isHeaderExpanded = (header: Element | null): boolean =>
       header?.querySelector(".vp-arrow.down") !== null;
+
+    // After Vue DOM flush, ensure only the current page's L1 section is open.
+    const enforceAccordion = (): void => {
+      Promise.resolve().then(() => {
+        const sidebar = document.querySelector<HTMLElement>(SIDEBAR_SELECTOR);
+
+        if (!sidebar) return;
+
+        const l1Headers = Array.from(
+          sidebar.querySelectorAll<HTMLElement>(
+            ":scope > .vp-sidebar-links > li > .vp-sidebar-group > .vp-sidebar-header.clickable",
+          ),
+        );
+
+        if (l1Headers.length <= 1) return;
+
+        // Only the L1 matching the current route stays open
+        const currentHeader = l1Headers.find((h) => isHeaderPathActive(h));
+
+        l1Headers.forEach((h) => {
+          if (h === currentHeader) {
+            if (!isHeaderExpanded(h)) {
+              withSuppressedSidebarNavigation(() => h.click());
+            }
+          } else if (isHeaderExpanded(h)) {
+            withSuppressedSidebarNavigation(() => h.click());
+          }
+        });
+      });
+    };
+
+    const getSidebarGroupKey = (header: HTMLElement): string | null => {
+      const titleLink = header.querySelector<HTMLAnchorElement>(
+        ".vp-sidebar-title[href]",
+      );
+      const href = titleLink?.getAttribute("href") ?? "";
+
+      if (href) {
+        const path = toSidebarRoutePath(href);
+
+        if (path) return `sidebar-expand:${path}`;
+      }
+
+      const text = (header.querySelector(".vp-sidebar-title")?.textContent ?? "").trim();
+
+      return text ? `sidebar-expand:text:${text}` : null;
+    };
 
     const matchesPrefix = (value: string, prefix: string): boolean =>
       value === prefix.slice(0, -1) || value.startsWith(prefix);
@@ -1809,10 +1858,12 @@ export default defineClientConfig({
         }
       };
 
-      attempt(4);
+      attempt(2);
     };
 
     const scheduleHierarchyFormatting = (): void => {
+      if (hierarchyFormatted) return;
+
       if (hierarchyFormatFrame) {
         window.cancelAnimationFrame(hierarchyFormatFrame);
       }
@@ -1824,6 +1875,7 @@ export default defineClientConfig({
       hierarchyFormatFrame = window.requestAnimationFrame(() => {
         hierarchyFormatFrame = 0;
         runHierarchyFormatting();
+        hierarchyFormatted = true;
         hierarchyFormatTimer = window.setTimeout(() => {
           hierarchyFormatTimer = 0;
           runHierarchyFormatting();
@@ -1858,30 +1910,51 @@ export default defineClientConfig({
 
         if (!titleLink && !header) return;
 
+        // If the click is on a nested item (L2/L3), closest() may have walked up
+        // to the L1 button. Ignore — these clicks should reach the link natively.
+        if (header && event.target.closest(".vp-sidebar-group .vp-sidebar-group")) {
+          return;
+        }
+
+        // Only intercept when we need to expand a collapsed parent before navigating.
+        // Otherwise let Vue Router / the theme handle the click natively — much faster.
         if (titleLink) {
+          const needsExpand =
+            header?.querySelector(".vp-arrow") !== null &&
+            !isHeaderExpanded(header);
+
+          if (!needsExpand) return;
+
           const targetPath = toSidebarRoutePath(titleLink.getAttribute("href") ?? "");
-          const currentPath = normalizeSidebarPath(router.currentRoute.value.path);
-          const isCollapsibleHeader = header?.querySelector(".vp-arrow") !== null;
 
           event.preventDefault();
           event.stopPropagation();
 
-          if (header && isCollapsibleHeader && !isHeaderExpanded(header)) {
-            withSuppressedSidebarNavigation(() => {
-              header.click();
+          withSuppressedSidebarNavigation(() => {
+            header!.click();
+          });
+          enforceAccordion();
+          header!.classList.add("bc-sidebar-expanding");
+          window.setTimeout(() => {
+            header!.classList.remove("bc-sidebar-expanding");
+          }, 250);
+
+          if (targetPath && targetPath !== normalizeSidebarPath(router.currentRoute.value.path)) {
+            window.requestAnimationFrame(() => {
+              void router.push(targetPath);
             });
           }
-
-          if (!targetPath || targetPath === currentPath) return;
-
-          void router.push(targetPath).catch(() => {
-            // Ignore duplicated navigations and cancelled transitions.
-          });
 
           return;
         }
 
         if (header) {
+          const isCollapsibleHeader = header.querySelector(".vp-arrow") !== null;
+          const alreadyExpanded = isHeaderExpanded(header);
+
+          // If already expanded, the theme will handle the collapse — don't intercept
+          if (alreadyExpanded) return;
+
           const headerLink = header.querySelector<HTMLAnchorElement>(
             ".vp-sidebar-title[href]",
           );
@@ -1889,23 +1962,24 @@ export default defineClientConfig({
           if (!headerLink) return;
 
           const targetPath = toSidebarRoutePath(headerLink.getAttribute("href") ?? "");
-          const currentPath = normalizeSidebarPath(router.currentRoute.value.path);
-          const isCollapsibleHeader = header.querySelector(".vp-arrow") !== null;
 
           event.preventDefault();
           event.stopPropagation();
 
-          if (isCollapsibleHeader && !isHeaderExpanded(header)) {
-            withSuppressedSidebarNavigation(() => {
-              header.click();
+          withSuppressedSidebarNavigation(() => {
+            header.click();
+          });
+          enforceAccordion();
+          header.classList.add("bc-sidebar-expanding");
+          window.setTimeout(() => {
+            header.classList.remove("bc-sidebar-expanding");
+          }, 250);
+
+          if (targetPath && targetPath !== normalizeSidebarPath(router.currentRoute.value.path)) {
+            window.requestAnimationFrame(() => {
+              void router.push(targetPath);
             });
           }
-
-          if (!targetPath || targetPath === currentPath) return;
-
-          void router.push(targetPath).catch(() => {
-            // Ignore duplicated navigations and cancelled transitions.
-          });
         }
       },
       true,
@@ -1944,11 +2018,157 @@ export default defineClientConfig({
     });
 
 
+    let readingProgressScrollHandler: (() => void) | null = null;
+
+    const installReadingProgressBar = (): void => {
+      const sidebar = document.querySelector<HTMLElement>(SIDEBAR_SELECTOR);
+
+      if (!sidebar) return;
+
+      // Clean old progress bars & percentage
+      sidebar
+        .querySelectorAll(".bc-sidebar-reading-progress, .bc-sidebar-reading-pct")
+        .forEach((el) => el.remove());
+
+      // Remove old scroll handler
+      if (readingProgressScrollHandler) {
+        window.removeEventListener("scroll", readingProgressScrollHandler);
+        document.querySelector(".vp-page")?.removeEventListener("scroll", readingProgressScrollHandler);
+        readingProgressScrollHandler = null;
+      }
+
+      const activeLink = sidebar.querySelector<HTMLElement>(
+        ".vp-sidebar-link.active",
+      );
+
+      if (!activeLink) return;
+
+      const progressBar = document.createElement("div");
+      const progressPct = document.createElement("span");
+
+      progressBar.className = "bc-sidebar-reading-progress";
+      progressBar.style.transition = "none";
+      progressPct.className = "bc-sidebar-reading-pct";
+      activeLink.appendChild(progressBar);
+      activeLink.appendChild(progressPct);
+
+      let progressRaf = 0;
+
+      /* detect the actual scroll container: .vp-page or the document */
+      const scrollEl: Element | Window =
+        (() => {
+          const page = document.querySelector<HTMLElement>(".vp-page");
+          if (page && page.clientHeight < page.scrollHeight) return page;
+          if (document.documentElement.clientHeight < document.documentElement.scrollHeight)
+            return window;
+          return page ?? window;
+        })();
+
+      const getScrollY = (): number =>
+        scrollEl instanceof Window ? scrollEl.scrollY : (scrollEl as HTMLElement).scrollTop;
+
+      const getScrollMax = (): number =>
+        scrollEl instanceof Window
+          ? document.documentElement.scrollHeight - window.innerHeight
+          : (scrollEl as HTMLElement).scrollHeight - (scrollEl as HTMLElement).clientHeight;
+
+      const applyProgress = (): void => {
+        const max = getScrollMax();
+        if (max <= 0) {
+          progressBar.style.width = "0%";
+          progressPct.textContent = "";
+          return;
+        }
+
+        const pct = Math.round(Math.min((getScrollY() / max) * 100, 100));
+        progressBar.style.width = `${pct}%`;
+        progressPct.textContent = `${pct}%`;
+      };
+
+      const scheduleProgress = (): void => {
+        if (progressRaf) return;
+        progressRaf = window.requestAnimationFrame(() => {
+          progressRaf = 0;
+          applyProgress();
+        });
+      };
+
+      readingProgressScrollHandler = scheduleProgress;
+      scrollEl.addEventListener("scroll", scheduleProgress, { passive: true });
+      applyProgress();
+    };
+
+    const scrollToActiveSidebarItem = (retries = 4): void => {
+      const sidebar = document.querySelector<HTMLElement>(SIDEBAR_SELECTOR);
+
+      if (!sidebar) return;
+
+      const activeLink = sidebar.querySelector<HTMLElement>(
+        ".vp-sidebar-link.active",
+      );
+
+      if (!activeLink) {
+        if (retries > 0) {
+          window.requestAnimationFrame(() =>
+            scrollToActiveSidebarItem(retries - 1),
+          );
+        }
+        return;
+      }
+
+      const sidebarRect = sidebar.getBoundingClientRect();
+      const linkRect = activeLink.getBoundingClientRect();
+      const topMargin = 30;
+      const bottomMargin = 80;
+
+      // Already visible with comfortable margins — don't scroll
+      if (
+        linkRect.top >= sidebarRect.top + topMargin &&
+        linkRect.bottom <= sidebarRect.bottom - bottomMargin
+      ) {
+        return;
+      }
+
+      // Position the active item at roughly 30% from the top of the sidebar viewport
+      const targetScrollTop =
+        sidebar.scrollTop +
+        linkRect.top -
+        sidebarRect.top -
+        sidebarRect.height * 0.3;
+
+      sidebar.scrollTo({
+        top: Math.max(0, targetScrollTop),
+        behavior: "smooth",
+      });
+    };
+
+    let scrollToActiveTimer = 0;
+
+    window.addEventListener(
+      "resize",
+      () => {
+        window.clearTimeout(scrollToActiveTimer);
+        scrollToActiveTimer = window.setTimeout(scrollToActiveSidebarItem, 200);
+      },
+      { passive: true },
+    );
+
     const runSidebarRefresh = (): void => {
       scheduleHierarchyFormatting();
-      afterNextPaint(() => {
-        autoExpandSidebarHeaders();
-        afterNextPaint(autoExpandSidebarHeaders);
+
+      if (!sidebarFirstLoaded) {
+        sidebarFirstLoaded = true;
+        afterNextPaint(() => {
+          document
+            .querySelectorAll<HTMLElement>(SIDEBAR_SELECTOR)
+            .forEach((s) => s.classList.add("bc-sidebar-loaded"));
+        });
+      }
+
+      enforceAccordion();
+      requestAnimationFrame(() => {
+        scrollToActiveSidebarItem();
+        installReadingProgressBar();
       });
     };
 
@@ -1964,7 +2184,7 @@ export default defineClientConfig({
 
     router.afterEach((to) => {
       updateTaxonomyLayout(to.path);
-      afterNextPaint(runSidebarRefresh);
+      runSidebarRefresh();
     });
   },
 });

@@ -5,6 +5,11 @@ import { viteBundler } from "@vuepress/bundler-vite";
 import { container } from "@mdit/plugin-container";
 import { hopeTheme } from "vuepress-theme-hope";
 import { cmcSidebar } from "./cmc-sidebar";
+import { gmpQualitySystemsSidebar } from "./gmp-quality-systems-sidebar";
+import { analyticalScienceSidebar } from "./analytical-science-sidebar";
+import { bioprocessEngineeringSidebar } from "./bioprocess-engineering-sidebar";
+import { regulatoryStrategySidebar } from "./regulatory-strategy-sidebar";
+import { rdManagementSidebar } from "./rd-management-sidebar";
 import { SEARCH_PATH, SEARCH_ROUTE_PREFIX } from "./search-constants";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -49,6 +54,22 @@ export default defineUserConfig({
     viteOptions: {
       build: {
         chunkSizeWarningLimit: 1000,
+        rollupOptions: {
+          output: {
+            manualChunks(id) {
+              if (id.includes("node_modules")) {
+                /* split heavy, stable libraries into separate cacheable chunks */
+                if (id.includes("gsap")) return "vendor-gsap";
+                if (id.includes("katex")) return "vendor-katex";
+                if (id.includes("@vue") || id.includes("vue-")) return "vendor-vue";
+                if (id.includes("vuepress") || id.includes("@vuepress"))
+                  return "vendor-vuepress";
+                if (id.includes("three")) return "vendor-three";
+                return "vendor-common";
+              }
+            },
+          },
+        },
       },
     },
   }),
@@ -69,6 +90,10 @@ export default defineUserConfig({
     {
       name: "search-ui",
       clientConfigFile: resolve(__dirname, "./search-ui.ts"),
+    },
+    {
+      name: "scroll-position",
+      clientConfigFile: resolve(__dirname, "./scroll-position.ts"),
     },
   ],
 
@@ -100,10 +125,11 @@ export default defineUserConfig({
     navbar: [
       { text: "首页", link: "/", icon: "home", activeMatch: "^/$" },
       { text: "CMC 知识库", link: "/posts/cmc-knowledge/", icon: "note", activeMatch: "^/posts/cmc-knowledge/" },
-      { text: "药物研发", link: "/posts/drug-discovery/", icon: "pill", activeMatch: "^/posts/drug-discovery/" },
-      { text: "生物分析", link: "/posts/bioanalytics/", icon: "dna", activeMatch: "^/posts/bioanalytics/" },
-      { text: "计算工程", link: "/posts/computational-infrastructure/", icon: "cloud", activeMatch: "^/posts/computational-infrastructure/" },
-      { text: "内容索引", link: "/article/", icon: "list", activeMatch: "^/article/" },
+      { text: "GMP 与质量体系", link: "/posts/gmp-quality-systems/", icon: "check", activeMatch: "^/posts/gmp-quality-systems/" },
+      { text: "分析科学", link: "/posts/analytical-science/", icon: "microscope", activeMatch: "^/posts/analytical-science/" },
+      { text: "工艺工程", link: "/posts/bioprocess-engineering/", icon: "process", activeMatch: "^/posts/bioprocess-engineering/" },
+      { text: "法规注册", link: "/posts/regulatory-strategy/", icon: "legal", activeMatch: "^/posts/regulatory-strategy/" },
+      { text: "研发管理", link: "/posts/rd-management/", icon: "building", activeMatch: "^/posts/rd-management/" },
       { text: "关于", link: "/about/", icon: "user", activeMatch: "^/about/" },
     ],
 
@@ -116,9 +142,11 @@ export default defineUserConfig({
     sidebar: {
       "/posts/": "structure",
       "/posts/cmc-knowledge/": cmcSidebar,
-      "/posts/drug-discovery/": "structure",
-      "/posts/bioanalytics/": "structure",
-      "/posts/computational-infrastructure/": "structure",
+      "/posts/gmp-quality-systems/": gmpQualitySystemsSidebar,
+      "/posts/analytical-science/": analyticalScienceSidebar,
+      "/posts/bioprocess-engineering/": bioprocessEngineeringSidebar,
+      "/posts/regulatory-strategy/": regulatoryStrategySidebar,
+      "/posts/rd-management/": rdManagementSidebar,
       "/about/": "structure",
       "/category/": false,
       "/tag/": false,
