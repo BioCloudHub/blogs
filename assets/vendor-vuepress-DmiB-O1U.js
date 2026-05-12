@@ -1,0 +1,1 @@
+const u=(a,h=0)=>{let t=3735928559^h,l=1103547991^h;for(let e=0;e<a.length;e++){const i=a.charCodeAt(e);t=Math.imul(t^i,2654435761),l=Math.imul(l^i,1597334677)}return t=Math.imul(t^t>>>16,2246822507),t^=Math.imul(l^l>>>13,3266489909),l=Math.imul(l^l>>>16,2246822507),l^=Math.imul(t^t>>>13,3266489909),4294967296*(2097151&l)+(t>>>0)},m=(a,h)=>u(a)%h;export{m as $};
