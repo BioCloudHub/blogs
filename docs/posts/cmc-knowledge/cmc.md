@@ -313,9 +313,9 @@ article: false
   - [体系认知与核心概念](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-13-01.html)（22 个知识点）
   - [验证控制与案例判断](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system-13-02.html)（25 个知识点）
 
-### 平台化开发、生命周期与数字化 CMC
+### 平台化开发、生命周期与数字化
 
 - [专题总览](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc.html)（26 个知识点）
-- [平台化开发、可比性、生命周期与数字化 CMC](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc-01.html)（26 个知识点）
+- [平台化开发、可比性、生命周期与数字化](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc-01.html)（26 个知识点）
   - [平台化与生命周期基础](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc-01-01.html)（13 个知识点）
   - [可比性与数字化应用](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc-01-02.html)（13 个知识点）

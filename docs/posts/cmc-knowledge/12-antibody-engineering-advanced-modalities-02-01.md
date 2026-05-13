@@ -1006,6 +1006,6 @@ ADC 在中国按**生物制品**（抗体部分）和**化学药**（Payload/Lin
 
 对于新产品或工艺改变后的产品，须进行**干扰试验**，确认供试品在特定稀释倍数下不对鲎试剂产生抑制或增强效应，选定最大有效稀释倍数（MVD）：
 
-$$MVD = \frac{内毒素限值（EU/mL）\times 供试品浓度（mg/mL 或 mL/mL）}{\lambda（EU/mL）}$$
+$$\text{MVD} = \frac{\text{内毒素限值（EU/mL）}\times \text{供试品浓度（mg/mL 或 mL/mL）}}{\lambda\text{（EU/mL）}}$$
 
 :::

@@ -55,7 +55,7 @@ article: false
 - [开发流程、技术转移与项目管理](/blogs/posts/cmc-knowledge/13-development-transfer-project-management.html)（239 个知识点 / 6 个二级主题 / 12 个细分主题）
 - [细胞生物学与培养基础](/blogs/posts/cmc-knowledge/14-cell-biology-culture-fundamentals.html)（82 个知识点 / 2 个二级主题 / 4 个细分主题）
 - [综合专题与质量体系](/blogs/posts/cmc-knowledge/15-integrated-topics-and-quality-system.html)（619 个知识点 / 13 个二级主题 / 26 个细分主题）
-- [平台化开发、生命周期与数字化 CMC](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc.html)（26 个知识点 / 1 个二级主题 / 2 个细分主题）
+- [平台化开发、生命周期与数字化](/blogs/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc.html)（26 个知识点 / 1 个二级主题 / 2 个细分主题）
 
 ## 说明
 

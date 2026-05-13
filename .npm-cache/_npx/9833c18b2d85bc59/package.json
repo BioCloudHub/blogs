@@ -1,6 +1,6 @@
 {
   "dependencies": {
-    "@playwright/mcp": "^0.0.71"
+    "@playwright/mcp": "^0.0.75"
   },
   "_npx": {
     "packages": [

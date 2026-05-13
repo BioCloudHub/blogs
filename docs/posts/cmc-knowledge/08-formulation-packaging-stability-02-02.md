@@ -118,7 +118,7 @@ author: BioCloudHub
 
 **三大挑战的相互关联性**
 
-$$\text{浓度} \uparrow \rightarrow \text{分子间距} \downarrow \rightarrow \text{相互作用} \uparrow \rightarrow \begin{cases} \text{可逆聚集} \uparrow \\ \text{黏度} \uparrow（\text{指数级}）\\ \text{溶解度}（\text{接近极限}） \end{cases}$$
+$$\text{浓度} \uparrow \rightarrow \text{分子间距} \downarrow \rightarrow \text{相互作用} \uparrow \rightarrow \begin{cases} \text{可逆聚集} \uparrow \\ \text{黏度} \uparrow \text{（指数级）}\\ \text{溶解度} \text{（接近极限）} \end{cases}$$
 
 :::
 
@@ -524,7 +524,7 @@ $$\text{浓度} \uparrow \rightarrow \text{分子间距} \downarrow \rightarrow 
 
 铁离子并非直接引起产品颜色变化，而是通过催化活性氧（ROS）的产生，间接介导特定氨基酸的氧化降解，形成有色产物：
 
-$$\text{Fe}^{2+} + \text{H}_2\text{O}_2 \xrightarrow{\text{Fenton 反应}} \text{Fe}^{3+} + \cdot\text{OH} \xrightarrow{\text{氧化}} \text{Trp} \rightarrow \text{N-formylkynurenine（黄色）+ Kynurenine（黄色）}$$
+$$\text{Fe}^{2+} + \text{H}_2\text{O}_2 \xrightarrow{\text{Fenton 反应}} \text{Fe}^{3+} + \cdot\text{OH} \xrightarrow{\text{氧化}} \text{Trp} \rightarrow \text{N-formylkynurenine（黄色）} + \text{Kynurenine（黄色）}$$
 
 **关键研究发现**
 

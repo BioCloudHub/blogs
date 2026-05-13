@@ -1212,13 +1212,13 @@ export const cmcSidebar = [
     ]
   },
   {
-    "text": "平台化开发、生命周期与数字化 CMC",
+    "text": "平台化开发、生命周期与数字化",
     "link": "/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc.html",
     "collapsible": true,
     "expanded": true,
     "children": [
       {
-        "text": "平台化开发、可比性、生命周期与数字化 CMC",
+        "text": "平台化开发、可比性、生命周期与数字化",
         "link": "/posts/cmc-knowledge/16-platform-lifecycle-digital-cmc-01.html",
         "children": [
           {

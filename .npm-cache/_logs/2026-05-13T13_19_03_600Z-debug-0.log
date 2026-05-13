@@ -1,0 +1,18 @@
+0 verbose cli /Users/xpy/.nvm/versions/node/v24.12.0/bin/node /Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@11.14.0
+2 info using node@v24.12.0
+3 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/xpy/Coding/biocloudhub/blogs/.npmrc
+5 silly config load:file:/Users/xpy/.npmrc
+6 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/etc/npmrc
+7 verbose title npm exec @playwright/mcp@latest
+8 verbose argv "exec" "--" "@playwright/mcp@latest"
+9 verbose logfile logs-max:10 dir:/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-05-13T13_19_03_600Z-
+10 verbose logfile /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-05-13T13_19_03_600Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly logfile done cleaning log files
+13 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+14 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+15 http fetch GET 200 https://registry.npmjs.org/@playwright%2fmcp 2154ms (cache updated)
+16 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+17 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280

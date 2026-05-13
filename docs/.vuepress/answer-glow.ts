@@ -10,6 +10,7 @@ const SIDEBAR_ACCENT_SELECTOR = ".bc-sidebar-bioaccent";
 const SIDEBAR_CLICKABLE_HEADER_SELECTOR = ".vp-sidebar-header.clickable";
 const SIDEBAR_TITLE_LINK_SELECTOR = ".vp-sidebar-header.clickable > .vp-sidebar-title[href]";
 const HIERARCHY_READY_EVENT = "bc:hierarchy-ready";
+const SCROLL_SYNC_EVENT = "bc:scroll-sync";
 const HIERARCHY_TEXT_SELECTOR = [
   ".vp-page-title h1",
   "#main-content .vp-page-title h1",
@@ -2019,73 +2020,112 @@ export default defineClientConfig({
 
 
     let readingProgressScrollHandler: (() => void) | null = null;
+    let readingProgressSyncScheduler: (() => void) | null = null;
+    let readingProgressSyncTimers: number[] = [];
+    let installedForPath = "";
+
+    const clearReadingProgressSyncTimers = (): void => {
+      readingProgressSyncTimers.forEach((timer) => window.clearTimeout(timer));
+      readingProgressSyncTimers = [];
+    };
+
+    const scheduleReadingProgressSyncFallback = (path: string): void => {
+      clearReadingProgressSyncTimers();
+      [360, 660].forEach((delay) => {
+        const timer = window.setTimeout(() => {
+          if (installedForPath !== path) return;
+          readingProgressSyncScheduler?.();
+        }, delay);
+        readingProgressSyncTimers.push(timer);
+      });
+    };
+
+    window.addEventListener(SCROLL_SYNC_EVENT, (event: Event) => {
+      const detail = (event as CustomEvent<{ path?: string }>).detail;
+      if (!detail?.path || detail.path !== installedForPath) return;
+      readingProgressSyncScheduler?.();
+    });
 
     const installReadingProgressBar = (): void => {
-      const sidebar = document.querySelector<HTMLElement>(SIDEBAR_SELECTOR);
+      const currentPath = router.currentRoute.value.path;
+      if (installedForPath === currentPath) return;
 
+      const sidebar = document.querySelector<HTMLElement>(SIDEBAR_SELECTOR);
       if (!sidebar) return;
 
-      // Clean old progress bars & percentage
-      sidebar
-        .querySelectorAll(".bc-sidebar-reading-progress, .bc-sidebar-reading-pct")
-        .forEach((el) => el.remove());
+      const activeLink = sidebar.querySelector<HTMLElement>(".vp-sidebar-link.active");
+      if (!activeLink) return;
 
-      // Remove old scroll handler
+      installedForPath = currentPath;
+
+      // Clean previous install
+      sidebar.querySelectorAll(".bc-sidebar-reading-progress, .bc-sidebar-reading-pct")
+        .forEach((el) => el.remove());
       if (readingProgressScrollHandler) {
+        document.querySelectorAll<HTMLElement>(".vp-page").forEach((el) =>
+          el.removeEventListener("scroll", readingProgressScrollHandler!));
         window.removeEventListener("scroll", readingProgressScrollHandler);
-        document.querySelector(".vp-page")?.removeEventListener("scroll", readingProgressScrollHandler);
         readingProgressScrollHandler = null;
       }
-
-      const activeLink = sidebar.querySelector<HTMLElement>(
-        ".vp-sidebar-link.active",
-      );
-
-      if (!activeLink) return;
+      clearReadingProgressSyncTimers();
+      readingProgressSyncScheduler = null;
 
       const progressBar = document.createElement("div");
       const progressPct = document.createElement("span");
-
       progressBar.className = "bc-sidebar-reading-progress";
-      progressBar.style.transition = "none";
+      progressBar.style.transition = "width 0.08s linear";
       progressPct.className = "bc-sidebar-reading-pct";
       activeLink.appendChild(progressBar);
       activeLink.appendChild(progressPct);
 
-      let progressRaf = 0;
+      let progressReady = false;
 
-      /* detect the actual scroll container: .vp-page or the document */
-      const scrollEl: Element | Window =
-        (() => {
-          const page = document.querySelector<HTMLElement>(".vp-page");
-          if (page && page.clientHeight < page.scrollHeight) return page;
-          if (document.documentElement.clientHeight < document.documentElement.scrollHeight)
-            return window;
-          return page ?? window;
-        })();
-
-      const getScrollY = (): number =>
-        scrollEl instanceof Window ? scrollEl.scrollY : (scrollEl as HTMLElement).scrollTop;
-
-      const getScrollMax = (): number =>
-        scrollEl instanceof Window
-          ? document.documentElement.scrollHeight - window.innerHeight
-          : (scrollEl as HTMLElement).scrollHeight - (scrollEl as HTMLElement).clientHeight;
-
-      const applyProgress = (): void => {
-        const max = getScrollMax();
-        if (max <= 0) {
-          progressBar.style.width = "0%";
-          progressPct.textContent = "";
-          return;
+      let placeholderPct = 0;
+      try {
+        const raw = localStorage.getItem(`bc-scroll:${currentPath}`);
+        if (raw) {
+          const data = JSON.parse(raw);
+          if (typeof data?.pct === "number" && Number.isFinite(data.pct)) {
+            placeholderPct = Math.max(0, Math.min(data.pct, 100));
+          }
         }
+      } catch {
+        placeholderPct = 0;
+      }
 
-        const pct = Math.round(Math.min((getScrollY() / max) * 100, 100));
-        progressBar.style.width = `${pct}%`;
-        progressPct.textContent = `${pct}%`;
+      progressBar.style.width = `${placeholderPct.toFixed(1)}%`;
+      progressPct.textContent = `${Math.round(placeholderPct)}%`;
+
+      const resolveProgressScrollEl = (): Element | Window => {
+        const page = document.querySelector<HTMLElement>(".vp-page");
+        if (page) {
+          const { overflowY } = window.getComputedStyle(page);
+          if (/(auto|scroll|overlay)/u.test(overflowY) && page.scrollHeight > page.clientHeight) {
+            return page;
+          }
+        }
+        return window;
       };
 
+      const applyProgress = (): void => {
+        const el = resolveProgressScrollEl();
+        const y = el instanceof Window ? el.scrollY : (el as HTMLElement).scrollTop;
+        const max = el instanceof Window
+          ? Math.max(document.documentElement.scrollHeight - window.innerHeight, 0)
+          : Math.max((el as HTMLElement).scrollHeight - (el as HTMLElement).clientHeight, 0);
+        if (max <= 0) {
+          progressBar.style.width = "0%";
+          progressPct.textContent = "0%";
+          return;
+        }
+        const pct = Math.min((y / max) * 100, 100);
+        progressBar.style.width = `${pct.toFixed(1)}%`;
+        progressPct.textContent = `${Math.round(pct)}%`;
+      };
+
+      let progressRaf = 0;
       const scheduleProgress = (): void => {
+        if (!progressReady) return;
         if (progressRaf) return;
         progressRaf = window.requestAnimationFrame(() => {
           progressRaf = 0;
@@ -2093,9 +2133,51 @@ export default defineClientConfig({
         });
       };
 
-      readingProgressScrollHandler = scheduleProgress;
-      scrollEl.addEventListener("scroll", scheduleProgress, { passive: true });
-      applyProgress();
+      const scheduleSettledProgress = (): void => {
+        window.requestAnimationFrame(() => {
+          let attempts = 0;
+          let stableFrames = 0;
+          let lastMax = -1;
+
+          const settle = (): void => {
+            attempts += 1;
+
+            const page = document.querySelector<HTMLElement>(".vp-page");
+            const el = (page && page.clientHeight < page.scrollHeight) ? page : window;
+            const max = el instanceof Window
+              ? Math.max(document.documentElement.scrollHeight - window.innerHeight, 0)
+              : Math.max((el as HTMLElement).scrollHeight - (el as HTMLElement).clientHeight, 0);
+
+            if (max === lastMax) {
+              stableFrames += 1;
+            } else {
+              stableFrames = 0;
+              lastMax = max;
+            }
+
+            if (stableFrames >= 2 || attempts >= 12) {
+              progressReady = true;
+              applyProgress();
+              return;
+            }
+
+            window.requestAnimationFrame(settle);
+          };
+
+          settle();
+        });
+      };
+
+      const attachScroll = (): void => {
+        readingProgressScrollHandler = scheduleProgress;
+        readingProgressSyncScheduler = scheduleSettledProgress;
+        const page = document.querySelector<HTMLElement>(".vp-page");
+        if (page) page.addEventListener("scroll", scheduleProgress, { passive: true });
+        window.addEventListener("scroll", scheduleProgress, { passive: true });
+      };
+
+      attachScroll();
+      scheduleReadingProgressSyncFallback(currentPath);
     };
 
     const scrollToActiveSidebarItem = (retries = 4): void => {
@@ -2182,7 +2264,27 @@ export default defineClientConfig({
 
     syncTaxonomyLayout();
 
-    router.afterEach((to) => {
+    // Immediately remove all progress bars BEFORE navigation so the
+    // departing page's percentage never bleeds into the new page.
+    router.beforeEach((to, from) => {
+      if (to.path === from.path) return;
+
+      document.querySelectorAll(".bc-sidebar-reading-progress, .bc-sidebar-reading-pct")
+        .forEach((el) => el.remove());
+      if (readingProgressScrollHandler) {
+        document.querySelectorAll<HTMLElement>(".vp-page").forEach((el) =>
+          el.removeEventListener("scroll", readingProgressScrollHandler!));
+        window.removeEventListener("scroll", readingProgressScrollHandler);
+        readingProgressScrollHandler = null;
+      }
+      clearReadingProgressSyncTimers();
+      readingProgressSyncScheduler = null;
+      installedForPath = "";
+    });
+
+    router.afterEach((to, from) => {
+      if (to.path === from.path) return;
+
       updateTaxonomyLayout(to.path);
       runSidebarRefresh();
     });

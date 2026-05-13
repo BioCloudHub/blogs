@@ -2220,7 +2220,7 @@ onUnmounted(() => {
 
         <div class="bc-search-sidebar-results">
           <div class="bc-search-panel-head">
-            <h2>命中结果</h2>
+            <p>命中结果</p>
             <span v-if="routeQuery && flatHits.length" class="bc-search-result-count">
               {{ resultCountText }}
             </span>
@@ -2299,7 +2299,7 @@ onUnmounted(() => {
       <section class="bc-search-preview">
         <div v-if="selectedHit" class="bc-search-preview-head">
           <div class="bc-search-preview-copy">
-            <h2 class="bc-search-preview-title">{{ selectedHit.sectionLabel || selectedHit.pageTitle }}</h2>
+            <p class="bc-search-preview-title">{{ selectedHit.sectionLabel || selectedHit.pageTitle }}</p>
             <p class="bc-search-preview-crumb">{{ selectedHit.pageTitle }}</p>
           </div>
           <a
@@ -2436,11 +2436,11 @@ onUnmounted(() => {
   display: flex;
   align-items: center;
   justify-content: space-between;
-  padding: 8px 20px 8px;
+  padding: 5px 20px 5px;
   flex-shrink: 0;
 }
 
-.bc-search-panel-head h2 {
+.bc-search-panel-head p {
   margin: 0;
   font-size: 0.8rem;
   font-weight: 600;

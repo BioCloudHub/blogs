@@ -1,0 +1,83 @@
+0 verbose cli /Users/xpy/.nvm/versions/node/v24.12.0/bin/node /Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/bin/npm-cli.js
+1 info using npm@11.14.0
+2 info using node@v24.12.0
+3 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/lib/node_modules/npm/npmrc
+4 silly config load:file:/Users/xpy/Coding/biocloudhub/blogs/.npmrc
+5 silly config load:file:/Users/xpy/.npmrc
+6 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/etc/npmrc
+7 verbose title npm exec @playwright/mcp@latest
+8 verbose argv "exec" "--" "@playwright/mcp@latest"
+9 verbose logfile logs-max:10 dir:/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-05-13T08_30_45_021Z-
+10 verbose logfile /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-05-13T08_30_45_021Z-debug-0.log
+11 silly logfile start cleaning logs, removing 1 files
+12 silly logfile done cleaning log files
+13 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+14 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+15 http fetch GET 200 https://registry.npmjs.org/@playwright%2fmcp 3540ms (cache revalidated)
+16 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+17 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
+18 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
+19 warn exec The following package was not found and will be installed: @playwright/mcp@0.0.75
+20 silly idealTree buildDeps
+21 silly fetch manifest @playwright/mcp@0.0.75
+22 silly packumentCache full:https://registry.npmjs.org/@playwright%2fmcp cache-miss
+23 http cache https://registry.npmjs.org/@playwright%2fmcp 3ms (cache hit)
+24 silly packumentCache full:https://registry.npmjs.org/@playwright%2fmcp set size:963736 disposed:false
+25 silly placeDep ROOT @playwright/mcp@0.0.75 REPLACE for:  want: 0.0.75
+26 silly fetch manifest playwright@1.61.0-alpha-1778188671000
+27 silly packumentCache full:https://registry.npmjs.org/playwright cache-miss
+28 silly fetch manifest playwright-core@1.61.0-alpha-1778188671000
+29 silly packumentCache full:https://registry.npmjs.org/playwright-core cache-miss
+30 http cache https://registry.npmjs.org/playwright 15ms (cache hit)
+31 silly packumentCache full:https://registry.npmjs.org/playwright set size:16249848 disposed:false
+32 http cache https://registry.npmjs.org/playwright-core 78ms (cache hit)
+33 silly packumentCache full:https://registry.npmjs.org/playwright-core set size:18012886 disposed:false
+34 silly placeDep ROOT playwright@1.61.0-alpha-1778188671000 OK for: @playwright/mcp@0.0.75 want: 1.61.0-alpha-1778188671000
+35 silly placeDep ROOT playwright-core@1.61.0-alpha-1778188671000 OK for: @playwright/mcp@0.0.75 want: 1.61.0-alpha-1778188671000
+36 silly fetch manifest fsevents@2.3.2
+37 silly packumentCache full:https://registry.npmjs.org/fsevents cache-miss
+38 http cache https://registry.npmjs.org/fsevents 4ms (cache hit)
+39 silly packumentCache full:https://registry.npmjs.org/fsevents set size:182472 disposed:false
+40 silly placeDep ROOT fsevents@2.3.2 OK for: playwright@1.61.0-alpha-1778188671000 want: 2.3.2
+41 silly reify mark retired [
+41 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/@playwright/mcp',
+41 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/.bin/playwright-mcp'
+41 silly reify ]
+42 silly reify mark retired [
+42 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/playwright',
+42 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/.bin/playwright'
+42 silly reify ]
+43 silly reify mark retired [
+43 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/fsevents'
+43 silly reify ]
+44 silly reify mark retired [
+44 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/playwright-core',
+44 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/.bin/playwright-core'
+44 silly reify ]
+45 silly reify moves {
+45 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/@playwright/mcp': '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/@playwright/.mcp-WuciaL3w',
+45 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/.bin/playwright-mcp': '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/.bin/.playwright-mcp-0BfnKent',
+45 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/playwright': '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/.playwright-yvHVajN7',
+45 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/.bin/playwright': '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/.bin/.playwright-5EIGbbq0',
+45 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/fsevents': '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/.fsevents-Bcba1itr',
+45 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/playwright-core': '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/.playwright-core-G955asf8',
+45 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/.bin/playwright-core': '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/.bin/.playwright-core-LC6i3MlE'
+45 silly reify }
+46 silly audit bulk request {
+46 silly audit   '@playwright/mcp': [ '0.0.75' ],
+46 silly audit   playwright: [ '1.61.0-alpha-1778188671000' ],
+46 silly audit   'playwright-core': [ '1.61.0-alpha-1778188671000' ],
+46 silly audit   fsevents: [ '2.3.2' ]
+46 silly audit }
+47 http cache playwright-core@https://registry.npmjs.org/playwright-core/-/playwright-core-1.61.0-alpha-1778188671000.tgz 0ms (cache hit)
+48 http cache playwright@https://registry.npmjs.org/playwright/-/playwright-1.61.0-alpha-1778188671000.tgz 0ms (cache hit)
+49 http cache @playwright/mcp@https://registry.npmjs.org/@playwright/mcp/-/mcp-0.0.75.tgz 0ms (cache hit)
+50 http cache fsevents@https://registry.npmjs.org/fsevents/-/fsevents-2.3.2.tgz 0ms (cache hit)
+51 info run fsevents@2.3.2 install node_modules/fsevents node-gyp rebuild
+52 http fetch POST 200 https://registry.npmjs.org/-/npm/v1/security/advisories/bulk 1356ms
+53 silly audit report {}
+54 info run fsevents@2.3.2 install { code: 1, signal: null }
+55 verbose reify failed optional dependency /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/fsevents
+56 silly reify mark deleted [
+56 silly reify   '/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_npx/9833c18b2d85bc59/node_modules/fsevents'
+56 silly reify ]
