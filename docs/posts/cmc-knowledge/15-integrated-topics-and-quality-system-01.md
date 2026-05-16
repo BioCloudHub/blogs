@@ -1,5 +1,5 @@
 ---
-title: 综合专题与质量体系：worst-case、ISF 与质量属性基础
+title: worst-case、ISF 与质量属性基础
 date: 2026-03-06 10:30:00
 category: CMC 核心技术
 tags: [CMC, 质量体系, 综合专题]

@@ -1,5 +1,5 @@
 ---
-title: 分析方法与质量标准：HCP 理解、一级结构表征与 GMP 表征
+title: HCP 理解、一级结构表征与 GMP 表征
 date: 2026-03-06 10:30:00
 category: CMC 核心技术
 tags: [CMC, 分析方法, 质量标准]

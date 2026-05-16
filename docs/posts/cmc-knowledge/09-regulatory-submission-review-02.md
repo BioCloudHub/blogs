@@ -1,5 +1,5 @@
 ---
-title: 法规申报与审评策略：Pre-IND、资料撰写与 UPB 要求
+title: Pre-IND、资料撰写与 UPB 要求
 date: 2026-03-06 10:30:00
 category: CMC 核心技术
 tags: [CMC, 法规申报, 审评策略]

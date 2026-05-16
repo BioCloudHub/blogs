@@ -1,5 +1,5 @@
 ---
-title: 抗体工程、ADC 与新型疗法：ADC 靶点、药代动力学与一般要求
+title: ADC 靶点、药代动力学与一般要求
 date: 2026-03-06 10:30:00
 category: CMC 核心技术
 tags: [CMC, 抗体工程, ADC]

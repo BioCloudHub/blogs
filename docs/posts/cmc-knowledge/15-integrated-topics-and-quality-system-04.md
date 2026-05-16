@@ -1,5 +1,5 @@
 ---
-title: 综合专题与质量体系：设备管理、QA/QC 与 ICH Q5A
+title: 设备管理、QA/QC 与 ICH Q5A
 date: 2026-03-06 10:30:00
 category: CMC 核心技术
 tags: [CMC, 质量体系, 综合专题]

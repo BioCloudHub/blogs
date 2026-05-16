@@ -1,5 +1,5 @@
 ---
-title: 药理毒理与临床开发：临床药学变更、II 期设计与 CDC 活性
+title: 临床药学变更、II 期设计与 CDC 活性
 date: 2026-03-06 10:30:00
 category: CMC 核心技术
 tags: [CMC, 药理毒理, 临床开发]

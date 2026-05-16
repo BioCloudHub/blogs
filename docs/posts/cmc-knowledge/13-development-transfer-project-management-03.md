@@ -1,5 +1,5 @@
 ---
-title: 开发流程、技术转移与项目管理：物料验收、批记录与 TSE/BSE 来源
+title: 物料验收、批记录与 TSE/BSE 来源
 date: 2026-03-06 10:30:00
 category: CMC 核心技术
 tags: [CMC, 开发流程, 技术转移]

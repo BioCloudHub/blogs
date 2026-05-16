@@ -1,5 +1,5 @@
 ---
-title: 综合专题与质量体系：原液质量标准、Qp 提升与 Specification
+title: 原液质量标准、Qp 提升与 Specification
 date: 2026-03-06 10:30:00
 category: CMC 核心技术
 tags: [CMC, 质量体系, 综合专题]

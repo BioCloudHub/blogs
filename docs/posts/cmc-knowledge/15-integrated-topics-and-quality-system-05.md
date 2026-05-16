@@ -1,5 +1,5 @@
 ---
-title: 综合专题与质量体系：ICH Q5A、上市申请与下游工艺控制
+title: ICH Q5A、上市申请与下游工艺控制
 date: 2026-03-06 10:30:00
 category: CMC 核心技术
 tags: [CMC, 质量体系, 综合专题]

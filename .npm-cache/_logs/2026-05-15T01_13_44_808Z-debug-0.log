@@ -5,15 +5,15 @@
 4 silly config load:file:/Users/xpy/Coding/biocloudhub/blogs/.npmrc
 5 silly config load:file:/Users/xpy/.npmrc
 6 silly config load:file:/Users/xpy/.nvm/versions/node/v24.12.0/etc/npmrc
-7 verbose title npm exec @playwright/mcp@latest
-8 verbose argv "exec" "--" "@playwright/mcp@latest"
-9 verbose logfile logs-max:10 dir:/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-05-13T08_34_55_834Z-
-10 verbose logfile /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-05-13T08_34_55_834Z-debug-0.log
+7 verbose title npm exec skills add obra/superpowers --skill brainstorming
+8 verbose argv "exec" "--" "skills" "add" "obra/superpowers" "--skill" "brainstorming"
+9 verbose logfile logs-max:10 dir:/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-05-15T01_13_44_808Z-
+10 verbose logfile /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-05-15T01_13_44_808Z-debug-0.log
 11 silly logfile start cleaning logs, removing 1 files
 12 silly logfile done cleaning log files
 13 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
 14 verbose shrinkwrap failed to load node_modules/.package-lock.json out of date, updated: node_modules
-15 http fetch GET 200 https://registry.npmjs.org/@playwright%2fmcp 2342ms (cache revalidated)
+15 http fetch GET 200 https://registry.npmjs.org/skills 854ms (cache revalidated)
 16 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
 17 silly packumentCache heap:2348810240 maxSize:587202560 maxEntrySize:293601280
 18 verbose cwd /Users/xpy/Coding/biocloudhub/blogs

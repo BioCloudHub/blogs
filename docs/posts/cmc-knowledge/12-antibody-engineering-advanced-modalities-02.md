@@ -1,5 +1,5 @@
 ---
-title: 抗体工程、ADC 与新型疗法：肿瘤免疫靶点、内毒素标准与 ADC 靶抗原
+title: 肿瘤免疫靶点、内毒素标准与 ADC 靶抗原
 date: 2026-03-06 10:30:00
 category: CMC 核心技术
 tags: [CMC, 抗体工程, ADC]

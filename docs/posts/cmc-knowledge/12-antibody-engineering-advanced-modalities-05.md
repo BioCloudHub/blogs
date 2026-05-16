@@ -1,5 +1,5 @@
 ---
-title: 抗体工程、ADC 与新型疗法：内毒素检测、ADC 开发关键点与靶点数据库
+title: 内毒素检测、ADC 开发关键点与靶点数据库
 date: 2026-03-06 10:30:00
 category: CMC 核心技术
 tags: [CMC, 抗体工程, ADC]

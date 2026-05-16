@@ -1,5 +1,5 @@
 ---
-title: 抗体工程、ADC 与新型疗法：ADC 研发阶段、基因治疗纯化与内毒素控制
+title: ADC 研发阶段、基因治疗纯化与内毒素控制
 date: 2026-03-06 10:30:00
 category: CMC 核心技术
 tags: [CMC, 抗体工程, ADC]

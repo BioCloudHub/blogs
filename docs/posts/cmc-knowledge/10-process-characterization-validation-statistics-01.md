@@ -1,5 +1,5 @@
 ---
-title: 工艺表征、验证与统计设计：Protein A、低 pH 灭活与工艺验证框架
+title: Protein A、低 pH 灭活与工艺验证框架
 date: 2026-03-06 10:30:00
 category: CMC 核心技术
 tags: [CMC, 工艺表征, 统计设计]
