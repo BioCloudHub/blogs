@@ -58,14 +58,14 @@ export default defineUserConfig({
           output: {
             manualChunks(id) {
               if (id.includes("node_modules")) {
-                /* split heavy, stable libraries into separate cacheable chunks */
+                /*
+                 * Only split libraries that have no dependency on Vue/VuePress.
+                 * Splitting the Vue ecosystem creates circular chunks between
+                 * vendor-vue and vendor-vuepress, which breaks SSR rendering
+                 * ("Cannot access 'noopComponent' before initialization").
+                 */
                 if (id.includes("gsap")) return "vendor-gsap";
                 if (id.includes("katex")) return "vendor-katex";
-                if (id.includes("@vue") || id.includes("vue-")) return "vendor-vue";
-                if (id.includes("vuepress") || id.includes("@vuepress"))
-                  return "vendor-vuepress";
-                if (id.includes("three")) return "vendor-three";
-                return "vendor-common";
               }
             },
           },
