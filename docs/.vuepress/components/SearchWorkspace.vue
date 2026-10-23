@@ -3,7 +3,7 @@ import { useDebounceFn } from "@vueuse/core";
 import { createSearchWorker, useSearchOptions } from "@vuepress/plugin-slimsearch/client";
 import { computed, nextTick, onMounted, onUnmounted, reactive, ref, shallowRef, watch } from "vue";
 import { ClientOnly, useRoute, useRouteLocale, useRouter, withBase } from "vuepress/client";
-import ROOT_SEARCH_INDEX from "@temp/slimsearch/root.js";
+import SEARCH_PAGE_META from "@temp/search-page-meta.js";
 import { store } from "@temp/slimsearch/store.js";
 import {
   SEARCH_FOCUS_EVENT,
@@ -51,16 +51,13 @@ interface PreviewFrameSyncPayload {
   targetSnippet: string;
 }
 
-interface SlimSearchStoredField {
-  h?: string;
-  t?: string[];
-  c?: string[];
+interface SearchPageMetaEntry {
+  anchors: Array<{ anchor: string; title: string; position: number }>;
+  content: string;
+  title: string;
 }
 
-interface SlimSearchRootIndex {
-  documentIds: Record<string, string>;
-  storedFields: Record<string, SlimSearchStoredField>;
-}
+type SearchPageMetaIndex = Record<string, SearchPageMetaEntry>;
 
 interface PageSearchMeta {
   anchorOrder: Map<string, number>;
@@ -132,85 +129,33 @@ const previewPrefetchedPathnames = new Set<string>();
 const pageMetaMap = (() => {
   const normalizeContentValue = (value: string): string =>
     value.replace(/\s+/gu, " ").trim();
-  const rootSearchData = JSON.parse(ROOT_SEARCH_INDEX) as SlimSearchRootIndex;
+  const pageMetaIndex = JSON.parse(SEARCH_PAGE_META) as SearchPageMetaIndex;
   const metaMap = new Map<string, PageSearchMeta>();
 
-  const appendContent = (
-    pageMeta: PageSearchMeta,
-    value: string | undefined,
-  ): number => {
-    const normalizedValue = normalizeContentValue(value ?? "");
+  for (const [pagePath, entry] of Object.entries(pageMetaIndex)) {
+    const anchorOrder = new Map<string, number>();
+    const anchorTitle = new Map<string, string>();
+    const orderedAnchors: PageSearchMeta["orderedAnchors"] = [];
 
-    if (!normalizedValue) return -1;
+    entry.anchors.forEach(({ anchor, title, position }) => {
+      if (anchorOrder.has(anchor)) return;
 
-    const position = pageMeta.content.length;
-
-    pageMeta.content = pageMeta.content ? `${pageMeta.content} ${normalizedValue}` : normalizedValue;
-
-    return position;
-  };
-  const appendStoredFieldList = (pageMeta: PageSearchMeta, values: string[] | undefined): void => {
-    for (const value of values ?? []) {
-      appendContent(pageMeta, value);
-    }
-  };
-
-  for (const [shortId, documentId] of Object.entries(rootSearchData.documentIds).sort(
-    (left, right) => Number.parseInt(left[0], 10) - Number.parseInt(right[0], 10),
-  )) {
-    const storedField = rootSearchData.storedFields[shortId];
-
-    if (!storedField || documentId.includes("@")) continue;
-
-    const [pageId, anchor = ""] = documentId.split("#");
-    const pagePath = store[Number.parseInt(pageId, 10)];
-
-    if (!pagePath) continue;
-
-    const pageMeta =
-      metaMap.get(pagePath) ??
-      (() => {
-        const nextMeta: PageSearchMeta = {
-          anchorOrder: new Map<string, number>(),
-          anchorTitle: new Map<string, string>(),
-          orderedAnchors: [] as Array<{ anchor: string; title: string; position: number }>,
-          content: "",
-          pageTitle: "",
-        };
-
-        metaMap.set(pagePath, nextMeta);
-
-        return nextMeta;
-      })();
-
-    if (!anchor) {
-      const pageTitle = normalizeContentValue(storedField.h ?? "");
-
-      if (pageTitle && !pageMeta.pageTitle) {
-        pageMeta.pageTitle = pageTitle;
-      }
-
-      appendStoredFieldList(pageMeta, storedField.t);
-      appendStoredFieldList(pageMeta, storedField.c);
-
-      continue;
-    }
-
-    const headingTitle = normalizeContentValue(storedField.h ?? "");
-    const headingPosition = appendContent(pageMeta, headingTitle);
-
-    if (!pageMeta.anchorOrder.has(anchor)) {
-      pageMeta.anchorOrder.set(anchor, pageMeta.anchorOrder.size + 1);
-      pageMeta.anchorTitle.set(anchor, headingTitle);
-      pageMeta.orderedAnchors.push({
+      anchorOrder.set(anchor, anchorOrder.size + 1);
+      anchorTitle.set(anchor, normalizeContentValue(title));
+      orderedAnchors.push({
         anchor,
-        title: headingTitle,
-        position: headingPosition >= 0 ? headingPosition : Number.MAX_SAFE_INTEGER,
+        title: normalizeContentValue(title),
+        position,
       });
-    }
+    });
 
-    appendStoredFieldList(pageMeta, storedField.t);
-    appendStoredFieldList(pageMeta, storedField.c);
+    metaMap.set(pagePath, {
+      anchorOrder,
+      anchorTitle,
+      orderedAnchors,
+      content: normalizeContentValue(entry.content),
+      pageTitle: normalizeContentValue(entry.title),
+    });
   }
 
   return metaMap;

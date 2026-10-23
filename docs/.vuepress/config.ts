@@ -10,6 +10,7 @@ import { analyticalScienceSidebar } from "./analytical-science-sidebar";
 import { bioprocessEngineeringSidebar } from "./bioprocess-engineering-sidebar";
 import { regulatoryStrategySidebar } from "./regulatory-strategy-sidebar";
 import { rdManagementSidebar } from "./rd-management-sidebar";
+import { searchPageMetaPlugin } from "./search-page-meta";
 import { SEARCH_PATH, SEARCH_ROUTE_PREFIX } from "./search-constants";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
@@ -75,6 +76,7 @@ export default defineUserConfig({
   }),
 
   plugins: [
+    searchPageMetaPlugin(),
     {
       name: "register-components",
       clientConfigFile: resolve(__dirname, "./register-components.ts"),
