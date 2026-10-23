@@ -15,17 +15,25 @@ import { SEARCH_PATH, SEARCH_ROUTE_PREFIX } from "./search-constants";
 
 const __dirname = dirname(fileURLToPath(import.meta.url));
 
+/*
+ * GitHub Pages serves the site under /blogs/, while Vercel serves it from
+ * the domain root. An explicit DOCS_BASE always wins.
+ */
+const base = (
+  process.env.DOCS_BASE ?? (process.env.VERCEL ? "/" : "/blogs/")
+).replace(/\/?$/u, "/");
+
 export default defineUserConfig({
   lang: "zh-CN",
   title: "BioCloudHub",
   description: "生物制药行业技术博客：CMC、药物研发、生物分析与计算工程",
 
-  base: "/blogs/",
+  base,
 
   head: [
-    ["link", { rel: "icon", type: "image/png", href: "/blogs/img/logo.png" }],
-    ["link", { rel: "shortcut icon", type: "image/png", href: "/blogs/img/logo.png" }],
-    ["link", { rel: "apple-touch-icon", href: "/blogs/img/logo.png" }],
+    ["link", { rel: "icon", type: "image/png", href: `${base}img/logo.png` }],
+    ["link", { rel: "shortcut icon", type: "image/png", href: `${base}img/logo.png` }],
+    ["link", { rel: "apple-touch-icon", href: `${base}img/logo.png` }],
     ["meta", { name: "keywords", content: "生物制药, CMC, 药物研发, 生物分析, 计算工程, 数字化实验室, BioCloudHub" }],
     ["meta", { name: "theme-color", content: "#3b82f6" }],
     ["meta", { name: "apple-mobile-web-app-capable", content: "yes" }],

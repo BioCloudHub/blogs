@@ -7,13 +7,13 @@
 6 silly config load:file:/Users/xpy/.nvm/versions/node/v24.22.0/etc/npmrc
 7 verbose title npm run docs:build
 8 verbose argv "run" "docs:build"
-9 verbose logfile logs-max:10 dir:/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-10-23T02_45_50_457Z-
-10 verbose logfile /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-10-23T02_45_50_457Z-debug-0.log
+9 verbose logfile logs-max:10 dir:/Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-10-23T04_52_26_125Z-
+10 verbose logfile /Users/xpy/Coding/biocloudhub/blogs/.npm-cache/_logs/2026-10-23T04_52_26_125Z-debug-0.log
 11 silly logfile start cleaning logs, removing 1 files
 12 silly logfile done cleaning log files
 13 verbose cwd /Users/xpy/Coding/biocloudhub/blogs
 14 verbose os Darwin 25.6.0
 15 verbose node v24.22.0
 16 verbose npm  v11.19.1
-17 verbose exit 127
-18 verbose code 127
+17 verbose exit 0
+18 info ok
